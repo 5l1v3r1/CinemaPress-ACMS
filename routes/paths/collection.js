@@ -51,6 +51,8 @@ function allCollection(callback) {
                         ? modules.collections.data.collections[key].movies.join('|')
                         : '';
 
+                    if (!ids) {return callback();}
+
                     var query = {"query_id": ids};
 
                     CP_get.movies(
@@ -139,6 +141,8 @@ function oneCollection(key, page, sorting, callback) {
     modules.collections.data.collections[key].movies.length)
         ? modules.collections.data.collections[key].movies.join('|')
         : '';
+
+    if (!ids) {return callback('Данной коллекции не существует. Попробуйте воспользоваться поиском или перейти на главную страницу.');}
 
     var query = {"query_id": ids};
 
