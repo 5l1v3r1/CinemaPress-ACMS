@@ -116,10 +116,8 @@ function codesComments(movie) {
     buttons = (single == 1) ? '' : buttons;
 
     return '' +
-        '<div style="clear:both;"></div>' +
         '<div class="CP_buttons" style="margin:30px 0;">' + buttons + '</div>' +
-        '<div class="CP_comments" style="margin:20px 0;">' + blocks + '</div>' +
-        '<div style="clear:both;"></div>';
+        '<div class="CP_comments" style="margin:20px 0;">' + blocks + '</div>';
 
 }
 
