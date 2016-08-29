@@ -143,17 +143,17 @@ router.get('/?', function(req, res) {
 
     function getHdgo(id, callback) {
 
-        request('http://hdgo.cc/content/base/video_api.php?token=' + modules.player.data.hdgo.token.trim() + '&k=' + id, function (error, response, body) {
+        request('http://hdgo.cc/api/video.json?token=' + modules.player.data.hdgo.token.trim() + '&kinopoisk_id=' + id, function (error, response, body) {
 
             var r = false;
 
             if (!error && response.statusCode == 200) {
 
-                var result = body.match(/(http.*?\/[0-9]{1,10}\/)/i);
+                var result = JSON.parse(body);
 
-                if (result) {
+                if (!result.error && result.length && result[0].iframe_url) {
 
-                    r = script.replace('iframe-src', result[0]);
+                    r = script.replace('iframe-src', result[0].iframe_url);
 
                 }
 
