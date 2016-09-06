@@ -47,8 +47,8 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/'));
 app.use(cookieParser());
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '64mb'}));
+app.use(bodyParser.urlencoded({limit: '64mb', extended: true}));
 
 app.use('/iframe.player', player);
 app.use('/robots.txt', robots);
