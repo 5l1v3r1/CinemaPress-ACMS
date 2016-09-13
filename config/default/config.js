@@ -39,7 +39,7 @@ module.exports = {
     "codes": {
         "head": "",
         "footer": "",
-        "robots": "User-agent: *\nAllow: /"
+        "robots": "User-agent: *\nAllow: /\nDisallow: /type/*/*\nDisallow: /movie/*/*\nDisallow: /year/*/*\nDisallow: /genre/*/*\nDisallow: /country/*/*\nDisallow: /director/*/*\nDisallow: /actor/*/*\nDisallow: /search\nDisallow: /*?sorting*"
     },
     "index": {
         "type": {

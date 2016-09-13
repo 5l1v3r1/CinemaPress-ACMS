@@ -24,6 +24,7 @@ var player  = require('./routes/player');
 var robots  = require('./routes/robots');
 var admin   = require('./routes/admin');
 var website = require('./routes/website');
+var mobile  = require('./routes/mobile');
 
 /**
  * Port.
@@ -49,6 +50,11 @@ app.use(express.static(__dirname + '/'));
 app.use(cookieParser());
 app.use(bodyParser.json({limit: '64mb'}));
 app.use(bodyParser.urlencoded({limit: '64mb', extended: true}));
+
+app.use('/mobile-version/iframe.player', player);
+app.use('/mobile-version/robots.txt', robots);
+app.use('/mobile-version' + config.urls.admin, admin);
+app.use('/mobile-version', mobile);
 
 app.use('/iframe.player', player);
 app.use('/robots.txt', robots);

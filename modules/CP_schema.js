@@ -65,7 +65,7 @@ function fullMovieSchema(movie, movies) {
         "item": {
             "@id": "/",
             "name": "Главная",
-            "url":  config.protocol + config.domain
+            "url":  config.protocol + global.CP_domain
         }
     });
 
@@ -75,7 +75,7 @@ function fullMovieSchema(movie, movies) {
         "item": {
             "@id": "/" + encodeURIComponent(config.urls.genre) + "/" + encodeURIComponent(movie.genre),
             "name": movie.genre,
-            "url": config.protocol + config.domain + "/" + encodeURIComponent(config.urls.genre) + "/" + encodeURIComponent(movie.genre)
+            "url": config.protocol + global.CP_domain + "/" + encodeURIComponent(config.urls.genre) + "/" + encodeURIComponent(movie.genre)
         }
     });
 
@@ -147,7 +147,7 @@ function onlyMovieSchema(movie) {
             result['actor'].push({
                 "@type": "Person",
                 "name": actor,
-                "sameAs": config.protocol + config.domain + "/" + encodeURIComponent(config.urls.actor) + "/" + encodeURIComponent(actor)
+                "sameAs": config.protocol + global.CP_domain + "/" + encodeURIComponent(config.urls.actor) + "/" + encodeURIComponent(actor)
             });
         });
     }
@@ -157,7 +157,7 @@ function onlyMovieSchema(movie) {
             result['director'].push({
                 "@type": "Person",
                 "name": director,
-                "sameAs": config.protocol + config.domain + "/" + encodeURIComponent(config.urls.director) + "/" + encodeURIComponent(director)
+                "sameAs": config.protocol + global.CP_domain + "/" + encodeURIComponent(config.urls.director) + "/" + encodeURIComponent(director)
             });
         });
     }
@@ -214,7 +214,7 @@ function categorySchema(page, movies) {
         "item": {
             "@id": "/",
             "name": "Главная",
-            "url": config.protocol + config.domain
+            "url": config.protocol + global.CP_domain
         }
     });
 
@@ -258,10 +258,10 @@ function generalSchema(page) {
     result['@context'] = 'http://schema.org';
     result['@type'] = 'WebSite';
     result['name'] = page.title;
-    result['url'] = config.protocol + config.domain;
+    result['url'] = config.protocol + global.CP_domain;
     result['potentialAction'] = {
         "@type": "SearchAction",
-        "target": config.protocol + config.domain + "/" + config.urls.search + "/title?&q={query}",
+        "target": config.protocol + global.CP_domain + "/" + config.urls.search + "/title?&q={query}",
         "query-input": "required name=query"
     };
     if (modules.social.status) {
@@ -286,7 +286,7 @@ function generalSchema(page) {
     opengraph += '<meta property="og:title" content="' + page.title + '" />';
     opengraph += '<meta property="og:description" content="' + page.description + '" />';
     opengraph += '<meta property="og:type" content="video.movie" />';
-    opengraph += '<meta property="og:url" content="' + config.protocol + config.domain + '" />';
+    opengraph += '<meta property="og:url" content="' + config.protocol + global.CP_domain + '" />';
     opengraph += '<meta property="og:image" content="' + config.protocol + config.domain + '/themes/default/public/images/og.png" />';
 
     return schema + opengraph;

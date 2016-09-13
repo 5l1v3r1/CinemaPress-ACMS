@@ -1,0 +1,30 @@
+<div class="info recentlyViewedBlock" style="display: none;">
+    <div>Вы надавно смотрели:</div>
+    <div id="recentlyViewed"></div>
+</div>
+
+<div class="clear"></div>
+
+<% if (page.social) { %>
+<div class="info">
+    <% if (page.social.vk) { %><a href="<%- page.social.vk %>" target="_blank">ВК</a><% } %>
+    <% if (page.social.facebook) { %><span> | </span><a href="<%- page.social.facebook %>" target="_blank">facebook</a><% } %>
+    <% if (page.social.twitter) { %><span> | </span><a href="<%- page.social.twitter %>" target="_blank">twitter</a><% } %>
+    <% if (page.social.gplus) { %><span> | </span><a href="<%- page.social.gplus %>" target="_blank">G+</a><% } %>
+</div>
+<% } %>
+
+<div class="info">
+    <a href="<%- page.url.replace('://m.', '://') %>" onclick="document.cookie = 'CP_desktop=1; domain=<%- page.domain.replace(/^m\./, '') %>; path=/;';">
+        Полная версия сайта
+    </a>
+</div>
+
+<div class="info">
+    <strong>© 2016 CinemaPress ACMS</strong> | Для связи с администрацией <%- page.email %>
+</div>
+
+<%- page.codes.footer %>
+
+</body>
+</html>

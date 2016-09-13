@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    <% include includes/head.ejs %>
+
+</head>
+<body>
+
+<% include includes/header.ejs %>
+
+<% if (typeof movies == 'object') { for (var type in movies) { if (movies.hasOwnProperty(type)) { %>
+
+<% if (movies[type].length) { %>
+
+<% movies[type].forEach(function (category) { %>
+
+<h2><%- category.name %></h2>
+
+<% if (category.movies.length) { %>
+
+<% category.movies.forEach(function (movie) { %>
+
+<div class="clear"></div>
+
+<div class="poster">
+    <a href="<%- movie.url %>">
+        <img src="<%- movie.poster_min %>" alt="<%- movie.title_ru %> (<%- movie.year %>) смотреть онлайн" title="<%- movie.title_ru %> (<%- movie.year %>)">
+    </a>
+</div>
+<h3><a href="<%- movie.url %>"><%- movie.title_ru %> (<%- movie.year %>) смотреть онлайн</a></h3>
+
+<div class="info">
+    Год: <%- movie.year_url %>
+</div>
+<div class="info">
+    Страна: <%- movie.countries_url %>
+</div>
+<div class="info">
+    Жанры: <%- movie.genres_url %>
+</div>
+
+<div class="clear"></div>
+
+<div class="info">
+    <%
+    for (var kp = 1; kp <= 10; kp++) {
+        var star_kp = (Math.round(movie.kp_rating/10) >= kp) ? 'star_on' : 'star_off';
+    %>
+    <img src="/themes/default/public/mobile/<%- star_kp %>.png" alt="+">
+    <% } %> - КиноПоиск
+</div>
+<div class="info">
+    <%
+    for (var imdb = 1; imdb <= 10; imdb++) {
+        var star_imdb = (Math.round(movie.imdb_rating/10) >= imdb) ? 'star_on' : 'star_off';
+    %>
+    <img src="/themes/default/public/mobile/<%- star_imdb %>.png" alt="+">
+    <% } %> - IMDb
+</div>
+
+<div class="description">
+    <%- movie.description.substr(0, 200) %>...
+</div>
+
+<% }); %>
+
+<% } %>
+
+<% }); %>
+
+<% } %>
+
+<% } } } %>
+
+<% include includes/footer.ejs %>

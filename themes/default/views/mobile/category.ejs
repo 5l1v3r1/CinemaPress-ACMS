@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    <% include includes/head.ejs %>
+
+</head>
+<body>
+
+<% include includes/header.ejs %>
+
+<div class="info">
+    <a href="<%- page.protocol %><%- page.domain %>">Главная</a> » <%- page.title %>
+</div>
+
+<div class="clear"></div>
+
+<h2><%- page.title %></h2>
+
+<div class="info block">
+
+    <% page.sorting.forEach(function (sort) { %>
+
+    <div class="clear"></div>
+
+    <% if (sort.active) { %>
+
+    <a href="<%- sort.url %>">
+        <strong><%- sort.name %></strong>
+    </a>
+
+    <% } else { %>
+
+    <a href="<%- sort.url %>">
+        <%- sort.name %>
+    </a>
+
+    <% } %>
+
+    <% }); %>
+
+</div>
+
+<% if (typeof movies == 'object' && movies.length) { %>
+
+<% movies.forEach(function (movie) { %>
+
+<div class="clear"></div>
+
+<div class="poster">
+    <a href="<%- movie.url %>">
+        <img src="<%- movie.poster_min %>" alt="<%- movie.title_ru %> (<%- movie.year %>) смотреть онлайн" title="<%- movie.title_ru %> (<%- movie.year %>)">
+    </a>
+</div>
+<h3>
+    <a href="<%- movie.url %>"><%- movie.title_ru %> (<%- movie.year %>) смотреть онлайн</a>
+</h3>
+
+<div class="info">
+    Год: <%- movie.year_url %>
+</div>
+<div class="info">
+    Страна: <%- movie.countries_url %>
+</div>
+<div class="info">
+    Жанры: <%- movie.genres_url %>
+</div>
+
+<div class="clear"></div>
+
+<div class="info">
+    <%
+    for (var kp = 1; kp <= 10; kp++) {
+        var star_kp = (Math.round(movie.kp_rating/10) >= kp) ? 'star_on' : 'star_off';
+    %>
+    <img src="/themes/default/public/mobile/<%- star_kp %>.png" alt="+">
+    <% } %> - КиноПоиск
+</div>
+<div class="info">
+    <%
+    for (var imdb = 1; imdb <= 10; imdb++) {
+        var star_imdb = (Math.round(movie.imdb_rating/10) >= imdb) ? 'star_on' : 'star_off';
+    %>
+    <img src="/themes/default/public/mobile/<%- star_imdb %>.png" alt="+">
+    <% } %> - IMDb
+</div>
+
+<div class="description">
+    <%- movie.description.substr(0, 200) %>...
+</div>
+
+<% }); %>
+
+<% } %>
+
+<div class="info block pagination" style="text-align: center">
+    <% if (page.pagination.prev.length) { %>
+    <% page.pagination.prev.slice(-3).forEach(function (prev) { %>
+    <a href="<%- prev.link %>" rel="nofollow"><%- prev.number %></a>
+    <% }); %>
+    <span>...</span>
+    <% } %>
+    <span><%- page.pagination.current %></span>
+    <% if (page.pagination.next.length) { %>
+    <span>...</span>
+    <% page.pagination.next.slice(0,3).forEach(function (next) { %>
+    <a href="<%- next.link %>" rel="nofollow"><%- next.number %></a>
+    <% }); %>
+    <% } %>
+</div>
+
+<% include includes/footer.ejs %>

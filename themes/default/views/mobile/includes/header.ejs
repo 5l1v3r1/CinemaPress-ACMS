@@ -1,0 +1,16 @@
+<a href="<%- page.protocol %><%- page.domain %>">
+    <img src="/themes/default/public/mobile/logo.png" class="logo" alt="Логотип">
+</a>
+
+<div class="info continueViewingBlock" style="float: right; display: none">
+    <a href="javascript:void(0)" id="continueViewing">Продолжить&nbsp;►</a>
+</div>
+
+<div class="clear"></div>
+
+<form action="<%- page.protocol %><%- page.domain %>/<%- page.urls.search %>/title" method="get">
+    <input type="text" class="text" name="q" value="" placeholder="Название фильма ...">
+    <input type="submit" class="submit" value="Найти">
+</form>
+
+<div class="clear"></div>
