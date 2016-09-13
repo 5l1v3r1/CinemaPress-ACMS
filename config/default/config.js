@@ -154,28 +154,6 @@ module.exports = {
             "picture": "[title_ru] кадры"
         }
     },
-    "keywords": {
-        "index": "информация, фильмы, кино",
-        "year" : "фильмы, кино, [year], год",
-        "years" : "фильмы, кино, все года",
-        "genre": "фильмы, кино, жанр, [genre]",
-        "genres" : "фильмы, кино, все жанры",
-        "country": "фильмы, кино, страна, [country]",
-        "countries": "фильмы, кино, все страны",
-        "actor": "фильмы, кино, актеры, [actor]",
-        "actors": "фильмы, кино, все актеры",
-        "director": "фильмы, кино, режиссер, [director]",
-        "directors": "фильмы, кино, все режиссеры",
-        "type": "кинематограф, тип, [type]",
-        "search" : "фильмы, кино, поиск, [search]",
-        "movie": {
-            "movie": "[title_ru], информация, данные",
-            "online": "[title_ru], онлайн",
-            "download": "[title_ru], скачать",
-            "trailer": "[title_ru], трейлер",
-            "picture": "[title_ru], кадры"
-        }
-    },
     "sorting": {
         "kinopoisk-rating-up": "По рейтингу КП ⬆",
         "kinopoisk-rating-down": "По рейтингу КП ⬇",

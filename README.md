@@ -108,11 +108,11 @@
 
  ![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/publish.png)
 
-Настройка автоматической публикации фильмов. Выбираете число фильмов, которые будут публиковаться на сайте каждый час. Также можно выбрать обязательную информацию у публикуемых фильмов, к примеру чтобы публиковались только фильмы, у которых есть постер, есть русскоязычное название и т.п.
+Настройка автоматической публикации фильмов. Выбираете число фильмов, которые будут публиковаться на сайте каждый час. Если активировать функцию «Вне очереди», то фильмы для которых написано уникальное описание будут опубликованы сразу на сайте, не дожидаясь когда их ID войдет в диапазон. Также можно выбрать обязательную информацию у публикуемых фильмов, к примеру чтобы публиковались только фильмы, у которых есть постер, есть русскоязычное название и т.п.
 
  ![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/index.png)
 
-Настройка названия, описания, ключевых слов и списка фильмов, которые будут отображаться на главной странице. Можно создать совершенно уникальную главную страницу, к примеру вывести 5-ть фильмов из категории «комедия», затем 10 фильмов «2016» года, затем последние 5 фильмов из автоматическо-создаваемой коллекции «Выбор редакции», которая содержит только фильмы, у которых написаны уникальные описания и наконец вывести 5 фильмов которые захотите Вы, указав ID фильмов через запятую.
+Настройка названия, описания и списка фильмов, которые будут отображаться на главной странице. Можно создать совершенно уникальную главную страницу, к примеру вывести 5-ть фильмов из категории «комедия», затем 10 фильмов «2016» года, затем последние 5 фильмов из автоматическо-создаваемой коллекции «Выбор редакции», которая содержит только фильмы, у которых написаны уникальные описания и наконец вывести 5 фильмов которые захотите Вы, указав ID фильмов через запятую.
 
  ![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/urls.png)
 
@@ -126,9 +126,9 @@
 
 Написание уникальных описаний к фильмам. Возможность создать ``<title>`` страницы фильма с такими ключами, которые будете использовать в описании. Предусмотрена массовая вставка описаний (до 1000 шт. за один раз), которые написаны в соответствии с определенным шаблоном - (ID) {Описание} (ID) {Описание} (ID) {Описание} ...
 
- ![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/titles.png)  ![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/descriptions.png)  ![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/keywords.png)
+ ![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/titles.png)  ![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/descriptions.png)
 
-Написание названий, описаний и ключевых слов для категорий (жанр, жанры, год, годы и т.д.) и страниц фильма (онлайн, скачать и т.д.);
+Написание названий и описаний для категорий (жанр, жанры, год, годы и т.д.) и страниц фильма (онлайн, скачать и т.д.);
 
  ![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/codes.png)
 
@@ -150,7 +150,7 @@
 
  ![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/comments.png)
 
-Модуль добавления на страницу фильма блока с отправкой комментариев. Это могут быть как виджеты от ВК, Facebook, так и сервис комментариев Disqus. Можно активировать все сразу, чтобы у пользователя был выбор, в каком сервисе оставить комментарий.
+Модуль добавления на страницу фильма блока с отправкой комментариев. Это могут быть как виджеты от ВК, Facebook, так и сервисы комментариев Disqus, Cackle или HyperComments. Можно активировать все сразу, чтобы у пользователя был выбор, в каком сервисе оставить комментарий.
 
  ![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/related.png)
 
@@ -162,7 +162,7 @@
 
  ![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/slider.png)
 
-Модуль слайдера с фильмами, позволяет добавить на сайте блок со слайдером (каруселью). Фильмы в слайдере должны быть максимально интересны зрителю, так как именно этот блок будет бросаться в глаза в первую очередь всем посетителям.
+Модуль слайдера с фильмами, позволяет добавить на сайте блок со слайдером (карусель постеров или другой вариант наиболее подходящий под конкретный шаблон). Фильмы в слайдере должны быть максимально интересны зрителю, так как именно этот блок будет бросаться в глаза в первую очередь всем посетителям.
 
  ![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/abuse.png)
 
@@ -178,7 +178,7 @@
 
  ![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/schema.png)
 
-Модуль микроразметки сайта позволяет включить на сайте разметку по стандарту schema.org
+Модуль микроразметки сайта позволяет включить на сайте разметку по стандарту schema.org и OpenGraph.
 
  ![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/continue.png)
 
@@ -190,7 +190,7 @@
 
  ![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/player.png)
 
-Модуль настройки кнопок голосования в плеере «нравится»/«не нравится».
+Модуль позволяет вбрать метод отображения плеера (один или несколько), а также добавить токен-ключи видео-хостингов hdgo.cc и moonwalk.cc для отображения плееров на сайте.
 
  ![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/blocking.png)
 
@@ -199,6 +199,10 @@
 - Купит ключ для активации платной подписки;
 - Просмотрит рекламу в плеере несколько секунд;
 - Ограничения для пользователей использующие AdBlock.
+
+ ![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/mobile.png)
+ 
+Модуль мобильной версии сайта сообщает поисковым системам о том, что у сайта есть версия, оптимизированная под мобильные устройства.
 
 # Использование CinemaPress ACMS
 
