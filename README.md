@@ -200,7 +200,7 @@
 - Просмотрит рекламу в плеере несколько секунд;
 - Ограничения для пользователей использующие AdBlock.
 
- ![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/mobile.png)
+![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/mobile.png)
 
 Модуль мобильной версии сайта сообщает поисковым системам о том, что у сайта есть версия, оптимизированная под мобильные устройства.
 
