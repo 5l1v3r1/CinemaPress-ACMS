@@ -104,6 +104,10 @@
 
 <a href="https://github.com/CinemaPress/Theme-Cersei"><img src="https://raw.githubusercontent.com/CinemaPress/Theme-Cersei/master/screenshot.png" width="400"></a>
 
+- [Шаблон «Joffrey» для CinemaPress ACMS](https://github.com/CinemaPress/Theme-Joffrey)
+
+<a href="https://github.com/CinemaPress/Theme-Joffrey"><img src="https://raw.githubusercontent.com/CinemaPress/Theme-Joffrey/master/screenshot.png" width="400"></a>
+
 # Параметры CinemaPress ACMS
 
  ![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/publish.png)
