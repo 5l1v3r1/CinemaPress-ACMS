@@ -12,10 +12,16 @@ var modules = require('../config/modules');
  *
  * @param {Object} movie
  * @param {Object} movies - The related movies.
+ * @param {Object} [options]
  * @return {String}
  */
 
-function fullMovieSchema(movie, movies) {
+function fullMovieSchema(movie, movies, options) {
+
+    if (arguments.length == 2) {
+        options = {};
+        options.domain = '' + config.domain;
+    }
 
     if (!movie) return '';
 
@@ -65,7 +71,7 @@ function fullMovieSchema(movie, movies) {
         "item": {
             "@id": "/",
             "name": "Главная",
-            "url":  config.protocol + global.CP_domain
+            "url":  config.protocol + options.domain
         }
     });
 
@@ -75,7 +81,7 @@ function fullMovieSchema(movie, movies) {
         "item": {
             "@id": "/" + encodeURIComponent(config.urls.genre) + "/" + encodeURIComponent(movie.genre),
             "name": movie.genre,
-            "url": config.protocol + global.CP_domain + "/" + encodeURIComponent(config.urls.genre) + "/" + encodeURIComponent(movie.genre)
+            "url": config.protocol + options.domain + "/" + encodeURIComponent(config.urls.genre) + "/" + encodeURIComponent(movie.genre)
         }
     });
 
@@ -112,10 +118,16 @@ function fullMovieSchema(movie, movies) {
  * Create schema data for one movie.
  *
  * @param {Object} movie
+ * @param {Object} [options]
  * @return {Object}
  */
 
-function onlyMovieSchema(movie) {
+function onlyMovieSchema(movie, options) {
+
+    if (arguments.length == 1) {
+        options = {};
+        options.domain = '' + config.domain;
+    }
 
     var result = {};
 
@@ -147,7 +159,7 @@ function onlyMovieSchema(movie) {
             result['actor'].push({
                 "@type": "Person",
                 "name": actor,
-                "sameAs": config.protocol + global.CP_domain + "/" + encodeURIComponent(config.urls.actor) + "/" + encodeURIComponent(actor)
+                "sameAs": config.protocol + options.domain + "/" + encodeURIComponent(config.urls.actor) + "/" + encodeURIComponent(actor)
             });
         });
     }
@@ -157,7 +169,7 @@ function onlyMovieSchema(movie) {
             result['director'].push({
                 "@type": "Person",
                 "name": director,
-                "sameAs": config.protocol + global.CP_domain + "/" + encodeURIComponent(config.urls.director) + "/" + encodeURIComponent(director)
+                "sameAs": config.protocol + options.domain + "/" + encodeURIComponent(config.urls.director) + "/" + encodeURIComponent(director)
             });
         });
     }
@@ -177,10 +189,16 @@ function onlyMovieSchema(movie) {
  *
  * @param {Object} page
  * @param {Object} movies
+ * @param {Object} [options]
  * @return {String}
  */
 
-function categorySchema(page, movies) {
+function categorySchema(page, movies, options) {
+
+    if (arguments.length == 2) {
+        options = {};
+        options.domain = '' + config.domain;
+    }
 
     var result = [];
 
@@ -214,7 +232,7 @@ function categorySchema(page, movies) {
         "item": {
             "@id": "/",
             "name": "Главная",
-            "url": config.protocol + global.CP_domain
+            "url": config.protocol + options.domain
         }
     });
 
@@ -248,20 +266,26 @@ function categorySchema(page, movies) {
  * Create schema data for index/categories/collections page.
  *
  * @param {Object} page
+ * @param {Object} [options]
  * @return {String}
  */
 
-function generalSchema(page) {
+function generalSchema(page, options) {
+
+    if (arguments.length == 1) {
+        options = {};
+        options.domain = '' + config.domain;
+    }
 
     var result = {};
 
     result['@context'] = 'http://schema.org';
     result['@type'] = 'WebSite';
     result['name'] = page.title;
-    result['url'] = config.protocol + global.CP_domain;
+    result['url'] = config.protocol + options.domain;
     result['potentialAction'] = {
         "@type": "SearchAction",
-        "target": config.protocol + global.CP_domain + "/" + config.urls.search + "/title?&q={query}",
+        "target": config.protocol + options.domain + "/" + config.urls.search + "/title?&q={query}",
         "query-input": "required name=query"
     };
     if (modules.social.status) {
@@ -286,7 +310,7 @@ function generalSchema(page) {
     opengraph += '<meta property="og:title" content="' + page.title + '" />';
     opengraph += '<meta property="og:description" content="' + page.description + '" />';
     opengraph += '<meta property="og:type" content="video.movie" />';
-    opengraph += '<meta property="og:url" content="' + config.protocol + global.CP_domain + '" />';
+    opengraph += '<meta property="og:url" content="' + config.protocol + options.domain + '" />';
     opengraph += '<meta property="og:image" content="' + config.protocol + config.domain + '/themes/default/public/images/og.png" />';
 
     return schema + opengraph;

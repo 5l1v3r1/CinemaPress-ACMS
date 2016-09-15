@@ -31,10 +31,17 @@ var async = require('async');
 /**
  * Getting the data to render index page.
  *
+ * @param {Object} [options]
  * @param {Callback} callback
  */
 
-function dataIndex(callback) {
+function dataIndex(options, callback) {
+
+    if (arguments.length == 1) {
+        callback = options;
+        options = {};
+        options.domain = '' + config.domain;
+    }
 
     async.series({
             "slider": function (callback) {
@@ -42,6 +49,7 @@ function dataIndex(callback) {
                     ? CP_get.additional(
                     {"query_id": modules.slider.data.movies},
                     'ids',
+                    options,
                     function (err, movies) {
                         if (err) return callback(err);
 
@@ -56,6 +64,7 @@ function dataIndex(callback) {
                     ? CP_get.additional(
                     {"all_movies": "_all_"},
                     'soon',
+                    options,
                     function (err, movies) {
                         if (err) return callback(err);
 
@@ -72,6 +81,7 @@ function dataIndex(callback) {
                                 ? CP_get.additional(
                                 {"type": config.index.type.keys},
                                 'index',
+                                options,
                                 function (err, movies) {
                                     if (err) return callback(err);
 
@@ -86,6 +96,7 @@ function dataIndex(callback) {
                                 ? CP_get.additional(
                                 {"country": config.index.country.keys},
                                 'index',
+                                options,
                                 function (err, movies) {
                                     if (err) return callback(err);
 
@@ -100,6 +111,7 @@ function dataIndex(callback) {
                                 ? CP_get.additional(
                                 {"genre": config.index.genre.keys},
                                 'index',
+                                options,
                                 function (err, movies) {
                                     if (err) return callback(err);
 
@@ -114,6 +126,7 @@ function dataIndex(callback) {
                                 ? CP_get.additional(
                                 {"director": config.index.director.keys},
                                 'index',
+                                options,
                                 function (err, movies) {
                                     if (err) return callback(err);
 
@@ -128,6 +141,7 @@ function dataIndex(callback) {
                                 ? CP_get.additional(
                                 {"actor": config.index.actor.keys},
                                 'index',
+                                options,
                                 function (err, movies) {
                                     if (err) return callback(err);
 
@@ -142,6 +156,7 @@ function dataIndex(callback) {
                                 ? CP_get.additional(
                                 {"year": config.index.year.keys},
                                 'index',
+                                options,
                                 function (err, movies) {
                                     if (err) return callback(err);
 
@@ -156,6 +171,7 @@ function dataIndex(callback) {
                                 ? CP_get.additional(
                                 {"query_id": config.index.ids.keys},
                                 'index_ids',
+                                options,
                                 function (err, movies) {
                                     if (err) return callback(err);
 
@@ -170,6 +186,7 @@ function dataIndex(callback) {
                                 ? CP_get.additional(
                                 {"query_id": config.index.collections.keys},
                                 'index_collections',
+                                options,
                                 function (err, movies) {
                                     if (err) return callback(err);
 
@@ -210,7 +227,7 @@ function dataIndex(callback) {
                 if (result.hasOwnProperty(r) && result[r] === null)
                     delete result[r];
 
-            result.page = CP_page.index();
+            result.page = CP_page.index(options);
 
             callback(null, result);
 

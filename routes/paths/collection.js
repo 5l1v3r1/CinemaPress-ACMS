@@ -31,11 +31,18 @@ var async = require('async');
 
 /**
  * Getting the data to render collections page.
- 
+ *
+ * @param {Object} [options]
  * @param {Callback} callback
  */
 
-function allCollection(callback) {
+function allCollection(options, callback) {
+
+    if (arguments.length == 1) {
+        callback = options;
+        options = {};
+        options.domain = '' + config.domain;
+    }
 
     async.series({
             "categories": function (callback) {
@@ -60,10 +67,12 @@ function allCollection(callback) {
                         10,
                         'kinopoisk-vote-up',
                         1,
+                        true,
+                        options,
                         function (err, movies) {
                             if (err) return callback(err);
 
-                            collections.push(CP_structure.collections(modules.collections.data.collections[key], movies));
+                            collections.push(CP_structure.collections(modules.collections.data.collections[key], movies, options));
                             callback();
 
                         });
@@ -82,6 +91,7 @@ function allCollection(callback) {
                     ? CP_get.additional(
                     {"query_id": modules.slider.data.movies},
                     'ids',
+                    options,
                     function (err, movies) {
                         if (err) return callback(err);
 
@@ -96,6 +106,7 @@ function allCollection(callback) {
                     ? CP_get.additional(
                     {"all_movies": "_all_"},
                     'soon',
+                    options,
                     function (err, movies) {
                         if (err) return callback(err);
 
@@ -114,7 +125,7 @@ function allCollection(callback) {
                 if (result.hasOwnProperty(r) && result[r] === null)
                     delete result[r];
 
-            result.page = CP_page.collections();
+            result.page = CP_page.collections(options);
 
             callback(null, result);
 
@@ -128,10 +139,17 @@ function allCollection(callback) {
  * @param {String} key
  * @param {String} page
  * @param {String} sorting
+ * @param {Object} [options]
  * @param {Callback} callback
  */
 
-function oneCollection(key, page, sorting, callback) {
+function oneCollection(key, page, sorting, options, callback) {
+
+    if (arguments.length == 4) {
+        callback = options;
+        options = {};
+        options.domain = '' + config.domain;
+    }
 
     page = (parseInt(page)) ? parseInt(page) : 1;
 
@@ -153,6 +171,8 @@ function oneCollection(key, page, sorting, callback) {
                     config.default.count,
                     sorting,
                     page,
+                    true,
+                    options,
                     function (err, movies) {
                         if (err) return callback(err);
 
@@ -166,6 +186,7 @@ function oneCollection(key, page, sorting, callback) {
                     ? CP_get.additional(
                     query,
                     'top',
+                    options,
                     function (err, movies) {
                         if (err) return callback(err);
 
@@ -180,6 +201,7 @@ function oneCollection(key, page, sorting, callback) {
                     ? CP_get.additional(
                     {"query_id": modules.slider.data.movies},
                     'ids',
+                    options,
                     function (err, movies) {
                         if (err) return callback(err);
 
@@ -194,6 +216,7 @@ function oneCollection(key, page, sorting, callback) {
                     ? CP_get.additional(
                     {"all_movies": "_all_"},
                     'soon',
+                    options,
                     function (err, movies) {
                         if (err) return callback(err);
 
@@ -225,7 +248,7 @@ function oneCollection(key, page, sorting, callback) {
                 if (result.hasOwnProperty(r) && result[r] === null)
                     delete result[r];
 
-            result.page = CP_page.collection(key, sorting, page, result.count, result.movies);
+            result.page = CP_page.collection(key, sorting, page, result.count, result.movies, options);
 
             callback(null, result);
 

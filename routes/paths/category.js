@@ -33,10 +33,17 @@ var async = require('async');
  * Getting the data to render categories page.
  *
  * @param {String} type
+ * @param {Object} [options]
  * @param {Callback} callback
  */
 
-function allCategory(type, callback) {
+function allCategory(type, options, callback) {
+
+    if (arguments.length == 2) {
+        callback = options;
+        options = {};
+        options.domain = '' + config.domain;
+    }
 
     switch (type) {
         case (config.urls.year):
@@ -97,10 +104,11 @@ function allCategory(type, callback) {
                         'kinopoisk-vote-up',
                         1,
                         false,
+                        options,
                         function(err, movies) {
                             if (err) return callback(err);
 
-                            var categories = CP_structure.categories(category, movies);
+                            var categories = CP_structure.categories(category, movies, options);
 
                             return callback(null, categories);
                         })
@@ -110,6 +118,7 @@ function allCategory(type, callback) {
                         ? CP_get.additional(
                         {"query_id": modules.slider.data.movies},
                         'ids',
+                        options,
                         function (err, movies) {
                             if (err) return callback(err);
 
@@ -124,6 +133,7 @@ function allCategory(type, callback) {
                         ? CP_get.additional(
                         {"all_movies": "_all_"},
                         'soon',
+                        options,
                         function (err, movies) {
                             if (err) return callback(err);
 
@@ -142,7 +152,7 @@ function allCategory(type, callback) {
                     if (result.hasOwnProperty(r) && result[r] === null)
                         delete result[r];
 
-                result.page = CP_page.categories(category);
+                result.page = CP_page.categories(category, options);
 
                 callback(null, result);
 
@@ -159,10 +169,17 @@ function allCategory(type, callback) {
  * @param {String} key
  * @param {String} page
  * @param {String} sorting
+ * @param {Object} [options]
  * @param {Callback} callback
  */
 
-function oneCategory(type, key, page, sorting, callback) {
+function oneCategory(type, key, page, sorting, options, callback) {
+
+    if (arguments.length == 5) {
+        callback = options;
+        options = {};
+        options.domain = '' + config.domain;
+    }
 
     page = (parseInt(page)) ? parseInt(page) : 1;
 
@@ -236,6 +253,8 @@ function oneCategory(type, key, page, sorting, callback) {
                         config.default.count,
                         sorting,
                         page,
+                        true,
+                        options,
                         function (err, movies) {
                             if (err) return callback(err);
 
@@ -249,6 +268,7 @@ function oneCategory(type, key, page, sorting, callback) {
                         ? CP_get.additional(
                         query,
                         'top',
+                        options,
                         function (err, movies) {
                             if (err) return callback(err);
 
@@ -263,6 +283,7 @@ function oneCategory(type, key, page, sorting, callback) {
                         ? CP_get.additional(
                         {"query_id": modules.slider.data.movies},
                         'ids',
+                        options,
                         function (err, movies) {
                             if (err) return callback(err);
 
@@ -277,6 +298,7 @@ function oneCategory(type, key, page, sorting, callback) {
                         ? CP_get.additional(
                         {"all_movies": "_all_"},
                         'soon',
+                        options,
                         function (err, movies) {
                             if (err) return callback(err);
 
@@ -309,7 +331,7 @@ function oneCategory(type, key, page, sorting, callback) {
                     if (result.hasOwnProperty(r) && result[r] === null)
                         delete result[r];
 
-                result.page = CP_page.category(query, sorting, page, result.count, result.movies);
+                result.page = CP_page.category(query, sorting, page, result.count, result.movies, options);
 
                 callback(null, result);
 

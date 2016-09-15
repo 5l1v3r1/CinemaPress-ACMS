@@ -38,13 +38,6 @@ var sitemap  = require('./paths/sitemap');
 var collection = require('./paths/collection');
 
 /**
- * Global CinemaPress variable.
- */
-
-global.CP_domain = '';
-global.CP_sub = '';
-
-/**
  * Callback.
  *
  * @callback Callback
@@ -54,6 +47,10 @@ global.CP_sub = '';
 
 router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
 
+    // -----------------------------------------------------------------
+    // Checking activation module the mobile site.
+    // -----------------------------------------------------------------
+
     if (!modules.mobile.status) {
         return next({
             "status": 404,
@@ -61,11 +58,14 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
         });
     }
 
-    global.CP_domain = 'm.' + config.domain;
-    global.CP_sub = req.cookies.CP_sub;
+    // -----------------------------------------------------------------
+
+    var options = {};
+    options.domain = 'm.' + config.domain;
+    options.sub = req.cookies.CP_sub || '';
 
     var url = parseUrl();
-    var urlHash = md5(url.toLowerCase());
+    var urlHash = md5(options.sub + url.toLowerCase());
 
     var level1  = clearString(req.params.level1) || null;
     var level2  = clearString(req.query.q)       || clearString(req.params.level2) || null;
@@ -144,6 +144,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                 movie.data(
                     movie.id(level2),
                     'movie',
+                    options,
                     function (err, render) {
                         callback(err, render);
                     });
@@ -152,6 +153,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                 movie.data(
                     movie.id(level2),
                     'online',
+                    options,
                     function (err, render) {
                         callback(err, render);
                     });
@@ -160,6 +162,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                 movie.data(
                     movie.id(level2),
                     'download',
+                    options,
                     function (err, render) {
                         callback(err, render);
                     });
@@ -168,6 +171,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                 movie.data(
                     movie.id(level2),
                     'trailer',
+                    options,
                     function (err, render) {
                         callback(err, render);
                     });
@@ -176,6 +180,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                 movie.data(
                     movie.id(level2),
                     'picture',
+                    options,
                     function (err, render) {
                         callback(err, render);
                     });
@@ -186,6 +191,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                     level2,
                     level3,
                     sorting,
+                    options,
                     function (err, render) {
                         callback(err, render);
                     });
@@ -193,6 +199,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
             case 'mobile/categories':
                 category.all(
                     level1,
+                    options,
                     function (err, render) {
                         callback(err, render);
                     });
@@ -203,6 +210,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                     level2,
                     level3,
                     sorting,
+                    options,
                     function (err, render) {
                         callback(err, render);
                     });
@@ -210,12 +218,14 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
             case 'mobile/collections':
                 template = 'mobile/categories';
                 collection.all(
+                    options,
                     function (err, render) {
                         callback(err, render);
                     });
                 break;
             case 'mobile/index':
                 index.data(
+                    options,
                     function (err, render) {
                         callback(err, render);
                     });
@@ -236,7 +246,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
 
         var parts = req.originalUrl.split('?');
 
-        var url = config.domain + parts[0];
+        var url = config.protocol + config.domain + parts[0];
 
         if (parts[1]) {
             if (req.query.sorting && config.sorting[req.query.sorting]) {
@@ -325,7 +335,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
 
     function clearString(string) {
 
-        return (string) ? string.replace(/[^\w\sа-яё\._-]/gi, '') : null;
+        return (string) ? string.replace(/[^\w\sа-яё._-]/gi, '') : null;
 
     }
 
@@ -348,8 +358,6 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
         }
 
         if (typeof render === 'object') {
-
-            render.page.domain = 'm.' + config.domain;
 
             if (config.theme == 'default') {
 

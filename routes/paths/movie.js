@@ -34,10 +34,17 @@ var async = require('async');
  *
  * @param {Number} id
  * @param {String} type
+ * @param {Object} [options]
  * @param {Callback} callback
  */
 
-function dataMovie(id, type, callback) {
+function dataMovie(id, type, options, callback) {
+
+    if (arguments.length == 3) {
+        callback = options;
+        options = {};
+        options.domain = '' + config.domain;
+    }
 
     var related = {};
 
@@ -45,6 +52,11 @@ function dataMovie(id, type, callback) {
             "movie": function (callback) {
                 return CP_get.movies(
                     {"query_id": id},
+                    config.default.count,
+                    'kinopoisk-vote-up',
+                    1,
+                    true,
+                    options,
                     function (err, movies) {
                         if (err) return callback(err);
 
@@ -62,6 +74,7 @@ function dataMovie(id, type, callback) {
                     ? CP_get.additional(
                     {"query_id": modules.slider.data.movies},
                     'ids',
+                    options,
                     function (err, movies) {
                         if (err) return callback(err);
 
@@ -76,6 +89,7 @@ function dataMovie(id, type, callback) {
                     ? CP_get.additional(
                     {"all_movies": "_all_"},
                     'soon',
+                    options,
                     function (err, movies) {
                         if (err) return callback(err);
 
@@ -93,6 +107,7 @@ function dataMovie(id, type, callback) {
                                 ? CP_get.additional(
                                 {"country": related.countries_arr},
                                 'related',
+                                options,
                                 function (err, movies) {
                                     if (err) return callback(err);
 
@@ -107,6 +122,7 @@ function dataMovie(id, type, callback) {
                                 ? CP_get.additional(
                                 {"genre": related.genres_arr},
                                 'related',
+                                options,
                                 function (err, movies) {
                                     if (err) return callback(err);
 
@@ -121,6 +137,7 @@ function dataMovie(id, type, callback) {
                                 ? CP_get.additional(
                                 {"director": related.directors_arr},
                                 'related',
+                                options,
                                 function (err, movies) {
                                     if (err) return callback(err);
 
@@ -135,6 +152,7 @@ function dataMovie(id, type, callback) {
                                 ? CP_get.additional(
                                 {"actor": related.actors_arr},
                                 'related',
+                                options,
                                 function (err, movies) {
                                     if (err) return callback(err);
 
@@ -149,6 +167,7 @@ function dataMovie(id, type, callback) {
                                 ? CP_get.additional(
                                 {"country": related.country},
                                 'related',
+                                options,
                                 function (err, movies) {
                                     if (err) return callback(err);
 
@@ -163,6 +182,7 @@ function dataMovie(id, type, callback) {
                                 ? CP_get.additional(
                                 {"genre": related.genre},
                                 'related',
+                                options,
                                 function (err, movies) {
                                     if (err) return callback(err);
 
@@ -177,6 +197,7 @@ function dataMovie(id, type, callback) {
                                 ? CP_get.additional(
                                 {"director": related.director},
                                 'related',
+                                options,
                                 function (err, movies) {
                                     if (err) return callback(err);
 
@@ -191,6 +212,7 @@ function dataMovie(id, type, callback) {
                                 ? CP_get.additional(
                                 {"actor": related.actor},
                                 'related',
+                                options,
                                 function (err, movies) {
                                     if (err) return callback(err);
 
@@ -205,6 +227,7 @@ function dataMovie(id, type, callback) {
                                 ? CP_get.additional(
                                 {"year": related.year},
                                 'related',
+                                options,
                                 function (err, movies) {
                                     if (err) return callback(err);
 
@@ -233,7 +256,7 @@ function dataMovie(id, type, callback) {
                 if (result.hasOwnProperty(r) && result[r] === null)
                     delete result[r];
 
-            result.page = CP_page.movie(type, result.movie, result.movies);
+            result.page = CP_page.movie(type, result.movie, result.movies, options);
 
             callback(null, result);
 

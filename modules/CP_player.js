@@ -23,10 +23,18 @@ var async   = require('async');
 /**
  * Adding a page player.
  *
+ * @param {String} type
+ * @param {Object} movie
+ * @param {Object} [options]
  * @return {Object}
  */
 
-function codePlayer(type, movie) {
+function codePlayer(type, movie, options) {
+
+    if (arguments.length == 2) {
+        options = {};
+        options.domain = '' + config.domain;
+    }
 
     var code = {};
     code.head = '';
@@ -85,7 +93,7 @@ function codePlayer(type, movie) {
 
             }
 
-            code = CP_blocking.code(code);
+            code = CP_blocking.code(code, options);
 
         }
 
