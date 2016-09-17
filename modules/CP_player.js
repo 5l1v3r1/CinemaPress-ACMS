@@ -41,6 +41,9 @@ function codePlayer(type, movie, options) {
     code.player = '';
     code.footer = '';
 
+    var d1 = new Date(movie.premiere);
+    var d2 = new Date();
+
     var id = 'yohoho';
     var title = movie.title + ' (' + movie.year + ')';
 
@@ -60,7 +63,7 @@ function codePlayer(type, movie, options) {
         code.player = '<div id="slider">' + pictures + '</div>';
 
     }
-    else if (type == 'trailer') {
+    else if (type == 'trailer' || d1 > d2) {
 
         title += ' трейлер';
 
