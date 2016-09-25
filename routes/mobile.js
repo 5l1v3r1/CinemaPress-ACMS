@@ -146,7 +146,12 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                     'movie',
                     options,
                     function (err, render) {
-                        callback(err, render);
+                        if (url == render.page.url) {
+                            callback(err, render);
+                        }
+                        else {
+                            return res.redirect(301, render.page.url);
+                        }
                     });
                 break;
             case 'mobile/online':
@@ -155,7 +160,12 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                     'online',
                     options,
                     function (err, render) {
-                        callback(err, render);
+                        if (url == render.page.url) {
+                            callback(err, render);
+                        }
+                        else {
+                            return res.redirect(301, render.page.url);
+                        }
                     });
                 break;
             case 'mobile/download':
@@ -164,7 +174,12 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                     'download',
                     options,
                     function (err, render) {
-                        callback(err, render);
+                        if (url == render.page.url) {
+                            callback(err, render);
+                        }
+                        else {
+                            return res.redirect(301, render.page.url);
+                        }
                     });
                 break;
             case 'mobile/trailer':
@@ -173,7 +188,12 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                     'trailer',
                     options,
                     function (err, render) {
-                        callback(err, render);
+                        if (url == render.page.url) {
+                            callback(err, render);
+                        }
+                        else {
+                            return res.redirect(301, render.page.url);
+                        }
                     });
                 break;
             case 'mobile/picture':
@@ -182,7 +202,12 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                     'picture',
                     options,
                     function (err, render) {
-                        callback(err, render);
+                        if (url == render.page.url) {
+                            callback(err, render);
+                        }
+                        else {
+                            return res.redirect(301, render.page.url);
+                        }
                     });
                 break;
             case 'mobile/category':
@@ -246,7 +271,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
 
         var parts = req.originalUrl.split('?');
 
-        var url = config.protocol + config.domain + parts[0];
+        var url = config.protocol + options.domain + parts[0].replace('/mobile-version', '');
 
         if (parts[1]) {
             if (req.query.sorting && config.sorting[req.query.sorting]) {
