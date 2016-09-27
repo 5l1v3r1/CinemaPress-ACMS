@@ -210,6 +210,6 @@
 
 # Использование CinemaPress ACMS
 
-CinemaPress ACMS распространяется под ![MIT лицензией](https://github.com/CinemaPress/CinemaPress-ACMS/blob/master/LICENSE.txt).
+CinemaPress ACMS распространяется под <a href="https://github.com/CinemaPress/CinemaPress-ACMS/blob/master/LICENSE.txt" target="_blank">MIT лицензией</a>.
 
 Copyright (c) 2016 CinemaPress ACMS

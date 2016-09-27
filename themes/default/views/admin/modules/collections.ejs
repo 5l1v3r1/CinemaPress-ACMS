@@ -144,7 +144,7 @@
                                         <% if (collection.movies) { %>
                                             <% collection.movies.forEach(function (id) { %>
                                             <li>
-                                                <img style="width: 60px; height: 90px;" class="media-object" src="https://st.kp.yandex.net/images/sm_film/<%- id %>.jpg" alt="Poster">
+                                                <img style="width: 60px; height: 90px;" class="media-object" src="https://st.kp.yandex.net/images/sm_film/<%- id %>.jpg" alt="<%- id %>" title="<%- id %>">
                                             </li>
                                             <% }); %>
                                         <% } %>

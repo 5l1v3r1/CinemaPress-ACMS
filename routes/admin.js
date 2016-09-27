@@ -81,9 +81,6 @@ router.get('/:type?', function(req, res) {
         case 'descriptions':
             res.render('admin/descriptions', render);
             break;
-        case 'keywords':
-            res.render('admin/keywords', render);
-            break;
         case 'codes':
             res.render('admin/codes', render);
             break;
@@ -95,9 +92,12 @@ router.get('/:type?', function(req, res) {
             break;
         case 'publish':
             getCountMovies(function (err, render) {
-                return (err)
-                    ? res.send(err)
-                    : res.render('admin/publish', render)
+                if (err) return res.send(err);
+                CP_get.publishIds(function (err, ids) {
+                    if (err) return res.send(err);
+                    render.soon_id = (ids && ids.soon_id) ? ids.soon_id : [];
+                    return res.render('admin/publish', render);
+                });
             });
             break;
         case 'collections':
@@ -182,7 +182,6 @@ router.get('/:type?', function(req, res) {
                 if (texts.ids.indexOf(kp_id)+1) {
                     render.movie.title = render.texts.movies[kp_id].title;
                     render.movie.description = render.texts.movies[kp_id].description;
-                    render.movie.keywords = render.texts.movies[kp_id].keywords;
                 }
 
                 callback(null, render);
@@ -273,13 +272,13 @@ router.post('/change', function(req, res) {
     var configs = {
         "config"  : config,
         "modules" : modules,
-        "texts"  : texts
+        "texts"   : texts
     };
 
     var change = {
-        "config"     : false,
-        "modules"    : false,
-        "texts"     : false,
+        "config"  : false,
+        "modules" : false,
+        "texts"   : false,
         "restart" : false
     };
 
@@ -545,6 +544,9 @@ router.post('/change', function(req, res) {
             if (configs.modules.collections.data.collections.choice) {
                 change.modules = true;
                 if (configs.modules.collections.data.collections.choice.movies.indexOf(id) === -1) {
+                    if (configs.modules.collections.data.collections.choice.movies.length > 500) {
+                        configs.modules.collections.data.collections.choice.movies.shift();
+                    }
                     configs.modules.collections.data.collections.choice.movies.push(id);
                 }
             }

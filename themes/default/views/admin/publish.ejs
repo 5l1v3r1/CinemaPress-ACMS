@@ -40,7 +40,7 @@
                             <i class="fa fa-chevron-left"></i>
                         </a>
                         <a href="/<%- config.urls.admin %>/publish" class="btn">
-                            Фукнция авто-публикации
+                            Фукнция автопубликации
                         </a>
                     </div>
                 </div>
@@ -108,8 +108,40 @@
                     </div>
 
                     <div class="spacer-20"></div>
-                    <hr>
+
+                    <% if (typeof soon_id == 'object' && soon_id.length) { %>
+
+                    <div class="faq">
+                        <article class="faq-group">
+                            <header>
+                                <i class="fa fa-minus"></i>
+                                <h3>Фильмы, ожидающие публикацию в ближайший час</h3>
+                            </header>
+                            <div class="faq-content clearfix">
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="thumbs-list thumbs-small">
+                                            <ul>
+                                                <% soon_id.forEach(function (id) { %>
+                                                <a href="/<%- config.urls.admin %>/movies?movie=<%- id %>" target="_blank">
+                                                    <li>
+                                                        <img style="width: 60px; height: 90px;" class="media-object" src="https://st.kp.yandex.net/images/sm_film/<%- id %>.jpg" alt="Poster">
+                                                    </li>
+                                                </a>
+                                                <% }); %>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </article>
+                    </div>
+
                     <div class="spacer-20"></div>
+
+                    <% } %>
 
                     <script>
                         $("#movies_slider").noUiSlider({

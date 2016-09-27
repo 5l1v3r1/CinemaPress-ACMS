@@ -146,8 +146,11 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                     'movie',
                     options,
                     function (err, render) {
-                        if (url == render.page.url) {
-                            callback(err, render);
+                        if (err) {
+                            callback(err);
+                        }
+                        else if (url.replace('s:', ':') == render.page.url) {
+                            callback(null, render);
                         }
                         else {
                             return res.redirect(301, render.page.url);
@@ -160,8 +163,11 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                     'online',
                     options,
                     function (err, render) {
-                        if (url == render.page.url) {
-                            callback(err, render);
+                        if (err) {
+                            callback(err);
+                        }
+                        else if (url.replace('s:', ':') == render.page.url) {
+                            callback(null, render);
                         }
                         else {
                             return res.redirect(301, render.page.url);
@@ -174,8 +180,11 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                     'download',
                     options,
                     function (err, render) {
-                        if (url == render.page.url) {
-                            callback(err, render);
+                        if (err) {
+                            callback(err);
+                        }
+                        else if (url.replace('s:', ':') == render.page.url) {
+                            callback(null, render);
                         }
                         else {
                             return res.redirect(301, render.page.url);
@@ -188,8 +197,11 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                     'trailer',
                     options,
                     function (err, render) {
-                        if (url == render.page.url) {
-                            callback(err, render);
+                        if (err) {
+                            callback(err);
+                        }
+                        else if (url.replace('s:', ':') == render.page.url) {
+                            callback(null, render);
                         }
                         else {
                             return res.redirect(301, render.page.url);
@@ -202,8 +214,11 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                     'picture',
                     options,
                     function (err, render) {
-                        if (url == render.page.url) {
-                            callback(err, render);
+                        if (err) {
+                            callback(err);
+                        }
+                        else if (url.replace('s:', ':') == render.page.url) {
+                            callback(null, render);
                         }
                         else {
                             return res.redirect(301, render.page.url);
