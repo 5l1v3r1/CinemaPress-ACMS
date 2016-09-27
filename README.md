@@ -1,7 +1,16 @@
 # CinemaPress ACMS
- :movie_camera: Автоматическая система управления сайтом.
 
  ![Admin panel CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/new_admin.png)
+ 
+ :movie_camera: Автоматическая система управления сайтом.
+ 
+- <a href="http://DEMO.CinemaPress.org/" target="_blank">DEMO.CinemaPress.org</a>
+- <a href="http://DEMO.CinemaPress.org/admin" target="_blank">DEMO.CinemaPress.org/admin</a>
+ 
+ ```
+ Логин: demo.cinemapress.org
+ Пароль: demo
+ ```
 
 ## Установка:
 - <a href="https://cinemapress.org/pokuraem-domen.html" target="_blank">Как купить домен?</a>
@@ -81,30 +90,37 @@
 ```
 
 - [Шаблон «Hodor» для CinemaPress ACMS](https://github.com/CinemaPress/Theme-Hodor)
+- [Hodor.CinemaPress.org](http://Hodor.CinemaPress.org/)
 
 <a href="https://github.com/CinemaPress/Theme-Hodor"><img src="https://raw.githubusercontent.com/CinemaPress/Theme-Hodor/master/screenshot.png" width="400"></a>
 
 - [Шаблон «Sansa» для CinemaPress ACMS](https://github.com/CinemaPress/Theme-Sansa)
+- [Sansa.CinemaPress.org](http://Sansa.CinemaPress.org/)
 
 <a href="https://github.com/CinemaPress/Theme-Sansa"><img src="https://raw.githubusercontent.com/CinemaPress/Theme-Sansa/master/screenshot.png" width="400"></a>
 
 - [Шаблон «Robb» для CinemaPress ACMS](https://github.com/CinemaPress/Theme-Robb)
+- [Robb.CinemaPress.org](http://Robb.CinemaPress.org/)
 
 <a href="https://github.com/CinemaPress/Theme-Robb"><img src="https://raw.githubusercontent.com/CinemaPress/Theme-Robb/master/screenshot.png" width="400"></a>
 
 - [Шаблон «Ramsay» для CinemaPress ACMS](https://github.com/CinemaPress/Theme-Ramsay)
+- [Ramsay.CinemaPress.org](http://Ramsay.CinemaPress.org/)
 
 <a href="https://github.com/CinemaPress/Theme-Ramsay"><img src="https://raw.githubusercontent.com/CinemaPress/Theme-Ramsay/master/screenshot.png" width="400"></a>
 
 - [Шаблон «Tyrion» для CinemaPress ACMS](https://github.com/CinemaPress/Theme-Tyrion)
+- [Tyrion.CinemaPress.org](http://Tyrion.CinemaPress.org/)
 
 <a href="https://github.com/CinemaPress/Theme-Tyrion"><img src="https://raw.githubusercontent.com/CinemaPress/Theme-Tyrion/master/screenshot.png" width="400"></a>
 
 - [Шаблон «Cersei» для CinemaPress ACMS](https://github.com/CinemaPress/Theme-Cersei)
+- [Cersei.CinemaPress.org](http://Cersei.CinemaPress.org/)
 
 <a href="https://github.com/CinemaPress/Theme-Cersei"><img src="https://raw.githubusercontent.com/CinemaPress/Theme-Cersei/master/screenshot.png" width="400"></a>
 
 - [Шаблон «Joffrey» для CinemaPress ACMS](https://github.com/CinemaPress/Theme-Joffrey)
+- [Joffrey.CinemaPress.org](http://Joffrey.CinemaPress.org/)
 
 <a href="https://github.com/CinemaPress/Theme-Joffrey"><img src="https://raw.githubusercontent.com/CinemaPress/Theme-Joffrey/master/screenshot.png" width="400"></a>
 
@@ -207,6 +223,8 @@
 ![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/mobile.png)
 
 Модуль мобильной версии сайта сообщает поисковым системам о том, что у сайта есть версия, оптимизированная под мобильные устройства.
+
+<img src="https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/dark.png" width="444" alt="Темная мобильная тема для CinemaPress ACMS"/><img src="https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/light.png" width="444" alt="Светлая мобильная тема для CinemaPress ACMS"/>
 
 # Использование CinemaPress ACMS
 
