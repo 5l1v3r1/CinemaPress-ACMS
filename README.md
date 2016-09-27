@@ -6,7 +6,7 @@
  
 - <a href="http://DEMO.CinemaPress.org/" target="_blank">DEMO.CinemaPress.org</a>
 - <a href="http://DEMO.CinemaPress.org/admin" target="_blank">DEMO.CinemaPress.org/admin</a>
- 
+
  ```
  Логин: demo.cinemapress.org
  Пароль: demo
