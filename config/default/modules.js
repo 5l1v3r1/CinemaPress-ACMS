@@ -42,7 +42,8 @@ module.exports = {
     "soon": {
         "status": false,
         "data": {
-            "count": 6
+            "count": 6,
+            "movies": []
         }
     },
     "social": {

@@ -19,7 +19,8 @@ var router  = express.Router();
 
 router.get('/?', function(req, res) {
 
-    res.type('text/plain');
+    res.header('Content-Type', 'text/plain');
+
     res.send(
         config.codes.robots + '\n\n' +
         'Host: ' + config.domain + '\n\n' +

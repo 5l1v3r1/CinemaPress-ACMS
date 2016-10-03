@@ -81,11 +81,11 @@
                                 <% for (var i = 1; i <= 20; i++) { %>
                                 <% if (modules.soon.data.count == i) { %>
                                 <option value="<%- i %>" selected="selected">
-                                    <%- i %>
+                                    <%- i %> фильм(ов)
                                 </option>
                                 <% } else { %>
                                 <option value="<%- i %>">
-                                    <%- i %>
+                                    <%- i %> фильм(ов)
                                 </option>
                                 <% } %>
                                 <% } %>
@@ -104,6 +104,34 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label>Фильмы</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input name="modules.soon.data.movies" value="<%- modules.soon.data.movies.join(',') %>" class="form-control input_ids" type="text">
+                            <div class="helper-text-box">
+                                <div class="form-helper-header">ID фильмов</div>
+                                <p>
+                                    По умолчанию в блоке «Скоро выйдут» будут фильмы, сгенерированные автоматически на основе даты премьеры. Если Вы хотите поместить в этот блок свой набор фильмов, можете указать здесь ID КиноПоиск фильмов через запятую.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="sidebar-module">
+                                <div class="thumbs-list thumbs-small">
+                                    <ul>
+                                        <% modules.soon.data.movies.forEach(function (id) { %>
+                                        <li>
+                                            <img style="width: 60px; height: 90px;" class="media-object" src="https://st.kp.yandex.net/images/sm_film/<%- id %>.jpg" alt="Poster">
+                                        </li>
+                                        <% }); %>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <% } else { %>
 
                     <div class="row">
@@ -112,7 +140,7 @@
                                 <h4>Модуль «Скоро» отключен</h4>
                                 <div class="spacer-20"></div>
                                 <p class="text-muted">
-                                    Модуль «Скоро» позволяет добавить на сайт блок с фильмами которые должны выйти в ближайшее время. Рекомендовано включать модуль после нескольких месяцев работы сайта, когда диапазон приблизился к фильмам с ID 900 000 и более.
+                                    Модуль «Скоро» позволяет добавить на сайт блок с фильмами которые должны выйти в ближайшее время.
                                     <br>
                                     Чтобы включить модуль, нажмите на кнопку «Скоро» вверху экрана.
                                 </p>
