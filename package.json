@@ -14,7 +14,7 @@
   "bugs": {
     "url": "https://github.com/CinemaPress/CinemaPress-ACMS/issues"
   },
-  "homepage": "http://CinemaPress.org/",
+  "homepage": "https://CinemaPress.org/",
   "dependencies": {
     "body-parser": "1.15.2",
     "cookie-parser": "1.4.3",
