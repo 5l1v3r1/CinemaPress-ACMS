@@ -171,5 +171,15 @@ module.exports = {
         "data": {
             "theme": "light"
         }
+    },
+    "episode": {
+        "status": true,
+        "data": {
+            "title": "[title_ru] [season] сезон [episode] серия в озвучке [translate]",
+            "description": "[title_ru] [season] сезон [episode] серия в озвучке [translate]",
+            "season": "сезон",
+            "episode": "серия",
+            "translate": "Перевод:"
+        }
     }
 };

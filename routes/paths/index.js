@@ -43,7 +43,7 @@ function dataIndex(options, callback) {
         options.domain = '' + config.domain;
     }
 
-    async.series({
+    async.parallel({
             "slider": function (callback) {
                 return (modules.slider.status)
                     ? CP_get.additional(
@@ -75,7 +75,7 @@ function dataIndex(options, callback) {
                     : callback(null, null)
             },
             "movies": function(callback) {
-                async.series({
+                async.parallel({
                         "type": function (callback) {
                             return (config.index.type.keys)
                                 ? CP_get.additional(
@@ -227,9 +227,9 @@ function dataIndex(options, callback) {
                 if (result.hasOwnProperty(r) && result[r] === null)
                     delete result[r];
 
-            result.page = CP_page.index(options);
-
-            callback(null, result);
+            CP_page.index(result, options, function (err, result) {
+                callback(err, result);
+            });
 
         });
 

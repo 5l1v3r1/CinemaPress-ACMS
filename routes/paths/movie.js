@@ -48,7 +48,7 @@ function dataMovie(id, type, options, callback) {
 
     var related = {};
 
-    async.series({
+    async.parallel({
             "movie": function (callback) {
                 return CP_get.movies(
                     {"query_id": id},
@@ -101,7 +101,7 @@ function dataMovie(id, type, options, callback) {
             },
             "movies": function(callback) {
                 return (related.id && modules.related.status)
-                    ? async.series({
+                    ? async.parallel({
                         "countries": function(callback) {
                             return (related.countries_arr.length && modules.related.data.display.indexOf('countries') + 1)
                                 ? CP_get.additional(
@@ -256,9 +256,9 @@ function dataMovie(id, type, options, callback) {
                 if (result.hasOwnProperty(r) && result[r] === null)
                     delete result[r];
 
-            result.page = CP_page.movie(type, result.movie, result.movies, options);
-
-            callback(null, result);
+            CP_page.movie(result, type, options, function (err, result) {
+                callback(err, result);
+            });
 
         });
 
@@ -306,6 +306,9 @@ function typeMovie(type) {
     var regexpType = new RegExp('^(movie' + types + ')$', 'ig');
     var execType   = regexpType.exec(type);
 
+    var regexpEpisode = new RegExp('^(s[0-9]{1,4}e[0-9]{1,4}(_[0-9]{1,3}|))$', 'ig');
+    var execEpisode   = regexpEpisode.exec(type);
+
     if (execType) {
         for (var e in config.urls.movies) {
             if (config.urls.movies.hasOwnProperty(e)) {
@@ -315,6 +318,9 @@ function typeMovie(type) {
                 }
             }
         }
+    }
+    else if (execEpisode) {
+        type = 'episode';
     }
     else {
         type = '404';

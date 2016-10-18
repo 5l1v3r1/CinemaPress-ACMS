@@ -146,6 +146,9 @@ router.get('/:type?', function(req, res) {
         case 'mobile':
             res.render('admin/modules/mobile', render);
             break;
+        case 'episode':
+            res.render('admin/modules/episode', render);
+            break;
         default:
             getCountMovies(function (err, render) {
                 return (err)

@@ -94,7 +94,7 @@ function allCategory(type, options, callback) {
 
     function getCategories(category, callback) {
 
-        async.series({
+        async.parallel({
                 "categories": function (callback) {
                     var query = {};
                     query[category] = '!_empty';
@@ -152,9 +152,9 @@ function allCategory(type, options, callback) {
                     if (result.hasOwnProperty(r) && result[r] === null)
                         delete result[r];
 
-                result.page = CP_page.categories(category, options);
-
-                callback(null, result);
+                CP_page.categories(result, category, options, function (err, result) {
+                    callback(err, result);
+                });
 
             });
 
@@ -167,7 +167,7 @@ function allCategory(type, options, callback) {
  *
  * @param {String} type
  * @param {String} key
- * @param {String} page
+ * @param {Number} page
  * @param {String} sorting
  * @param {Object} [options]
  * @param {Callback} callback
@@ -181,7 +181,7 @@ function oneCategory(type, key, page, sorting, options, callback) {
         options.domain = '' + config.domain;
     }
 
-    page = (parseInt(page)) ? parseInt(page) : 1;
+    page = (page) ? page: 1;
 
     switch (type) {
         case (config.urls.year):
@@ -246,7 +246,7 @@ function oneCategory(type, key, page, sorting, options, callback) {
 
     function getMovies(query, callback) {
 
-        async.series({
+        async.parallel({
                 "movies": function (callback) {
                     return CP_get.movies(
                         query,
@@ -331,9 +331,9 @@ function oneCategory(type, key, page, sorting, options, callback) {
                     if (result.hasOwnProperty(r) && result[r] === null)
                         delete result[r];
 
-                result.page = CP_page.category(query, sorting, page, result.count, result.movies, options);
-
-                callback(null, result);
+                CP_page.category(result, query, sorting, page, options, function (err, result) {
+                    callback(err, result);
+                });
 
             });
 

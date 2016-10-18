@@ -44,7 +44,7 @@ function allCollection(options, callback) {
         options.domain = '' + config.domain;
     }
 
-    async.series({
+    async.parallel({
             "categories": function (callback) {
 
                 var collections = [];
@@ -125,9 +125,9 @@ function allCollection(options, callback) {
                 if (result.hasOwnProperty(r) && result[r] === null)
                     delete result[r];
 
-            result.page = CP_page.collections(options);
-
-            callback(null, result);
+            CP_page.collections(result, options, function (err, result) {
+                callback(err, result);
+            });
 
         });
 
@@ -137,7 +137,7 @@ function allCollection(options, callback) {
  * Getting the data to render collection page.
  *
  * @param {String} key
- * @param {String} page
+ * @param {Number} page
  * @param {String} sorting
  * @param {Object} [options]
  * @param {Callback} callback
@@ -151,7 +151,7 @@ function oneCollection(key, page, sorting, options, callback) {
         options.domain = '' + config.domain;
     }
 
-    page = (parseInt(page)) ? parseInt(page) : 1;
+    page = (page) ? page : 1;
 
     var ids = (
     modules.collections.data.collections[key] &&
@@ -164,7 +164,7 @@ function oneCollection(key, page, sorting, options, callback) {
 
     var query = {"query_id": ids};
 
-    async.series({
+    async.parallel({
             "movies": function (callback) {
                 return CP_get.movies(
                     query,
@@ -248,9 +248,9 @@ function oneCollection(key, page, sorting, options, callback) {
                 if (result.hasOwnProperty(r) && result[r] === null)
                     delete result[r];
 
-            result.page = CP_page.collection(key, sorting, page, result.count, result.movies, options);
-
-            callback(null, result);
+            CP_page.collection(result, key, sorting, page, options, function (err, result) {
+                callback(err, result);
+            });
 
         });
 

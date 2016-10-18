@@ -226,11 +226,28 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                         }
                     });
                 break;
+            case 'episode':
+                movie.data(
+                    movie.id(level2),
+                    level3,
+                    options,
+                    function (err, render) {
+                        if (err) {
+                            callback(err);
+                        }
+                        else if (url.replace('s:', ':') == render.page.url) {
+                            callback(null, render);
+                        }
+                        else {
+                            return res.redirect(301, render.page.url);
+                        }
+                    });
+                break;
             case 'category':
                 category.one(
                     level1,
                     level2,
-                    level3,
+                    parseInt(level3),
                     sorting,
                     options,
                     function (err, render) {
@@ -262,7 +279,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                 template = 'category';
                 collection.one(
                     level2,
-                    level3,
+                    parseInt(level3),
                     sorting,
                     options,
                     function (err, render) {

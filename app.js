@@ -21,6 +21,7 @@ var app          = express();
  */
 
 var player  = require('./routes/player');
+var episode = require('./routes/episode');
 var robots  = require('./routes/robots');
 var admin   = require('./routes/admin');
 var website = require('./routes/website');
@@ -56,6 +57,7 @@ app.use('/mobile-version/robots.txt', robots);
 app.use('/mobile-version', mobile);
 
 app.use('/iframe.player', player);
+app.use('/episode.list', episode);
 app.use('/robots.txt', robots);
 app.use('/' + config.urls.admin, admin);
 app.use(website);

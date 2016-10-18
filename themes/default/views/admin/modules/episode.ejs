@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>  <html class="ie ie6 lte9 lte8 lte7 no-js"> <![endif]-->
+<!--[if IE 7]>     <html class="ie ie7 lte9 lte8 lte7 no-js"> <![endif]-->
+<!--[if IE 8]>     <html class="ie ie8 lte9 lte8 no-js">      <![endif]-->
+<!--[if IE 9]>     <html class="ie ie9 lte9 no-js">           <![endif]-->
+<!--[if gt IE 9]>  <html class="no-js">                       <![endif]-->
+<!--[if !IE]><!--> <html class="no-js">                   <!--<![endif]-->
+<head>
+
+    <% include ../includes/head.ejs %>
+
+</head>
+<body>
+<div id="container" class="clearfix">
+
+    <% include ../includes/left.ejs %>
+
+    <% include ../includes/right.ejs %>
+
+    <div id="main" class="clearfix">
+
+        <% include ../includes/header.ejs %>
+
+        <div id="content" class="clearfix">
+
+            <header id="header-sec">
+                <div class="inner-padding">
+                    <div class="pull-left">
+                        <h2>
+                            Серии
+                        </h2>
+                    </div>
+                    <div class="pull-right">
+                        <% if (modules.episode.status) { %>
+                        <a href="javascript:void(0)" data-module="episode" data-status="false" class="btn btn-danger module-status">
+                            <i class="fa fa-power-off"></i>&nbsp;Отключить
+                        </a>
+                        <% } else { %>
+                        <a href="javascript:void(0)" data-module="episode" data-status="true" class="btn btn-success module-status">
+                            <i class="fa fa-power-off"></i>&nbsp;Активировать
+                        </a>
+                        <% } %>
+                    </div>
+                </div>
+            </header>
+
+            <div class="window">
+                <div class="actionbar">
+                    <div class="pull-left">
+                        <a href="javascript:void(0)" class="btn" data-toggle-sidebar="left">
+                            <i class="fa fa-chevron-left"></i>
+                        </a>
+                        <a href="/<%- config.urls.admin %>/episode" class="btn">
+                            Модуль серий к сериалам
+                        </a>
+                    </div>
+                    <div class="pull-right">
+                        <p>
+                            <% if (modules.episode.status) { %>
+                            <span class="label label-success">Включен</span>
+                            <% } else { %>
+                            <span class="label label-danger">Отключен</span>
+                            <% } %>
+                        </p>
+                        <a href="javascript:void(0)" class="btn" data-toggle-sidebar="right">
+                            <i class="fa fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="inner-padding">
+
+                    <% if (modules.episode.status) { %>
+
+                    <article class="faq-group">
+                        <header>
+                            <i class="fa fa-minus"></i>
+                            <h3>Название страницы серии</h3>
+                        </header>
+                        <div class="faq-content clearfix">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="advanced-textarea">
+                                        <div class="text-muted">
+                                            Страница серии :
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <textarea class="form-control titles" name="modules.episode.data.title" placeholder="Название страницы"><%- modules.episode.data.title %></textarea>
+
+                                        <div class="advanced-textarea-footer">
+                                            <div class="pull-left">
+                                                <div class="text text-muted" style="float: none;"><span id="modules.episode.data.title">0</span> символа(-ов)</div>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.title" data-code="[season]" class="btn btn-default codes">
+                                                    номер сезона
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.title" data-code="[episode]" class="btn btn-default codes">
+                                                    номер серии
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.title" data-code="[translate]" class="btn btn-default codes">
+                                                    перевод
+                                                </a>
+                                                <br>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.title" data-code="[title]" class="btn btn-default codes">
+                                                    русское / английское
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.title" data-code="[title_ru]" class="btn btn-default codes">
+                                                    русское
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.title" data-code="[title_en]" class="btn btn-default codes">
+                                                    английское
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.title" data-code="[year]" class="btn btn-default codes">
+                                                    год
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.title" data-code="[premiere]" class="btn btn-default codes">
+                                                    премьера
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.title" data-code="[фраза_или_слово | похожая_фраза_или_слово | и_еще]" class="btn btn-default codes">
+                                                    синонимы
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.title" data-code="&#13;&#10;<img src=&quot;ссылка_изображение&quot; alt=&quot;Фильмы&quot; style=&quot;float:left;width:250px;margin:20px 20px 20px 0;&quot;>&#13;&#10;" class="btn btn-default codes">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                                <br>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.title" data-code="[country]" class="btn btn-default codes">
+                                                    страна
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.description" data-code="[countries]" class="btn btn-default codes">
+                                                    страны
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.title" data-code="[genre]" class="btn btn-default codes">
+                                                    жанр
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.title" data-code="[genres]" class="btn btn-default codes">
+                                                    жанры
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.title" data-code="[actor]" class="btn btn-default codes">
+                                                    актер
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.title" data-code="[actors]" class="btn btn-default codes">
+                                                    актеры
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.title" data-code="[director]" class="btn btn-default codes">
+                                                    режиссер
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.title" data-code="[directors]" class="btn btn-default codes">
+                                                    режиссеры
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="faq-group">
+                        <header>
+                            <i class="fa fa-minus"></i>
+                            <h3>Описание страницы серии</h3>
+                        </header>
+                        <div class="faq-content clearfix">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="advanced-textarea">
+                                        <div class="text-muted">
+                                            Страница серии :
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <textarea class="form-control titles" name="modules.episode.data.description" placeholder="Описание страницы"><%- modules.episode.data.description %></textarea>
+
+                                        <div class="advanced-textarea-footer">
+                                            <div class="pull-left">
+                                                <div class="text text-muted" style="float: none;"><span id="modules.episode.data.description">0</span> символа(-ов)</div>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.description" data-code="[season]" class="btn btn-default codes">
+                                                    номер сезона
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.description" data-code="[episode]" class="btn btn-default codes">
+                                                    номер серии
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.description" data-code="[translate]" class="btn btn-default codes">
+                                                    перевод
+                                                </a>
+                                                <br>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.description" data-code="[title]" class="btn btn-default codes">
+                                                    русское / английское
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.description" data-code="[title_ru]" class="btn btn-default codes">
+                                                    русское
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.description" data-code="[title_en]" class="btn btn-default codes">
+                                                    английское
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.description" data-code="[year]" class="btn btn-default codes">
+                                                    год
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.description" data-code="[premiere]" class="btn btn-default codes">
+                                                    премьера
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.description" data-code="[фраза_или_слово | похожая_фраза_или_слово | и_еще]" class="btn btn-default codes">
+                                                    синонимы
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.description" data-code="&#13;&#10;<img src=&quot;ссылка_изображение&quot; alt=&quot;Фильмы&quot; style=&quot;float:left;width:250px;margin:20px 20px 20px 0;&quot;>&#13;&#10;" class="btn btn-default codes">
+                                                    <i class="fa fa-picture-o"></i>
+                                                </a>
+                                                <br>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.description" data-code="[country]" class="btn btn-default codes">
+                                                    страна
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.description" data-code="[countries]" class="btn btn-default codes">
+                                                    страны
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.description" data-code="[genre]" class="btn btn-default codes">
+                                                    жанр
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.description" data-code="[genres]" class="btn btn-default codes">
+                                                    жанры
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.description" data-code="[actor]" class="btn btn-default codes">
+                                                    актер
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.description" data-code="[actors]" class="btn btn-default codes">
+                                                    актеры
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.description" data-code="[director]" class="btn btn-default codes">
+                                                    режиссер
+                                                </a>
+                                                <a href="javascript:void(0)" data-name="modules.episode.data.description" data-code="[directors]" class="btn btn-default codes">
+                                                    режиссеры
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <div class="spacer-10"></div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label>Сезон</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <span class="input-group-addon text-muted">3</span>
+                                <input class="form-control input_url" name="modules.episode.data.season" value="<%- modules.episode.data.season %>" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spacer-10"></div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label>Серия</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <span class="input-group-addon text-muted">8</span>
+                                <input class="form-control input_url" name="modules.episode.data.episode" value="<%- modules.episode.data.episode %>" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spacer-10"></div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label>Перевод</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <input class="form-control input_url" name="modules.episode.data.translate" value="<%- modules.episode.data.translate %>" type="text">
+                                <span class="input-group-addon text-muted">Дубляж</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spacer-10"></div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label>Moonwalk:</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="col-xs-9">
+                                <input name="modules.player.data.moonwalk.token" value="<%- modules.player.data.moonwalk.token %>" class="form-control" type="text">
+                                <div class="helper-text-box">
+                                    <p>
+                                        API токен-ключ необходивый для подгрузки списка серий, который Вы получите после <a href="http://moonwalk.cc/" target="_blank">регистриции</a> (пишите на email, указанный на главной странице и просите отключить рекламу в плеере для молодого сайта) в <a href="http://moonwalk.cc/partners/edit_profile" target="_blank">панели управления</a>. Недостающие сериалы заказывать через <a href="http://moonwalk.cc/partners/orders" target="_blank">стол заказов</a>.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% } else { %>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="attention-box attention-danger">
+                                <h4>Модуль «Серии» отключен</h4>
+                                <div class="spacer-20"></div>
+                                <p class="text-muted">
+                                    Модуль «Серии» позволяет создать для каждой серии сериала отдельную страницу.
+                                    <br>
+                                    Чтобы включить модуль, нажмите на кнопку «Активировать» вверху экрана.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% } %>
+
+                </div>
+            </div>
+
+            <% include ../includes/footer.ejs %>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
