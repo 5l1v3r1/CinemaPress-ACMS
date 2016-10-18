@@ -43,6 +43,7 @@ function parseEpisode(type, options) {
     serial.season = (execEpisode && execEpisode[1]) ? parseInt(execEpisode[1]) + '' : '';
     serial.episode = (execEpisode && execEpisode[2]) ? parseInt(execEpisode[2]) + '' : '';
     serial.translate_id = (execEpisode && execEpisode[4]) ? parseInt(execEpisode[4]) + '' : '';
+    serial.translate = 'Оригинал';
 
     var translates = require('../config/translates.json');
     if (translates && translates.length) {
