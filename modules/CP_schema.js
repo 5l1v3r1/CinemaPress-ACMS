@@ -46,7 +46,7 @@ function fullMovieSchema(movie, movies, options) {
                         schemaItemList['itemListElement'].push({
                             "@type": "ListItem",
                             "position": key+1,
-                            "item": onlyMovieSchema(m)
+                            "item": onlyMovieSchema(m, options)
                         });
 
                     });
@@ -95,7 +95,21 @@ function fullMovieSchema(movie, movies, options) {
         }
     });
 
-    result.push(onlyMovieSchema(movie));
+    if (options.url && options.url != movie.url) {
+
+        schemaBreadcrumbList['itemListElement'].push({
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+                "@id": options.url,
+                "name": options.title,
+                "url": options.url
+            }
+        });
+
+    }
+
+    result.push(onlyMovieSchema(movie, options));
     result.push(schemaBreadcrumbList);
 
     var schema = '<script type="application/ld+json">' + JSON.stringify(result) + '</script>';
@@ -136,12 +150,12 @@ function onlyMovieSchema(movie, options) {
     result['name'] = movie.title_ru;
     result['alternativeHeadline'] = movie.title_en;
     result['description'] = movie.description;
-    result['dateCreated'] =  movie.premiere;
+    result['dateCreated'] = movie.premiere;
     result['image'] = (movie.poster.indexOf('http')+1)
         ? movie.poster
         : config.protocol + config.domain + movie.poster;
-    result['sameAs'] =  movie.url;
-    result['url'] =  movie.url;
+    result['sameAs'] = movie.url;
+    result['url'] = options.url || movie.url;
     result['actor'] = [];
     result['director'] = [];
     result['genre'] = [];
@@ -217,7 +231,7 @@ function categorySchema(page, movies, options) {
         schemaItemList['itemListElement'].push({
             "@type": "ListItem",
             "position": key+1,
-            "item": onlyMovieSchema(movie)
+            "item": onlyMovieSchema(movie, options)
         });
 
     });
