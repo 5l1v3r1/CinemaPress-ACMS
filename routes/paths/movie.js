@@ -48,7 +48,7 @@ function dataMovie(id, type, options, callback) {
 
     var related = {};
 
-    async.parallel({
+    async.series({
             "movie": function (callback) {
                 return CP_get.movies(
                     {"query_id": id},

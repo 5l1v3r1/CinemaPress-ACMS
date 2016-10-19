@@ -37,12 +37,18 @@ router.get('/?', function(req, res) {
                             callback(null, result);
                         });
                     }
+                    else {
+                        callback(null, '');
+                    }
                 },
                 "hdgo": function (callback) {
                     if (modules.player.data.hdgo.token) {
                         getHdgo(function(result) {
                             callback(null, result);
                         });
+                    }
+                    else {
+                        callback(null, '');
                     }
                 },
                 "yohoho": function (callback) {
@@ -55,7 +61,10 @@ router.get('/?', function(req, res) {
 
                 if (err) return res.send(err);
 
-                if (result[modules.player.data.display]) {
+                if (modules.episode.status && result['moonwalk']) {
+                    script = script.replace('iframe-src', result['moonwalk']);
+                }
+                else if (result[modules.player.data.display]) {
                     script = script.replace('iframe-src', result[modules.player.data.display]);
                 }
                 else if (result['moonwalk']) {
@@ -130,7 +139,7 @@ router.get('/?', function(req, res) {
 
                     for (var i = 0; i < result.length; i++) {
 
-                        if (season && episode && translate === result[i].translator_id) {
+                        if (season && episode && translate == result[i].translator_id) {
                             iframe_url = result[i].iframe_url + '?nocontrols=1&season=' + season + '&episode=' + episode;
                             break;
                         }

@@ -45,9 +45,11 @@ router.get('/?', function(req, res) {
         ? 'serial'
         : 'serials';
 
+    res.setHeader('Content-Type', 'application/json');
+
     getReq(url, function (err, list) {
 
-        if (err) return res.status(404).send(err);
+        if (err) return res.status(404).send('{"error": "' + err + '"}');
 
         if (!kp_id.length && list.updates) {
             list.updates.forEach(function (serial) {
@@ -60,13 +62,12 @@ router.get('/?', function(req, res) {
         CP_get.additional(
             {"query_id": kp_id},
             'ids',
+            {"domain": req.hostname},
             function (err, movies) {
 
                 if (err) return res.status(404).send('{"error": "' + err + '"}');
 
                 if (movies[0] && movies[0].movies && movies[0].movies.length) {
-
-                    res.setHeader('Content-Type', 'application/json');
 
                     if (type == 'serial') {
                         getSerial(list, movies[0].movies[0], function (err, result) {
@@ -253,8 +254,7 @@ router.get('/?', function(req, res) {
             "translate_id" : serial_moon.translator_id,
             "season"       : serial_moon.season + ' ' + modules.episode.data.season,
             "episode"      : serial_moon.episode + ' ' + modules.episode.data.episode,
-            "url"          : serial_data.url + '/s' + season_url + 'e' + episode_url + translate_url,
-            "iframe"       : serial_moon.iframe_url + '?nocontrols=1&season=' + season_url + '&episode=' + episode_url
+            "url"          : serial_data.url + '/s' + season_url + 'e' + episode_url + translate_url
         };
 
     }

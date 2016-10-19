@@ -53,6 +53,7 @@ app.use(bodyParser.json({limit: '64mb'}));
 app.use(bodyParser.urlencoded({limit: '64mb', extended: true}));
 
 app.use('/mobile-version/iframe.player', player);
+app.use('/mobile-version/episode.list', episode);
 app.use('/mobile-version/robots.txt', robots);
 app.use('/mobile-version', mobile);
 

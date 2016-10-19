@@ -44,16 +44,16 @@ function codePlayer(type, movie, options) {
     var d1 = new Date(movie.premiere);
     var d2 = new Date();
 
+    var serial = {};
+
     var regexpEpisode = new RegExp('^s([0-9]{1,4})e([0-9]{1,4})(_([0-9]{1,3})|)$', 'ig');
     var execEpisode   = regexpEpisode.exec(type);
 
-    var season = (execEpisode && execEpisode[1]) ? parseInt(execEpisode[1]) : '';
-    var episode = (execEpisode && execEpisode[2]) ? parseInt(execEpisode[2]) : '';
-    var translate = (execEpisode && execEpisode[4]) ? parseInt(execEpisode[4]) : '';
-
-    var season_ = (season) ? '&season=' + season : '';
-    var episode_ = (episode) ? '&episode=' + episode : '';
-    var translate_ = (translate) ? '&translate=' + translate : '';
+    if (execEpisode) {
+        serial.season = execEpisode[1];
+        serial.episode = execEpisode[2];
+        serial.translate = execEpisode[4];
+    }
 
     var id = 'yohoho';
     var title = movie.title + ' (' + movie.year + ')';
@@ -98,7 +98,10 @@ function codePlayer(type, movie, options) {
             }
             else {
 
-                if (modules.player.data.display == 'yohoho') {
+                if (serial.season && serial.episode) {
+                    allPlayer();
+                }
+                else if (modules.player.data.display == 'yohoho') {
                     yohohoPlayer();
                 }
                 else {
@@ -122,9 +125,9 @@ function codePlayer(type, movie, options) {
         code.player = '<div ' +
             'id="' + id + '" ' +
             'data-title="' + title + '" ' +
-            'data-season="' + season + '" ' +
-            'data-episode="' + episode + '" ' +
-            'data-translate="' + translate + '" ' +
+            'data-season="' + serial.season + '" ' +
+            'data-episode="' + serial.episode + '" ' +
+            'data-translate="' + serial.translate + '" ' +
             'data-single="' + modules.player.data.yohoho.single + '"></div>';
         code.footer = '<script src="https://yohoho.xyz/yo.js"></script>';
 
@@ -139,12 +142,17 @@ function codePlayer(type, movie, options) {
         code.player = '<div ' +
             'id="cinemapress-player" ' +
             'data-title="' + title + '" ' +
-            'data-season="' + season + '" ' +
-            'data-episode="' + episode + '" ' +
-            'data-translate="' + translate + '" ' +
+            'data-season="' + serial.season + '" ' +
+            'data-episode="' + serial.episode + '" ' +
+            'data-translate="' + serial.translate + '" ' +
             'data-single="' + modules.player.data.yohoho.single + '" ' +
             'style="width: 100%; height: 100%"></div>';
-        code.footer = '<script src="/iframe.player?id=' + movie.kp_id + season_ + episode_ + translate_ + '"></script>';
+        code.footer = '<script src="/iframe.player?' +
+            '&id=' + movie.kp_id +
+            '&season=' + serial.season +
+            '&episode=' + serial.episode +
+            '&translate=' + serial.translate +
+            '"></script>';
 
     }
 

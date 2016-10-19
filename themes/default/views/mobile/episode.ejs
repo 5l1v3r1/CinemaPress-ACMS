@@ -15,15 +15,15 @@
 
 <div class="clear"></div>
 
-<h2><%- movie.title_ru %> (<%- movie.year %>) скачать</h2>
+<h2><%- page.title %></h2>
 
 <div class="clear"></div>
 
 <div class="poster">
-    <img src="<%- movie.poster_min %>" alt="<%- movie.title_ru %> (<%- movie.year %>) скачать" title="<%- movie.title_ru %> (<%- movie.year %>)">
+    <img src="<%- movie.poster_min %>" alt="<%- movie.title_ru %> (<%- movie.year %>) смотреть онлайн" title="<%- movie.title_ru %> (<%- movie.year %>)">
 </div>
 <h3>
-    <a href="<%- movie.url %>"><%- movie.title_ru %> (<%- movie.year %>) скачать</a>
+    <a href="<%- movie.url %>"><%- movie.title_ru %> (<%- movie.year %>) смотреть онлайн</a>
 </h3>
 
 <div class="info">
@@ -75,7 +75,7 @@
 <div class="info block" style="text-align: center">
     <a href="<%- movie.url %>">О фильме</a>
     <span> | </span>
-    <a href="<%- movie.url %>/<%- page.urls.movies.online %>">Онлайн</a>
+    <a href="<%- movie.url %>/<%- page.urls.movies.download %>">Скачать</a>
     <span> | </span>
     <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>">Трейлер</a>
     <span> | </span>
@@ -123,6 +123,9 @@
                 </div>
             </div>
         </a>
+    </div>
+    <div class="watchLaterBlock" style="float: right; display: none">
+        <a href="javascript:void(0)" id="watchLater">Досмотреть&nbsp;►&nbsp;позже</a>
     </div>
 </div>
 
