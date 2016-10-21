@@ -173,7 +173,7 @@ module.exports = {
         }
     },
     "episode": {
-        "status": true,
+        "status": false,
         "data": {
             "title": "[title_ru] [season] сезон [episode] серия в озвучке [translate]",
             "description": "[title_ru] [season] сезон [episode] серия в озвучке [translate]",

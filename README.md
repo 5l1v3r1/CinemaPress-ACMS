@@ -226,6 +226,10 @@
 
 <img src="https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/dark.png" width="444" alt="Темная мобильная тема для CinemaPress ACMS"/><img src="https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/light.png" width="444" alt="Светлая мобильная тема для CinemaPress ACMS"/>
 
+ ![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/episode.png)
+
+Модуль позволяет для каждой серии сериала сделать отдельную страницу на сайте. Также блок с новыми сериями сериалов добавляется на главную страницу сайта.
+
 # Использование CinemaPress ACMS
 
 CinemaPress ACMS распространяется под <a href="https://github.com/CinemaPress/CinemaPress-ACMS/blob/master/LICENSE.txt" target="_blank">MIT лицензией</a>.
