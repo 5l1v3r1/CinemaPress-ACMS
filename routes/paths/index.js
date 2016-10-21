@@ -7,6 +7,8 @@
 var CP_page = require('../../lib/CP_page');
 var CP_get  = require('../../lib/CP_get');
 
+var CP_episode = require('../../modules/CP_episode');
+
 /**
  * Configuration dependencies.
  */
@@ -195,6 +197,22 @@ function dataIndex(options, callback) {
                                         : callback(null, [])
                                 })
                                 : callback(null, [])
+                        },
+                        "episode": function (callback) {
+                            return (modules.episode.status)
+                                ? CP_episode.index(
+                                options,
+                                function (err, movies) {
+                                    if (err) return callback(err);
+
+                                    config.index.episode = {};
+                                    config.index.episode.order = modules.episode.data.index.order;
+
+                                    return (movies && movies.length)
+                                        ? callback(null, movies)
+                                        : callback(null, [])
+                                })
+                                : callback(null, [])
                         }
                     },
                     function(err, result) {
@@ -223,9 +241,11 @@ function dataIndex(options, callback) {
 
             if (err) return callback(err);
 
-            for (var r in result)
-                if (result.hasOwnProperty(r) && result[r] === null)
+            for (var r in result) {
+                if (result.hasOwnProperty(r) && result[r] === null) {
                     delete result[r];
+                }
+            }
 
             CP_page.index(result, options, function (err, result) {
                 callback(err, result);

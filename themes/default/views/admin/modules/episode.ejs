@@ -171,7 +171,7 @@
 
                                         <div class="spacer-10"></div>
 
-                                        <textarea class="form-control titles" name="modules.episode.data.description" placeholder="Описание страницы"><%- modules.episode.data.description %></textarea>
+                                        <textarea class="form-control descriptions" name="modules.episode.data.description" placeholder="Описание страницы"><%- modules.episode.data.description %></textarea>
 
                                         <div class="advanced-textarea-footer">
                                             <div class="pull-left">
@@ -240,6 +240,52 @@
                         </div>
                     </article>
 
+                    <article class="faq-group">
+                        <header>
+                            <i class="fa fa-minus"></i>
+                            <h3>Блок новых серий на главной странице</h3>
+                        </header>
+                        <div class="faq-content clearfix">
+                            <div class="row">
+                                <div class="col-sm-2">
+                                    <select name="modules.episode.data.index.order" class="form-control">
+                                        <% for (var i = 1; i <= 10; i++) { %>
+                                        <% if (modules.episode.data.index.order == i) { %>
+                                        <option value="<%- i %>" selected="selected">
+                                            <%- i %>-й
+                                        </option>
+                                        <% } else { %>
+                                        <option value="<%- i %>">
+                                            <%- i %>-й
+                                        </option>
+                                        <% } %>
+                                        <% } %>
+                                    </select>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <select name="modules.episode.data.index.count" class="form-control">
+                                        <% for (var i = 1; i <= 20; i++) { %>
+                                        <% if (modules.episode.data.index.count == i) { %>
+                                        <option value="<%- i %>" selected="selected">
+                                            <%- i %> фильма(-ов)
+                                        </option>
+                                        <% } else { %>
+                                        <option value="<%- i %>">
+                                            <%- i %> фильма(-ов)
+                                        </option>
+                                        <% } %>
+                                        <% } %>
+                                    </select>
+                                </div>
+
+                                <div class="col-sm-7">
+                                    <input type="text" name="modules.episode.data.index.name" value="<%- modules.episode.data.index.name %>" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
                     <div class="spacer-10"></div>
 
                     <div class="row">
@@ -249,7 +295,7 @@
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <span class="input-group-addon text-muted">3</span>
-                                <input class="form-control input_url" name="modules.episode.data.season" value="<%- modules.episode.data.season %>" type="text">
+                                <input class="form-control" name="modules.episode.data.season" value="<%- modules.episode.data.season %>" type="text">
                             </div>
                         </div>
                     </div>
@@ -263,7 +309,7 @@
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <span class="input-group-addon text-muted">8</span>
-                                <input class="form-control input_url" name="modules.episode.data.episode" value="<%- modules.episode.data.episode %>" type="text">
+                                <input class="form-control" name="modules.episode.data.episode" value="<%- modules.episode.data.episode %>" type="text">
                             </div>
                         </div>
                     </div>
@@ -276,8 +322,22 @@
                         </div>
                         <div class="col-sm-9">
                             <div class="input-group">
-                                <input class="form-control input_url" name="modules.episode.data.translate" value="<%- modules.episode.data.translate %>" type="text">
+                                <input class="form-control" name="modules.episode.data.translate" value="<%- modules.episode.data.translate %>" type="text">
                                 <span class="input-group-addon text-muted">Дубляж</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spacer-10"></div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label>По умолчанию</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="input-group">
+                                <span class="input-group-addon text-muted"><%- modules.episode.data.translate %></span>
+                                <input class="form-control" name="modules.episode.data.default" value="<%- modules.episode.data.default %>" type="text">
                             </div>
                         </div>
                     </div>

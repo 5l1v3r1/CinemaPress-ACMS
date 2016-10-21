@@ -15,35 +15,53 @@
 
 <div class="clear"></div>
 
-<h2><%- page.title %></h2>
+<h2><%- movie.title_ru %> (<%- movie.year %>) сериал онлайн</h2>
 
 <div class="clear"></div>
 
 <div class="poster">
-    <img src="<%- movie.poster_min %>" alt="<%- movie.title_ru %> (<%- movie.year %>) смотреть онлайн" title="<%- movie.title_ru %> (<%- movie.year %>)">
+    <img src="<%- movie.poster_min %>" alt="<%- movie.title_ru %> (<%- movie.year %>) сериал онлайн" title="<%- movie.title_ru %> (<%- movie.year %>)">
 </div>
-<h3>
-    <a href="<%- movie.url %>"><%- movie.title_ru %> (<%- movie.year %>) смотреть онлайн</a>
-</h3>
+<h3><%- page.title %></h3>
+
+<% if (movie.year_url) { %>
 
 <div class="info">
     Год: <%- movie.year_url %>
 </div>
+
+<% } %>
+<% if (movie.countries_url) { %>
+
 <div class="info">
     Страна: <%- movie.countries_url %>
 </div>
+
+<% } %>
+<% if (movie.genres_url) { %>
+
 <div class="info">
     Жанры: <%- movie.genres_url %>
 </div>
 
+<% } %>
+
 <div class="clear"></div>
+
+<% if (movie.directors_url) { %>
 
 <div class="info">
     Режиссер: <%- movie.directors_url %>
 </div>
+
+<% } %>
+<% if (movie.actors_url) { %>
+
 <div class="info">
     В ролях: <%- movie.actors_url %>
 </div>
+
+<% } %>
 
 <div class="clear"></div>
 

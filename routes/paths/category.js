@@ -148,9 +148,11 @@ function allCategory(type, options, callback) {
 
                 if (err) return callback(err);
 
-                for (var r in result)
-                    if (result.hasOwnProperty(r) && result[r] === null)
+                for (var r in result) {
+                    if (result.hasOwnProperty(r) && result[r] === null) {
                         delete result[r];
+                    }
+                }
 
                 CP_page.categories(result, category, options, function (err, result) {
                     callback(err, result);
@@ -327,9 +329,11 @@ function oneCategory(type, key, page, sorting, options, callback) {
 
                 if (err) return callback(err);
 
-                for (var r in result)
-                    if (result.hasOwnProperty(r) && result[r] === null)
+                for (var r in result) {
+                    if (result.hasOwnProperty(r) && result[r] === null) {
                         delete result[r];
+                    }
+                }
 
                 CP_page.category(result, query, sorting, page, options, function (err, result) {
                     callback(err, result);

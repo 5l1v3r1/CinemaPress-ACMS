@@ -1,14 +1,158 @@
 'use strict';
 
 /**
+ * Module dependencies.
+ */
+
+var CP_get = require('../lib/CP_get');
+
+/**
  * Configuration dependencies.
  */
 
 var config  = require('../config/config');
+var modules = require('../config/modules');
+
+/**
+ * Node dependencies.
+ */
+
+var async   = require('async');
+var request = require('request');
+
+/**
+ * Callback.
+ *
+ * @callback Callback
+ * @param {Object} err
+ * @param {Object} [render]
+ */
+
+/**
+ * Adding list episodes on index page.
+ *
+ * @param {Object} [options]
+ * @param {Callback} callback
+ */
+
+function indexEpisode(options, callback) {
+
+    if (arguments.length == 1) {
+        options = {};
+        options.domain = '' + config.domain;
+    }
+
+    var url = 'http://moonwalk.cc/api/serials_updates.json?api_token=' + modules.player.data.moonwalk.token.trim();
+
+    getReq(url, function (err, list) {
+
+        if (err || !list.updates || !list.updates.length) {
+            return callback(null, null);
+        }
+
+        var query_id = {};
+
+        list.updates.forEach(function (serial) {
+            if (parseInt(serial.serial.kinopoisk_id)) {
+                query_id[serial.serial.kinopoisk_id] = {};
+            }
+        });
+
+        CP_get.additional(
+            {"query_id": Object.keys(query_id)},
+            'ids',
+            options,
+            function (err, movies) {
+
+                if (err || !movies[0] || !movies[0].movies || !movies[0].movies.length) {
+                    return callback(null, null);
+                }
+
+                var result = {};
+                result.name = modules.episode.data.index.name;
+                result.movies = [];
+
+                for (var i = 0, num1 = list.updates.length; i < num1; i++) {
+                    for (var j = 0, num2 = movies[0].movies.length; j < num2; j++) {
+                        if (parseInt(list.updates[i].serial.kinopoisk_id) == parseInt(movies[0].movies[j].kp_id)) {
+
+                            var serial_moon = JSON.stringify(list.updates[i]);
+                            serial_moon = JSON.parse(serial_moon);
+
+                            var serial_base = JSON.stringify(movies[0].movies[j]);
+                            serial_base = JSON.parse(serial_base);
+
+                            var season_num = /season=([0-9]{1,4})/i.exec(serial_moon.episode_iframe_url);
+                            var episode_num = /episode=([0-9]{1,4})/i.exec(serial_moon.episode_iframe_url);
+
+                            if (!season_num || !episode_num) continue;
+
+                            var season_url = parseInt(season_num[1]);
+                            var episode_url = parseInt(episode_num[1]);
+                            var translate_url = parseInt(serial_moon.serial.translator_id);
+                            var translate = (serial_moon.serial.translator)
+                                ? serial_moon.serial.translator
+                                : modules.episode.data.default;
+
+                            season_url = (season_url <= 9) ? '0' + season_url : season_url;
+                            episode_url = (episode_url <= 9) ? '0' + episode_url : episode_url;
+                            translate_url = (translate_url) ? '_' + translate_url : '';
+
+                            serial_base.translate = translate;
+                            serial_base.season = season_num[1];
+                            serial_base.episode = episode_num[1];
+                            serial_base.url = serial_base.url + '/s' + season_url + 'e' + episode_url + translate_url;
+
+                            result.movies.push(serial_base);
+
+                        }
+                    }
+                }
+
+                var sort_result = [];
+
+                for (var k = 0, num = result.movies.length; k < num; k++) {
+                    if (modules.episode.data.index.count > k) {
+                        sort_result.push(result.movies[k]);
+                    }
+                }
+
+                result.movies = sort_result;
+
+                callback(null, [result]);
+
+            });
+
+    });
+
+    /**
+     * Get request on url.
+     *
+     * @param {String} url
+     * @param {Callback} callback
+     */
+
+    function getReq(url, callback) {
+
+        request(url, function (error, response, body) {
+
+            var result = (body) ? JSON.parse(body) : {};
+
+            if (error || response.statusCode != 200 || result.error) {
+                console.log('[modules/CP_episode.js:indexEpisode:getReq] Error:', error, result.error);
+                return callback('Moonwalk request error.');
+            }
+
+            callback(null, result);
+
+        });
+
+    }
+
+}
 
 /**
  * Adding a page episodes list id="#episodesList".
- * Adding a page updates serials list id="#serialsList".
  *
  * @param {String} [type]
  * @return {Object}
@@ -68,5 +212,6 @@ function parseEpisode(type, options) {
 
 module.exports = {
     "code"  : codeEpisode,
-    "parse" : parseEpisode
+    "parse" : parseEpisode,
+    "index" : indexEpisode
 };

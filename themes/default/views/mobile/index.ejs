@@ -28,17 +28,29 @@
         <img src="<%- movie.poster_min %>" alt="<%- movie.title_ru %> (<%- movie.year %>) смотреть онлайн" title="<%- movie.title_ru %> (<%- movie.year %>)">
     </a>
 </div>
-<h3><a href="<%- movie.url %>"><%- movie.title_ru %> (<%- movie.year %>) смотреть онлайн</a></h3>
+<h3><a href="<%- movie.url %>"><%- movie.title_ru %> (<%- movie.year %>) <% if (movie.season) { %> <%- movie.season %> сезон <% } %> <% if (movie.episode) { %> <%- movie.episode %> серия<% } %> <% if (movie.translate) { %> <%- movie.translate %> <% } %> смотреть онлайн</a></h3>
+
+<% if (movie.year_url) { %>
 
 <div class="info">
     Год: <%- movie.year_url %>
 </div>
+
+<% } %>
+<% if (movie.countries_url) { %>
+
 <div class="info">
     Страна: <%- movie.countries_url %>
 </div>
+
+<% } %>
+<% if (movie.genres_url) { %>
+
 <div class="info">
     Жанры: <%- movie.genres_url %>
 </div>
+
+<% } %>
 
 <div class="clear"></div>
 
@@ -59,9 +71,13 @@
     <% } %> - IMDb
 </div>
 
+<% if (movie.description_short) { %>
+
 <div class="description">
     <%- movie.description_short %>...
 </div>
+
+<% } %>
 
 <% }); %>
 

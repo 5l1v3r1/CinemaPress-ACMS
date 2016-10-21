@@ -179,7 +179,7 @@ router.get('/?', function(req, res) {
     }
 
     /**
-     * Get serial data.
+     * Get serials data.
      *
      * @param {Object} list
      * @param {Array} movies

@@ -375,8 +375,18 @@
                 codes[i].addEventListener('click', function () {
                     var data_name = this.getAttribute('data-name');
                     var data_code = this.getAttribute('data-code');
-                    document.getElementsByName(data_name)[0].value = document.getElementsByName(data_name)[0].value + ' ' + data_code + ' ';
-                    document.getElementsByName(data_name)[0].focus();
+                    var caret_pos = 0;
+                    var textarea = document.getElementsByName(data_name)[0];
+                    if ( document.selection ) {
+                        textarea.focus();
+                        var sel = document.selection.createRange();
+                        sel.moveStart ('character', -textarea.value.length);
+                        caret_pos = sel.text.length;
+                    } else if ( textarea.selectionStart || textarea.selectionStart == '0' ) {
+                        caret_pos = textarea.selectionStart;
+                    }
+                    textarea.value = textarea.value.slice(0,caret_pos) + data_code + textarea.value.slice(caret_pos);
+                    textarea.focus();
                 });
             }
         }
@@ -400,7 +410,7 @@
             for (i = 0; i < input_url.length; i++) {
                 input_url[i].oninput = function () {
                     var value = this.value;
-                    var rep = /[^0-9A-Za-z_\.\-]/;
+                    var rep = /[^0-9A-Za-z_.\-]/;
                     if (rep.test(value)) {
                         value = value.replace(rep, '');
                         this.value = value;

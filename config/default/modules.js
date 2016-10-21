@@ -179,7 +179,13 @@ module.exports = {
             "description": "[title_ru] [season] сезон [episode] серия в озвучке [translate]",
             "season": "сезон",
             "episode": "серия",
-            "translate": "Перевод:"
+            "translate": "Перевод:",
+            "default": "Оригинал",
+            "index": {
+                "name": "Новые серии сериалов",
+                "count": 5,
+                "order": 9
+            }
         }
     }
 };

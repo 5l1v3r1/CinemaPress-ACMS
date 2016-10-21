@@ -121,9 +121,11 @@ function allCollection(options, callback) {
 
             if (err) return callback(err);
 
-            for (var r in result)
-                if (result.hasOwnProperty(r) && result[r] === null)
+            for (var r in result) {
+                if (result.hasOwnProperty(r) && result[r] === null) {
                     delete result[r];
+                }
+            }
 
             CP_page.collections(result, options, function (err, result) {
                 callback(err, result);
@@ -244,9 +246,11 @@ function oneCollection(key, page, sorting, options, callback) {
 
             if (err) return callback(err);
 
-            for (var r in result)
-                if (result.hasOwnProperty(r) && result[r] === null)
+            for (var r in result) {
+                if (result.hasOwnProperty(r) && result[r] === null) {
                     delete result[r];
+                }
+            }
 
             CP_page.collection(result, key, sorting, page, options, function (err, result) {
                 callback(err, result);
