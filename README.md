@@ -42,7 +42,7 @@
 ~# pm2 install pm2-server-monit
 ```
 
-<img src="https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/admin/pm2.png" width="600" alt="Мониторинг CinemaPress ACMS"/>
+ ![Мониторинг CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/admin/pm2.png)
 
 ## Распределение нагрузки
 
