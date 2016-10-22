@@ -21,6 +21,8 @@
 ~# wget cinemapress.org/i -qO i && chmod +x i && ./i
 ```
 
+<a href="https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/ssh.png" width="400"></a>
+
 ## Обновление:
 
 Обновление **CinemaPress ACMS** до последней версии в репозитории.

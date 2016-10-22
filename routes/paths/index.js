@@ -221,7 +221,7 @@ function dataIndex(options, callback) {
 
                         var keysSorted = Object.keys(result).sort(
                             function(a, b){
-                                return config.index[a].order-config.index[b].order;
+                                return ((config.index[a]) ? config.index[a].order : 1) - ((config.index[b]) ? config.index[b].order : 1);
                             }
                         );
 
