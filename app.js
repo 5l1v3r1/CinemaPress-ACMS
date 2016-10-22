@@ -48,6 +48,7 @@ app.set('view engine', 'ejs');
  */
 
 app.use(express.static(__dirname + '/'));
+app.use('/mobile-version', express.static(__dirname + '/'));
 app.use(cookieParser());
 app.use(bodyParser.json({limit: '64mb'}));
 app.use(bodyParser.urlencoded({limit: '64mb', extended: true}));
