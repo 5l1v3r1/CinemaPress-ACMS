@@ -138,12 +138,20 @@ function indexEpisode(options, callback) {
 
             var result = (body) ? JSON.parse(body) : {};
 
-            if (error || response.statusCode != 200 || result.error) {
-                console.log('[modules/CP_episode.js:indexEpisode:getReq] Error:', error, result.error);
-                return callback('Moonwalk request error.');
-            }
+            try {
 
-            callback(null, result);
+                if (error || response.statusCode != 200 || result.error) {
+                    console.log('[modules/CP_episode.js:indexEpisode:getReq] Error:', error, result.error);
+                    return callback('Moonwalk request error.');
+                }
+
+                callback(null, result);
+
+            } catch (err) {
+
+                callback(null, err);
+
+            }
 
         });
 
