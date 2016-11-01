@@ -96,6 +96,9 @@ router.get('/:type?', function(req, res) {
                 CP_get.publishIds(function (err, ids) {
                     if (err) return res.send(err);
                     render.soon_id = (ids && ids.soon_id) ? ids.soon_id : [];
+                    render.soon_id = render.soon_id.filter(function(id) {
+                        return texts.ids.indexOf(id) < 0;
+                    });
                     return res.render('admin/publish', render);
                 });
             });
