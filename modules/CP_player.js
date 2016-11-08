@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var CP_blocking = require('../modules/CP_blocking');
+var CP_blocking = require('./CP_blocking');
 
 /**
  * Configuration dependencies.

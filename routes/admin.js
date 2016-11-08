@@ -490,7 +490,9 @@ router.post('/change', function(req, res) {
                         : [];
                     var clear_arr = [];
                     arr.forEach(function (text) {
-                        text = text.replace(/(^\s*)|(\s*)$/g, '');
+                        text = text.replace(/(^\s*)|(\s*)$/g, '')
+                            .replace(/\u2028/g, '')
+                            .replace(/\u2029/g, '');
                         if (text) {
                             clear_arr.push(text);
                         }
@@ -498,7 +500,9 @@ router.post('/change', function(req, res) {
                     originals[key] = clear_arr;
                 }
                 else if (typeof originals[key] === 'string') {
-                    originals[key] = changes[key].toString();
+                    originals[key] = changes[key].toString()
+                        .replace(/\u2028/g, '')
+                        .replace(/\u2029/g, '');
                 }
                 else if (typeof originals[key] === 'number') {
                     originals[key] = parseInt(changes[key]);
