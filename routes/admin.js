@@ -22,6 +22,7 @@ var texts   = require('../config/texts');
  */
 
 var express = require('express');
+var exec    = require('child_process').exec;
 var async   = require('async');
 var router  = express.Router();
 
@@ -402,6 +403,16 @@ router.post('/change', function(req, res) {
             return (err)
                 ? res.status(404).send(err)
                 : res.send('Flush.')
+        });
+
+    }
+    else if (form.image) {
+
+        exec('/home/' + config.domain + '/config/i 9', function (err, out, stderr) {
+            console.log('Type:', 'image', 'Error:', err);
+            return (err)
+                ? res.status(404).send(err)
+                : res.send('Image.')
         });
 
     }

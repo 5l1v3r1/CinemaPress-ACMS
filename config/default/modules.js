@@ -22,7 +22,7 @@ module.exports = {
     "slider": {
         "status": true,
         "data": {
-            "movies": ["(355) { http://st.kp.yandex.net/images/kadr/2497990.jpg }\n335", "336", "337", "338", "339", "340", "341", "342", "343"]
+            "movies": ["(355) { https://st.kp.yandex.net/images/kadr/2497990.jpg }\n335", "336", "337", "338", "339", "340", "341", "342", "343"]
         }
     },
     "abuse": {
@@ -135,13 +135,19 @@ module.exports = {
         "data": {
             "display": "yohoho",
             "yohoho": {
-                "single": 1
+                "show": 1
             },
             "hdgo": {
                 "token": ""
             },
             "moonwalk": {
                 "token": ""
+            },
+            "getmovie": {
+                "token": ""
+            },
+            "kodik": {
+                "show": 0
             }
         }
     },

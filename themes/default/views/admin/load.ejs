@@ -96,7 +96,12 @@
                             <label>Memcached сервер:</label>
                         </div>
                         <div class="col-sm-9">
-                            <input name="config.cache.addr" value="<%- config.cache.addr %>" class="form-control" type="text">
+                            <div class="input-group">
+                                <input name="config.cache.addr" value="<%- config.cache.addr %>" class="form-control" type="text">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button" id="flush"><span class="fa fa-trash-o"></span> Очистить кэш</button>
+                                </span>
+                            </div>
                             <div class="helper-text-box">
                                 <div class="form-helper-header">Кэширующий сервер</div>
                                 <p>
@@ -113,11 +118,16 @@
                             <label>Сервер картинок:</label>
                         </div>
                         <div class="col-sm-9">
-                            <input name="config.image.addr" value="<%- config.image.addr %>" class="form-control" type="text">
+                            <div class="input-group">
+                                <input name="config.image.addr" value="<%- config.image.addr %>" class="form-control" type="text">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button" id="image"><span class="fa fa-picture-o"></span> Загрузить на сервер</button>
+                                </span>
+                            </div>
                             <div class="helper-text-box">
                                 <div class="form-helper-header">Сервер картинок</div>
                                 <p>
-                                    По умолчанию все картинки грузятся со сторонних источников, однако если Вы хотите чтобы постеры были загружены с Вашего сайта, Вы можете закачать их на сервер командой <code>wget cinemapress.org/i -qO i && chmod +x i && ./i 9</code> и указать здесь адрес сайта <code><%- config.domain %></code>.
+                                    По умолчанию все картинки грузятся со сторонних источников, однако если Вы хотите чтобы постеры были загружены с Вашего сайта, Вы можете «Загрузить на сервер» статические файлы и указать в этом поле адрес <code><%- config.domain %></code>.
                                 </p>
                             </div>
                         </div>

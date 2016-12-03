@@ -27,6 +27,7 @@
     "memcached": "2.2.2",
     "html-entities": "1.2.0",
     "md5": "2.1.0",
-    "speakingurl": "9.0.0"
+    "speakingurl": "9.0.0",
+    "child_process": "1.0.2"
   }
 }

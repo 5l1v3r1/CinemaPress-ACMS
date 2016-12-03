@@ -51,10 +51,35 @@ router.get('/?', function(req, res) {
                         callback(null, '');
                     }
                 },
+                "getmovie": function (callback) {
+                    if (modules.player.data.getmovie.token) {
+                        getGetmovie(function(result) {
+                            callback(null, result);
+                        });
+                    }
+                    else {
+                        callback(null, '');
+                    }
+                },
+                "kodik": function (callback) {
+                    if (modules.player.data.kodik.show) {
+                        getKodik(function(result) {
+                            callback(null, result);
+                        });
+                    }
+                    else {
+                        callback(null, '');
+                    }
+                },
                 "yohoho": function (callback) {
-                    getYohoho(function (result) {
-                        callback(null, result);
-                    });
+                    if (modules.player.data.yohoho.show) {
+                        getYohoho(function (result) {
+                            callback(null, result);
+                        });
+                    }
+                    else {
+                        callback(null, '');
+                    }
                 }
             },
             function(err, result) {
@@ -73,8 +98,17 @@ router.get('/?', function(req, res) {
                 else if (result['hdgo']) {
                     script = script.replace('iframe-src', result['hdgo']);
                 }
-                else {
+                else if (result['getmovie']) {
+                    script = script.replace('iframe-src', result['getmovie']);
+                }
+                else if (result['kodik']) {
+                    script = script.replace('iframe-src', result['kodik']);
+                }
+                else if (result['yohoho']) {
                     script = script.replace('iframe-src', result['yohoho']);
+                }
+                else {
+                    script = '';
                 }
 
                 res.setHeader('Content-Type', 'application/javascript');
@@ -156,6 +190,62 @@ router.get('/?', function(req, res) {
                     }
 
                     iframe = iframe_url;
+
+                }
+
+            }
+
+            callback(iframe);
+
+        });
+
+    }
+
+    /**
+     * Get Getmovie player.
+     */
+
+    function getGetmovie(callback) {
+
+        request('http://getmovie.cc/api/videos.json?api_token=' + modules.player.data.getmovie.token.trim() + '&r=json&kinopoisk_id=' + id, function (error, response, body) {
+
+            var iframe = '';
+
+            if (!error && response.statusCode == 200) {
+
+                var result = JSON.parse(body);
+
+                if (!result.error && result.response && result.response.items && result.response.items.length) {
+
+                    iframe = result.response.items[0].embed_url;
+
+                }
+
+            }
+
+            callback(iframe);
+
+        });
+
+    }
+
+    /**
+     * Get Kodik player.
+     */
+
+    function getKodik(callback) {
+
+        request('http://kodik.cc/api.js?kp_id=' + id, function (error, response, body) {
+
+            var iframe = '';
+
+            if (!error && response.statusCode == 200) {
+
+                var matches = /"(http:\/\/kodik\.cc\/video\/.*?)"/.exec(body);
+
+                if (matches && !(matches[1].indexOf('video/3/')+1)) {
+
+                    iframe = matches[1];
 
                 }
 

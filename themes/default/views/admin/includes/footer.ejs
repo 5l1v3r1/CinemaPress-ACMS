@@ -37,6 +37,10 @@
         if (flush)
             flush.addEventListener('click', flushData);
 
+        var image = document.querySelector('#image');
+        if (image)
+            image.addEventListener('click', imageData);
+
         var del = document.querySelectorAll('.del');
         if (del)
             for (i = 0; i < del.length; i++)
@@ -111,6 +115,27 @@
 
     }
 
+    function imageData() {
+
+        var self = this;
+        self.removeEventListener('click', imageData);
+        self.innerHTML = '<span class="fa fa-spinner fa-spin"></span>&nbsp;Загружаются&nbsp;(около&nbsp;20&nbsp;минут)';
+
+        var data = {
+            "image": true
+        };
+
+        sendServer(data, function (err, result) {
+            if (err) {
+                self.innerHTML = '<span class="fa fa-bug"></span>&nbsp;' + err;
+            }
+            else {
+                self.innerHTML ='<span class="fa fa-picture-o"></span>&nbsp;Картинки&nbsp;загружены';
+            }
+        });
+
+    }
+
     function delData() {
 
         var self = this;
@@ -171,7 +196,13 @@
                 ) { console.log('Empty collection.'); }
                 else if (
                         configs[i].name == 'config.codes.head' ||
-                        configs[i].name == 'config.codes.bottom' ||
+                        configs[i].name == 'config.codes.footer' ||
+                        configs[i].name == 'config.publish.thematic.country' ||
+                        configs[i].name == 'config.publish.thematic.genre' ||
+                        configs[i].name == 'config.publish.thematic.year' ||
+                        configs[i].name == 'config.publish.thematic.type' ||
+                        configs[i].name == 'config.publish.thematic.actor' ||
+                        configs[i].name == 'config.publish.thematic.director' ||
                         configs[i].name == 'config.index.country.keys' ||
                         configs[i].name == 'config.index.genre.keys' ||
                         configs[i].name == 'config.index.year.keys' ||
@@ -194,6 +225,7 @@
                         configs[i].name == 'modules.social.data.vk' ||
                         configs[i].name == 'modules.player.data.hdgo.token' ||
                         configs[i].name == 'modules.player.data.moonwalk.token' ||
+                        configs[i].name == 'modules.player.data.getmovie.token' ||
                         configs[i].name == 'modules.blocking.data.share.message' ||
                         configs[i].name == 'modules.blocking.data.sub.message' ||
                         configs[i].name == 'modules.blocking.data.adv.code' ||
@@ -257,6 +289,11 @@
 
             }
 
+        }
+
+        if (data.collection && data.collection.movies && data.collection.movies.split(',').length > 500) {
+            self.innerHTML = '<span class="fa fa-bug"></span>&nbsp;Запрещено&nbsp;больше&nbsp;500&nbsp;фильмов';
+            return;
         }
 
         sendServer(data, function (err, result) {

@@ -85,21 +85,16 @@
                             <div class="spacer-10"></div>
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <label>Один плеер:</label>
+                                    <label>Отображение:</label>
                                 </div>
                                 <div class="col-xs-9">
                                     <div class="inline-labels">
                                         <label>
-                                            <input name="modules.player.data.yohoho.single" value="1" <% if (modules.player.data.yohoho.single) { %> checked="" <% } %> type="radio"><span></span> Да
+                                            <input name="modules.player.data.yohoho.show" value="1" <% if (modules.player.data.yohoho.show) { %> checked="" <% } %> type="radio"><span></span> Да
                                         </label>
                                         <label>
-                                            <input name="modules.player.data.yohoho.single" value="0" <% if (!modules.player.data.yohoho.single) { %> checked="" <% } %> type="radio"><span></span> Нет
+                                            <input name="modules.player.data.yohoho.show" value="0" <% if (!modules.player.data.yohoho.show) { %> checked="" <% } %> type="radio"><span></span> Нет
                                         </label>
-                                    </div>
-                                    <div class="helper-text-box">
-                                        <p>
-                                            Отображать только один плеер, максимально релевантный результату.
-                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -154,6 +149,62 @@
                                         <p>
                                             API токен-ключ, который Вы получите после <a href="http://moonwalk.cc/" target="_blank">регистриции</a> (пишите на email, указанный на главной странице и просите отключить рекламу в плеере для молодого сайта) в <a href="http://moonwalk.cc/partners/edit_profile" target="_blank">панели управления</a>. Недостающие фильмы заказывать через <a href="http://moonwalk.cc/partners/orders" target="_blank">стол заказов</a>.
                                         </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label>Getmovie:</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="inline-labels">
+                                <label>
+                                    <input name="modules.player.data.display" value="getmovie" <% if (modules.player.data.display == 'getmovie') { %> checked="" <% } %> type="radio"><span></span> Getmovie.cc основной плеер
+                                </label>
+                            </div>
+                            <div class="spacer-10"></div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <label>Токен:</label>
+                                </div>
+                                <div class="col-xs-9">
+                                    <input name="modules.player.data.getmovie.token" value="<%- modules.player.data.getmovie.token %>" class="form-control" type="text">
+                                    <div class="helper-text-box">
+                                        <p>
+                                            API токен-ключ, который Вы получите после <a href="http://getmovie.cc/" target="_blank">регистриции</a>.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <label>Kodik:</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="inline-labels">
+                                <label>
+                                    <input name="modules.player.data.display" value="kodik" <% if (modules.player.data.display == 'kodik') { %> checked="" <% } %> type="radio"><span></span> Kodik.cc основной плеер
+                                </label>
+                            </div>
+                            <div class="spacer-10"></div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <label>Отображение:</label>
+                                </div>
+                                <div class="col-xs-9">
+                                    <div class="inline-labels">
+                                        <label>
+                                            <input name="modules.player.data.kodik.show" value="1" <% if (modules.player.data.kodik.show) { %> checked="" <% } %> type="radio"><span></span> Да
+                                        </label>
+                                        <label>
+                                            <input name="modules.player.data.yohoho.show" value="0" <% if (!modules.player.data.kodik.show) { %> checked="" <% } %> type="radio"><span></span> Нет
+                                        </label>
                                     </div>
                                 </div>
                             </div>

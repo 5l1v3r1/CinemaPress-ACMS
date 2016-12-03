@@ -60,9 +60,9 @@ function codePlayer(type, movie, options) {
 
     if (type == 'picture') {
 
-        code.head = '<link rel="stylesheet" href="/themes/default/public/css/ideal-image-slider.css"><link rel="stylesheet" href="/themes/default/public/css/default.css">';
+        code.head = '<link rel="stylesheet" href="/themes/default/public/desktop/css/ideal-image-slider.css">';
 
-        code.footer = '<script src="/themes/default/public/js/ideal-image-slider.min.js"></script><script>new IdealImageSlider.Slider("#slider");</script>';
+        code.footer = '<script src="/themes/default/public/desktop/js/ideal-image-slider.min.js"></script><script>new IdealImageSlider.Slider("#slider");</script>';
 
         var pictures = '';
         if (movie.pictures.length) {
@@ -85,7 +85,7 @@ function codePlayer(type, movie, options) {
 
         if (modules.abuse.status && modules.abuse.data.movies.indexOf((movie.kp_id + ''))+1) {
 
-            code.player = '<div style="position:absolute;background:#000 url(/themes/default/public/images/theme/dark/player.png) 100% 100% no-repeat;z-index:9999;top:0;left:0;width:100%;height:100%;color:#fff;text-align:center"><div style="margin:80px auto 0;width:70%">' + modules.abuse.data.message + '</div></div>';
+            code.player = '<div style="position:absolute;background:#000 url(/themes/default/public/desktop/img/player.png) 100% 100% no-repeat;z-index:9999;top:0;left:0;width:100%;height:100%;color:#fff;text-align:center"><div style="margin:80px auto 0;width:70%">' + modules.abuse.data.message + '</div></div>';
 
         }
         else {
@@ -128,7 +128,7 @@ function codePlayer(type, movie, options) {
             'data-season="' + serial.season + '" ' +
             'data-episode="' + serial.episode + '" ' +
             'data-translate="' + serial.translate + '" ' +
-            'data-single="' + modules.player.data.yohoho.single + '"></div>';
+            'data-single="' + modules.player.data.yohoho.show + '"></div>';
         code.footer = '<script src="https://yohoho.xyz/yo.js"></script>';
 
     }
@@ -145,7 +145,7 @@ function codePlayer(type, movie, options) {
             'data-season="' + serial.season + '" ' +
             'data-episode="' + serial.episode + '" ' +
             'data-translate="' + serial.translate + '" ' +
-            'data-single="' + modules.player.data.yohoho.single + '" ' +
+            'data-single="' + modules.player.data.yohoho.show + '" ' +
             'style="width: 100%; height: 100%"></div>';
         code.footer = '<script src="/iframe.player?' +
             '&id=' + movie.kp_id +

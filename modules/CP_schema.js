@@ -115,6 +115,7 @@ function fullMovieSchema(movie, movies, options) {
     var schema = '<script type="application/ld+json">' + JSON.stringify(result) + '</script>';
 
     var opengraph = '';
+    opengraph += '<meta name="twitter:card" content="summary_large_image" />';
     opengraph += '<meta property="og:locale" content="ru_RU" />';
     opengraph += '<meta property="og:site_name" content="' + movie.title + '" />';
     opengraph += '<meta property="og:title" content="' + movie.title + '" />';
@@ -268,13 +269,14 @@ function categorySchema(page, movies, options) {
     var schema = '<script type="application/ld+json">' + JSON.stringify(result) + '</script>';
 
     var opengraph = '';
+    opengraph += '<meta name="twitter:card" content="summary_large_image" />';
     opengraph += '<meta property="og:locale" content="ru_RU" />';
     opengraph += '<meta property="og:site_name" content="' + page.title + '" />';
     opengraph += '<meta property="og:title" content="' + page.title + '" />';
     opengraph += '<meta property="og:description" content="' + page.description + '" />';
     opengraph += '<meta property="og:type" content="website" />';
     opengraph += '<meta property="og:url" content="' + page.url + '" />';
-    opengraph += '<meta property="og:image" content="' + config.protocol + config.domain + '/themes/default/public/images/og.png" />';
+    opengraph += '<meta property="og:image" content="' + config.protocol + config.domain + '/themes/default/public/desktop/img/og.png" />';
 
     return schema + opengraph;
 
@@ -325,13 +327,14 @@ function generalSchema(page, options) {
     var schema = '<script type="application/ld+json">' + JSON.stringify(result) + '</script>';
 
     var opengraph = '';
+    opengraph += '<meta name="twitter:card" content="summary_large_image" />';
     opengraph += '<meta property="og:locale" content="ru_RU" />';
     opengraph += '<meta property="og:site_name" content="' + page.title + '" />';
     opengraph += '<meta property="og:title" content="' + page.title + '" />';
     opengraph += '<meta property="og:description" content="' + page.description + '" />';
     opengraph += '<meta property="og:type" content="website" />';
     opengraph += '<meta property="og:url" content="' + config.protocol + options.domain + '" />';
-    opengraph += '<meta property="og:image" content="' + config.protocol + config.domain + '/themes/default/public/images/og.png" />';
+    opengraph += '<meta property="og:image" content="' + config.protocol + config.domain + '/themes/default/public/desktop/img/og.png" />';
 
     return schema + opengraph;
 
