@@ -18,6 +18,7 @@ var modules = require('./modules');
  */
 
 var async = require('async');
+var path  = require('path');
 var fs    = require('fs');
 
 /**
@@ -25,8 +26,8 @@ var fs    = require('fs');
  */
 
 try {
-    fs.statSync('./default/config.js');
-    fs.statSync('./default/modules.js');
+    fs.statSync(path.join(__dirname, 'default', 'config.js'));
+    fs.statSync(path.join(__dirname, 'default', 'modules.js'));
 }
 catch(err) {
     return console.log('NOT DEFAULT CONFIG AND MODULES');
