@@ -33,7 +33,8 @@ module.exports = {
             "genre": "",
             "country": "",
             "actor": "",
-            "director": ""
+            "director": "",
+            "query_id": ""
         }
     },
     "default": {
