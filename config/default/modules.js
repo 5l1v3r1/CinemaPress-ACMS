@@ -192,8 +192,8 @@ module.exports = {
             "default": "Оригинал",
             "index": {
                 "name": "Новые серии сериалов",
-                "count": 5,
-                "order": 9
+                "count": 10,
+                "order": 1
             }
         }
     }
