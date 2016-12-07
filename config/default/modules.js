@@ -22,7 +22,7 @@ module.exports = {
     "slider": {
         "status": true,
         "data": {
-            "movies": ["(355) { https://st.kp.yandex.net/images/kadr/2497990.jpg }\n335", "336", "337", "338", "339", "340", "341", "342", "343"]
+            "movies": ["(355) { https://st.kp.yandex.net/images/kadr/2497990.jpg }", "335", "336", "337", "338", "339", "340", "341", "342", "343", "344", "345", "346", "347", "348", "349", "350", "351"]
         }
     },
     "abuse": {
