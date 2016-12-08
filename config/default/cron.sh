@@ -8,11 +8,6 @@ case ${1} in
         sleep $((RANDOM%120)) && node $(dirname $(dirname ${0}))/lib/CP_cron.js
     ;;
     daily )
-        if ! [ -f "$(dirname ${0})/i" ]
-        then
-            wget https://github.com/CinemaPress/CinemaPress.github.io/raw/master/i -qO "$(dirname ${0})/i"
-            chmod +x "$(dirname ${0})/i"
-        fi
         sleep $((RANDOM%60)) && $(dirname ${0})/i 11 "${2}" "${3}" "${4}" 1
     ;;
     * )
