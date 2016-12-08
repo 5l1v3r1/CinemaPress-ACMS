@@ -28,6 +28,13 @@ module.exports = {
     "abuse": {
         "status": true,
         "data": {
+            "imap": {
+                "user": "",
+                "password": "",
+                "host": "",
+                "port": 993,
+                "tls": 1
+            },
             "message": "Фильм закрыт по просьбе правообладателя!",
             "movies": [333,334]
         }
