@@ -29,6 +29,8 @@
     "md5": "2.2.1",
     "speakingurl": "10.0.0",
     "child_process": "1.0.2",
-    "imap": "0.8.19"
+    "imap": "0.8.19",
+    "base64-stream": "0.1.3",
+    "unrtf": "0.2.1"
   }
 }
