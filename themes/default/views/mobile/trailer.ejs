@@ -10,17 +10,17 @@
 <% include includes/header.ejs %>
 
 <div class="info">
-    <a href="<%- page.protocol %><%- page.domain %>">Главная</a> » <%- movie.genre_url %> » <%- movie.title_ru %>
+    <a href="<%- page.protocol %><%- page.domain %>">Главная</a> » <%- movie.genre_url %> » <%- movie.title %>
 </div>
 
 <div class="clear"></div>
 
-<h2><%- movie.title_ru %> (<%- movie.year %>) трейлер</h2>
+<h2><%- movie.title %> (<%- movie.year %>) трейлер</h2>
 
 <div class="clear"></div>
 
 <div class="poster">
-    <img src="<%- movie.poster_min %>" alt="<%- movie.title_ru %> (<%- movie.year %>) трейлер" title="<%- movie.title_ru %> (<%- movie.year %>)">
+    <img src="<%- movie.poster_min %>" alt="<%- movie.title %> (<%- movie.year %>) трейлер" title="<%- movie.title %> (<%- movie.year %>)">
 </div>
 <h3><%- page.title %></h3>
 
@@ -120,7 +120,7 @@
                 </div>
             </div>
         </a>
-        <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=<%- encodeURIComponent('Смотреть онлайн ' + movie.title_ru) %>&url=<%- movie.url %>" target="_blank" aria-label="">
+        <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=<%- encodeURIComponent('Смотреть онлайн ' + movie.title) %>&url=<%- movie.url %>" target="_blank" aria-label="">
             <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
                     <svg version="1.1" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
                         <g>
@@ -166,8 +166,8 @@
 
     <% category.movies.forEach(function (movie) { %>
 
-    <a href="<%- movie.url %>" title="<%- movie.title_ru %> (<%- movie.year %>)">
-        <%- movie.title_ru %> (<%- movie.year %>)
+    <a href="<%- movie.url %>" title="<%- movie.title %> (<%- movie.year %>)">
+        <%- movie.title %> (<%- movie.year %>)
     </a>
 
     <div class="clear"></div>
