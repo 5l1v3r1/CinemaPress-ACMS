@@ -129,6 +129,11 @@
 
 <a href="https://github.com/CinemaPress/Theme-Drogo"><img src="https://raw.githubusercontent.com/CinemaPress/Theme-Drogo/master/screenshot.png" width="400"></a>
 
+- [Шаблон «Bran» для CinemaPress ACMS](https://github.com/CinemaPress/Theme-Bran)
+- [Bran.CinemaPress.org](http://Bran.CinemaPress.org/)
+
+<a href="https://github.com/CinemaPress/Theme-Bran"><img src="https://raw.githubusercontent.com/CinemaPress/Theme-Bran/master/screenshot.png" width="400"></a>
+
 # Параметры CinemaPress ACMS
 
  ![Image CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/forums/icons/publish.png)
