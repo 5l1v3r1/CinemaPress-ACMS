@@ -46,6 +46,16 @@
             for (i = 0; i < del.length; i++)
                 del[i].addEventListener('click', delData);
 
+        var addId = document.querySelectorAll('a[data-add-name]');
+        if (addId)
+            for (i = 0; i < addId.length; i++)
+                addId[i].addEventListener('click', addIdList);
+
+        var delId = document.querySelectorAll('li[data-delete-name]');
+        if (delId)
+            for (i = 0; i < delId.length; i++)
+                delId[i].addEventListener('click', delIdList);
+
         newsCP();
 
         inputData();
@@ -163,6 +173,61 @@
 
     }
 
+    function delIdList() {
+        var self = this;
+        self.parentNode.removeChild(self);
+        var list = document.querySelector('textarea[name="' + self.dataset.deleteName + '"]');
+        var first = new RegExp('^' + self.dataset.deleteId + ',');
+        var middle = new RegExp(',' + self.dataset.deleteId + ',|^' + self.dataset.deleteId + '$');
+        var last = new RegExp(',' + self.dataset.deleteId + '$');
+        list.value = list.value
+                .replace(middle, ',')
+                .replace(first, '')
+                .replace(last, '')
+                .replace(/\s/g, '')
+                .replace(/,+/g, ',')
+                .replace(/(^,*)|(,*)$/g, '');
+    }
+
+    function addIdList() {
+        var self = this;
+        var id = document.querySelector('input[data-add-id="' + self.dataset.addName + '"]');
+        var kp_id = parseInt(id.value);
+        var id_kp = 0;
+
+        if (id.value.indexOf('<%- config.domain %>')+1) {
+
+            var prefix_id = '<%- config.urls.prefix_id %>' || '/';
+            var regexpId  = new RegExp(prefix_id + '([0-9]{1,7})', 'ig');
+            var execId    = regexpId.exec(id.value);
+            id_kp     = (execId) ? parseInt(execId[1]) : 0;
+
+            kp_id = parseInt(id_kp) - parseInt(<%- config.urls.unique_id %>);
+        }
+        else if (id.value.indexOf('kinopoisk.ru')+1) {
+            id_kp = /(film\/|movie\/)([0-9]{1,7})/gi.exec(id.value);
+            kp_id = (id_kp) ? parseInt(id_kp[2]) : 0;
+        }
+
+        if (kp_id) {
+            var addPoster = document.querySelector('ul[data-add-name="' + self.dataset.addName + '"]');
+            var addList = document.querySelector('textarea[name="' + self.dataset.addName + '"]');
+            var ids = addList.value.split(',');
+            ids = (ids.length && ids[0]) ? ids.map(function (id) {return parseInt(id)}) : [];
+            if (!(ids.indexOf(kp_id)+1)) {
+                ids.unshift(kp_id);
+                addList.value = ids.join(',');
+                addPoster.innerHTML = '<li data-delete-id="' + kp_id + '" data-delete-name="' + self.dataset.addName + '"><img class="media-object" src="https://st.kp.yandex.net/images/sm_film/' + kp_id + '.jpg" alt="ID: ' + kp_id + '" title="ID: ' + kp_id + '"></li>' + addPoster.innerHTML;
+                var delId = document.querySelectorAll('li[data-delete-name]');
+                if (delId)
+                    for (var i = 0; i < delId.length; i++)
+                        delId[i].addEventListener('click', delIdList);
+            }
+        }
+
+        id.value = '';
+    }
+
     function saveData() {
 
         var configs = document.querySelectorAll('input[name],select[name],textarea[name]');
@@ -239,7 +304,8 @@
                         configs[i].name == 'modules.abuse.data.imap.password' ||
                         configs[i].name == 'modules.abuse.data.imap.host' ||
                         configs[i].name == 'modules.abuse.data.imap.port' ||
-                        configs[i].name == 'modules.episode.data.translate'
+                        configs[i].name == 'modules.episode.data.translate' ||
+                        configs[i].name == 'modules.slider.data.movies'
                 ) { console.log('Empty modules.'); }
                 else {
                     continue;

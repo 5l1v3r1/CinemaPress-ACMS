@@ -81,7 +81,7 @@
                         <div class="col-sm-9">
                             <div class="input-group">
                                 <span class="input-group-addon text-muted"><%- config.domain + '/' + modules.collections.data.url %>/</span>
-                                <input class="form-control input_url" <% if (collection.url && collection.url == 'choice') { %>disabled="disabled"<% } %> name="collection.url" value="<% if (collection.url) { %><%- collection.url %><% } %>" placeholder="Уникальное имя для URL" type="text">
+                                <input class="form-control input_url" <% if (collection.url && collection.url == 'choice') { %>disabled="disabled" style="background-color: #272F38;" <% } %> name="collection.url" value="<% if (collection.url) { %><%- collection.url %><% } %>" placeholder="Уникальное имя для URL" type="text">
                             </div>
                         </div>
                     </div>
@@ -139,27 +139,55 @@
                     <div class="spacer-10"></div>
 
                     <div class="row">
-                        <div class="col-sm-3">
-                            <label>ID фильмов</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <textarea class="form-control input_ids" name="collection.movies" placeholder="ID КиноПоиск фильмов"><% if (collection.movies) { %><%- collection.movies.join(',') %><% } %></textarea>
-                        </div>
-                    </div>
-
-                    <div class="row">
                         <div class="col-sm-12">
-                            <div class="sidebar-module">
+
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="ID КиноПоиск фильма или ссылка на фильм" data-add-id="collection.movies">
+                                <span class="input-group-btn">
+                                    <a href="javascript:void(0)" class="btn btn-default" data-add-name="collection.movies">
+                                        <span class="fa fa-plus"></span> Добавить фильм
+                                    </a>
+                                </span>
+                            </div>
+
+                            <div class="spacer-10"></div>
+
+                            <div class="advanced-textarea">
+
                                 <div class="thumbs-list thumbs-small">
-                                    <ul>
+                                    <ul data-add-name="collection.movies">
                                         <% if (collection.movies) { %>
-                                            <% collection.movies.forEach(function (id) { %>
-                                            <li>
-                                                <img style="width: 60px; height: 90px;" class="media-object" src="https://st.kp.yandex.net/images/sm_film/<%- id %>.jpg" alt="<%- id %>" title="<%- id %>">
-                                            </li>
-                                            <% }); %>
+                                        <% collection.movies.forEach(function (id) { %>
+                                        <li data-delete-id="<%- id %>" data-delete-name="collection.movies">
+                                            <img class="media-object" src="https://st.kp.yandex.net/images/sm_film/<%- id %>.jpg" alt="ID: <%- id %>" title="ID: <%- id %>">
+                                        </li>
+                                        <% }); %>
                                         <% } %>
                                     </ul>
+                                </div>
+
+                                <div style="display: none" id="collection_ids">
+
+                                    <div class="spacer-10"></div>
+
+                                    <div class="text-muted">
+                                        Фильмы:
+                                    </div>
+
+                                    <div class="spacer-10"></div>
+
+                                    <textarea class="form-control input_ids" name="collection.movies" placeholder="ID КиноПоиск фильмов"><% if (collection.movies) { %><%- collection.movies.join(',') %><% } %></textarea>
+
+                                </div>
+
+                                <div class="spacer-10"></div>
+
+                                <div class="advanced-textarea-footer">
+                                    <div class="pull-right">
+                                        <a href="javascript:void(0)" onclick="document.querySelector('#collection_ids').style.display = 'block'" class="btn btn-default">
+                                            Редактировать список ID
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

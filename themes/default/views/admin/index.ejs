@@ -615,11 +615,57 @@
 
                                     <div class="spacer-10"></div>
 
-                                    <div class="col-sm-2">
-                                        <label>Фильмы с ID</label>
-                                    </div>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="config.index.ids.keys" value="<%- config.index.ids.keys %>" class="form-control">
+                                    <div class="col-sm-12">
+
+                                        <div class="input-group">
+                                            <input class="form-control" type="text" placeholder="ID КиноПоиск фильма или ссылка на фильм" data-add-id="config.index.ids.keys">
+                                            <span class="input-group-btn">
+                                                <a href="javascript:void(0)" class="btn btn-default" data-add-name="config.index.ids.keys">
+                                                    <span class="fa fa-plus"></span> Добавить фильм
+                                                </a>
+                                            </span>
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <div class="advanced-textarea">
+
+                                            <div class="thumbs-list thumbs-small">
+                                                <ul data-add-name="config.index.ids.keys">
+                                                    <% if (config.index.ids.keys) { %>
+                                                    <% config.index.ids.keys.split(',').forEach(function (id) { %>
+                                                    <li data-delete-id="<%- id %>" data-delete-name="config.index.ids.keys">
+                                                        <img class="media-object" src="https://st.kp.yandex.net/images/sm_film/<%- id %>.jpg" alt="ID: <%- id %>" title="ID: <%- id %>">
+                                                    </li>
+                                                    <% }); %>
+                                                    <% } %>
+                                                </ul>
+                                            </div>
+
+                                            <div style="display: none" id="index_ids">
+
+                                                <div class="spacer-10"></div>
+
+                                                <div class="text-muted">
+                                                    Фильмы:
+                                                </div>
+
+                                                <div class="spacer-10"></div>
+
+                                                <textarea class="form-control input_ids" name="config.index.ids.keys" placeholder="ID КиноПоиск фильмов"><%- config.index.ids.keys %></textarea>
+
+                                            </div>
+
+                                            <div class="spacer-10"></div>
+
+                                            <div class="advanced-textarea-footer">
+                                                <div class="pull-right">
+                                                    <a href="javascript:void(0)" onclick="document.querySelector('#index_ids').style.display = 'block'" class="btn btn-default">
+                                                        Редактировать список ID
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -655,7 +701,7 @@
                                     </div>
 
                                     <div class="col-sm-10">
-                                        <input type="text" value="Укажите через запятую URL-ключи коллекций с которых брать крайние фильмы" class="form-control" disabled="disabled">
+                                        <input type="text" value="Укажите через запятую URL-ключи коллекций с которых брать первые фильмы" class="form-control" disabled="disabled" style="background-color: #272F38;">
                                     </div>
 
                                     <div class="spacer-10"></div>

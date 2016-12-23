@@ -267,6 +267,14 @@
 
                                             <input type="text" class="form-control" name="movie.actor" placeholder="Новый список актеров" style="font-weight: normal; font-size: 14px;">
 
+                                            <div class="text-muted">
+                                                URL кадра <% if (movie.picture) { %>(<%- movie.picture %>)<% } %>:
+                                            </div>
+
+                                            <div class="spacer-10"></div>
+
+                                            <input type="text" class="form-control" name="movie.picture" placeholder="URL кадра из фильма (для слайдера)" style="font-weight: normal; font-size: 14px;">
+
                                         </div>
 
                                         <div class="helper-text-box">

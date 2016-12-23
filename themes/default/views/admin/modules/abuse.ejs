@@ -183,28 +183,63 @@
                     <div class="spacer-20"></div>
 
                     <div class="row">
-                        <div class="col-sm-3">
-                            <label>Фильмы</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <textarea class="form-control input_ids" name="modules.abuse.data.movies" placeholder="ID КиноПоиск фильмов"><% if (modules.abuse.data.movies) { %><%- modules.abuse.data.movies.join(',') %><% } %></textarea>
-                            <div class="helper-text-box">
-                                <div class="form-helper-header">ID фильмов для скрытия</div>
-                                <p>
-                                    Укажите через запятую ID КиноПоиск фильмов на которые поступили жалобы от правообладателей и требуется скрыть возможность смотреть онлайн и скачивать.
-                                </p>
-                            </div>
-                        </div>
                         <div class="col-sm-12">
-                            <div class="sidebar-module">
+                            <textarea class="form-control" name="modules.abuse.data.message" placeholder="Сообщение для пользователя."><% if (modules.abuse.data.message) { %><%- modules.abuse.data.message %><% } %></textarea>
+                        </div>
+                    </div>
+
+                    <div class="spacer-10"></div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="ID КиноПоиск фильма или ссылка на фильм" data-add-id="modules.abuse.data.movies">
+                                <span class="input-group-btn">
+                                    <a href="javascript:void(0)" class="btn btn-default" data-add-name="modules.abuse.data.movies">
+                                        <span class="fa fa-plus"></span> Добавить фильм
+                                    </a>
+                                </span>
+                            </div>
+
+                            <div class="spacer-10"></div>
+
+                            <div class="advanced-textarea">
+
                                 <div class="thumbs-list thumbs-small">
-                                    <ul>
+                                    <ul data-add-name="modules.abuse.data.movies">
+                                        <% if (modules.abuse.data.movies) { %>
                                         <% modules.abuse.data.movies.forEach(function (id) { %>
-                                        <li>
-                                            <img style="width: 60px; height: 90px;" class="media-object" src="https://st.kp.yandex.net/images/sm_film/<%- id %>.jpg" alt="Poster">
+                                        <li data-delete-id="<%- id %>" data-delete-name="modules.abuse.data.movies">
+                                            <img class="media-object" src="https://st.kp.yandex.net/images/sm_film/<%- id %>.jpg" alt="ID: <%- id %>" title="ID: <%- id %>">
                                         </li>
                                         <% }); %>
+                                        <% } %>
                                     </ul>
+                                </div>
+
+                                <div style="display: none" id="abuse_ids">
+
+                                    <div class="spacer-10"></div>
+
+                                    <div class="text-muted">
+                                        Фильмы:
+                                    </div>
+
+                                    <div class="spacer-10"></div>
+
+                                    <textarea class="form-control input_ids" name="modules.abuse.data.movies" placeholder="ID КиноПоиск фильмов"><% if (modules.abuse.data.movies) { %><%- modules.abuse.data.movies.join(',') %><% } %></textarea>
+
+                                </div>
+
+                                <div class="spacer-10"></div>
+
+                                <div class="advanced-textarea-footer">
+                                    <div class="pull-right">
+                                        <a href="javascript:void(0)" onclick="document.querySelector('#abuse_ids').style.display = 'block'" class="btn btn-default">
+                                            Редактировать список ID
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

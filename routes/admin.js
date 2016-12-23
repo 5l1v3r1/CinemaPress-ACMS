@@ -550,7 +550,7 @@ router.post('/change', function(req, res) {
 
             if (configs.modules.collections.data.collections.choice) {
                 change.modules = true;
-                configs.modules.collections.data.collections.choice.movies.push(id);
+                configs.modules.collections.data.collections.choice.movies.unshift(id);
                 while (configs.modules.collections.data.collections.choice.movies.indexOf(id) !== -1)
                     configs.modules.collections.data.collections.choice.movies.splice(configs.modules.collections.data.collections.choice.movies.indexOf(id), 1);
             }
@@ -568,7 +568,7 @@ router.post('/change', function(req, res) {
                     if (configs.modules.collections.data.collections.choice.movies.length > 500) {
                         configs.modules.collections.data.collections.choice.movies.shift();
                     }
-                    configs.modules.collections.data.collections.choice.movies.push(id);
+                    configs.modules.collections.data.collections.choice.movies.unshift(id);
                 }
             }
         }

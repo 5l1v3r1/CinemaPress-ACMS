@@ -17,8 +17,8 @@ module.exports = {
         "addr": "127.0.0.1:3000"
     },
     "publish": {
-        "start": 335,
-        "stop": 355,
+        "start": 400000,
+        "stop": 700000,
         "every" : {
             "hours": 1,
             "movies": 2
@@ -48,19 +48,19 @@ module.exports = {
     "codes": {
         "head": "",
         "footer": "",
-        "robots": "User-agent: *\nAllow: /\nDisallow: /type/*/*\nDisallow: /movie/*/*\nDisallow: /year/*/*\nDisallow: /genre/*/*\nDisallow: /country/*/*\nDisallow: /director/*/*\nDisallow: /actor/*/*\nDisallow: /search\nDisallow: /*?sorting*"
+        "robots": "User-agent: *\nDisallow: /\nDisallow: /type/*/*\nDisallow: /movie/*/*\nDisallow: /year/*/*\nDisallow: /genre/*/*\nDisallow: /country/*/*\nDisallow: /director/*/*\nDisallow: /actor/*/*\nDisallow: /search\nDisallow: /*?sorting*"
     },
     "index": {
         "type": {
             "name": "Лучшие [type] онлайн",
             "keys": "фильмы",
-            "sorting": "kinopoisk-vote-up",
+            "sorting": "kinopoisk-rating-up",
             "count": 10,
             "order": 1
         },
         "year": {
             "name": "Фильмы [year] года",
-            "keys": "2000",
+            "keys": "2016",
             "sorting": "kinopoisk-vote-up",
             "count": 10,
             "order": 2
@@ -68,34 +68,34 @@ module.exports = {
         "genre": {
             "name": "Фильмы в жанре [genre]",
             "keys": "комедия,ужасы",
-            "sorting": "kinopoisk-vote-up",
+            "sorting": "imdb-vote-up",
             "count": 10,
             "order": 3
         },
         "country": {
             "name": "Фильмы из страны [country]",
             "keys": "США",
-            "sorting": "kinopoisk-vote-up",
+            "sorting": "imdb-rating-up",
             "count": 10,
             "order": 4
         },
         "actor": {
             "name": "Лучшие фильмы [actor]",
-            "keys": "Киану Ривз",
+            "keys": "",
             "sorting": "kinopoisk-vote-up",
             "count": 10,
             "order": 5
         },
         "director": {
             "name": "Лучшие фильмы [director]",
-            "keys": "Дэвид Финчер",
+            "keys": "",
             "sorting": "kinopoisk-vote-up",
             "count": 10,
             "order": 6
         },
         "ids": {
             "name": "Новые фильмы онлайн",
-            "keys": "335,336,337,338,339",
+            "keys": "277328,770631,822708,814016,786958,841152,807318,797840,394619,918087",
             "order": 7
         },
         "collections": {
