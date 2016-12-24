@@ -66,9 +66,8 @@
                                 </label>
                             </div>
                             <div class="helper-text-box">
-                                <div class="form-helper-header">Протокол сайта</div>
                                 <p>
-                                    Укажите какой протокол сайта является приоритетным.
+                                    Укажите, какой протокол сайта является приоритетным.
                                 </p>
                             </div>
                         </div>
@@ -81,15 +80,11 @@
                             <label>Домен</label>
                         </div>
                         <div class="col-sm-9">
-                            <input name="config.domain" value="<%- config.domain %>" class="form-control input_url" type="text">
+                            <input name="config.domain" value="<%- config.domain %>" class="form-control input_url" type="text" disabled="disabled" style="background-color: #272F38;">
                             <div class="helper-text-box">
-                                <div class="form-helper-header">Доменное имя сайта</div>
                                 <p>
-                                    Используйте только латинские символы, цифры, тире и точку.
+                                    База фильмов закрепляется за этим доменным именем.
                                 </p>
-                                <div class="section-helper-footer">
-                                    Например: <code>domain.com</code> <code>my-kino.ru</code> <code>movie.net</code>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -103,7 +98,6 @@
                         <div class="col-sm-9">
                             <input name="config.email" value="<%- config.email %>" class="form-control" type="text">
                             <div class="helper-text-box">
-                                <div class="form-helper-header">Почта для связи</div>
                                 <p>
                                     Этот электронный адрес будет использоваться на сайте для связи с администратором.
                                 </p>
@@ -120,9 +114,8 @@
                         <div class="col-sm-9">
                             <input name="config.theme" value="<%- config.theme %>" class="form-control input_url" type="text">
                             <div class="helper-text-box">
-                                <div class="form-helper-header">Шаблон оформления сайта</div>
                                 <p>
-                                    Введите название темы оформления, папка с одноименным названием должна лежать в папке <code>/themes</code>
+                                    Введите название темы оформления, папка с таким названием должна лежать в <code>/themes</code>
                                 </p>
                             </div>
                         </div>
