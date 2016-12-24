@@ -41,6 +41,10 @@
         if (image)
             image.addEventListener('click', imageData);
 
+        var database = document.querySelector('#database');
+        if (database)
+            database.addEventListener('click', databaseData);
+
         var del = document.querySelectorAll('.del');
         if (del)
             for (i = 0; i < del.length; i++)
@@ -135,12 +139,40 @@
             "image": true
         };
 
-        sendServer(data, function (err, result) {
+        sendServer(data, true, function (err, result) {
             if (err) {
                 self.innerHTML = '<span class="fa fa-bug"></span>&nbsp;' + err;
             }
             else {
                 self.innerHTML ='<span class="fa fa-picture-o"></span>&nbsp;Картинки&nbsp;загружены';
+            }
+        });
+
+    }
+
+    function databaseData() {
+
+        var key = document.querySelector('#key');
+
+        if (!key || !key.value) return;
+
+        var self = this;
+        self.removeEventListener('click', databaseData);
+        self.innerHTML = '<span class="fa fa-spinner fa-spin"></span>&nbsp;Загружаются&nbsp;(около&nbsp;10&nbsp;минут)';
+
+        var data = {
+            "database": key.value
+        };
+
+        sendServer(data, true, function (err, result) {
+            if (err) {
+                self.innerHTML = '<span class="fa fa-bug"></span>&nbsp;' + err;
+            }
+            else {
+                self.innerHTML ='<span class="fa fa-picture-o"></span>&nbsp;Фильмы&nbsp;загружены';
+                setTimeout(function() {
+                    window.location.reload();
+                }, 5000);
             }
         });
 
@@ -387,7 +419,12 @@
 
     }
 
-    function sendServer(data, callback) {
+    function sendServer(data, long, callback) {
+
+        if (arguments.length == 2) {
+            callback = long;
+            long = false;
+        }
 
         setTimeout(minTimeout, 1000);
 
@@ -410,16 +447,18 @@
             };
             xhr.send(JSON.stringify(data));
 
-            setTimeout(function () {
-                if (state == 4 && status != 200) {
-                    console.log('Site error:', status, result);
-                    return callback('Ошибка&nbsp;сайта');
-                }
-                else if (state != 4) {
-                    console.log('Server error:', status, result);
-                    return callback('Ошибка&nbsp;сервера');
-                }
-            }, 7000);
+            if (!long) {
+                setTimeout(function () {
+                    if (state == 4 && status != 200) {
+                        console.log('Site error:', status, result);
+                        return callback('Ошибка&nbsp;сайта');
+                    }
+                    else if (state != 4) {
+                        console.log('Server error:', status, result);
+                        return callback('Ошибка&nbsp;сервера');
+                    }
+                }, 7000);
+            }
 
         }
 

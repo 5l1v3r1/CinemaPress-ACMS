@@ -416,6 +416,16 @@ router.post('/change', function(req, res) {
         });
 
     }
+    else if (form.database) {
+
+        exec('/home/' + config.domain + '/config/i 4 ' + config.domain + ' ' + form.database + ' Yes', function (err, out, stderr) {
+            console.log('Type:', 'database', 'Error:', err);
+            return (err)
+                ? res.status(404).send(err)
+                : res.send('Database.')
+        });
+
+    }
     else if (change.config || change.modules || change.texts) {
 
         async.series({

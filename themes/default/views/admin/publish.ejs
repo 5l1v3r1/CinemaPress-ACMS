@@ -64,6 +64,30 @@
                         <span><strong><%- counts.publish %></strong>/<%- counts.all %></span>
                     </div>
 
+                    <% if (counts.all <= 500) { %>
+
+                    <div class="spacer-10"></div>
+
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <a href="https://cinemapress.org/#database" target="_blank" class="btn btn-block btn-success">
+                                <span class="fa fa-shopping-cart"></span> Купить ключ
+                            </a>
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-xs-12">
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="Ключ базы 600 000 фильмов" id="key">
+                                <span class="input-group-btn">
+                                    <a href="javascript:void(0)" class="btn btn-success" id="database">
+                                        <span class="fa fa-plus"></span> Добавить фильмы
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% } %>
+
                     <div class="spacer-10"></div>
                     <hr>
                     <div class="spacer-20"></div>
@@ -133,7 +157,7 @@
                                                 <% soon_id.forEach(function (id) { %>
                                                 <a href="/<%- config.urls.admin %>/movies?movie=<%- id %>" target="_blank">
                                                     <li style="background: none !important;">
-                                                        <img style="width: 60px; height: 90px;" class="media-object" src="https://st.kp.yandex.net/images/sm_film/<%- id %>.jpg" alt="Poster">
+                                                        <img class="media-object" src="https://st.kp.yandex.net/images/sm_film/<%- id %>.jpg" alt="Poster">
                                                     </li>
                                                 </a>
                                                 <% }); %>
