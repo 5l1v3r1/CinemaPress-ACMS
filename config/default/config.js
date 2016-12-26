@@ -25,7 +25,8 @@ module.exports = {
         },
         "text": 0,
         "required": [
-            "title_ru"
+            "title_ru",
+            "poster"
         ],
         "thematic": {
             "type": "",
