@@ -65,9 +65,7 @@ router.get('/:type?', function(req, res) {
         case 'movies':
             render.title = 'Фильмы';
             getMovie(function (err, render) {
-                return (err)
-                    ? res.send(err)
-                    : res.render('admin/movies', render)
+                res.render('admin/movies', render);
             });
             break;
         case 'main':
@@ -105,23 +103,20 @@ router.get('/:type?', function(req, res) {
         case 'publish':
             render.title = 'Публикация';
             getCountMovies(function (err, render) {
-                if (err) return res.send(err);
                 CP_get.publishIds(function (err, ids) {
-                    if (err) return res.send(err);
+                    if (err) console.log(err);
                     render.soon_id = (ids && ids.soon_id) ? ids.soon_id : [];
                     render.soon_id = render.soon_id.filter(function(id) {
                         return texts.ids.indexOf(id) < 0;
                     });
-                    return res.render('admin/publish', render);
+                    res.render('admin/publish', render);
                 });
             });
             break;
         case 'collections':
             render.title = 'Коллекции';
             getCollection(function (err, render) {
-                return (err)
-                    ? res.send(err)
-                    : res.render('admin/modules/collections', render)
+                res.render('admin/modules/collections', render);
             });
             break;
         case 'comments':
@@ -183,9 +178,7 @@ router.get('/:type?', function(req, res) {
         default:
             render.title = 'Панель администратора';
             getCountMovies(function (err, render) {
-                return (err)
-                    ? res.send(err)
-                    : res.render('admin/admin', render)
+                res.render('admin/admin', render);
             });
             break;
     }
@@ -204,7 +197,9 @@ router.get('/:type?', function(req, res) {
         if (kp_id) {
             kp_id = parseInt(kp_id);
             CP_get.movies({"query_id": kp_id, "certainly": true}, function (err, movies) {
-                if (err) return callback(err);
+                if (err) {
+                    console.log(err);
+                }
 
                 render.movie = {};
                 render.movie.kp_id = kp_id;
@@ -284,7 +279,10 @@ router.get('/:type?', function(req, res) {
             },
             function(err, result) {
 
-                if (err) return callback(err);
+                if (err) {
+                    console.log(err);
+                    result = {"all": 0, "publish": 0};
+                }
 
                 render.counts = result;
                 render.counts.percent = Math.round((100 * result.publish) / result.all);
