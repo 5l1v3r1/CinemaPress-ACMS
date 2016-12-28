@@ -27,7 +27,7 @@
                 <div class="inner-padding">
                     <div class="pull-left">
                         <h2>
-                            Главная страница
+                            <%- title %>
                         </h2>
                     </div>
                 </div>
@@ -42,6 +42,9 @@
                         <a href="/<%- config.urls.admin %>/index" class="btn">
                             Главная страница сайта
                         </a>
+                        <a href="https://CinemaPress.org/admin/index.html" class="btn" title="Информация о параметрах для главной страницы сайта" target="_blank">
+                            <i class="fa fa-info-circle text-muted"></i>
+                        </a>
                     </div>
                     <div class="pull-right">
                         <a href="javascript:void(0)" class="btn" data-toggle-sidebar="right">
@@ -52,689 +55,704 @@
 
                 <div class="inner-padding">
 
-                    <% if (config.titles) { %>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label"><i class="fa fa-header"></i>&nbsp;&nbsp;&nbsp;Название и описание сайта</div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/index.html#titles" class="csstip" title="Написание текста для названия и описания на главной странице сайта" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <% if (config.titles) { %>
+                                    <div class="faq">
+                                        <article class="faq-group">
+                                            <header>
+                                                <i class="fa fa-minus"></i>
+                                                <h3>Название сайта</h3>
+                                            </header>
+                                            <div class="faq-content clearfix">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="advanced-textarea">
+                                                            <div class="text-muted">
+                                                                Главная страница <a href="<%- config.protocol %><%- config.domain %>" style="text-decoration:none;" target="_blank"><span class="fa fa-external-link-square"></span></a> :
+                                                            </div>
 
-                    <div class="faq">
+                                                            <div class="spacer-10"></div>
 
-                        <article class="faq-group">
-                            <header>
-                                <i class="fa fa-minus"></i>
-                                <h3>Название сайта</h3>
-                            </header>
-                            <div class="faq-content clearfix">
-
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="advanced-textarea">
-                                            <div class="text-muted">
-                                                Главная страница <a href="<%- config.protocol %><%- config.domain %>" style="text-decoration:none;" target="_blank"><span class="fa fa-external-link-square"></span></a> :
-                                            </div>
-
-                                            <div class="spacer-10"></div>
-
-                                            <textarea class="form-control titles" name="config.titles.index"><%- config.titles.index %></textarea>
-                                            <div class="advanced-textarea-footer">
-                                                <div class="pull-left">
-                                                    <div class="text text-muted"><span id="config.titles.index">0</span> символа(-ов)</div>
+                                                            <textarea class="form-control titles" name="config.titles.index"><%- config.titles.index %></textarea>
+                                                            <div class="advanced-textarea-footer">
+                                                                <div class="pull-left">
+                                                                    <div class="text text-muted"><span id="config.titles.index">0</span> символа(-ов)</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
+                                        </article>
+                                        <article class="faq-group">
+                                            <header>
+                                                <i class="fa fa-minus"></i>
+                                                <h3>Описание сайта</h3>
+                                            </header>
+                                            <div class="faq-content clearfix">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="advanced-textarea">
+                                                            <div class="text-muted">
+                                                                Главная страница <a href="<%- config.protocol %><%- config.domain %>" style="text-decoration:none;" target="_blank"><span class="fa fa-external-link-square"></span></a> :
+                                                            </div>
+
+                                                            <div class="spacer-10"></div>
+
+                                                            <textarea class="form-control descriptions" name="config.descriptions.index"><%- config.descriptions.index %></textarea>
+                                                            <div class="advanced-textarea-footer">
+                                                                <div class="pull-left">
+                                                                    <div class="text text-muted"><span id="config.descriptions.index">0</span> символа(-ов)</div>
+                                                                </div>
+                                                                <div class="pull-right">
+                                                                    <a href="javascript:void(0)" data-name="config.descriptions.index" data-code="&#13;&#10;<img src=&quot;ссылка_изображение&quot; alt=&quot;Фильмы&quot; style=&quot;float:left;width:250px;margin:20px 20px 20px 0;&quot;>&#13;&#10;" class="btn btn-default codes">
+                                                                        <i class="fa fa-picture-o"></i>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.type.order %>. Типы: <%- config.index.type.keys %>
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/index.html#type" class="csstip" title="Блок на главной странице сайта в котором фильмы из определенных типов: <%- config.urls.types.movie %>, <%- config.urls.types.serial %>, <%- config.urls.types.mult %>, <%- config.urls.types.anime %> или <%- config.urls.types.tv %>." target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <select name="config.index.type.order" class="form-control">
+                                                <% for (var i = 1; i <= 10; i++) { %>
+                                                <% if (config.index.type.order == i) { %>
+                                                <option value="<%- i %>" selected="selected">
+                                                    <%- i %>-й
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- i %>">
+                                                    <%- i %>-й
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
                                         </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </article>
-
-                        <article class="faq-group">
-                            <header>
-                                <i class="fa fa-minus"></i>
-                                <h3>Описание сайта</h3>
-                            </header>
-                            <div class="faq-content clearfix">
-
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="advanced-textarea">
-                                            <div class="text-muted">
-                                                Главная страница <a href="<%- config.protocol %><%- config.domain %>" style="text-decoration:none;" target="_blank"><span class="fa fa-external-link-square"></span></a> :
-                                            </div>
-
-                                            <div class="spacer-10"></div>
-
-                                            <textarea class="form-control descriptions" name="config.descriptions.index"><%- config.descriptions.index %></textarea>
-                                            <div class="advanced-textarea-footer">
-                                                <div class="pull-left">
-                                                    <div class="text text-muted"><span id="config.descriptions.index">0</span> символа(-ов)</div>
-                                                </div>
-                                                <div class="pull-right">
-                                                    <a href="javascript:void(0)" data-name="config.descriptions.index" data-code="&#13;&#10;<img src=&quot;ссылка_изображение&quot; alt=&quot;Фильмы&quot; style=&quot;float:left;width:250px;margin:20px 20px 20px 0;&quot;>&#13;&#10;" class="btn btn-default codes">
-                                                        <i class="fa fa-picture-o"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="config.index.type.name" value="<%= config.index.type.name %>" class="form-control">
                                         </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </article>
-
-                    </div>
-
-                    <div class="spacer-10"></div>
-
-                    <% } %>
-
-                    <div class="subheading">
-                        <h3>Фильмы для главной</h3>
-                        <p>Укажите категории, сортировку и число фильмов, которые Вы хотите видеть на главной странице. Также Вы можете менять порядок, к примеру поставить вначале вывод 20 фильмов из жанра комедия, а затем 15 фильмов из 2016 года. Все категории указываются через запятую. Чтобы показывало фильмы из жанра комедия и при этом не показывались фильмы из жанра боевик и биография, то указывать нужно так: «комедия !боевик !биография». Таким образом можно создать совершенно уникальную главную страницу, которая будет ежедневно обновляться, добавляя новые фильмы.</p>
-                    </div>
-
-                    <div class="faq">
-
-                        <article class="faq-group">
-                            <header>
-                                <i class="fa fa-minus"></i>
-                                <h3>
-                                    <%- config.index.type.order %>. Типы: <%- config.index.type.keys %>
-                                </h3>
-                            </header>
-                            <div class="faq-content clearfix">
-
-                                <div class="row">
-
-                                    <div class="col-sm-2">
-                                        <select name="config.index.type.order" class="form-control">
-                                            <% for (var i = 1; i <= 10; i++) { %>
-                                            <% if (config.index.type.order == i) { %>
-                                            <option value="<%- i %>" selected="selected">
-                                                <%- i %>-й
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- i %>">
-                                                <%- i %>-й
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-sm-6">
-                                        <input type="text" name="config.index.type.name" value="<%= config.index.type.name %>" class="form-control">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <select name="config.index.type.sorting" class="form-control">
-                                            <% for (name in config.sorting) { %>
-                                            <% if (config.index.type.sorting == name) { %>
-                                            <option value="<%- name %>" selected="selected">
-                                                <%- config.sorting[name] %>
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- name %>">
-                                                <%- config.sorting[name] %>
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-
-                                    <div class="spacer-10"></div>
-
-                                    <div class="col-sm-3">
-                                        <select name="config.index.type.count" class="form-control">
-                                            <% for (var i = 1; i <= 20; i++) { %>
-                                            <% if (config.index.type.count == i) { %>
-                                            <option value="<%- i %>" selected="selected">
-                                                <%- i %> фильма(-ов)
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- i %>">
-                                                <%- i %> фильма(-ов)
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>из типа(-ов)</label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="config.index.type.keys" value="<%- config.index.type.keys %>" class="form-control">
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </article>
-
-                        <article class="faq-group">
-                            <header>
-                                <i class="fa fa-minus"></i>
-                                <h3>
-                                    <%- config.index.year.order %>. Годы: <%- config.index.year.keys %>
-                                </h3>
-                            </header>
-                            <div class="faq-content clearfix">
-
-                                <div class="row">
-
-                                    <div class="col-sm-2">
-                                        <select name="config.index.year.order" class="form-control">
-                                            <% for (var i = 1; i <= 10; i++) { %>
-                                            <% if (config.index.year.order == i) { %>
-                                            <option value="<%- i %>" selected="selected">
-                                                <%- i %>-й
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- i %>">
-                                                <%- i %>-й
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-sm-6">
-                                        <input type="text" name="config.index.year.name" value="<%= config.index.year.name %>" class="form-control">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <select name="config.index.year.sorting" class="form-control">
-                                            <% for (name in config.sorting) { %>
-                                            <% if (config.index.year.sorting == name) { %>
-                                            <option value="<%- name %>" selected="selected">
-                                                <%- config.sorting[name] %>
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- name %>">
-                                                <%- config.sorting[name] %>
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-
-                                    <div class="spacer-10"></div>
-
-                                    <div class="col-sm-3">
-                                        <select name="config.index.year.count" class="form-control">
-                                            <% for (var i = 1; i <= 20; i++) { %>
-                                            <% if (config.index.year.count == i) { %>
-                                            <option value="<%- i %>" selected="selected">
-                                                <%- i %> фильма(-ов)
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- i %>">
-                                                <%- i %> фильма(-ов)
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>из года(-ов)</label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="config.index.year.keys" value="<%- config.index.year.keys %>" class="form-control">
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </article>
-
-                        <article class="faq-group">
-                            <header>
-                                <i class="fa fa-minus"></i>
-                                <h3>
-                                    <%- config.index.genre.order %>. Жанры: <%- config.index.genre.keys %>
-                                </h3>
-                            </header>
-                            <div class="faq-content clearfix">
-
-                                <div class="row">
-
-                                    <div class="col-sm-2">
-                                        <select name="config.index.genre.order" class="form-control">
-                                            <% for (var i = 1; i <= 10; i++) { %>
-                                            <% if (config.index.genre.order == i) { %>
-                                            <option value="<%- i %>" selected="selected">
-                                                <%- i %>-й
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- i %>">
-                                                <%- i %>-й
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-sm-6">
-                                        <input type="text" name="config.index.genre.name" value="<%= config.index.genre.name %>" class="form-control">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <select name="config.index.genre.sorting" class="form-control">
-                                            <% for (name in config.sorting) { %>
-                                            <% if (config.index.genre.sorting == name) { %>
-                                            <option value="<%- name %>" selected="selected">
-                                                <%- config.sorting[name] %>
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- name %>">
-                                                <%- config.sorting[name] %>
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-
-                                    <div class="spacer-10"></div>
-
-                                    <div class="col-sm-3">
-                                        <select name="config.index.genre.count" class="form-control">
-                                            <% for (var i = 1; i <= 20; i++) { %>
-                                            <% if (config.index.genre.count == i) { %>
-                                            <option value="<%- i %>" selected="selected">
-                                                <%- i %> фильма(-ов)
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- i %>">
-                                                <%- i %> фильма(-ов)
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>из жанра(-ов)</label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="config.index.genre.keys" value="<%- config.index.genre.keys %>" class="form-control">
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </article>
-
-                        <article class="faq-group">
-                            <header>
-                                <i class="fa fa-minus"></i>
-                                <h3>
-                                    <%- config.index.country.order %>. Страны: <%- config.index.country.keys %>
-                                </h3>
-                            </header>
-                            <div class="faq-content clearfix">
-
-                                <div class="row">
-
-                                    <div class="col-sm-2">
-                                        <select name="config.index.country.order" class="form-control">
-                                            <% for (var i = 1; i <= 10; i++) { %>
-                                            <% if (config.index.country.order == i) { %>
-                                            <option value="<%- i %>" selected="selected">
-                                                <%- i %>-й
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- i %>">
-                                                <%- i %>-й
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-sm-6">
-                                        <input type="text" name="config.index.country.name" value="<%= config.index.country.name %>" class="form-control">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <select name="config.index.country.sorting" class="form-control">
-                                            <% for (name in config.sorting) { %>
-                                            <% if (config.index.country.sorting == name) { %>
-                                            <option value="<%- name %>" selected="selected">
-                                                <%- config.sorting[name] %>
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- name %>">
-                                                <%- config.sorting[name] %>
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-
-                                    <div class="spacer-10"></div>
-
-                                    <div class="col-sm-3">
-                                        <select name="config.index.country.count" class="form-control">
-                                            <% for (var i = 1; i <= 20; i++) { %>
-                                            <% if (config.index.country.count == i) { %>
-                                            <option value="<%- i %>" selected="selected">
-                                                <%- i %> фильма(-ов)
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- i %>">
-                                                <%- i %> фильма(-ов)
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>из стран(-ы)</label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="config.index.country.keys" value="<%- config.index.country.keys %>" class="form-control">
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </article>
-
-                        <article class="faq-group">
-                            <header>
-                                <i class="fa fa-minus"></i>
-                                <h3>
-                                    <%- config.index.actor.order %>. Актеры: <%- config.index.actor.keys %>
-                                </h3>
-                            </header>
-                            <div class="faq-content clearfix">
-
-                                <div class="row">
-
-                                    <div class="col-sm-2">
-                                        <select name="config.index.actor.order" class="form-control">
-                                            <% for (var i = 1; i <= 10; i++) { %>
-                                            <% if (config.index.actor.order == i) { %>
-                                            <option value="<%- i %>" selected="selected">
-                                                <%- i %>-й
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- i %>">
-                                                <%- i %>-й
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-sm-6">
-                                        <input type="text" name="config.index.actor.name" value="<%= config.index.actor.name %>" class="form-control">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <select name="config.index.actor.sorting" class="form-control">
-                                            <% for (name in config.sorting) { %>
-                                            <% if (config.index.actor.sorting == name) { %>
-                                            <option value="<%- name %>" selected="selected">
-                                                <%- config.sorting[name] %>
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- name %>">
-                                                <%- config.sorting[name] %>
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-
-                                    <div class="spacer-10"></div>
-
-                                    <div class="col-sm-3">
-                                        <select name="config.index.actor.count" class="form-control">
-                                            <% for (var i = 1; i <= 20; i++) { %>
-                                            <% if (config.index.actor.count == i) { %>
-                                            <option value="<%- i %>" selected="selected">
-                                                <%- i %> фильма(-ов)
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- i %>">
-                                                <%- i %> фильма(-ов)
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>с актером(-ами)</label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="config.index.actor.keys" value="<%= config.index.actor.keys %>" class="form-control">
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </article>
-
-                        <article class="faq-group">
-                            <header>
-                                <i class="fa fa-minus"></i>
-                                <h3>
-                                    <%- config.index.director.order %>. Режиссеры: <%- config.index.director.keys %>
-                                </h3>
-                            </header>
-                            <div class="faq-content clearfix">
-
-                                <div class="row">
-
-                                    <div class="col-sm-2">
-                                        <select name="config.index.director.order" class="form-control">
-                                            <% for (var i = 1; i <= 10; i++) { %>
-                                            <% if (config.index.director.order == i) { %>
-                                            <option value="<%- i %>" selected="selected">
-                                                <%- i %>-й
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- i %>">
-                                                <%- i %>-й
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-sm-6">
-                                        <input type="text" name="config.index.director.name" value="<%= config.index.director.name %>" class="form-control">
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <select name="config.index.director.sorting" class="form-control">
-                                            <% for (name in config.sorting) { %>
-                                            <% if (config.index.director.sorting == name) { %>
-                                            <option value="<%- name %>" selected="selected">
-                                                <%- config.sorting[name] %>
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- name %>">
-                                                <%- config.sorting[name] %>
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-
-                                    <div class="spacer-10"></div>
-
-                                    <div class="col-sm-3">
-                                        <select name="config.index.director.count" class="form-control">
-                                            <% for (var i = 1; i <= 20; i++) { %>
-                                            <% if (config.index.director.count == i) { %>
-                                            <option value="<%- i %>" selected="selected">
-                                                <%- i %> фильма(-ов)
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- i %>">
-                                                <%- i %> фильма(-ов)
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>с режиссером(-ами)</label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="config.index.director.keys" value="<%- config.index.director.keys %>" class="form-control">
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </article>
-
-                        <article class="faq-group">
-                            <header>
-                                <i class="fa fa-minus"></i>
-                                <h3>
-                                    <%- config.index.ids.order %>. Фильмы с ID: <%- config.index.ids.keys %>
-                                </h3>
-                            </header>
-                            <div class="faq-content clearfix">
-
-                                <div class="row">
-
-                                    <div class="col-sm-2">
-                                        <select name="config.index.ids.order" class="form-control">
-                                            <% for (var i = 1; i <= 10; i++) { %>
-                                            <% if (config.index.ids.order == i) { %>
-                                            <option value="<%- i %>" selected="selected">
-                                                <%- i %>-й
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- i %>">
-                                                <%- i %>-й
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-sm-10">
-                                        <input type="text" name="config.index.ids.name" value="<%= config.index.ids.name %>" class="form-control">
-                                    </div>
-
-                                    <div class="spacer-10"></div>
-
-                                    <div class="col-sm-12">
-
-                                        <div class="input-group">
-                                            <input class="form-control" type="text" placeholder="ID КиноПоиск фильма или ссылка на фильм" data-add-id="config.index.ids.keys">
-                                            <span class="input-group-btn">
-                                                <a href="javascript:void(0)" class="btn btn-default" data-add-name="config.index.ids.keys">
-                                                    <span class="fa fa-plus"></span> Добавить фильм
-                                                </a>
-                                            </span>
+                                        <div class="col-sm-4">
+                                            <select name="config.index.type.sorting" class="form-control">
+                                                <% for (name in config.sorting) { %>
+                                                <% if (config.index.type.sorting == name) { %>
+                                                <option value="<%- name %>" selected="selected">
+                                                    <%- config.sorting[name] %>
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- name %>">
+                                                    <%- config.sorting[name] %>
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
                                         </div>
 
                                         <div class="spacer-10"></div>
 
-                                        <div class="advanced-textarea">
+                                        <div class="col-sm-3">
+                                            <select name="config.index.type.count" class="form-control">
+                                                <% for (var i = 1; i <= 20; i++) { %>
+                                                <% if (config.index.type.count == i) { %>
+                                                <option value="<%- i %>" selected="selected">
+                                                    <%- i %> фильма(-ов)
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- i %>">
+                                                    <%- i %> фильма(-ов)
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label>из типа(-ов)</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="config.index.type.keys" value="<%- config.index.type.keys %>" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                            <div class="thumbs-list thumbs-small">
-                                                <ul data-add-name="config.index.ids.keys">
-                                                    <% if (config.index.ids.keys) { %>
-                                                    <% config.index.ids.keys.split(',').forEach(function (id) { %>
-                                                    <li data-delete-id="<%- id %>" data-delete-name="config.index.ids.keys">
-                                                        <img class="media-object" src="https://st.kp.yandex.net/images/sm_film/<%- id %>.jpg" alt="ID: <%- id %>" title="ID: <%- id %>">
-                                                    </li>
-                                                    <% }); %>
-                                                    <% } %>
-                                                </ul>
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.year.order %>. Годы: <%- config.index.year.keys %>
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/index.html#year" class="csstip" title="Блок на главной странице сайта в котором фильмы из определеных годов." target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <select name="config.index.year.order" class="form-control">
+                                                <% for (var i = 1; i <= 10; i++) { %>
+                                                <% if (config.index.year.order == i) { %>
+                                                <option value="<%- i %>" selected="selected">
+                                                    <%- i %>-й
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- i %>">
+                                                    <%- i %>-й
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="config.index.year.name" value="<%= config.index.year.name %>" class="form-control">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <select name="config.index.year.sorting" class="form-control">
+                                                <% for (name in config.sorting) { %>
+                                                <% if (config.index.year.sorting == name) { %>
+                                                <option value="<%- name %>" selected="selected">
+                                                    <%- config.sorting[name] %>
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- name %>">
+                                                    <%- config.sorting[name] %>
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <div class="col-sm-3">
+                                            <select name="config.index.year.count" class="form-control">
+                                                <% for (var i = 1; i <= 20; i++) { %>
+                                                <% if (config.index.year.count == i) { %>
+                                                <option value="<%- i %>" selected="selected">
+                                                    <%- i %> фильма(-ов)
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- i %>">
+                                                    <%- i %> фильма(-ов)
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label>из года(-ов)</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="config.index.year.keys" value="<%- config.index.year.keys %>" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.genre.order %>. Жанры: <%- config.index.genre.keys %>
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/index.html#genre" class="csstip" title="Блок на главной странице сайта в котором фильмы из определеных жанров." target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <select name="config.index.genre.order" class="form-control">
+                                                <% for (var i = 1; i <= 10; i++) { %>
+                                                <% if (config.index.genre.order == i) { %>
+                                                <option value="<%- i %>" selected="selected">
+                                                    <%- i %>-й
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- i %>">
+                                                    <%- i %>-й
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="config.index.genre.name" value="<%= config.index.genre.name %>" class="form-control">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <select name="config.index.genre.sorting" class="form-control">
+                                                <% for (name in config.sorting) { %>
+                                                <% if (config.index.genre.sorting == name) { %>
+                                                <option value="<%- name %>" selected="selected">
+                                                    <%- config.sorting[name] %>
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- name %>">
+                                                    <%- config.sorting[name] %>
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <div class="col-sm-3">
+                                            <select name="config.index.genre.count" class="form-control">
+                                                <% for (var i = 1; i <= 20; i++) { %>
+                                                <% if (config.index.genre.count == i) { %>
+                                                <option value="<%- i %>" selected="selected">
+                                                    <%- i %> фильма(-ов)
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- i %>">
+                                                    <%- i %> фильма(-ов)
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label>из жанра(-ов)</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="config.index.genre.keys" value="<%- config.index.genre.keys %>" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.country.order %>. Страны: <%- config.index.country.keys %>
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/index.html#country" class="csstip" title="Блок на главной странице сайта в котором фильмы из определеных стран." target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <select name="config.index.country.order" class="form-control">
+                                                <% for (var i = 1; i <= 10; i++) { %>
+                                                <% if (config.index.country.order == i) { %>
+                                                <option value="<%- i %>" selected="selected">
+                                                    <%- i %>-й
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- i %>">
+                                                    <%- i %>-й
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="config.index.country.name" value="<%= config.index.country.name %>" class="form-control">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <select name="config.index.country.sorting" class="form-control">
+                                                <% for (name in config.sorting) { %>
+                                                <% if (config.index.country.sorting == name) { %>
+                                                <option value="<%- name %>" selected="selected">
+                                                    <%- config.sorting[name] %>
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- name %>">
+                                                    <%- config.sorting[name] %>
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <div class="col-sm-3">
+                                            <select name="config.index.country.count" class="form-control">
+                                                <% for (var i = 1; i <= 20; i++) { %>
+                                                <% if (config.index.country.count == i) { %>
+                                                <option value="<%- i %>" selected="selected">
+                                                    <%- i %> фильма(-ов)
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- i %>">
+                                                    <%- i %> фильма(-ов)
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label>из стран(-ы)</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="config.index.country.keys" value="<%- config.index.country.keys %>" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.actor.order %>. Актеры: <%- config.index.actor.keys %>
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/index.html#actor" class="csstip" title="Блок на главной странице сайта в котором фильмы с участием определенных актеров." target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <select name="config.index.actor.order" class="form-control">
+                                                <% for (var i = 1; i <= 10; i++) { %>
+                                                <% if (config.index.actor.order == i) { %>
+                                                <option value="<%- i %>" selected="selected">
+                                                    <%- i %>-й
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- i %>">
+                                                    <%- i %>-й
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="config.index.actor.name" value="<%= config.index.actor.name %>" class="form-control">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <select name="config.index.actor.sorting" class="form-control">
+                                                <% for (name in config.sorting) { %>
+                                                <% if (config.index.actor.sorting == name) { %>
+                                                <option value="<%- name %>" selected="selected">
+                                                    <%- config.sorting[name] %>
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- name %>">
+                                                    <%- config.sorting[name] %>
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <div class="col-sm-3">
+                                            <select name="config.index.actor.count" class="form-control">
+                                                <% for (var i = 1; i <= 20; i++) { %>
+                                                <% if (config.index.actor.count == i) { %>
+                                                <option value="<%- i %>" selected="selected">
+                                                    <%- i %> фильма(-ов)
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- i %>">
+                                                    <%- i %> фильма(-ов)
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label>с актером(-ами)</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="config.index.actor.keys" value="<%= config.index.actor.keys %>" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.director.order %>. Режиссеры: <%- config.index.director.keys %>
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/index.html#director" class="csstip" title="Блок на главной странице сайта в котором фильмы из фильмографии определенных режиссеров." target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <select name="config.index.director.order" class="form-control">
+                                                <% for (var i = 1; i <= 10; i++) { %>
+                                                <% if (config.index.director.order == i) { %>
+                                                <option value="<%- i %>" selected="selected">
+                                                    <%- i %>-й
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- i %>">
+                                                    <%- i %>-й
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="config.index.director.name" value="<%= config.index.director.name %>" class="form-control">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <select name="config.index.director.sorting" class="form-control">
+                                                <% for (name in config.sorting) { %>
+                                                <% if (config.index.director.sorting == name) { %>
+                                                <option value="<%- name %>" selected="selected">
+                                                    <%- config.sorting[name] %>
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- name %>">
+                                                    <%- config.sorting[name] %>
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <div class="col-sm-3">
+                                            <select name="config.index.director.count" class="form-control">
+                                                <% for (var i = 1; i <= 20; i++) { %>
+                                                <% if (config.index.director.count == i) { %>
+                                                <option value="<%- i %>" selected="selected">
+                                                    <%- i %> фильма(-ов)
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- i %>">
+                                                    <%- i %> фильма(-ов)
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label>с режиссером(-ами)</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="config.index.director.keys" value="<%- config.index.director.keys %>" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.ids.order %>. Фильмы с ID КиноПоиск
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/index.html#ids" class="csstip" title="Блок на главной странице сайта в котором фильмы с определенными ID КиноПоиск." target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <select name="config.index.ids.order" class="form-control">
+                                                <% for (var i = 1; i <= 10; i++) { %>
+                                                <% if (config.index.ids.order == i) { %>
+                                                <option value="<%- i %>" selected="selected">
+                                                    <%- i %>-й
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- i %>">
+                                                    <%- i %>-й
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <input type="text" name="config.index.ids.name" value="<%= config.index.ids.name %>" class="form-control">
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <div class="col-sm-12">
+                                            <div class="input-group">
+                                                <input class="form-control" type="text" placeholder="ID КиноПоиск фильма или ссылка на фильм" data-add-id="config.index.ids.keys">
+                                                <span class="input-group-btn">
+                                                <a href="javascript:void(0)" class="btn btn-default" data-add-name="config.index.ids.keys">
+                                                    <span class="fa fa-plus"></span> Добавить фильм
+                                                </a>
+                                            </span>
                                             </div>
 
-                                            <div style="display: none" id="index_ids">
+                                            <div class="spacer-10"></div>
 
-                                                <div class="spacer-10"></div>
-
-                                                <div class="text-muted">
-                                                    Фильмы:
+                                            <div class="advanced-textarea">
+                                                <div class="thumbs-list thumbs-small">
+                                                    <ul data-add-name="config.index.ids.keys">
+                                                        <% if (config.index.ids.keys) { %>
+                                                        <% config.index.ids.keys.split(',').forEach(function (id) { %>
+                                                        <li data-delete-id="<%- id %>" data-delete-name="config.index.ids.keys">
+                                                            <img class="media-object" src="https://st.kp.yandex.net/images/sm_film/<%- id %>.jpg" alt="ID: <%- id %>" title="ID: <%- id %>">
+                                                        </li>
+                                                        <% }); %>
+                                                        <% } %>
+                                                    </ul>
                                                 </div>
+                                                <div style="display: none" id="index_ids">
 
-                                                <div class="spacer-10"></div>
+                                                    <div class="spacer-10"></div>
 
-                                                <textarea class="form-control input_ids" name="config.index.ids.keys" placeholder="ID КиноПоиск фильмов"><%- config.index.ids.keys %></textarea>
+                                                    <div class="text-muted">
+                                                        Фильмы:
+                                                    </div>
 
-                                                <div class="spacer-10"></div>
+                                                    <div class="spacer-10"></div>
 
-                                            </div>
+                                                    <textarea class="form-control input_ids" name="config.index.ids.keys" placeholder="ID КиноПоиск фильмов"><%- config.index.ids.keys %></textarea>
 
-                                            <div class="advanced-textarea-footer">
-                                                <div class="pull-right">
-                                                    <a href="javascript:void(0)" onclick="document.querySelector('#index_ids').style.display = 'block'" class="btn btn-default">
-                                                        Редактировать список ID
-                                                    </a>
+                                                    <div class="spacer-10"></div>
+
+                                                </div>
+                                                <div class="advanced-textarea-footer">
+                                                    <div class="pull-right">
+                                                        <a href="javascript:void(0)" onclick="document.querySelector('#index_ids').style.display = 'block'" class="btn btn-default">
+                                                            Редактировать список ID
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
-
                             </div>
-                        </article>
+                        </div>
 
-                        <article class="faq-group">
-                            <header>
-                                <i class="fa fa-minus"></i>
-                                <h3>
-                                    <%- config.index.collections.order %>. Фильмы с коллекций: <%- config.index.collections.keys %>
-                                </h3>
-                            </header>
-                            <div class="faq-content clearfix">
+                        <div class="spacer-10"></div>
 
-                                <div class="row">
-
-                                    <div class="col-sm-2">
-                                        <select name="config.index.collections.order" class="form-control">
-                                            <% for (var i = 1; i <= 10; i++) { %>
-                                            <% if (config.index.collections.order == i) { %>
-                                            <option value="<%- i %>" selected="selected">
-                                                <%- i %>-й
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- i %>">
-                                                <%- i %>-й
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.collections.order %>. Фильмы с коллекций: <%- config.index.collections.keys %>
                                     </div>
-
-                                    <div class="col-sm-10">
-                                        <input type="text" value="Укажите через запятую URL-ключи коллекций с которых брать первые фильмы" class="form-control" disabled="disabled" style="background-color: #272F38;">
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/index.html#collections" class="csstip" title="Блок на главной странице сайта в котором фильмы из определенных коллекций." target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
                                     </div>
-
-                                    <div class="spacer-10"></div>
-
-                                    <div class="col-sm-3">
-                                        <select name="config.index.collections.count" class="form-control">
-                                            <% for (var i = 1; i <= 20; i++) { %>
-                                            <% if (config.index.collections.count == i) { %>
-                                            <option value="<%- i %>" selected="selected">
-                                                <%- i %> фильма(-ов)
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- i %>">
-                                                <%- i %> фильма(-ов)
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <label>с коллекции(-й)</label>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input type="text" name="config.index.collections.keys" value="<%- config.index.collections.keys %>" class="form-control">
-                                    </div>
-
                                 </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <select name="config.index.collections.order" class="form-control">
+                                                <% for (var i = 1; i <= 10; i++) { %>
+                                                <% if (config.index.collections.order == i) { %>
+                                                <option value="<%- i %>" selected="selected">
+                                                    <%- i %>-й
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- i %>">
+                                                    <%- i %>-й
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-10">
+                                            <input type="text" value="Укажите через запятую URL-ключи коллекций с которых брать первые фильмы" class="form-control" disabled="disabled" style="background-color: #272F38;">
+                                        </div>
 
+                                        <div class="spacer-10"></div>
+
+                                        <div class="col-sm-3">
+                                            <select name="config.index.collections.count" class="form-control">
+                                                <% for (var i = 1; i <= 20; i++) { %>
+                                                <% if (config.index.collections.count == i) { %>
+                                                <option value="<%- i %>" selected="selected">
+                                                    <%- i %> фильма(-ов)
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- i %>">
+                                                    <%- i %> фильма(-ов)
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label>с коллекции(-й)</label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" name="config.index.collections.keys" value="<%- config.index.collections.keys %>" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </article>
-
+                        </div>
                     </div>
-
                 </div>
             </div>
 

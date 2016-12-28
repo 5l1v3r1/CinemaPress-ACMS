@@ -27,7 +27,7 @@
                 <div class="inner-padding">
                     <div class="pull-left">
                         <h2>
-                            Коды
+                            <%- title %>
                         </h2>
                     </div>
                 </div>
@@ -41,6 +41,9 @@
                         </a>
                         <a href="/<%- config.urls.admin %>/codes" class="btn">
                             Вставить код на сайт
+                        </a>
+                        <a href="https://CinemaPress.org/admin/codes.html" class="btn" title="Информация о параметрах вставки кода счетчиков, рекламы и т.п. на сайт" target="_blank">
+                            <i class="fa fa-info-circle text-muted"></i>
                         </a>
                     </div>
                     <div class="pull-right">
@@ -56,53 +59,77 @@
 
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="advanced-textarea">
-                                <div class="text-muted">
-                                    В верх страницы:
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-code"></i>&nbsp;&nbsp;&nbsp;В верх страницы
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/codes.html#head" class="csstip" title="Вставка кода внутрь тега <head>" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
                                 </div>
-
-                                <div class="spacer-10"></div>
-
-                                <textarea class="form-control textarea" name="config.codes.head"><%= config.codes.head %></textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="spacer-10"></div>
-
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="advanced-textarea">
-                                <div class="text-muted">
-                                    В низ страницы:
-                                </div>
-
-                                <div class="spacer-10"></div>
-
-                                <textarea class="form-control textarea" name="config.codes.footer"><%= config.codes.footer %></textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="spacer-10"></div>
-
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="advanced-textarea">
-                                <div class="text-muted">
-                                    Файл robots.txt:
-                                </div>
-
-                                <div class="spacer-10"></div>
-
-                                <textarea class="form-control textarea" name="config.codes.robots"><%- config.codes.robots %></textarea>
-                                <div class="advanced-textarea-footer">
-                                    <div class="pull-left">
-                                        <div class="text" style="float: none;">
-                                            Host: <%- config.domain %>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-xs-12 text-center">
+                                            <textarea class="form-control textarea" name="config.codes.head" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><%= config.codes.head %></textarea>
                                         </div>
-                                        <div class="text" style="float: none;">
-                                            Sitemap: <%- config.protocol + config.domain + '/' + config.urls.sitemap %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-code"></i>&nbsp;&nbsp;&nbsp;В низ страницы
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/codes.html#footer" class="csstip" title="Вставка кода перед закрывающимся тегом <body>" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-xs-12 text-center">
+                                            <textarea class="form-control textarea" name="config.codes.footer" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"><%= config.codes.footer %></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-code"></i>&nbsp;&nbsp;&nbsp;Файл robots.txt
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/codes.html#robots" class="csstip" title="Код файла robots.txt" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-xs-12 text-center">
+                                            <textarea class="form-control textarea" name="config.codes.robots" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="border-bottom: 0; border-radius: 3px 3px 0 0"><%- config.codes.robots %></textarea>
+                                            <div class="text-left" style="background: #272F38; border-radius:0 0 3px 3px; border-top: 0; border-right: 1px solid #222; border-left: 1px solid #222; border-bottom: 1px solid #222; padding: 5px;">
+                                                <div>
+                                                    Host: <%- config.domain %>
+                                                </div>
+                                                <div>
+                                                    Sitemap: <%- config.protocol + config.domain + '/' + config.urls.sitemap %>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

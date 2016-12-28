@@ -27,7 +27,7 @@
                 <div class="inner-padding">
                     <div class="pull-left">
                         <h2>
-                            Комментарии
+                            <%- title %>
                         </h2>
                     </div>
                     <div class="pull-right">
@@ -53,6 +53,9 @@
                         <a href="/<%- config.urls.admin %>/comments" class="btn">
                             Модуль соц. комментариев
                         </a>
+                        <a href="https://CinemaPress.org/admin/comments.html" class="btn" title="Информация о параметрах модуля добавления виджетов комментариев" target="_blank">
+                            <i class="fa fa-info-circle text-muted"></i>
+                        </a>
                     </div>
                     <div class="pull-right">
                         <p>
@@ -73,64 +76,121 @@
                     <% if (modules.comments.status) { %>
 
                     <div class="row">
-                        <div class="col-sm-3">
-                            <label>Cackle</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <input name="modules.comments.data.cackle.id" value="<%- modules.comments.data.cackle.id %>" class="form-control" type="text">
-                            <div class="helper-text-box">
-                                <div class="form-helper-header">Сервис комментариев cackle.me (платный)</div>
-                                <p>
-                                    Укажите <code>ID</code> который Вы получите после <a href="https://cackle.me/pricing" target="_blank">создания виджета комментариев</a> на Cackle.
-                                </p>
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-comment"></i>&nbsp;&nbsp;&nbsp;Disqus
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/comments.html#disqus" class="csstip" title="Ваш shortname указанный при регистрации сайта на Disqus.com" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-xs-12 text-center">
+                                            <input name="modules.comments.data.disqus.shortname" value="<%- modules.comments.data.disqus.shortname %>" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-sm-3">
-                            <label>HyperComments</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <input name="modules.comments.data.hypercomments.widget_id" value="<%- modules.comments.data.hypercomments.widget_id %>" class="form-control" type="text">
-                            <div class="helper-text-box">
-                                <div class="form-helper-header">Сервис комментариев HyperComments.com</div>
-                                <p>
-                                    Укажите <code>widget_id</code> который Вы получите после <a href="https://www.hypercomments.com/ru/pricing" target="_blank">создания виджета комментариев</a> на HyperComments.
-                                </p>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-comments-o"></i>&nbsp;&nbsp;&nbsp;ВКонтакте
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/comments.html#vk" class="csstip" title="Ваш apiID который Вы получите после создания приложения типа «Веб-сайт» на vk.com" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-xs-12 text-center">
+                                            <input name="modules.comments.data.vk.app_id" value="<%- modules.comments.data.vk.app_id %>" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-sm-3">
-                            <label>Disqus</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <input name="modules.comments.data.disqus.shortname" value="<%- modules.comments.data.disqus.shortname %>" class="form-control" type="text">
-                            <div class="helper-text-box">
-                                <div class="form-helper-header">Сервис комментариев Disqus.com</div>
-                                <p>
-                                    Укажите <code>shortname</code> который Вы указали при <a href="https://disqus.com/admin/create/" target="_blank">создании нового сайта</a> на Disqus.
-                                </p>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-commenting"></i>&nbsp;&nbsp;&nbsp;Facebook
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/comments.html#facebook" class="csstip" title="Укажите User Id (Идентификатор пользователя) после регистрации на facebook.com, который будет иметь доступ к модерированию комментариев" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-xs-12 text-center">
+                                            <input name="modules.comments.data.facebook.admins" value="<%- modules.comments.data.facebook.admins %>" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-sm-3">
-                            <label>Facebook</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <input name="modules.comments.data.facebook.admins" value="<%- modules.comments.data.facebook.admins %>" class="form-control" type="text">
-                            <div class="helper-text-box">
-                                <div class="form-helper-header">ID пользователя facebook.com</div>
-                                <p>
-                                    Укажите <code>User Id</code> (Идентификатор пользователя) после <a href="https://www.facebook.com/" target="_blank">регистрации на facebook</a>, который будет иметь доступ к модерированию комментариев.
-                                </p>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-comment-o"></i>&nbsp;&nbsp;&nbsp;HyperComments
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/comments.html#hypercomments" class="csstip" title="Укажите widget_id который Вы получите после создания виджета комментариев на HyperComments.com" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-xs-12 text-center">
+                                            <input name="modules.comments.data.hypercomments.widget_id" value="<%- modules.comments.data.hypercomments.widget_id %>" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-sm-3">
-                            <label>ВКонтакте</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <input name="modules.comments.data.vk.app_id" value="<%- modules.comments.data.vk.app_id %>" class="form-control" type="text">
-                            <div class="helper-text-box">
-                                <div class="form-helper-header">ID приложения vk.com</div>
-                                <p>
-                                    Укажите <code>apiId</code> который Вы получите после <a href="https://new.vk.com/editapp?act=create" target="_blank">создания приложения</a> типа «Веб-сайт».
-                                </p>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-comments"></i>&nbsp;&nbsp;&nbsp;Cackle
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/comments.html#cackle" class="csstip" title="Укажите ID который Вы получите после создания виджета комментариев на Cackle.me (платно)" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-xs-12 text-center">
+                                            <input name="modules.comments.data.cackle.id" value="<%- modules.comments.data.cackle.id %>" class="form-control" type="text">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -140,10 +200,10 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="attention-box attention-danger">
-                                <h4>Модуль «Комментарии» отключен</h4>
+                                <h4>Модуль «<%- title %>» отключен</h4>
                                 <div class="spacer-20"></div>
                                 <p class="text-muted">
-                                    Модуль «Комментарии» позволяет добавить на сайт формы комментариев социальных сетей <a href="javascript:void(0)">ВКонтакте</a>, <a href="javascript:void(0)">facebook</a> и сервиса <a href="javascript:void(0)">Disqus</a>.
+                                    Модуль «<%- title %>» позволяет добавить на сайт формы комментариев социальных сетей ВКонтакте, Facebook, сервисов Disqus, HyperComments, Cackle.
                                     <br>
                                     Чтобы включить модуль, нажмите на кнопку «Активировать» вверху экрана.
                                 </p>

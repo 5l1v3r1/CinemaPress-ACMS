@@ -27,7 +27,7 @@
                 <div class="inner-padding">
                     <div class="pull-left">
                         <h2>
-                            Публикация
+                            <%- title %>
                         </h2>
                     </div>
                 </div>
@@ -40,7 +40,10 @@
                             <i class="fa fa-chevron-left"></i>
                         </a>
                         <a href="/<%- config.urls.admin %>/publish" class="btn">
-                            Фукнция автопубликации
+                            Фукнция публикации
+                        </a>
+                        <a href="https://CinemaPress.org/admin/publish.html" class="btn" title="Информация о параметрах публикации фильмов" target="_blank">
+                            <i class="fa fa-info-circle text-muted"></i>
                         </a>
                     </div>
                 </div>
@@ -69,407 +72,373 @@
                     <div class="spacer-10"></div>
 
                     <div class="row">
-                        <div class="col-md-6 col-sm-12 col-xs-12">
-                            <a href="https://cinemapress.org/#database" target="_blank" class="btn btn-block btn-success">
-                                <span class="fa fa-shopping-cart"></span> Купить ключ
-                            </a>
-                        </div>
-                        <div class="col-md-6 col-sm-12 col-xs-12">
-                            <div class="input-group">
-                                <input class="form-control" type="text" placeholder="Ключ базы 600 000 фильмов" id="key">
-                                <span class="input-group-btn">
-                                    <a href="javascript:void(0)" class="btn btn-success" id="database">
-                                        <span class="fa fa-plus"></span> Добавить фильмы
-                                    </a>
-                                </span>
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label"><i class="fa fa-database"></i>&nbsp;&nbsp;&nbsp;Импорт всех фильмов в мире</div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/publish.html#database" class="csstip" title="Добавление всех фильмов в мире на сайт" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-md-5 col-sm-12 col-xs-12">
+                                            <a href="https://cinemapress.org/#database" target="_blank" class="btn btn-block btn-success">
+                                                <span class="fa fa-shopping-cart"></span> Купить ключ
+                                            </a>
+                                        </div>
+                                        <div class="col-md-7 col-sm-12 col-xs-12">
+                                            <div class="input-group">
+                                                <input class="form-control" type="text" placeholder="Ключ базы 600 000 фильмов" id="key">
+                                                <span class="input-group-btn">
+                                                        <a href="javascript:void(0)" class="btn btn-success" id="database">
+                                                            <span class="fa fa-plus"></span> Добавить фильмы
+                                                        </a>
+                                                    </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <% } %>
 
                     <% } %>
 
                     <div class="spacer-10"></div>
-                    <hr>
-                    <div class="spacer-20"></div>
-
-                    <% } %>
-
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="spacer-10"></div>
-                                    <div id="movies_slider" class="noUiSlider" style="width: 100%;"></div>
-                                    <div class="spacer-20"></div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-xs-6">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="spacer-10"></div>
-                                    <div id="hours_slider" class="noUiSlider" style="width: 100%;"></div>
-                                    <div class="spacer-20"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3 text-center" style="padding: 5px 0;">
-                            Публиковать по
-                        </div>
-                        <div class="col-xs-2">
-                            <input type="text" id="movies" name="config.publish.every.movies" class="to form-control input_number" style="width: 100%;">
-                        </div>
-                        <div class="col-xs-3 text-center" style="padding: 5px 0;">
-                            фильма(-ов) каждые
-                        </div>
-                        <div class="col-xs-2">
-                            <input type="text" id="hours" name="config.publish.every.hours" class="to form-control input_number" style="width: 100%;">
-                        </div>
-                        <div class="col-xs-2 text-center" style="padding: 5px 0;">
-                            часа(-ов)
-                        </div>
-                    </div>
-
-                    <div class="spacer-20"></div>
-
-                    <% if (typeof soon_id == 'object' && soon_id.length) { %>
-
-                    <div class="faq">
-                        <article class="faq-group">
-                            <header>
-                                <i class="fa fa-minus"></i>
-                                <h3>Публикация фильмов в <span id="time">00:00</span></h3>
-                                <script>
-                                    document.addEventListener("DOMContentLoaded", function () {
-                                        var today = new Date();
-                                        today.setHours(today.getHours()+1);
-                                        document.getElementById('time').innerHTML = today.getHours() + ':00';
-                                    });
-                                </script>
-                            </header>
-                            <div class="faq-content clearfix">
-
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="thumbs-list thumbs-small">
-                                            <ul>
-                                                <% soon_id.forEach(function (id) { %>
-                                                <a href="/<%- config.urls.admin %>/movies?movie=<%- id %>" target="_blank">
-                                                    <li style="background: none !important;">
-                                                        <img class="media-object" src="https://st.kp.yandex.net/images/sm_film/<%- id %>.jpg" alt="Poster">
-                                                    </li>
-                                                </a>
-                                                <% }); %>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="spacer-20"></div>
-
-                    <% } %>
-
-                    <script>
-                        $("#movies_slider").noUiSlider({
-                            range:[0,1000],
-                            start:[<%= config.publish.every.movies %>],
-                            handles: 1,
-                            step:1,
-                            connect:"lower",
-                            serialization:{
-                                resolution:1,
-                                to:[
-                                    $("#movies")
-                                ]
-                            }
-                        });
-                    </script>
-
-                    <script>
-                        $("#hours_slider").noUiSlider({
-                            range:[0,24],
-                            start:[<%= config.publish.every.hours %>],
-                            handles: 1,
-                            step:1,
-                            connect:"lower",
-                            serialization:{
-                                resolution:1,
-                                to:[
-                                    $("#hours")
-                                ]
-                            }
-                        });
-                    </script>
 
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="spacer-10"></div>
-                            <div id="diapason" class="noUiSlider" style="width: 100%;"></div>
-                            <div class="spacer-20"></div>
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;&nbsp;Настройка автопубликации</div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/publish.html#autopublish" class="csstip" title="Нстройка публикации фильмов каждый час" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-xs-6">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="spacer-10"></div>
+                                                    <div id="movies_slider" class="noUiSlider" style="width: 100%;"></div>
+                                                    <div class="spacer-20"></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="spacer-10"></div>
+                                                    <div id="hours_slider" class="noUiSlider" style="width: 100%;"></div>
+                                                    <div class="spacer-20"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-3 text-center" style="padding: 5px 0; font-size: 11px;">
+                                            Публиковать по
+                                        </div>
+                                        <div class="col-xs-2">
+                                            <input type="text" id="movies" name="config.publish.every.movies" class="to form-control input_number" style="width: 100%;">
+                                        </div>
+                                        <div class="col-xs-3 text-center" style="padding: 5px 0;  font-size: 11px;">
+                                            фильма(-ов) каждые
+                                        </div>
+                                        <div class="col-xs-2">
+                                            <input type="text" id="hours" name="config.publish.every.hours" class="to form-control input_number" style="width: 100%;">
+                                        </div>
+                                        <div class="col-xs-2 text-center" style="padding: 5px 0;  font-size: 11px;">
+                                            часа(-ов)
+                                        </div>
+                                    </div>
+
+                                    <% if (typeof soon_id == 'object' && soon_id.length) { %>
+
+                                    <div class="spacer-10"></div>
+
+                                    <div class="faq">
+                                        <article class="faq-group">
+                                            <header class="text-muted">
+                                                <i class="fa fa-minus"></i>
+                                                <h3>Будут опубликованы в <span id="time">00:00</span></h3>
+                                                <script>
+                                                    document.addEventListener("DOMContentLoaded", function () {
+                                                        var today = new Date();
+                                                        today.setHours(today.getHours()+1);
+                                                        document.getElementById('time').innerHTML = today.getHours() + ':00';
+                                                    });
+                                                </script>
+                                            </header>
+                                            <div class="faq-content clearfix">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <div class="thumbs-list thumbs-small">
+                                                            <ul>
+                                                                <% soon_id.forEach(function (id) { %>
+                                                                <a href="/<%- config.urls.admin %>/movies?movie=<%- id %>" target="_blank">
+                                                                    <li style="background: none !important;">
+                                                                        <img class="media-object" src="https://st.kp.yandex.net/images/sm_film/<%- id %>.jpg" alt="Poster">
+                                                                    </li>
+                                                                </a>
+                                                                <% }); %>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+
+                                    <% } %>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-xs-3 col-xs-offset-1">
-                            <input type="text" id="start" name="config.publish.start" class="to form-control input_number" style="width: 100%;">
-                        </div>
-                        <div class="col-xs-4 text-center" style="padding: 5px 0;">
-                            - до -
-                        </div>
-                        <div class="col-xs-3">
-                            <input type="text" id="stop" name="config.publish.stop" class="to form-control input_number" style="width: 100%;">
-                        </div>
+
+                        <div class="spacer-10"></div>
+
                         <div class="col-sm-12">
-                            <div class="helper-text-box">
-                                <div class="form-helper-header">Опубликовать диапазон фильмов</div>
-                                <p>
-                                    Данный диапазон из ID фильмов, который нужно сразу опубликовать на сайте. Далее каждый час он будет расширяться в обе стороны и публиковать новые фильмы.
-                                </p>
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label"><i class="fa fa-sliders"></i>&nbsp;&nbsp;&nbsp;Диапазон фильмов</div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/publish.html#range" class="csstip" title="Диапазон ID КиноПоиск фильмов, которые уже опубликованы на сайте" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="spacer-10"></div>
+                                            <div id="diapason" class="noUiSlider" style="width: 100%;"></div>
+                                            <div class="spacer-20"></div>
+                                        </div>
+                                        <div class="col-xs-3 col-xs-offset-1">
+                                            <input type="text" id="start" name="config.publish.start" class="to form-control input_number" style="width: 100%;">
+                                        </div>
+                                        <div class="col-xs-4 text-center" style="padding: 5px 0;">
+                                            - до -
+                                        </div>
+                                        <div class="col-xs-3">
+                                            <input type="text" id="stop" name="config.publish.stop" class="to form-control input_number" style="width: 100%;">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="spacer-20"></div>
-                    <hr>
-                    <div class="spacer-20"></div>
+                        <div class="spacer-10"></div>
 
-                    <script>
-                        $("#diapason").noUiSlider({
-                            range:[298,1100000],
-                            start:[<%= config.publish.start %>,<%= config.publish.stop %>],
-                            handles: 2,
-                            step:1,
-                            connect:"lower",
-                            serialization:{
-                                to:[
-                                    $("#start"),
-                                    $("#stop")
-                                ],
-                                resolution:1
-                            }
-                        });
-                    </script>
-
-                    <div class="faq">
-
-                        <article class="faq-group">
-                            <header>
-                                <i class="fa fa-minus"></i>
-                                <h3>Публикация фильмов с уникальными описаниями «Вне очереди»</h3>
-                            </header>
-                            <div class="faq-content clearfix">
-
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <label>Вне очереди</label>
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label"><i class="fa fa-id-card-o"></i>&nbsp;&nbsp;&nbsp;Обязательная информация у фильмов</div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/publish.html#required" class="csstip" title="На сайте будут публиковаться только фильмы, у которых имеется отмеченная информация (постер, кадры, русское название, оригинальное название, стандартное описание)" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
                                     </div>
-                                    <div class="col-sm-9">
-                                        <div class="inline-labels">
-                                            <label>
-                                                <input name="config.publish.text" value="1" <% if (config.publish.text) { %> checked="" <% } %> type="radio"><span></span> Да
-                                            </label>
-                                            <label>
-                                                <input name="config.publish.text" value="0" <% if (!config.publish.text) { %> checked="" <% } %> type="radio"><span></span> Нет
-                                            </label>
-                                        </div>
-                                        <div class="helper-text-box">
-                                            <div class="form-helper-header">Публикация вне очереди</div>
-                                            <p>
-                                                Фильмы, для которых написаны уникальные описания будут публиковаться независимо от того, входят они в текущий диапазон или нет.
-                                                <br><span class="text-danger">ВАЖНО:</span> Включение данной функции может существенно замедлить работу сайта. Каждый фильм, который публикуется «вне» диапазона добавляет к загрузке страницы 0.05 сек. В качестве альтернативы, при написании уникальных описаний фильмам «вне» диапазона, лучше вручную добавлять их на главную страницу в разделе «<a href="/<%- config.urls.admin %>/index">Фильмы с ID</a>», добавлять эти фильмы в «<a href="/<%- config.urls.admin %>/slider">Слайдер</a>» или создавать с ними «<a href="/<%- config.urls.admin %>/collections">Коллекции</a>». Существует также коллекция «<a href="/<%- config.urls.admin %>/collections?collection=choice">Выбор редакции</a>», все фильмы с уникальным описанием попадают в неё автоматически.
-                                            </p>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-xs-12">
+                                            <div class="stacked-labels">
+                                                <label>
+                                                    <input name="config.publish.required" value="" type="checkbox" <% if (!config.publish.required.length) { %> checked="" <% } %>>
+                                                    <span></span>
+                                                    Не важно (публикация любых фильмов)
+                                                </label>
+                                                <label>
+                                                    <input name="config.publish.required" value="poster" type="checkbox" <% if (config.publish.required.indexOf('poster')+1) { %> checked="" <% } %>>
+                                                    <span></span>
+                                                    Только фильмы с постерами
+                                                </label>
+                                                <label>
+                                                    <input name="config.publish.required" value="pictures" type="checkbox" <% if (config.publish.required.indexOf('pictures')+1) { %> checked="" <% } %>>
+                                                    <span></span>
+                                                    Только фильмы с кадрами
+                                                </label>
+                                                <label>
+                                                    <input name="config.publish.required" value="title_ru" type="checkbox" <% if (config.publish.required.indexOf('title_ru')+1) { %> checked="" <% } %>>
+                                                    <span></span>
+                                                    Только имеющие русское название
+                                                </label>
+                                                <label>
+                                                    <input name="config.publish.required" value="title_en" type="checkbox" <% if (config.publish.required.indexOf('title_en')+1) { %> checked="" <% } %>>
+                                                    <span></span>
+                                                    Только имеющие оригинальное название
+                                                </label>
+                                                <label>
+                                                    <input name="config.publish.required" value="description" type="checkbox" <% if (config.publish.required.indexOf('description')+1) { %> checked="" <% } %>>
+                                                    <span></span>
+                                                    Только имеющие стандартное описание
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-                        </article>
+                        </div>
 
-                        <article class="faq-group">
-                            <header>
-                                <i class="fa fa-minus"></i>
-                                <h3>Публикация фильмов только с «постерами», «кадрами» и т.п.</h3>
-                            </header>
-                            <div class="faq-content clearfix">
+                        <div class="spacer-10"></div>
 
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <label>Обязательно наличие</label>
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label"><i class="fa fa-hourglass-2"></i>&nbsp;&nbsp;&nbsp;Публикация «Вне очереди»</div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/publish.html#text" class="csstip" title="Фильмы, для которых написаны уникальные описания, будут сразу опубликованы на сайте" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
                                     </div>
-                                    <div class="col-sm-9">
-                                        <div class="stacked-labels">
-                                            <label>
-                                                <input name="config.publish.required" value="" type="checkbox" <% if (!config.publish.required.length) { %> checked="" <% } %>><span></span> Не важно
-                                            </label>
-                                            <label>
-                                                <input name="config.publish.required" value="poster" type="checkbox" <% if (config.publish.required.indexOf('poster')+1) { %> checked="" <% } %>><span></span> Постер фильма
-                                            </label>
-                                            <label>
-                                                <input name="config.publish.required" value="pictures" type="checkbox" <% if (config.publish.required.indexOf('pictures')+1) { %> checked="" <% } %>><span></span> Кадры фильма
-                                            </label>
-                                            <label>
-                                                <input name="config.publish.required" value="title_ru" type="checkbox" <% if (config.publish.required.indexOf('title_ru')+1) { %> checked="" <% } %>><span></span> Русское название
-                                            </label>
-                                            <label>
-                                                <input name="config.publish.required" value="title_en" type="checkbox" <% if (config.publish.required.indexOf('title_en')+1) { %> checked="" <% } %>><span></span> Оригинальное название
-                                            </label>
-                                            <label>
-                                                <input name="config.publish.required" value="description" type="checkbox" <% if (config.publish.required.indexOf('description')+1) { %> checked="" <% } %>><span></span>
-                                                Стандартное описание
-                                            </label>
-                                        </div>
-                                        <div class="spacer-20"></div>
-                                        <div class="helper-text-box">
-                                            <div class="form-helper-header">Наличие информации о фильме</div>
-                                            <p>
-                                                При автоматической публикации, будут выбираться только фильмы, у которых есть в наличии отмеченная информация.
-                                            </p>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-xs-12 text-center">
+                                            <div class="inline-labels">
+                                                <label style="color: rgb(196, 250, 198);">
+                                                    <input name="config.publish.text" value="0" <% if (!config.publish.text) { %> checked="" <% } %> type="radio"><span></span> Ожидать публикацию
+                                                </label>
+                                                <label style="color: rgb(253, 221, 210);">
+                                                    <input name="config.publish.text" value="1" <% if (config.publish.text) { %> checked="" <% } %> type="radio"><span></span> Публиковать сразу
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-                        </article>
+                        </div>
 
-                        <article class="faq-group">
-                            <header>
-                                <i class="fa fa-minus"></i>
-                                <h3>Создание тематического сайта о кино</h3>
-                            </header>
-                            <div class="faq-content clearfix">
+                        <div class="spacer-10"></div>
 
-                                <div class="row">
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label"><i class="fa fa-eye-slash"></i>&nbsp;&nbsp;&nbsp;Тематический сайт</div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/publish.html#thematic" class="csstip" title="Вы можете создать тематический сайт, на котором будут опубликованы только «Аниме», «Российские фильмы», и т.п." target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
 
-                                    <div class="col-sm-12">
-                                        <div class="helper-text-box">
-                                            <p>
-                                                <code>"комедия" | "аниме"</code> - показывать на сайте только только
-                                                комедии или аниме;<br>
-                                                <code>"Россия" !"Индия"</code> - все российские фильмы без
-                                                совместного производства с Индией;<br>
-                                                <code>!"Александр Невский" !"Сарик Андреасян"</code> - исключить
-                                                фильмы Александра Невского и Сарика Андреасяна;<br>
-                                                <code>!"298" !"299" !"300"</code> - исключить фильмы с ID
-                                                КиноПоиск 298, 299, 300;<br>
-                                                <code>!"^Китай$" !"^Корея Южная$" !"^Корея Северная$"</code> - исключить
-                                                фильмы из Китая, Северной и Южной Кореи, если эти страны являются
-                                                единственными производителями фильма;<br>
-                                            </p>
+                                        <div class="col-sm-3">
+                                            <label>Тип:</label>
                                         </div>
+                                        <div class="col-sm-9">
+                                            <select name="config.publish.thematic.type" class="form-control">
+                                                <option value="0" <% if (config.publish.thematic.type == '0') { %>selected="selected"<% } %>>
+                                                    Фильмы
+                                                </option>
+                                                <option value="1" <% if (config.publish.thematic.type == '1') { %>selected="selected"<% } %>>
+                                                    Сериалы
+                                                </option>
+                                                <option value="" <% if (config.publish.thematic.type == '') { %>selected="selected"<% } %>>
+                                                    Все
+                                                </option>
+                                            </select>
+                                        </div>
+
                                     </div>
 
+                                    <div class="spacer-10"></div>
+
+                                    <div class="row">
+
+                                        <div class="col-sm-3">
+                                            <label>Годы:</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="config.publish.thematic.year" value="<%= config.publish.thematic.year %>" class="form-control">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="spacer-10"></div>
+
+                                    <div class="row">
+
+                                        <div class="col-sm-3">
+                                            <label>Жанры:</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="config.publish.thematic.genre" value="<%= config.publish.thematic.genre %>" class="form-control">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="spacer-10"></div>
+
+                                    <div class="row">
+
+                                        <div class="col-sm-3">
+                                            <label>Страны:</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="config.publish.thematic.country" value="<%= config.publish.thematic.country %>" class="form-control">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="spacer-10"></div>
+
+                                    <div class="row">
+
+                                        <div class="col-sm-3">
+                                            <label>Актеры:</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="config.publish.thematic.actor" value="<%= config.publish.thematic.actor %>" class="form-control">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="spacer-10"></div>
+
+                                    <div class="row">
+
+                                        <div class="col-sm-3">
+                                            <label>Режиссеры:</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="config.publish.thematic.director" value="<%= config.publish.thematic.director %>" class="form-control">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="spacer-10"></div>
+
+                                    <div class="row">
+
+                                        <div class="col-sm-3">
+                                            <label>Фильмы:</label>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="config.publish.thematic.query_id" value="<%= config.publish.thematic.query_id %>" class="form-control">
+                                        </div>
+
+                                    </div>
                                 </div>
-
-                                <div class="spacer-20"></div>
-
-                                <div class="row">
-
-                                    <div class="col-sm-3">
-                                        <label>Тип:</label>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <select name="config.publish.thematic.type" class="form-control">
-                                            <option value="0" <% if (config.publish.thematic.type == '0') { %>selected="selected"<% } %>>
-                                                Фильмы
-                                            </option>
-                                            <option value="1" <% if (config.publish.thematic.type == '1') { %>selected="selected"<% } %>>
-                                                Сериалы
-                                            </option>
-                                            <option value="" <% if (config.publish.thematic.type == '') { %>selected="selected"<% } %>>
-                                                Все
-                                            </option>
-                                        </select>
-                                    </div>
-
-                                </div>
-
-                                <div class="spacer-20"></div>
-
-                                <div class="row">
-
-                                    <div class="col-sm-3">
-                                        <label>Годы:</label>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="config.publish.thematic.year" value="<%= config.publish.thematic.year %>" class="form-control">
-                                    </div>
-
-                                </div>
-
-                                <div class="spacer-20"></div>
-
-                                <div class="row">
-
-                                    <div class="col-sm-3">
-                                        <label>Жанры:</label>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="config.publish.thematic.genre" value="<%= config.publish.thematic.genre %>" class="form-control">
-                                    </div>
-
-                                </div>
-
-                                <div class="spacer-20"></div>
-
-                                <div class="row">
-
-                                    <div class="col-sm-3">
-                                        <label>Страны:</label>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="config.publish.thematic.country" value="<%= config.publish.thematic.country %>" class="form-control">
-                                    </div>
-
-                                </div>
-
-                                <div class="spacer-20"></div>
-
-                                <div class="row">
-
-                                    <div class="col-sm-3">
-                                        <label>Актеры:</label>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="config.publish.thematic.actor" value="<%= config.publish.thematic.actor %>" class="form-control">
-                                    </div>
-
-                                </div>
-
-                                <div class="spacer-20"></div>
-
-                                <div class="row">
-
-                                    <div class="col-sm-3">
-                                        <label>Режиссеры:</label>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="config.publish.thematic.director" value="<%= config.publish.thematic.director %>" class="form-control">
-                                    </div>
-
-                                </div>
-
-                                <div class="spacer-20"></div>
-
-                                <div class="row">
-
-                                    <div class="col-sm-3">
-                                        <label>Фильмы:</label>
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="config.publish.thematic.query_id" value="<%= config.publish.thematic.query_id %>" class="form-control">
-                                    </div>
-
-                                </div>
-
                             </div>
-                        </article>
-
+                        </div>
                     </div>
 
                 </div>
             </div>
+
+            <script>
+                $("#movies_slider").noUiSlider({range:[0,1e3],start:[<%= config.publish.every.movies %>],handles:1,step:1,connect:"lower",serialization:{resolution:1,to:[$("#movies")]}}),$("#hours_slider").noUiSlider({range:[0,24],start:[<%= config.publish.every.hours %>],handles:1,step:1,connect:"lower",serialization:{resolution:1,to:[$("#hours")]}}),$("#diapason").noUiSlider({range:[298,11e5],start:[<%= config.publish.start %>,<%= config.publish.stop %>],handles:2,step:1,connect:"lower",serialization:{to:[$("#start"),$("#stop")],resolution:1}});
+            </script>
 
             <% include ./includes/footer.ejs %>
 

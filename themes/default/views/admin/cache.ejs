@@ -27,7 +27,7 @@
                 <div class="inner-padding">
                     <div class="pull-left">
                         <h2>
-                            Кэширование
+                            <%- title %>
                         </h2>
                     </div>
                 </div>
@@ -42,6 +42,9 @@
                         <a href="/<%- config.urls.admin %>/cache" class="btn">
                             Настройка кэширования
                         </a>
+                        <a href="https://CinemaPress.org/admin/cache.html" class="btn" title="Информация о параметрах кэширования" target="_blank">
+                            <i class="fa fa-info-circle text-muted"></i>
+                        </a>
                     </div>
                     <div class="pull-right">
                         <a href="javascript:void(0)" class="btn" data-toggle-sidebar="right">
@@ -53,47 +56,50 @@
                 <div class="inner-padding">
 
                     <div class="row">
-                        <div class="col-sm-3">
-                            <label>Кэшировать на</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <select name="config.cache.time" class="form-control">
-                                <% var times = {"0": "Отключить", "3600": "1 час", "43200": "12 часов", "86400": "1 день", "604800": "1 неделя", "2592000": "1 месяц"};
-                                for (time in times) { %>
-                                    <% if (time == config.cache.time) { %>
-                                        <% if (config.cache.time) { %>
-                                            <option value="<%- time %>" selected="selected">
-                                                <%- times[time] %>
-                                            </option>
-                                        <% } else { %>
-                                            <option value="<%- time %>" selected="selected">
-                                                Отключено
-                                            </option>
-                                        <% } %>
-                                    <% } else { %>
-                                        <option value="<%- time %>">
-                                            <%- times[time] %>
-                                        </option>
-                                    <% } %>
-                                <% } %>
-                            </select>
-                            <div class="helper-text-box">
-                                <div class="form-helper-header">Время кэширования</div>
-                                <p>
-                                    Указание времени, на которое будет закэширована каждая страница сайта.
-                                </p>
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-hourglass-1"></i>&nbsp;&nbsp;&nbsp;Время кэширования
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/cache.html#time" class="csstip" title="Указание времени, на которое будет закэширована каждая страница сайта" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-xs-6 text-center">
+                                            <select name="config.cache.time" class="form-control">
+                                                <% var times = {"0": "Отключить", "3600": "1 час", "43200": "12 часов", "86400": "1 день", "604800": "1 неделя", "2592000": "1 месяц"};
+                                                        for (time in times) { %>
+                                                <% if (time == config.cache.time) { %>
+                                                <% if (config.cache.time) { %>
+                                                <option value="<%- time %>" selected="selected">
+                                                    <%- times[time] %>
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- time %>" selected="selected">
+                                                    Отключено
+                                                </option>
+                                                <% } %>
+                                                <% } else { %>
+                                                <option value="<%- time %>">
+                                                    <%- times[time] %>
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <a href="javascript:void(0)" id="flush" class="btn btn-default btn-block"><span class="fa fa-trash-o"></span>&nbsp;&nbsp;Очистить&nbsp;кэш</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="spacer-10"></div>
-
-                    <div class="row">
-                        <div class="col-xs-6 col-xs-offset-6">
-                            <a href="javascript:void(0)" id="flush" class="btn btn-default btn-block"><span class="fa fa-trash-o"></span> Очистить кэш</a>
-                        </div>
-                    </div>
-
                 </div>
             </div>
 

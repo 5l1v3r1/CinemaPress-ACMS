@@ -27,7 +27,7 @@
                 <div class="inner-padding">
                     <div class="pull-left">
                         <h2>
-                            Топ
+                            <%- title %>
                         </h2>
                     </div>
                     <div class="pull-right">
@@ -51,7 +51,10 @@
                             <i class="fa fa-chevron-left"></i>
                         </a>
                         <a href="/<%- config.urls.admin %>/top" class="btn">
-                            Модуль топ в категориях
+                            Модуль топ-фильмов
+                        </a>
+                        <a href="https://CinemaPress.org/admin/top.html" class="btn" title="Информация о параметрах модуля топ-фильмов в категориях" target="_blank">
+                            <i class="fa fa-info-circle text-muted"></i>
                         </a>
                     </div>
                     <div class="pull-right">
@@ -73,48 +76,53 @@
                     <% if (modules.top.status) { %>
 
                     <div class="row">
-                        <div class="col-sm-3">
-                            <label>Сортировка:</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <select name="modules.top.data.sorting" class="form-control">
-                                <% for (name in config.sorting) { %>
-                                <% if (modules.top.data.sorting == name) { %>
-                                <option value="<%- name %>" selected="selected">
-                                    <%- config.sorting[name] %>
-                                </option>
-                                <% } else { %>
-                                <option value="<%- name %>">
-                                    <%- config.sorting[name] %>
-                                </option>
-                                <% } %>
-                                <% } %>
-                            </select>
-                            <div class="helper-text-box">
-                                <div class="form-helper-header">Сортировка по умолчанию</div>
-                                <p>
-                                    По этой сортировке будут отображаться ТОП фильмы в категориях.
-                                </p>
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-signal"></i>&nbsp;&nbsp;&nbsp;Топ-фильмы в категориях
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/top.html#settings" class="csstip" title="Топ-фильмы отображаются обычно либо вместо стандартного слайдера, либо отдельным блоком" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-xs-6 text-center">
+                                            <select name="modules.top.data.count" class="form-control">
+                                                <% for (var i = 1; i <= 20; i++) { %>
+                                                <% if (modules.top.data.count == i) { %>
+                                                <option value="<%- i %>" selected="selected">
+                                                    <%- i %> фильма(ов)
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- i %>">
+                                                    <%- i %> фильма(ов)
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-6 col-xs-6 text-center">
+                                            <select name="modules.top.data.sorting" class="form-control">
+                                                <% for (name in config.sorting) { %>
+                                                <% if (modules.top.data.sorting == name) { %>
+                                                <option value="<%- name %>" selected="selected">
+                                                    <%- config.sorting[name] %>
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- name %>">
+                                                    <%- config.sorting[name] %>
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="spacer-10"></div>
-                        <div class="col-sm-3">
-                            <label>Число фильмов:</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <select name="modules.top.data.count" class="form-control">
-                                <% for (var i = 1; i <= 20; i++) { %>
-                                <% if (modules.top.data.count == i) { %>
-                                <option value="<%- i %>" selected="selected">
-                                    <%- i %>
-                                </option>
-                                <% } else { %>
-                                <option value="<%- i %>">
-                                    <%- i %>
-                                </option>
-                                <% } %>
-                                <% } %>
-                            </select>
                         </div>
                     </div>
 
@@ -123,10 +131,10 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="attention-box attention-danger">
-                                <h4>Модуль «Топ» отключен</h4>
+                                <h4>Модуль «<%- title %>» отключен</h4>
                                 <div class="spacer-20"></div>
                                 <p class="text-muted">
-                                    Модуль «Топ» позволяет в каждой категории отображать лучшие фильмы по определенной сортировке.
+                                    Модуль «<%- title %>» позволяет в каждой категории отображать лучшие фильмы по определенной сортировке.
                                     <br>
                                     Чтобы включить модуль, нажмите на кнопку «Активировать» вверху экрана.
                                 </p>

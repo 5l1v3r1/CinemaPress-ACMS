@@ -27,16 +27,16 @@
                 <div class="inner-padding">
                     <div class="pull-left">
                         <h2>
-                            Плееры и торренты
+                            <%- title %>
                         </h2>
                     </div>
                     <div class="pull-right">
                         <% if (modules.player.status) { %>
-                        <a href="#[false]" data-module="player" data-status="false" class="btn btn-danger module-status">
+                        <a href="javascript:void(0)" data-module="player" data-status="false" class="btn btn-danger module-status">
                             <i class="fa fa-power-off"></i>&nbsp;Отключить
                         </a>
                         <% } else { %>
-                        <a href="#[true]" data-module="player" data-status="true" class="btn btn-success module-status">
+                        <a href="javascript:void(0)" data-module="player" data-status="true" class="btn btn-success module-status">
                             <i class="fa fa-power-off"></i>&nbsp;Активировать
                         </a>
                         <% } %>
@@ -51,7 +51,10 @@
                             <i class="fa fa-chevron-left"></i>
                         </a>
                         <a href="/<%- config.urls.admin %>/player" class="btn">
-                            Модуль плееров и торрентов на сайте
+                            Модуль плеера на сайте
+                        </a>
+                        <a href="https://CinemaPress.org/admin/player.html" class="btn" title="Информация о параметрах модуля плеер на сайте" target="_blank">
+                            <i class="fa fa-info-circle text-muted"></i>
                         </a>
                     </div>
                     <div class="pull-right">
@@ -73,154 +76,168 @@
                     <% if (modules.player.status) { %>
 
                     <div class="row">
-                        <div class="col-sm-3">
-                            <label>Yohoho:</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <div class="inline-labels">
-                                <label>
-                                    <input name="modules.player.data.display" value="yohoho" <% if (modules.player.data.display == 'yohoho') { %> checked="" <% } %> type="radio"><span></span> Yohoho.xyz основной плеер
-                                </label>
-                            </div>
-                            <div class="spacer-10"></div>
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <label>Отображение:</label>
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-film"></i>&nbsp;&nbsp;&nbsp;Yohoho.xyz
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/player.html#yohoho" class="csstip" title="Параметры плеера Yohoho.xyz" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="col-xs-9">
-                                    <div class="inline-labels">
-                                        <label>
-                                            <input name="modules.player.data.yohoho.show" value="1" <% if (modules.player.data.yohoho.show) { %> checked="" <% } %> type="radio"><span></span> Да
-                                        </label>
-                                        <label>
-                                            <input name="modules.player.data.yohoho.show" value="0" <% if (!modules.player.data.yohoho.show) { %> checked="" <% } %> type="radio"><span></span> Нет
-                                        </label>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-xs-6 text-center">
+                                            <div class="inline-labels">
+                                                <label>
+                                                    <input name="modules.player.data.display" value="yohoho" <% if (modules.player.data.display == 'yohoho') { %> checked="" <% } %> type="radio"><span></span> сделать основным
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-xs-6 text-center">
+                                            <div class="inline-labels">
+                                                <label>
+                                                    <input name="modules.player.data.yohoho.show" value="1" <% if (modules.player.data.yohoho.show) { %> checked="" <% } %> type="radio"><span></span> Показывать
+                                                </label>
+                                                <label>
+                                                    <input name="modules.player.data.yohoho.show" value="0" <% if (!modules.player.data.yohoho.show) { %> checked="" <% } %> type="radio"><span></span> Не показывать
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="spacer-10"></div>
-                    <hr>
-                    <div class="spacer-10"></div>
+                        <div class="spacer-10"></div>
 
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <label>Hdgo:</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <div class="inline-labels">
-                                <label>
-                                    <input name="modules.player.data.display" value="hdgo" <% if (modules.player.data.display == 'hdgo') { %> checked="" <% } %> type="radio"><span></span> Hdgo.cc основной плеер
-                                </label>
-                            </div>
-                            <div class="spacer-10"></div>
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <label>Токен:</label>
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-film"></i>&nbsp;&nbsp;&nbsp;Kodik.cc
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/player.html#kodik" class="csstip" title="Параметры плеера Kodik.cc" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="col-xs-9">
-                                    <input name="modules.player.data.hdgo.token" value="<%- modules.player.data.hdgo.token %>" class="form-control" type="text">
-                                    <div class="helper-text-box">
-                                        <p>
-                                            API токен-ключ, который Вы получите после <a href="http://hdgo.cc/" target="_blank">регистриции</a> (пишите на email, указанный на главной странице и просите отключить рекламу в плеере для молодого сайта) в <a href="http://hdgo.cc/content/base/api_index.php" target="_blank">панели управления</a>. Недостающие фильмы заказывать через <a href="http://hdgo.cc/content/base/orders.php" target="_blank">стол заказов</a>.
-                                        </p>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-xs-6 text-center">
+                                            <div class="inline-labels">
+                                                <label>
+                                                    <input name="modules.player.data.display" value="kodik" <% if (modules.player.data.display == 'kodik') { %> checked="" <% } %> type="radio"><span></span> сделать основным
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-xs-6 text-center">
+                                            <div class="inline-labels">
+                                                <label>
+                                                    <input name="modules.player.data.kodik.show" value="1" <% if (modules.player.data.kodik.show) { %> checked="" <% } %> type="radio"><span></span> Показывать
+                                                </label>
+                                                <label>
+                                                    <input name="modules.player.data.kodik.show" value="0" <% if (!modules.player.data.kodik.show) { %> checked="" <% } %> type="radio"><span></span> Не показывать
+                                                </label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="spacer-10"></div>
-                    <hr>
-                    <div class="spacer-10"></div>
+                        <div class="spacer-10"></div>
 
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <label>Moonwalk:</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <div class="inline-labels">
-                                <label>
-                                    <input name="modules.player.data.display" value="moonwalk" <% if (modules.player.data.display == 'moonwalk') { %> checked="" <% } %> type="radio"><span></span> Moonwalk.cc основной плеер
-                                </label>
-                            </div>
-                            <div class="spacer-10"></div>
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <label>Токен:</label>
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-film"></i>&nbsp;&nbsp;&nbsp;Moonwalk.cc
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/player.html#moonwalk" class="csstip" title="Указание токен-ключа плеера moonwalk.cc" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="col-xs-9">
-                                    <input name="modules.player.data.moonwalk.token" value="<%- modules.player.data.moonwalk.token %>" class="form-control" type="text">
-                                    <div class="helper-text-box">
-                                        <p>
-                                            API токен-ключ, который Вы получите после <a href="http://moonwalk.cc/" target="_blank">регистриции</a> (пишите на email, указанный на главной странице и просите отключить рекламу в плеере для молодого сайта) в <a href="http://moonwalk.cc/partners/edit_profile" target="_blank">панели управления</a>. Недостающие фильмы заказывать через <a href="http://moonwalk.cc/partners/orders" target="_blank">стол заказов</a>.
-                                        </p>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-xs-6 text-center">
+                                            <div class="inline-labels">
+                                                <label>
+                                                    <input name="modules.player.data.display" value="moonwalk" <% if (modules.player.data.display == 'moonwalk') { %> checked="" <% } %> type="radio"><span></span> сделать основным
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-xs-6 text-center">
+                                            <input name="modules.player.data.moonwalk.token" value="<%- modules.player.data.moonwalk.token %>" class="form-control" type="text" placeholder="Токен-ключ moonwalk.cc">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="spacer-10"></div>
-                    <hr>
-                    <div class="spacer-10"></div>
+                        <div class="spacer-10"></div>
 
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <label>Getmovie:</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <div class="inline-labels">
-                                <label>
-                                    <input name="modules.player.data.display" value="getmovie" <% if (modules.player.data.display == 'getmovie') { %> checked="" <% } %> type="radio"><span></span> Getmovie.cc основной плеер
-                                </label>
-                            </div>
-                            <div class="spacer-10"></div>
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <label>Токен:</label>
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-film"></i>&nbsp;&nbsp;&nbsp;Hdgo.cc
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/player.html#hdgo" class="csstip" title="Указание токен-ключа плеера hdgo.cc" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="col-xs-9">
-                                    <input name="modules.player.data.getmovie.token" value="<%- modules.player.data.getmovie.token %>" class="form-control" type="text">
-                                    <div class="helper-text-box">
-                                        <p>
-                                            API токен-ключ, который Вы получите после <a href="http://getmovie.cc/" target="_blank">регистриции</a>.
-                                        </p>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-xs-6 text-center">
+                                            <div class="inline-labels">
+                                                <label>
+                                                    <input name="modules.player.data.display" value="hdgo" <% if (modules.player.data.display == 'hdgo') { %> checked="" <% } %> type="radio"><span></span> сделать основным
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-xs-6 text-center">
+                                            <input name="modules.player.data.hdgo.token" value="<%- modules.player.data.hdgo.token %>" class="form-control" type="text" placeholder="Токен-ключ hdgo.cc">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="spacer-10"></div>
-                    <hr>
-                    <div class="spacer-10"></div>
+                        <div class="spacer-10"></div>
 
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <label>Kodik:</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <div class="inline-labels">
-                                <label>
-                                    <input name="modules.player.data.display" value="kodik" <% if (modules.player.data.display == 'kodik') { %> checked="" <% } %> type="radio"><span></span> Kodik.cc основной плеер
-                                </label>
-                            </div>
-                            <div class="spacer-10"></div>
-                            <div class="row">
-                                <div class="col-xs-3">
-                                    <label>Отображение:</label>
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-film"></i>&nbsp;&nbsp;&nbsp;Getmovie.cc
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/player.html#getmovie" class="csstip" title="Указание токен-ключа плеера getmovie.cc" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="col-xs-9">
-                                    <div class="inline-labels">
-                                        <label>
-                                            <input name="modules.player.data.kodik.show" value="1" <% if (modules.player.data.kodik.show) { %> checked="" <% } %> type="radio"><span></span> Да
-                                        </label>
-                                        <label>
-                                            <input name="modules.player.data.kodik.show" value="0" <% if (!modules.player.data.kodik.show) { %> checked="" <% } %> type="radio"><span></span> Нет
-                                        </label>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-xs-6 text-center">
+                                            <div class="inline-labels">
+                                                <label>
+                                                    <input name="modules.player.data.display" value="getmovie" <% if (modules.player.data.display == 'getmovie') { %> checked="" <% } %> type="radio"><span></span> сделать основным
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-xs-6 text-center">
+                                            <input name="modules.player.data.getmovie.token" value="<%- modules.player.data.getmovie.token %>" class="form-control" type="text" placeholder="Токен-ключ getmovie.cc">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -232,10 +249,10 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="attention-box attention-danger">
-                                <h4>Модуль «Плееры и торренты» отключен</h4>
+                                <h4>Модуль «<%- title %>» отключен</h4>
                                 <div class="spacer-20"></div>
                                 <p class="text-muted">
-                                    Модуль «Плееры и торренты» позволяет добавить на сайт плееры для онлайн просмотра фильмов или скачивание через торрент.
+                                    Модуль «<%- title %>» позволяет добавить на сайт плеер для онлайн просмотра фильмов.
                                     <br>
                                     Чтобы включить модуль, нажмите на кнопку «Активировать» вверху экрана.
                                 </p>

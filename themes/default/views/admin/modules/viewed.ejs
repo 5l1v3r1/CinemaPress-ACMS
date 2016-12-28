@@ -27,7 +27,7 @@
                 <div class="inner-padding">
                     <div class="pull-left">
                         <h2>
-                            Просмотренные
+                            <%- title %>
                         </h2>
                     </div>
                     <div class="pull-right">
@@ -53,6 +53,9 @@
                         <a href="/<%- config.urls.admin %>/viewed" class="btn">
                             Модуль просмотренных фильмов
                         </a>
+                        <a href="https://CinemaPress.org/admin/viewed.html" class="btn" title="Информация о параметрах модуля просмотренных фильмов" target="_blank">
+                            <i class="fa fa-info-circle text-info"></i>
+                        </a>
                     </div>
                     <div class="pull-right">
                         <p>
@@ -75,10 +78,10 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="attention-box attention-success">
-                                <h4>Модуль «Просмотренные» включен</h4>
+                                <h4>Модуль «<%- title %>» включен</h4>
                                 <div class="spacer-20"></div>
                                 <p class="text-muted">
-                                    Модуль «Просмотренные» добавляет внизу страницы список фильмов, которые были недавно просмотрены пользователем.
+                                    Модуль «<%- title %>» добавляет внизу страницы список фильмов, которые были недавно просмотрены пользователем.
                                     <br>
                                     Чтобы деактивировать модуль, нажмите на кнопку «Отключить» вверху экрана.
                                 </p>
@@ -91,10 +94,10 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="attention-box attention-danger">
-                                <h4>Модуль «Просмотренные» отключен</h4>
+                                <h4>Модуль «<%- title %>» отключен</h4>
                                 <div class="spacer-20"></div>
                                 <p class="text-muted">
-                                    Модуль «Просмотренные» добавляет внизу страницы список фильмов, которые были недавно просмотрены пользователем.
+                                    Модуль «<%- title %>» добавляет внизу страницы список фильмов, которые были недавно просмотрены пользователем.
                                     <br>
                                     Чтобы включить модуль, нажмите на кнопку «Активировать» вверху экрана.
                                 </p>

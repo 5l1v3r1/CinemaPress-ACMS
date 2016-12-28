@@ -27,7 +27,7 @@
                 <div class="inner-padding">
                     <div class="pull-left">
                         <h2>
-                            Отображение
+                            <%- title %>
                         </h2>
                     </div>
                 </div>
@@ -42,6 +42,9 @@
                         <a href="/<%- config.urls.admin %>/display" class="btn">
                             Параметры вывода фильмов в категориях
                         </a>
+                        <a href="https://CinemaPress.org/admin/display.html" class="btn" title="Информация о параметрах вывода фильмов в категориях" target="_blank">
+                            <i class="fa fa-info-circle text-muted"></i>
+                        </a>
                     </div>
                     <div class="pull-right">
                         <a href="javascript:void(0)" class="btn" data-toggle-sidebar="right">
@@ -52,205 +55,237 @@
 
                 <div class="inner-padding">
 
-                    <div class="faq">
-
-                        <article class="faq-group">
-                            <header>
-                                <i class="fa fa-minus"></i>
-                                <h3>Параметры по умолчанию</h3>
-                            </header>
-                            <div class="faq-content clearfix">
-
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <select name="config.default.count" class="form-control">
-                                            <% for (var i = 1; i <= 30; i++) { %>
-                                            <% if (config.default.count == i) { %>
-                                            <option value="<%- i %>" selected="selected">
-                                                <%- i %> фильма(-ов)
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- i %>">
-                                                <%- i %> фильма(-ов)
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <select name="config.default.sorting" class="form-control">
-                                            <% for (name in config.sorting) { %>
-                                            <% if (config.default.sorting == name) { %>
-                                            <option value="<%- name %>" selected="selected">
-                                                <%- config.sorting[name] %>
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- name %>">
-                                                <%- config.sorting[name] %>
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <div class="helper-text-box">
-                                            <div class="form-helper-header">Число фильмов</div>
-                                            <p>
-                                                Число фильмов для всех категорий и результатов поиска.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <div class="helper-text-box">
-                                            <div class="form-helper-header">Сортировка фильмов</div>
-                                            <p>
-                                                Сортировка фильмов для всех категорий и результатов поиска.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <select name="config.default.votes.imdb" class="form-control">
-                                            <% for (var i = 100; i <= 10000; i = i+100) { %>
-                                            <% if (config.default.votes.imdb == i) { %>
-                                            <option value="<%- i %>" selected="selected">
-                                                <%- i %> голос(-ов)
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- i %>">
-                                                <%- i %> голос(-ов)
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <select name="config.default.votes.kp" class="form-control">
-                                            <% for (var i = 100; i <= 10000; i = i+100) { %>
-                                            <% if (config.default.votes.kp == i) { %>
-                                            <option value="<%- i %>" selected="selected">
-                                                <%- i %> голос(-ов)
-                                            </option>
-                                            <% } else { %>
-                                            <option value="<%- i %>">
-                                                <%- i %> голос(-ов)
-                                            </option>
-                                            <% } %>
-                                            <% } %>
-                                        </select>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <div class="helper-text-box">
-                                            <div class="form-helper-header">Число голосов КиноПоиск</div>
-                                            <p>
-                                                Минимальное число голосов КиноПоиск у фильмов, которые будут показаны при сортировке по рейтингу КиноПоиск.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <div class="helper-text-box">
-                                            <div class="form-helper-header">Число голосов IMDb</div>
-                                            <p>
-                                                Минимальное число голосов IMDb у фильмов, которые будут показаны при сортировке по рейтингу IMDb.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </article>
-
-                    </div>
-
                     <% if (config.sorting) { %>
 
-                    <div class="spacer-20"></div>
-
                     <div class="row">
-                        <div class="col-sm-3">
-                            <label>Рейтинг КП (по уб.):</label>
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-newspaper-o"></i>&nbsp;&nbsp;&nbsp;Параметры отображения в категориях
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/display.html#default" class="csstip" title="Параметры отображения списка фильмов в категориях (жанры, страны, и т.д.)" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div>
+                                                <a href="javascript:void(0)" class="csstip text-muted" title="Укажите какое число фильмов будет отображаться в каждой категории и результатах поиска" target="_blank">
+                                                    <i class="fa fa-info-circle text-muted"></i>
+                                                    Фильмов на странице:
+                                                </a>
+                                            </div>
+                                            <select name="config.default.count" class="form-control">
+                                                <% for (var i = 1; i <= 30; i++) { %>
+                                                <% if (config.default.count == i) { %>
+                                                <option value="<%- i %>" selected="selected">
+                                                    <%- i %> фильма(-ов)
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- i %>">
+                                                    <%- i %> фильма(-ов)
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div>
+                                                <a href="javascript:void(0)" class="csstip text-muted" title="Укажите сортировку по которой будут сортироваться фильмы в категориях" target="_blank">
+                                                    <i class="fa fa-info-circle text-muted"></i>
+                                                    Сортировка фильмов:
+                                                </a>
+                                            </div>
+                                            <select name="config.default.sorting" class="form-control">
+                                                <% for (name in config.sorting) { %>
+                                                <% if (config.default.sorting == name) { %>
+                                                <option value="<%- name %>" selected="selected">
+                                                    <%- config.sorting[name] %>
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- name %>">
+                                                    <%- config.sorting[name] %>
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <div class="col-sm-6">
+                                            <div>
+                                                <a href="javascript:void(0)" class="csstip text-muted" title="Минимальное число голосов КиноПоиск у фильмов, которые будут показаны при сортировке по рейтингу КиноПоиск" target="_blank">
+                                                    <i class="fa fa-info-circle text-muted"></i>
+                                                    Число голосов КиноПоиск:
+                                                </a>
+                                            </div>
+                                            <select name="config.default.votes.imdb" class="form-control">
+                                                <% for (var i = 100; i <= 10000; i = i+100) { %>
+                                                <% if (config.default.votes.imdb == i) { %>
+                                                <option value="<%- i %>" selected="selected">
+                                                    <%- i %> голос(-ов)
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- i %>">
+                                                    <%- i %> голос(-ов)
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div>
+                                                <a href="javascript:void(0)" class="csstip text-muted" title="Минимальное число голосов IMDb у фильмов, которые будут показаны при сортировке по рейтингу IMDb" target="_blank">
+                                                    <i class="fa fa-info-circle text-muted"></i>
+                                                    Число голосов IMDb:
+                                                </a>
+                                            </div>
+                                            <select name="config.default.votes.kp" class="form-control">
+                                                <% for (var i = 100; i <= 10000; i = i+100) { %>
+                                                <% if (config.default.votes.kp == i) { %>
+                                                <option value="<%- i %>" selected="selected">
+                                                    <%- i %> голос(-ов)
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- i %>">
+                                                    <%- i %> голос(-ов)
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-sm-9">
-                            <input type="text" name="config.sorting.kinopoisk-rating-up" value="<%- config.sorting['kinopoisk-rating-up'] %>" class="form-control">
-                        </div>
+
                         <div class="spacer-10"></div>
-                        <div class="col-sm-3">
-                            <label>Рейтинг КП (по воз.):</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <input type="text" name="config.sorting.kinopoisk-rating-down" value="<%- config.sorting['kinopoisk-rating-down'] %>" class="form-control">
-                        </div>
-                        <div class="spacer-10"></div>
-                        <div class="col-sm-3">
-                            <label>Голоса КП (по уб.):</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <input type="text" name="config.sorting.kinopoisk-vote-up" value="<%- config.sorting['kinopoisk-vote-up'] %>" class="form-control">
-                        </div>
-                        <div class="spacer-10"></div>
-                        <div class="col-sm-3">
-                            <label>Голоса КП (по воз.):</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <input type="text" name="config.sorting.kinopoisk-vote-down" value="<%- config.sorting['kinopoisk-vote-down'] %>" class="form-control">
-                        </div>
-                        <div class="spacer-10"></div>
-                        <div class="col-sm-3">
-                            <label>Рейтинг IMDb (по уб.):</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <input type="text" name="config.sorting.imdb-rating-up" value="<%- config.sorting['imdb-rating-up'] %>" class="form-control">
-                        </div>
-                        <div class="spacer-10"></div>
-                        <div class="col-sm-3">
-                            <label>Рейтинг IMDb (по воз.):</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <input type="text" name="config.sorting.imdb-rating-down" value="<%- config.sorting['imdb-rating-down'] %>" class="form-control">
-                        </div>
-                        <div class="spacer-10"></div>
-                        <div class="col-sm-3">
-                            <label>Голоса IMDb (по уб.):</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <input type="text" name="config.sorting.imdb-vote-up" value="<%- config.sorting['imdb-vote-up'] %>" class="form-control">
-                        </div>
-                        <div class="spacer-10"></div>
-                        <div class="col-sm-3">
-                            <label>Голоса IMDb (по воз.):</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <input type="text" name="config.sorting.imdb-vote-down" value="<%- config.sorting['imdb-vote-down'] %>" class="form-control">
-                        </div>
-                        <div class="spacer-10"></div>
-                        <div class="col-sm-3">
-                            <label>Год (по уб.):</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <input type="text" name="config.sorting.year-up" value="<%- config.sorting['year-up'] %>" class="form-control">
-                        </div>
-                        <div class="spacer-10"></div>
-                        <div class="col-sm-3">
-                            <label>Год (по воз.):</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <input type="text" name="config.sorting.year-down" value="<%- config.sorting['year-down'] %>" class="form-control">
-                        </div>
-                        <div class="spacer-10"></div>
-                        <div class="col-sm-3">
-                            <label>Премьера (по уб.):</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <input type="text" name="config.sorting.premiere-up" value="<%- config.sorting['premiere-up'] %>" class="form-control">
-                        </div>
-                        <div class="spacer-10"></div>
-                        <div class="col-sm-3">
-                            <label>Премьера (по воз.):</label>
-                        </div>
-                        <div class="col-sm-9">
-                            <input type="text" name="config.sorting.premiere-down" value="<%- config.sorting['premiere-down'] %>" class="form-control">
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-sort"></i>&nbsp;&nbsp;&nbsp;Названия сортировок
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/display.html#sorting" class="csstip" title="Названия сортировок на странице категорий" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <label>Рейтинг КП (по убыванию):</label>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="config.sorting.kinopoisk-rating-up" value="<%- config.sorting['kinopoisk-rating-up'] %>" class="form-control">
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <div class="col-sm-5">
+                                            <label>Рейтинг КП (по возрастанию):</label>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="config.sorting.kinopoisk-rating-down" value="<%- config.sorting['kinopoisk-rating-down'] %>" class="form-control">
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <div class="col-sm-5">
+                                            <label>Голоса КП (по убыванию):</label>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="config.sorting.kinopoisk-vote-up" value="<%- config.sorting['kinopoisk-vote-up'] %>" class="form-control">
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <div class="col-sm-5">
+                                            <label>Голоса КП (по возрастанию):</label>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="config.sorting.kinopoisk-vote-down" value="<%- config.sorting['kinopoisk-vote-down'] %>" class="form-control">
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <div class="col-sm-5">
+                                            <label>Рейтинг IMDb (по убыванию):</label>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="config.sorting.imdb-rating-up" value="<%- config.sorting['imdb-rating-up'] %>" class="form-control">
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <div class="col-sm-5">
+                                            <label>Рейтинг IMDb (по возрастанию):</label>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="config.sorting.imdb-rating-down" value="<%- config.sorting['imdb-rating-down'] %>" class="form-control">
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <div class="col-sm-5">
+                                            <label>Голоса IMDb (по убыванию):</label>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="config.sorting.imdb-vote-up" value="<%- config.sorting['imdb-vote-up'] %>" class="form-control">
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <div class="col-sm-5">
+                                            <label>Голоса IMDb (по возрастанию):</label>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="config.sorting.imdb-vote-down" value="<%- config.sorting['imdb-vote-down'] %>" class="form-control">
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <div class="col-sm-5">
+                                            <label>Год (по убыванию):</label>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="config.sorting.year-up" value="<%- config.sorting['year-up'] %>" class="form-control">
+                                        </div>
+                                        <div class="spacer-10"></div>
+                                        <div class="col-sm-5">
+                                            <label>Год (по возрастанию):</label>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="config.sorting.year-down" value="<%- config.sorting['year-down'] %>" class="form-control">
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <div class="col-sm-5">
+                                            <label>Премьера (по убыванию):</label>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="config.sorting.premiere-up" value="<%- config.sorting['premiere-up'] %>" class="form-control">
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <div class="col-sm-5">
+                                            <label>Премьера (по возрастанию):</label>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="config.sorting.premiere-down" value="<%- config.sorting['premiere-down'] %>" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

@@ -27,7 +27,7 @@
                 <div class="inner-padding">
                     <div class="pull-left">
                         <h2>
-                            Названия
+                            <%- title %>
                         </h2>
                     </div>
                 </div>
@@ -41,6 +41,9 @@
                         </a>
                         <a href="/<%- config.urls.admin %>/titles" class="btn">
                             Названия странц сайта
+                        </a>
+                        <a href="https://CinemaPress.org/admin/titles.html" class="btn" title="Информация о написании названий для всех страниц сайта" target="_blank">
+                            <i class="fa fa-info-circle text-muted"></i>
                         </a>
                     </div>
                     <div class="pull-right">
@@ -958,114 +961,121 @@
 
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <div class="subheading">
-                                            <h3>Нумерация</h3>
-                                            <p>Будет подставлено на месте <code>[page]</code> в названиях страниц.</p>
+                                        <div class="example-box">
+                                            <div class="example-box-header">
+                                                <div class="example-label">
+                                                    <i class="fa fa-list-ol"></i>&nbsp;&nbsp;&nbsp;Будет подставлено на месте кода [page]
+                                                </div>
+                                            </div>
+                                            <div class="inner-padding">
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-xs-12 text-center">
+                                                        <input type="text" name="config.titles.num" value="<%- config.titles.num %>" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
+
+                                    <div class="spacer-10"></div>
+
                                     <div class="col-sm-12">
-                                        <input type="text" name="config.titles.num" value="<%- config.titles.num %>" class="form-control">
+                                        <div class="example-box">
+                                            <div class="example-box-header">
+                                                <div class="example-label">
+                                                    <i class="fa fa-list-ul"></i>&nbsp;&nbsp;&nbsp;Будет подставлено на месте кода [sorting]
+                                                </div>
+                                            </div>
+                                            <div class="inner-padding">
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <label>По убыванию</label>
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" name="config.titles.sorting.kinopoisk-rating-up" value="<%- config.titles.sorting['kinopoisk-rating-up'] %>" class="form-control">
+                                                    </div>
+                                                    <div class="spacer-10"></div>
+                                                    <div class="col-sm-3">
+                                                        <label>По возрастанию</label>
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" name="config.titles.sorting.kinopoisk-rating-down" value="<%- config.titles.sorting['kinopoisk-rating-down'] %>" class="form-control">
+                                                    </div>
+                                                    <div class="spacer-10"></div>
+                                                    <div class="col-sm-3">
+                                                        <label>По убыванию</label>
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" name="config.titles.sorting.kinopoisk-vote-up" value="<%- config.titles.sorting['kinopoisk-vote-up'] %>" class="form-control">
+                                                    </div>
+                                                    <div class="spacer-10"></div>
+                                                    <div class="col-sm-3">
+                                                        <label>По возрастанию</label>
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" name="config.titles.sorting.kinopoisk-vote-down" value="<%- config.titles.sorting['kinopoisk-vote-down'] %>" class="form-control">
+                                                    </div>
+                                                    <div class="spacer-10"></div>
+                                                    <div class="col-sm-3">
+                                                        <label>По убыванию</label>
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" name="config.titles.sorting.imdb-rating-up" value="<%- config.titles.sorting['imdb-rating-up'] %>" class="form-control">
+                                                    </div>
+                                                    <div class="spacer-10"></div>
+                                                    <div class="col-sm-3">
+                                                        <label>По возрастанию</label>
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" name="config.titles.sorting.imdb-rating-down" value="<%- config.titles.sorting['imdb-rating-down'] %>" class="form-control">
+                                                    </div>
+                                                    <div class="spacer-10"></div>
+                                                    <div class="col-sm-3">
+                                                        <label>По убыванию</label>
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" name="config.titles.sorting.imdb-vote-up" value="<%- config.titles.sorting['imdb-vote-up'] %>" class="form-control">
+                                                    </div>
+                                                    <div class="spacer-10"></div>
+                                                    <div class="col-sm-3">
+                                                        <label>По возрастанию</label>
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" name="config.titles.sorting.imdb-vote-down" value="<%- config.titles.sorting['imdb-vote-down'] %>" class="form-control">
+                                                    </div>
+                                                    <div class="spacer-10"></div>
+                                                    <div class="col-sm-3">
+                                                        <label>По убыванию</label>
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" name="config.titles.sorting.year-up" value="<%- config.titles.sorting['year-up'] %>" class="form-control">
+                                                    </div>
+                                                    <div class="spacer-10"></div>
+                                                    <div class="col-sm-3">
+                                                        <label>По возрастанию</label>
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" name="config.titles.sorting.year-down" value="<%- config.titles.sorting['year-down'] %>" class="form-control">
+                                                    </div>
+                                                    <div class="spacer-10"></div>
+                                                    <div class="col-sm-3">
+                                                        <label>По убыванию</label>
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" name="config.titles.sorting.premiere-up" value="<%- config.titles.sorting['premiere-up'] %>" class="form-control">
+                                                    </div>
+                                                    <div class="spacer-10"></div>
+                                                    <div class="col-sm-3">
+                                                        <label>По возрастанию</label>
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" name="config.titles.sorting.premiere-down" value="<%- config.titles.sorting['premiere-down'] %>" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-
-                                <div class="spacer-10"></div>
-
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <div class="subheading">
-                                            <h3>Сортировка</h3>
-                                            <p>Будет подставлено на месте <code>[sorting]</code> в названиях страниц.</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <label>По убыванию</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="config.titles.sorting.kinopoisk-rating-up" value="<%- config.titles.sorting['kinopoisk-rating-up'] %>" class="form-control">
-                                            </div>
-                                            <div class="spacer-10"></div>
-                                            <div class="col-sm-3">
-                                                <label>По возрастанию</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="config.titles.sorting.kinopoisk-rating-down" value="<%- config.titles.sorting['kinopoisk-rating-down'] %>" class="form-control">
-                                            </div>
-                                            <div class="spacer-10"></div>
-                                            <div class="col-sm-3">
-                                                <label>По убыванию</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="config.titles.sorting.kinopoisk-vote-up" value="<%- config.titles.sorting['kinopoisk-vote-up'] %>" class="form-control">
-                                            </div>
-                                            <div class="spacer-10"></div>
-                                            <div class="col-sm-3">
-                                                <label>По возрастанию</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="config.titles.sorting.kinopoisk-vote-down" value="<%- config.titles.sorting['kinopoisk-vote-down'] %>" class="form-control">
-                                            </div>
-                                            <div class="spacer-10"></div>
-                                            <div class="col-sm-3">
-                                                <label>По убыванию</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="config.titles.sorting.imdb-rating-up" value="<%- config.titles.sorting['imdb-rating-up'] %>" class="form-control">
-                                            </div>
-                                            <div class="spacer-10"></div>
-                                            <div class="col-sm-3">
-                                                <label>По возрастанию</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="config.titles.sorting.imdb-rating-down" value="<%- config.titles.sorting['imdb-rating-down'] %>" class="form-control">
-                                            </div>
-                                            <div class="spacer-10"></div>
-                                            <div class="col-sm-3">
-                                                <label>По убыванию</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="config.titles.sorting.imdb-vote-up" value="<%- config.titles.sorting['imdb-vote-up'] %>" class="form-control">
-                                            </div>
-                                            <div class="spacer-10"></div>
-                                            <div class="col-sm-3">
-                                                <label>По возрастанию</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="config.titles.sorting.imdb-vote-down" value="<%- config.titles.sorting['imdb-vote-down'] %>" class="form-control">
-                                            </div>
-                                            <div class="spacer-10"></div>
-                                            <div class="col-sm-3">
-                                                <label>По убыванию</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="config.titles.sorting.year-up" value="<%- config.titles.sorting['year-up'] %>" class="form-control">
-                                            </div>
-                                            <div class="spacer-10"></div>
-                                            <div class="col-sm-3">
-                                                <label>По возрастанию</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="config.titles.sorting.year-down" value="<%- config.titles.sorting['year-down'] %>" class="form-control">
-                                            </div>
-                                            <div class="spacer-10"></div>
-                                            <div class="col-sm-3">
-                                                <label>По убыванию</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="config.titles.sorting.premiere-up" value="<%- config.titles.sorting['premiere-up'] %>" class="form-control">
-                                            </div>
-                                            <div class="spacer-10"></div>
-                                            <div class="col-sm-3">
-                                                <label>По возрастанию</label>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="config.titles.sorting.premiere-down" value="<%- config.titles.sorting['premiere-down'] %>" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
                             </div>
                         </article>
                     </div>

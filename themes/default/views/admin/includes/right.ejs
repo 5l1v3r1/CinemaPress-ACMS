@@ -2,19 +2,47 @@
 
     <div class="sidebar-sec-top"></div>
 
-    <div class="sidebar-module">
+    <div class="sidebar-module" style="padding: 0; margin: 0;">
 
-        <div class="widget">
-            <header>
-                <div class="pull-left" style="text-align: justify; padding: 5px;">
-                    <h2 style="margin: 0;" id="newsCPtitle"></h2>
-                </div>
-            </header>
-            <div>
-                <div class="inner-padding" style="text-align: justify; padding: 5px;" id="newsCPdescription">
-                </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <a href="javascript:void(0)" class="btn btn-block btn-default" onclick="document.querySelector('#chatra-wrapper').style.display = 'block'; this.style.display = 'none';" style="text-align: center; display: inline-table; margin: 200px auto; padding: 20px">
+                    <span class="fa fa-commenting-o" style="font-size: 28px; width: 100%"></span>
+                    <p style="font-size: 11px;">Чат с поддержкой</p>
+                </a>
             </div>
         </div>
+
+        <div id="chatra-wrapper" style="height: 480px; background: #272F38; display: none;"></div>
+
+        <script>
+            window.ChatraIntegration = {
+                name: '<%- config.domain %>',
+                email: '<%- config.email %>'
+            };
+            window.ChatraSetup = {
+                mode: 'frame',
+                injectTo: 'chatra-wrapper',
+                colors: {
+                    chatBg: '#272F38',
+                    clientBubbleBg: '#fff',
+                    agentBubbleBg: '#fff'
+                },
+                disabledOnMobile: true,
+                startHidden: true
+            };
+
+            (function(d, w, c) {
+                w.ChatraID = 'CxWo7o8kzJ6c5KuSs';
+                var s = d.createElement('script');
+                w[c] = w[c] || function() {
+                            (w[c].q = w[c].q || []).push(arguments);
+                        };
+                s.async = true;
+                s.src = 'https://call.chatra.io/chatra.js';
+                if (d.head) d.head.appendChild(s);
+            })(document, window, 'Chatra');
+        </script>
 
     </div>
 

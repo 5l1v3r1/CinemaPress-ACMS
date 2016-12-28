@@ -27,7 +27,7 @@
                 <div class="inner-padding">
                     <div class="pull-left">
                         <h2>
-                            Мобильная версия
+                            <%- title %>
                         </h2>
                     </div>
                     <div class="pull-right">
@@ -53,6 +53,9 @@
                         <a href="/<%- config.urls.admin %>/mobile" class="btn">
                             Модуль мобильной версии
                         </a>
+                        <a href="https://CinemaPress.org/admin/mobile.html" class="btn" title="Информация о параметрах модуля мобильной версии сайта" target="_blank">
+                            <i class="fa fa-info-circle text-muted"></i>
+                        </a>
                     </div>
                     <div class="pull-right">
                         <p>
@@ -74,99 +77,115 @@
 
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="inline-labels">
-                                <label>
-                                    <input name="modules.mobile.data.theme" value="light" <% if (modules.mobile.data.theme == 'light') { %> checked="" <% } %> type="radio"><span></span> Светлая тема мобильной версии сайта
-                                </label>
-                            </div>
-                            <div class="helper-text-box">
-                                <p>
-                                    Использовать на мобильной версии сайта светлую тему оформления.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-
-                            <div class="faq">
-                                <article class="faq-group">
-                                    <header>
-                                        <i class="fa fa-minus"></i>
-                                        <h3>Скриншоты</h3>
-                                    </header>
-                                    <div class="faq-content clearfix">
-
-                                        <div class="row">
-                                            <div class="col-xs-4">
-                                                <div class="thumbnail">
-                                                    <img src="/themes/default/public/mobile/light/light1.jpg">
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-4">
-                                                <div class="thumbnail">
-                                                    <img src="/themes/default/public/mobile/light/light2.jpg">
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-4">
-                                                <div class="thumbnail">
-                                                    <img src="/themes/default/public/mobile/light/light3.jpg">
-                                                </div>
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-circle"></i>&nbsp;&nbsp;&nbsp;Светлая тема
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/mobile.html#light" class="csstip" title="Светлая тема оформления мобильной версии сайта" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-1 col-xs-1 text-center">
+                                            <div class="inline-labels">
+                                                <label style="margin: 5px;">
+                                                    <input name="modules.mobile.data.theme" value="light" <% if (modules.mobile.data.theme == 'light') { %> checked="" <% } %> type="radio"><span></span>
+                                                </label>
                                             </div>
                                         </div>
-
-                                    </div>
-                                </article>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="spacer-20"></div>
-
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="inline-labels">
-                                <label>
-                                    <input name="modules.mobile.data.theme" value="dark" <% if (modules.mobile.data.theme == 'dark') { %> checked="" <% } %> type="radio"><span></span> Темная тема мобильной версии сайта
-                                </label>
-                            </div>
-                            <div class="helper-text-box">
-                                <p>
-                                    Использовать на мобильной версии сайта темную тему оформления.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-
-                            <div class="faq">
-                                <article class="faq-group">
-                                    <header>
-                                        <i class="fa fa-minus"></i>
-                                        <h3>Скриншоты</h3>
-                                    </header>
-                                    <div class="faq-content clearfix">
-
-                                        <div class="row">
-                                            <div class="col-xs-4">
-                                                <div class="thumbnail">
-                                                    <img src="/themes/default/public/mobile/dark/dark1.jpg">
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-4">
-                                                <div class="thumbnail">
-                                                    <img src="/themes/default/public/mobile/dark/dark2.jpg">
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-4">
-                                                <div class="thumbnail">
-                                                    <img src="/themes/default/public/mobile/dark/dark3.jpg">
-                                                </div>
+                                        <div class="col-xs-11 col-lg-11">
+                                            <div class="faq">
+                                                <article class="faq-group">
+                                                    <header>
+                                                        <i class="fa fa-minus"></i>
+                                                        <h3>Скриншоты</h3>
+                                                    </header>
+                                                    <div class="faq-content clearfix">
+                                                        <div class="row">
+                                                            <div class="col-xs-4">
+                                                                <div class="thumbnail">
+                                                                    <img src="/themes/default/public/mobile/light/light1.jpg">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4">
+                                                                <div class="thumbnail">
+                                                                    <img src="/themes/default/public/mobile/light/light2.jpg">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4">
+                                                                <div class="thumbnail">
+                                                                    <img src="/themes/default/public/mobile/light/light3.jpg">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </article>
                                             </div>
                                         </div>
-
                                     </div>
-                                </article>
+                                </div>
                             </div>
+                        </div>
 
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-circle-o"></i>&nbsp;&nbsp;&nbsp;Темная тема
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/mobile.html#dark" class="csstip" title="Темная тема оформления мобильной версии сайта" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-1 col-xs-1 text-center">
+                                            <div class="inline-labels">
+                                                <label style="margin: 5px;">
+                                                    <input name="modules.mobile.data.theme" value="dark" <% if (modules.mobile.data.theme == 'dark') { %> checked="" <% } %> type="radio"><span></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-11 col-lg-11">
+                                            <div class="faq">
+                                                <article class="faq-group">
+                                                    <header>
+                                                        <i class="fa fa-minus"></i>
+                                                        <h3>Скриншоты</h3>
+                                                    </header>
+                                                    <div class="faq-content clearfix">
+                                                        <div class="row">
+                                                            <div class="col-xs-4">
+                                                                <div class="thumbnail">
+                                                                    <img src="/themes/default/public/mobile/dark/dark1.jpg">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4">
+                                                                <div class="thumbnail">
+                                                                    <img src="/themes/default/public/mobile/dark/dark2.jpg">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4">
+                                                                <div class="thumbnail">
+                                                                    <img src="/themes/default/public/mobile/dark/dark3.jpg">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -175,10 +194,10 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="attention-box attention-danger">
-                                <h4>Модуль «Мобильная версия» отключен</h4>
+                                <h4>Модуль «<%- title %>» отключен</h4>
                                 <div class="spacer-20"></div>
                                 <p class="text-muted">
-                                    Модуль «Мобильная версия» говорит поисковым системам, что у сайта есть версия сайта для идеального отображения на мобильных устройствах. Прежде чем активировать модуль, убедитесь, что создан поддомен «m.<%- config.domain %>» (В панели управления NS-записями домена есть соответствующая CNAME-запись).
+                                    Модуль «<%- title %>» говорит поисковым системам, что у сайта есть версия сайта для идеального отображения на мобильных устройствах. Прежде чем активировать модуль, убедитесь, что создан поддомен «m.<%- config.domain %>» (В панели управления DNS-записями домена есть соответствующая CNAME-запись «m»).
                                     <br>
                                     Чтобы включить модуль, нажмите на кнопку «Активировать» вверху экрана.
                                 </p>

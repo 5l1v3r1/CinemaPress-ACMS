@@ -27,7 +27,7 @@
                 <div class="inner-padding">
                     <div class="pull-left">
                         <h2>
-                            Микроразметка
+                            <%- title %>
                         </h2>
                     </div>
                     <div class="pull-right">
@@ -53,6 +53,9 @@
                         <a href="/<%- config.urls.admin %>/schema" class="btn">
                             Модуль микроразметки
                         </a>
+                        <a href="https://CinemaPress.org/admin/schema.html" class="btn" title="Информация о параметрах модуля Schema и OpenGraph разметки" target="_blank">
+                            <i class="fa fa-info-circle text-info"></i>
+                        </a>
                     </div>
                     <div class="pull-right">
                         <p>
@@ -75,10 +78,10 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="attention-box attention-success">
-                                <h4>Модуль «Микроразметка» включена</h4>
+                                <h4>Модуль «<%- title %>» включена</h4>
                                 <div class="spacer-20"></div>
                                 <p class="text-muted">
-                                    Модуль «Микроразметка» добавляет на всех страницах schema-разметку.
+                                    Модуль «<%- title %>» добавляет Schema и OpenGraph разметку на все страницы сайта.
                                     <br>
                                     Чтобы деактивировать модуль, нажмите на кнопку «Отключить» вверху экрана.
                                 </p>
@@ -91,10 +94,10 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <div class="attention-box attention-danger">
-                                <h4>Модуль «Микроразметка» отключен</h4>
+                                <h4>Модуль «<%- title %>» отключен</h4>
                                 <div class="spacer-20"></div>
                                 <p class="text-muted">
-                                    Модуль «Микроразметка» позволяет добавить микроразметку на все страницы сайта.
+                                    Модуль «<%- title %>» позволяет добавить Schema и OpenGraph разметку на все страницы сайта.
                                     <br>
                                     Чтобы включить модуль, нажмите на кнопку «Активировать» вверху экрана.
                                 </p>

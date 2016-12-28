@@ -27,7 +27,7 @@
                 <div class="inner-padding">
                     <div class="pull-left">
                         <h2>
-                            Фильмы
+                            <%- title %>
                         </h2>
                     </div>
                 </div>
@@ -40,7 +40,10 @@
                             <i class="fa fa-chevron-left"></i>
                         </a>
                         <a href="/<%- config.urls.admin %>/movies" class="btn">
-                            Список всех фильмов с уникальным описанием
+                            Список фильмов с уникальным описанием
+                        </a>
+                        <a href="https://CinemaPress.org/admin/movies.html" class="btn" title="Информация о написании уникальных описаний для фильмов" target="_blank">
+                            <i class="fa fa-info-circle text-muted"></i>
                         </a>
                     </div>
                     <div class="pull-right">
@@ -56,55 +59,59 @@
 
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="advanced-textarea">
-
-                                <div class="text-muted">
-                                    Описания фильмам:
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-pencil"></i>&nbsp;&nbsp;&nbsp;Массовое добавление описаний
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/movies.html#mass" class="csstip" title="Массовое добавление описаний фильмам" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
                                 </div>
-
-                                <div class="spacer-10"></div>
-
-                                <textarea class="form-control descriptions" name="movies" placeholder="(ID_КиноПоиск) {Название | Описание} или (ID_КиноПоиск) {Описание}"></textarea>
-
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-xs-12 text-center">
+                                            <textarea class="form-control descriptions" name="movies" placeholder="(ID_КиноПоиск) {Название | Описание} или (ID_КиноПоиск) {Описание}"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="subheading">
-                                <p>
-                                    Массовое добавление описаний к фильмам. Чтобы все описания были приняты, они должны иметь определенный формат. В круглых скобках ID КиноПоиска <code>(298)</code> и затем в фигурных скобках можно либо одно описание <code>{Описание}</code>, либо название (&lt;title&gt; страницы) и через прямую черту описание <code>{Название | Описание}</code>. На страницах категорий у каждого фильма есть короткое описание в 200 символов, оно формируется автоматически из первых 200 символов основного описания. Если хотите сделать это описание уникальным, можете написать следующим образом <code>{**Короткое описание** Основное описание}</code>.
-                                    <br><br>
-                                    <code>(330) {Романтическая кинодрама Касабланка | Главный герой картины, Рик Блэйн ...}</code><br>
-                                    <code>(331) {В шикарном поместье умирает газетный магнат Чарльз Фостер Кейн ...}</code><br>
-                                    <code>(332) {Япония. 16 век. В стране полыхает гражданская война, повсюду орудуют ...}</code><br>
-                                    <code>(333) {4-я часть Звездных войн | Татуин. Планета-пустыня. Уже постаревший рыцарь ...}</code><br>
-                                    <code>(334) {Одержимый мыслью о том, что коммунисты намереваются украсть ...}</code><br>
-                                    и т.д. можете добавить до 1 000 описаний за один раз.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="spacer-10"></div>
 
                     <% } else if (movie) { %>
 
                     <% if (movie.kp_id) { %>
+
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="helper-text-box" style="text-align: justify;">
-                                <a href="<%- config.protocol + config.domain + '/' + config.urls.movie + '/' + config.urls.prefix_id + (parseInt(movie.kp_id) + parseInt(config.urls.unique_id)) %>" style="text-decoration:none;" target="_blank">
-                                    <img src="https://st.kp.yandex.net/images/sm_film/<%- movie.kp_id %>.jpg" style="float: left; margin: 5px 10px 10px 0; width: 60px; height: 85px;">
-                                </a>
-                                <%- movie.description %>
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-id-badge"></i>&nbsp;&nbsp;&nbsp;Текущее описание
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-xs-12">
+                                            <a href="<%- movie.url %>" target="_blank">
+                                                <img src="https://st.kp.yandex.net/images/sm_film/<%- movie.kp_id %>.jpg" style="float: left; margin: 5px 10px 10px 0; width: 60px; height: 85px;">
+                                            </a>
+                                            <div class="test-justify">
+                                                <%- movie.description %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="spacer-10"></div>
                     <% } %>
+
+                    <div class="spacer-10"></div>
 
                     <div class="row">
                         <div class="col-sm-3">

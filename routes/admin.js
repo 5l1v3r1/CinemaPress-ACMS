@@ -43,7 +43,8 @@ router.get('/:type?', function(req, res) {
     var render = {
         "config"  : JSON.parse(c),
         "modules" : JSON.parse(m),
-        "texts"   : JSON.parse(t)
+        "texts"   : JSON.parse(t),
+        "type"    : req.params.type || 'admin'
     };
 
     var kp_id = (req.query.movie)
@@ -58,9 +59,11 @@ router.get('/:type?', function(req, res) {
 
     switch (req.params.type) {
         case 'index':
+            render.title = 'Главная страница';
             res.render('admin/index', render);
             break;
         case 'movies':
+            render.title = 'Фильмы';
             getMovie(function (err, render) {
                 return (err)
                     ? res.send(err)
@@ -68,30 +71,39 @@ router.get('/:type?', function(req, res) {
             });
             break;
         case 'main':
+            render.title = 'Настройки';
             res.render('admin/main', render);
             break;
         case 'urls':
+            render.title = 'URL ссылки сайта';
             res.render('admin/urls', render);
             break;
         case 'display':
+            render.title = 'Отображение';
             res.render('admin/display', render);
             break;
         case 'titles':
+            render.title = 'Названия';
             res.render('admin/titles', render);
             break;
         case 'descriptions':
+            render.title = 'Описания';
             res.render('admin/descriptions', render);
             break;
         case 'codes':
+            render.title = 'Коды';
             res.render('admin/codes', render);
             break;
         case 'cache':
+            render.title = 'Кэширование';
             res.render('admin/cache', render);
             break;
         case 'load':
+            render.title = 'Распределение нагрузки';
             res.render('admin/load', render);
             break;
         case 'publish':
+            render.title = 'Публикация';
             getCountMovies(function (err, render) {
                 if (err) return res.send(err);
                 CP_get.publishIds(function (err, ids) {
@@ -105,6 +117,7 @@ router.get('/:type?', function(req, res) {
             });
             break;
         case 'collections':
+            render.title = 'Коллекции';
             getCollection(function (err, render) {
                 return (err)
                     ? res.send(err)
@@ -112,48 +125,63 @@ router.get('/:type?', function(req, res) {
             });
             break;
         case 'comments':
+            render.title = 'Комментарии';
             res.render('admin/modules/comments', render);
             break;
         case 'related':
+            render.title = 'Связанные';
             res.render('admin/modules/related', render);
             break;
         case 'slider':
+            render.title = 'Слайдер';
             res.render('admin/modules/slider', render);
             break;
         case 'abuse':
+            render.title = 'Скрыть';
             res.render('admin/modules/abuse', render);
             break;
         case 'top':
+            render.title = 'Топ';
             res.render('admin/modules/top', render);
             break;
         case 'social':
+            render.title = 'Социальные сети';
             res.render('admin/modules/social', render);
             break;
         case 'schema':
+            render.title = 'Микроразметка';
             res.render('admin/modules/schema', render);
             break;
         case 'soon':
+            render.title = 'Скоро';
             res.render('admin/modules/soon', render);
             break;
         case 'continue':
+            render.title = 'Продолжить';
             res.render('admin/modules/continue', render);
             break;
         case 'viewed':
+            render.title = 'Просмотренные';
             res.render('admin/modules/viewed', render);
             break;
         case 'player':
+            render.title = 'Плеер';
             res.render('admin/modules/player', render);
             break;
         case 'blocking':
+            render.title = 'Блокировка';
             res.render('admin/modules/blocking', render);
             break;
         case 'mobile':
+            render.title = 'Мобильная версия';
             res.render('admin/modules/mobile', render);
             break;
         case 'episode':
+            render.title = 'Серии';
             res.render('admin/modules/episode', render);
             break;
         default:
+            render.title = 'Панель администратора';
             getCountMovies(function (err, render) {
                 return (err)
                     ? res.send(err)

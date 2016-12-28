@@ -22,116 +22,160 @@
 
     <div class="sidebar-line"></div>
 
+    <% var navigation = ['admin','main','publish','index','urls','display','movies','titles','descriptions','codes','load','cache'].indexOf(type)+1; %>
+
     <ul class="ext-tabs-sidebar">
-        <li class="active">
-            <a href="#navigation"><i class="fa fa-bars"></i> Навигация</a>
+        <li class="<% if (navigation) { %>active<% } %>">
+            <a href="#navigation"><i class="fa fa-cogs"></i> Параметры</a>
         </li>
-        <li>
+        <li class="<% if (!navigation) { %>active<% } %>">
             <a href="#modules"><i class="fa fa-wrench"></i> Модули</a>
         </li>
     </ul>
     <div class="tab-content">
-        <div id="navigation" class="tab-pane active clearfix">
+        <div id="navigation" class="tab-pane clearfix <% if (navigation) { %>active<% } %>">
             <div class="sidebar-module">
                 <nav class="sidebar-nav-v2">
                     <ul>
-                        <li>
-                            <a href="/<%- config.urls.admin %>"><i class="fa fa-home"></i> Админ-панель</a>
+                        <li<% if (type == 'admin') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/admin"><i class="fa fa-home"></i> Админ-панель</a>
                         </li>
-                        <li>
-                            <a href="/<%- config.urls.admin %>/publish"><i class="fa fa-clock-o"></i> Автопубликация</a>
+                        <li<% if (type == 'publish') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/publish"><i class="fa fa-clock-o"></i> Публикация</a>
                         </li>
-                        <li>
-                            <a href="/<%- config.urls.admin %>/index"><i class="fa fa-th"></i> Главная сайта</a>
+                        <li<% if (type == 'index') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/index"><i class="fa fa-bars"></i> Главная сайта</a>
                         </li>
-                        <li>
+                        <li<% if (type == 'urls') { %> class="page-arrow active-page"<% } %>>
                             <a href="/<%- config.urls.admin %>/urls"><i class="fa fa-sitemap"></i> Параметры URL</a>
                         </li>
-                        <li>
+                        <li<% if (type == 'display') { %> class="page-arrow active-page"<% } %>>
                             <a href="/<%- config.urls.admin %>/display"><i class="fa fa-list"></i> Отображение</a>
                         </li>
                         <li class="menu-open">
                             <a href="#[seo]" style="cursor: default; color: #fff;">SEO тексты <i class="fa fa-pencil" style="cursor: default; color: #fff;"></i> </a>
                             <ul style="display: block;">
-                                <li>
+                                <li<% if (type == 'movies') { %> class="page-arrow active-page"<% } %>>
                                     <a href="/<%- config.urls.admin %>/movies">Описания фильмам</a>
                                 </li>
-                                <li>
+                                <li<% if (type == 'titles') { %> class="page-arrow active-page"<% } %>>
                                     <a href="/<%- config.urls.admin %>/titles">Названия категорий</a>
                                 </li>
-                                <li>
+                                <li<% if (type == 'descriptions') { %> class="page-arrow active-page"<% } %>>
                                     <a href="/<%- config.urls.admin %>/descriptions">Описания категорий</a>
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="/<%- config.urls.admin %>/codes"><i class="fa fa-columns"></i> Вставить код</a>
+                        <li<% if (type == 'codes') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/codes"><i class="fa fa-code"></i> Вставить код</a>
                         </li>
-                        <li>
+                        <li<% if (type == 'load') { %> class="page-arrow active-page"<% } %>>
                             <a href="/<%- config.urls.admin %>/load"><i class="fa fa-bar-chart-o"></i> Распределение нагрузки</a>
                         </li>
-                        <li>
+                        <li<% if (type == 'cache') { %> class="page-arrow active-page"<% } %>>
                             <a href="/<%- config.urls.admin %>/cache"><i class="fa fa-rocket"></i> Кэширование</a>
                         </li>
                     </ul>
                 </nav>
             </div>
         </div>
-        <div id="modules" class="tab-pane clearfix">
+        <div id="modules" class="tab-pane clearfix <% if (!navigation) { %>active<% } %>">
             <div class="sidebar-module">
                 <nav class="sidebar-nav-v2">
                     <ul>
-                        <li>
-                            <a href="/<%- config.urls.admin %>/soon"><i class="fa fa-calendar"></i> Скоро выйдет</a>
+                        <li<% if (type == 'soon') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/soon">
+                                <i class="fa fa-calendar"></i> Скоро выйдет
+                                <i class="fa fa-power-off pull-right" style="color: <% if (modules.soon.status) { %>#5CB85C<%  } else { %>#E8443A<% } %>"></i>
+                            </a>
                         </li>
-                        <li>
-                            <a href="/<%- config.urls.admin %>/comments"><i class="fa fa-comments"></i> Комментарии</a>
+                        <li<% if (type == 'comments') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/comments">
+                                <i class="fa fa-comments"></i> Комментарии
+                                <i class="fa fa-power-off pull-right" style="color: <% if (modules.comments.status) { %>#5CB85C<%  } else { %>#E8443A<% } %>"></i>
+                            </a>
                         </li>
-                        <li>
-                            <a href="/<%- config.urls.admin %>/related"><i class="fa fa-list-alt"></i> Связанные фильмы</a>
+                        <li<% if (type == 'related') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/related">
+                                <i class="fa fa-list-alt"></i> Связанные фильмы
+                                <i class="fa fa-power-off pull-right" style="color: <% if (modules.related.status) { %>#5CB85C<%  } else { %>#E8443A<% } %>"></i>
+                            </a>
                         </li>
-                        <li>
-                            <a href="/<%- config.urls.admin %>/collections"><i class="fa fa-indent"></i> Коллекции фильмов</a>
+                        <li<% if (type == 'collections') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/collections">
+                                <i class="fa fa-indent"></i> Коллекции фильмов
+                                <i class="fa fa-power-off pull-right" style="color: <% if (modules.collections.status) { %>#5CB85C<%  } else { %>#E8443A<% } %>"></i>
+                            </a>
                         </li>
-                        <li>
-                            <a href="/<%- config.urls.admin %>/slider"><i class="fa fa-picture-o"></i> Фильмы в слайдере</a>
+                        <li<% if (type == 'slider') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/slider">
+                                <i class="fa fa-picture-o"></i> Фильмы в слайдере
+                                <i class="fa fa-power-off pull-right" style="color: <% if (modules.slider.status) { %>#5CB85C<%  } else { %>#E8443A<% } %>"></i>
+                            </a>
                         </li>
-                        <li>
-                            <a href="/<%- config.urls.admin %>/abuse"><i class="fa fa-lock"></i> Запрещенные фильмы</a>
+                        <li<% if (type == 'abuse') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/abuse">
+                                <i class="fa fa-copyright"></i> Запрещенные фильмы
+                                <i class="fa fa-power-off pull-right" style="color: <% if (modules.abuse.status) { %>#5CB85C<%  } else { %>#E8443A<% } %>"></i>
+                            </a>
                         </li>
-                        <li>
-                            <a href="/<%- config.urls.admin %>/top"><i class="fa fa-signal"></i> Топ в категории</a>
+                        <li<% if (type == 'top') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/top">
+                                <i class="fa fa-signal"></i> Топ в категории
+                                <i class="fa fa-power-off pull-right" style="color: <% if (modules.top.status) { %>#5CB85C<%  } else { %>#E8443A<% } %>"></i>
+                            </a>
                         </li>
-                        <li>
-                            <a href="/<%- config.urls.admin %>/social"><i class="fa fa-vk"></i> Группы в соц. сетях</a>
+                        <li<% if (type == 'social') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/social">
+                                <i class="fa fa-vk"></i> Группы в соц. сетях
+                                <i class="fa fa-power-off pull-right" style="color: <% if (modules.social.status) { %>#5CB85C<%  } else { %>#E8443A<% } %>"></i>
+                            </a>
                         </li>
-                        <li>
-                            <a href="/<%- config.urls.admin %>/schema"><i class="fa fa-key"></i> Микроразметка</a>
+                        <li<% if (type == 'schema') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/schema">
+                                <i class="fa fa-key"></i> Микроразметка
+                                <i class="fa fa-power-off pull-right" style="color: <% if (modules.schema.status) { %>#5CB85C<%  } else { %>#E8443A<% } %>"></i>
+                            </a>
                         </li>
-                        <li>
-                            <a href="/<%- config.urls.admin %>/continue"><i class="fa fa-play"></i> Продолжить просмотр</a>
+                        <li<% if (type == 'continue') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/continue">
+                                <i class="fa fa-play"></i> Продолжить просмотр
+                                <i class="fa fa-power-off pull-right" style="color: <% if (modules.continue.status) { %>#5CB85C<%  } else { %>#E8443A<% } %>"></i>
+                            </a>
                         </li>
-                        <li>
-                            <a href="/<%- config.urls.admin %>/viewed"><i class="fa fa-eye"></i> Просмотренные фильмы</a>
+                        <li<% if (type == 'viewed') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/viewed">
+                                <i class="fa fa-eye"></i> Просмотренные
+                                <i class="fa fa-power-off pull-right" style="color: <% if (modules.viewed.status) { %>#5CB85C<%  } else { %>#E8443A<% } %>"></i>
+                            </a>
                         </li>
-                        <li>
-                            <a href="/<%- config.urls.admin %>/player"><i class="fa fa-desktop"></i> Плееры и торренты</a>
+                        <li<% if (type == 'player') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/player">
+                                <i class="fa fa-desktop"></i> Плеер
+                                <i class="fa fa-power-off pull-right" style="color: <% if (modules.player.status) { %>#5CB85C<%  } else { %>#E8443A<% } %>"></i>
+                            </a>
                         </li>
-                        <li>
-                            <a href="/<%- config.urls.admin %>/blocking"><i class="fa fa-lock"></i> Блокировка просмотра</a>
+                        <li<% if (type == 'blocking') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/blocking">
+                                <i class="fa fa-lock"></i> Блокировка просмотра
+                                <i class="fa fa-power-off pull-right" style="color: <% if (modules.blocking.status) { %>#5CB85C<%  } else { %>#E8443A<% } %>"></i>
+                            </a>
                         </li>
-                        <li>
-                            <a href="/<%- config.urls.admin %>/mobile"><i class="fa fa-tablet"></i> Мобильная версия</a>
+                        <li<% if (type == 'mobile') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/mobile">
+                                <i class="fa fa-tablet"></i> Мобильная версия
+                                <i class="fa fa-power-off pull-right" style="color: <% if (modules.mobile.status) { %>#5CB85C<%  } else { %>#E8443A<% } %>"></i>
+                            </a>
                         </li>
-                        <li>
-                            <a href="/<%- config.urls.admin %>/episode"><i class="fa fa-list-ul"></i> Серии сериала</a>
+                        <li<% if (type == 'episode') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/episode">
+                                <i class="fa fa-list-ul"></i> Серии сериалов
+                                <i class="fa fa-power-off pull-right" style="color: <% if (modules.episode.status) { %>#5CB85C<%  } else { %>#E8443A<% } %>"></i>
+                            </a>
                         </li>
                     </ul>
                 </nav>
             </div>
         </div>
     </div>
-
-    <div class="sidebar-line"></div>
-
 </aside>
