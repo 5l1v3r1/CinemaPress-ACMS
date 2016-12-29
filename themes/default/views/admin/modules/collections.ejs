@@ -302,7 +302,8 @@
                                         <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;Блок на главной странице
                                     </div>
                                     <div class="example-label" style="float: right">
-                                        <a href="https://CinemaPress.org/admin/collections.html#index" class="csstip" title="Блок на главной странице сайта в котором фильмы из определенных коллекций" target="_blank">
+                                        <a href="https://CinemaPress.org/admin/collections.html#index" class="csstip" title="Блок на главной странице сайта в котором фильмы из определенных коллекций, указанныых через запятую"
+                                                target="_blank">
                                             <i class="fa fa-info-circle"></i>
                                         </a>
                                     </div>
@@ -324,12 +325,6 @@
                                                 <% } %>
                                             </select>
                                         </div>
-                                        <div class="col-sm-10">
-                                            <input type="text" value="Укажите через запятую URL-ключи коллекций с которых брать первые фильмы" class="form-control" disabled="disabled" style="background-color: #272F38;">
-                                        </div>
-
-                                        <div class="spacer-10"></div>
-
                                         <div class="col-sm-3">
                                             <select name="modules.collections.data.index.count" class="form-control">
                                                 <% for (var i = 1; i <= 20; i++) { %>
@@ -345,11 +340,8 @@
                                                 <% } %>
                                             </select>
                                         </div>
-                                        <div class="col-sm-3">
-                                            <label>с коллекции(-й)</label>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <input type="text" name="modules.collections.data.index.keys" value="<%- modules.collections.data.index.keys %>" class="form-control">
+                                        <div class="col-sm-7">
+                                            <input type="text" name="modules.collections.data.index.keys" value="<%- modules.collections.data.index.keys %>" class="form-control" placeholder="URL-ключи коллекций через запятую">
                                         </div>
                                     </div>
                                 </div>
