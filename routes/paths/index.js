@@ -184,13 +184,16 @@ function dataIndex(options, callback) {
                                 : callback(null, [])
                         },
                         "collections": function (callback) {
-                            return (config.index.collections.keys && modules.collections.status)
+                            return (modules.collections.status && modules.collections.data.index.keys)
                                 ? CP_get.additional(
-                                {"query_id": config.index.collections.keys},
+                                {"query_id": modules.collections.data.index.keys},
                                 'index_collections',
                                 options,
                                 function (err, movies) {
                                     if (err) return callback(err);
+
+                                    config.index.collections = {};
+                                    config.index.collections.order = modules.collections.data.index.order;
 
                                     return (movies && movies.length)
                                         ? callback(null, movies)

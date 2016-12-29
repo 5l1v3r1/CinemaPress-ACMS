@@ -223,11 +223,10 @@
                     <% } else { %>
 
                     <div class="faq">
-
                         <article class="faq-group">
                             <header>
                                 <i class="fa fa-minus"></i>
-                                <h3>Параметры коллекций</h3>
+                                <h3>Настройка страницы с коллекциями</h3>
                             </header>
                             <div class="faq-content clearfix">
                                 <div class="row">
@@ -289,10 +288,71 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </article>
+                    </div>
 
+                    <div class="spacer-10"></div>
+
+                    <div class="col-sm-12">
+                        <div class="example-box">
+                            <div class="example-box-header">
+                                <div class="example-label">
+                                    <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;Блок на главной странице
+                                </div>
+                                <div class="example-label" style="float: right">
+                                    <a href="https://CinemaPress.org/admin/collections.html#index" class="csstip" title="Блок на главной странице сайта в котором фильмы из определенных коллекций" target="_blank">
+                                        <i class="fa fa-info-circle"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="inner-padding">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <select name="modules.collections.data.index.order" class="form-control">
+                                            <% for (var i = 1; i <= 10; i++) { %>
+                                            <% if (modules.collections.data.index.order == i) { %>
+                                            <option value="<%- i %>" selected="selected">
+                                                <%- i %>-й
+                                            </option>
+                                            <% } else { %>
+                                            <option value="<%- i %>">
+                                                <%- i %>-й
+                                            </option>
+                                            <% } %>
+                                            <% } %>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <input type="text" value="Укажите через запятую URL-ключи коллекций с которых брать первые фильмы" class="form-control" disabled="disabled" style="background-color: #272F38;">
+                                    </div>
+
+                                    <div class="spacer-10"></div>
+
+                                    <div class="col-sm-3">
+                                        <select name="modules.collections.data.index.count" class="form-control">
+                                            <% for (var i = 1; i <= 20; i++) { %>
+                                            <% if (modules.collections.data.index.count == i) { %>
+                                            <option value="<%- i %>" selected="selected">
+                                                <%- i %> фильма(-ов)
+                                            </option>
+                                            <% } else { %>
+                                            <option value="<%- i %>">
+                                                <%- i %> фильма(-ов)
+                                            </option>
+                                            <% } %>
+                                            <% } %>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label>с коллекции(-й)</label>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" name="modules.collections.data.index.keys" value="<%- modules.collections.data.index.keys %>" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="spacer-10"></div>

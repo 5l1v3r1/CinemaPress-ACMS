@@ -689,69 +689,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="spacer-10"></div>
-
-                        <div class="col-sm-12">
-                            <div class="example-box">
-                                <div class="example-box-header">
-                                    <div class="example-label">
-                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.collections.order %>. Фильмы с коллекций: <%- config.index.collections.keys %>
-                                    </div>
-                                    <div class="example-label" style="float: right">
-                                        <a href="https://CinemaPress.org/admin/index.html#collections" class="csstip" title="Блок на главной странице сайта в котором фильмы из определенных коллекций." target="_blank">
-                                            <i class="fa fa-info-circle"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="inner-padding">
-                                    <div class="row">
-                                        <div class="col-sm-2">
-                                            <select name="config.index.collections.order" class="form-control">
-                                                <% for (var i = 1; i <= 10; i++) { %>
-                                                <% if (config.index.collections.order == i) { %>
-                                                <option value="<%- i %>" selected="selected">
-                                                    <%- i %>-й
-                                                </option>
-                                                <% } else { %>
-                                                <option value="<%- i %>">
-                                                    <%- i %>-й
-                                                </option>
-                                                <% } %>
-                                                <% } %>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-10">
-                                            <input type="text" value="Укажите через запятую URL-ключи коллекций с которых брать первые фильмы" class="form-control" disabled="disabled" style="background-color: #272F38;">
-                                        </div>
-
-                                        <div class="spacer-10"></div>
-
-                                        <div class="col-sm-3">
-                                            <select name="config.index.collections.count" class="form-control">
-                                                <% for (var i = 1; i <= 20; i++) { %>
-                                                <% if (config.index.collections.count == i) { %>
-                                                <option value="<%- i %>" selected="selected">
-                                                    <%- i %> фильма(-ов)
-                                                </option>
-                                                <% } else { %>
-                                                <option value="<%- i %>">
-                                                    <%- i %> фильма(-ов)
-                                                </option>
-                                                <% } %>
-                                                <% } %>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <label>с коллекции(-й)</label>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <input type="text" name="config.index.collections.keys" value="<%- config.index.collections.keys %>" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
