@@ -418,14 +418,10 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
 
             if (config.theme == 'default') {
 
-                console.time('TimeRender');
                 res.json(render);
-                console.timeEnd('TimeRender');
 
             }
             else {
-
-                console.time('TimeRender');
 
                 if (template == 'sitemap')
                     res.header('Content-Type', 'application/xml');
@@ -435,8 +431,6 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                     if (err) console.log('[renderData] Render Error:', err);
 
                     res.send(html);
-
-                    console.timeEnd('TimeRender');
 
                     if (config.cache.time && html) {
                         CP_cache.set(
