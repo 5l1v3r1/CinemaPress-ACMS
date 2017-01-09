@@ -208,5 +208,183 @@ module.exports = {
                 "order": 1
             }
         }
+    },
+    "adv": {
+        "status": false,
+        "data": {
+            "target": 0,
+            "desktop": {
+                "all": {
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                },
+                "index": {
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                },
+                "category": {
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                },
+                "categories": {
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                },
+                "collection": {
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                },
+                "collections": {
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                },
+                "movie": {
+                    "over": "",
+                    "under": "",
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                },
+                "online": {
+                    "over": "",
+                    "under": "",
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                },
+                "download": {
+                    "over": "",
+                    "under": "",
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                },
+                "picture": {
+                    "over": "",
+                    "under": "",
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                },
+                "trailer": {
+                    "over": "",
+                    "under": "",
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                },
+                "episode": {
+                    "over": "",
+                    "under": "",
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                }
+            },
+            "mobile": {
+                "all": {
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                },
+                "index": {
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                },
+                "category": {
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                },
+                "categories": {
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                },
+                "collection": {
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                },
+                "collections": {
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                },
+                "movie": {
+                    "over": "",
+                    "under": "",
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                },
+                "online": {
+                    "over": "",
+                    "under": "",
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                },
+                "download": {
+                    "over": "",
+                    "under": "",
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                },
+                "picture": {
+                    "over": "",
+                    "under": "",
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                },
+                "trailer": {
+                    "over": "",
+                    "under": "",
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                },
+                "episode": {
+                    "over": "",
+                    "under": "",
+                    "top": "",
+                    "bottom": "",
+                    "left": "",
+                    "right": ""
+                }
+            }
+        }
     }
 };

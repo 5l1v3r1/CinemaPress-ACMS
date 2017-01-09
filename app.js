@@ -47,6 +47,8 @@ app.set('view engine', 'ejs');
  * Middleware functions.
  */
 
+app.enable('trust proxy');
+
 app.use(express.static(__dirname + '/'));
 app.use('/mobile-version', express.static(__dirname + '/'));
 app.use(cookieParser());

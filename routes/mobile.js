@@ -18,6 +18,8 @@ var modules = require('../config/modules');
  * Node dependencies.
  */
 
+var maxmind = require('maxmind');
+var parser  = require('ua-parser-js');
 var md5     = require('md5');
 var express = require('express');
 var router  = express.Router();
@@ -63,6 +65,45 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
     var options = {};
     options.domain = 'm.' + config.domain;
     options.sub = req.cookies.CP_sub || '';
+
+    if (modules.adv.status) {
+        options.adv = {};
+        options.adv.device = 'mobile';
+        if (parseInt(modules.adv.data.target)) {
+            var lookup = maxmind.openSync('/home/' + config.domain + '/config/GeoLite2-City.mmdb', {
+                cache: {
+                    max: 1000,
+                    maxAge: 1000 * 60 * 60 * 60 * 24
+                }
+            });
+            var info = lookup.get(req.ip);
+            var user = parser(req.headers['user-agent']);
+            options.adv.ip = (req.ip)
+                ? req.ip
+                : '';
+            options.adv.country = (info.country && info.country.names && info.country.names.ru)
+                ? info.country.names.ru
+                : '';
+            options.adv.city = (info.city && info.city.names && info.city.names.ru)
+                ? info.city.names.ru
+                : '';
+            options.adv.browser = (user.browser && user.browser.name)
+                ? user.browser.name
+                : '';
+            options.adv.os = (user.os && user.os.name)
+                ? user.os.name
+                : '';
+            options.adv.type = (user.device && user.device.type)
+                ? user.device.type
+                : '';
+            options.adv.vendor = (user.device && user.device.vendor)
+                ? user.device.vendor
+                : '';
+            options.adv.model = (user.device && user.device.model)
+                ? user.device.model
+                : '';
+        }
+    }
 
     var url = parseUrl();
     var urlHash = md5(options.sub + url.toLowerCase());

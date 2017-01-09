@@ -175,6 +175,10 @@ router.get('/:type?', function(req, res) {
             render.title = 'Серии';
             res.render('admin/modules/episode', render);
             break;
+        case 'adv':
+            render.title = 'Реклама';
+            res.render('admin/modules/adv', render);
+            break;
         default:
             render.title = 'Панель администратора';
             getCountMovies(function (err, render) {

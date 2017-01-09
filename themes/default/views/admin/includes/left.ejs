@@ -173,6 +173,12 @@
                                 <i class="fa fa-power-off pull-right" style="color: <% if (modules.episode.status) { %>#5CB85C<%  } else { %>#E8443A<% } %>"></i>
                             </a>
                         </li>
+                        <li<% if (type == 'adv') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/adv">
+                                <i class="fa fa-money"></i> Ваша реклама
+                                <i class="fa fa-power-off pull-right" style="color: <% if (modules.adv.status) { %>#5CB85C<%  } else { %>#E8443A<% } %>"></i>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
