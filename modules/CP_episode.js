@@ -204,7 +204,7 @@ function parseEpisode(type, options) {
     serial.translate_id = (execEpisode && execEpisode[4]) ? parseInt(execEpisode[4]) + '' : '';
     serial.translate = 'Оригинал';
 
-    var translates = require('../config/translates.json');
+    var translates = require('../config/default/translates.json');
     if (translates && translates.length) {
         for (var i = 0, len = translates.length; i < len; i++) {
             if (parseInt(translates[i].id) == parseInt(serial.translate_id)) {

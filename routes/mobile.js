@@ -70,7 +70,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
         options.adv = {};
         options.adv.device = 'mobile';
         if (parseInt(modules.adv.data.target)) {
-            var lookup = maxmind.openSync('/home/' + config.domain + '/config/GeoLite2-City.mmdb', {
+            var lookup = maxmind.openSync('/home/' + config.domain + '/config/default/GeoLite2-City.mmdb', {
                 cache: {
                     max: 1000,
                     maxAge: 1000 * 60 * 60 * 60 * 24
