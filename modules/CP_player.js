@@ -56,7 +56,8 @@ function codePlayer(type, movie, options) {
     }
 
     var id = 'yohoho';
-    var title = movie.title + ' (' + movie.year + ')';
+    var t = (movie.title_ru) ? movie.title_ru : movie.title_en;
+    var title = t + ' (' + movie.year + ')';
 
     if (type == 'picture') {
 
