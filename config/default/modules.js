@@ -215,6 +215,8 @@ module.exports = {
             "target": 0,
             "desktop": {
                 "all": {
+                    "over": "",
+                    "under": "",
                     "top": "",
                     "bottom": "",
                     "left": "",
@@ -301,6 +303,8 @@ module.exports = {
             },
             "mobile": {
                 "all": {
+                    "over": "",
+                    "under": "",
                     "top": "",
                     "bottom": "",
                     "left": "",
