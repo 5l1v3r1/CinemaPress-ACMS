@@ -259,3 +259,5 @@ form {
     background-color: #c23321;
     border-color: #c23321;
 }
+
+.rklma{background:#333; color:#ccc; text-align:center; padding: 30px 0; width: 90%; border: 3px dashed #ccc; border-radius: 5px; font-family: Geneva, Arial, Helvetica, sans-serif; margin:10px auto;}

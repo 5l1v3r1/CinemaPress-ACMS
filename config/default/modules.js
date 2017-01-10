@@ -215,12 +215,12 @@ module.exports = {
             "target": 0,
             "desktop": {
                 "all": {
-                    "over": "",
-                    "under": "",
-                    "top": "",
-                    "bottom": "",
-                    "left": "",
-                    "right": ""
+                    "over": "<div class=\"rklma\">Блок с Вашей рекламой над плеером</div>",
+                    "under": "<div class=\"rklma\">Блок с Вашей рекламой под плеером</div>",
+                    "top": "<div class=\"rklma\">Блок с Вашей рекламой вверху страницы</div>",
+                    "bottom": "<div class=\"rklma\">Блок с Вашей рекламой внизу страницы</div>",
+                    "left": "<div class=\"rklma\">Блок с Вашей рекламой слева страницы</div>",
+                    "right": "<div class=\"rklma\">Блок с Вашей рекламой справа страницы</div>"
                 },
                 "index": {
                     "top": "",
@@ -303,12 +303,12 @@ module.exports = {
             },
             "mobile": {
                 "all": {
-                    "over": "",
-                    "under": "",
-                    "top": "",
-                    "bottom": "",
-                    "left": "",
-                    "right": ""
+                    "over": "<div class=\"rklma\">Блок с Вашей рекламой над плеером</div>",
+                    "under": "<div class=\"rklma\">Блок с Вашей рекламой под плеером</div>",
+                    "top": "<div class=\"rklma\">Блок с Вашей рекламой вверху страницы</div>",
+                    "bottom": "<div class=\"rklma\">Блок с Вашей рекламой внизу страницы</div>",
+                    "left": "<div class=\"rklma\">Блок с Вашей рекламой слева страницы</div>",
+                    "right": "<div class=\"rklma\">Блок с Вашей рекламой справа страницы</div>"
                 },
                 "index": {
                     "top": "",
