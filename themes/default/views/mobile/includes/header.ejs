@@ -14,3 +14,10 @@
 </form>
 
 <div class="clear"></div>
+
+<% if (typeof page.adv == 'object' && page.adv.top) { %>
+<div style="text-align: center; margin: 10px auto;">
+    <%- page.adv.top %>
+</div>
+<div class="clear"></div>
+<% } %>

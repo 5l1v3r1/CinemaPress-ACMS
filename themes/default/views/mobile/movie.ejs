@@ -96,6 +96,13 @@
 
 <div class="clear"></div>
 
+<% if (typeof page.adv == 'object' && page.adv.over) { %>
+<div style="text-align: center; margin: 10px auto;">
+    <%- page.adv.over %>
+</div>
+<div class="clear"></div>
+<% } %>
+
 <div class="info block" style="text-align: center">
     <a href="<%- movie.url %>/<%- page.urls.movies.online %>">Онлайн</a>
     <span> | </span>
@@ -154,6 +161,13 @@
 </div>
 
 <div class="clear"></div>
+
+<% if (typeof page.adv == 'object' && page.adv.under) { %>
+<div style="text-align: center; margin: 10px auto;">
+    <%- page.adv.under %>
+</div>
+<div class="clear"></div>
+<% } %>
 
 <div class="info">
     <%- page.comments %>

@@ -1,3 +1,10 @@
+<% if (typeof page.adv == 'object' && page.adv.bottom) { %>
+<div style="text-align: center; margin: 10px auto;">
+    <%- page.adv.bottom %>
+</div>
+<div class="clear"></div>
+<% } %>
+
 <div class="info recentlyViewedBlock" style="display: none;">
     <div>Вы надавно смотрели:</div>
     <div id="recentlyViewed"></div>
