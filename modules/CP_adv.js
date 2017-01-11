@@ -39,8 +39,8 @@ function codesAdv(options, type) {
         var dflt = true;
         for (var key in options.adv) {
             if (options.adv.hasOwnProperty(key) && options.adv[key]) {
-                var keywordRegExp = ('' + options.adv[key]).replace(/[-\/\\\^$*+?.()|\[\]{}]/g, '\\$&');
-                var listKeys = '(' + keywordRegExp + '|[a-zа-яё0-9\\s,-]*' + keywordRegExp + '\\s*,[a-zа-яё0-9\\s,-]*|[a-zа-яё0-9\\s,-]*,\\s*' + keywordRegExp + ')';
+                var keywordRegExp = ('' + options.adv[key]).replace(/[-/\\\^$*+?.()|\[\]{}]/g, '\\$&');
+                var listKeys = '(' + keywordRegExp + '|[a-zа-яё0-9\\s/\\,-]*' + keywordRegExp + '\\s*,[a-zа-яё0-9\\s/\\,-]*|[a-zа-яё0-9\\s/\\,-]*,\\s*' + keywordRegExp + ')';
                 var allSpecific = new RegExp('(\\s*\\(\\s*' + listKeys + '\\s*\\)\\s*```([^`]*?)```\\s*)', 'gi');
                 var match = allSpecific.exec(positions[type][position]);
                 if (match) {dflt = false;}
