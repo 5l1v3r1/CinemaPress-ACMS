@@ -337,7 +337,8 @@
                         configs[i].name == 'modules.abuse.data.imap.host' ||
                         configs[i].name == 'modules.abuse.data.imap.port' ||
                         configs[i].name == 'modules.episode.data.translate' ||
-                        configs[i].name == 'modules.slider.data.movies'
+                        configs[i].name == 'modules.slider.data.movies' ||
+                        configs[i].name.indexOf('modules.adv.data')+1
                 ) { console.log('Empty modules.'); }
                 else {
                     continue;
