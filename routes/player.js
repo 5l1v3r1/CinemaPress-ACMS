@@ -136,7 +136,7 @@ router.get('/?', function(req, res) {
 
             if (!error && response.statusCode == 200) {
 
-                var result = JSON.parse(body);
+                var result = tryParseJSON(body);
 
                 if (!result.error && result.length && result[0].iframe_url) {
 
@@ -164,7 +164,7 @@ router.get('/?', function(req, res) {
 
             if (!error && response.statusCode == 200) {
 
-                var result = JSON.parse(body);
+                var result = tryParseJSON(body);
 
                 if (!result.error && result.length) {
 
@@ -213,7 +213,7 @@ router.get('/?', function(req, res) {
 
             if (!error && response.statusCode == 200) {
 
-                var result = JSON.parse(body);
+                var result = tryParseJSON(body);
 
                 if (!result.error && result.response && result.response.items && result.response.items.length) {
 
@@ -265,6 +265,21 @@ router.get('/?', function(req, res) {
 
         callback('http://yohoho.xyz/online?title=" + encodeURIComponent(b.title) + e + "');
 
+    }
+
+    /**
+     * Valid JSON.
+     */
+
+    function tryParseJSON(jsonString) {
+        try {
+            var o = JSON.parse(jsonString);
+            if (o && typeof o === "object") {
+                return o;
+            }
+        }
+        catch (e) { }
+        return {};
     }
 
 });

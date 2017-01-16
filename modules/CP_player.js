@@ -72,7 +72,7 @@ function codePlayer(type, movie, options) {
             });
         }
 
-        code.player = '<div id="slider">' + pictures + '</div>';
+        code.player = '<div id="slider" class="img_tmhover">' + pictures + '</div>';
 
     }
     else if (type == 'trailer' || (modules.player.data.display == 'yohoho' && d1 > d2)) {
