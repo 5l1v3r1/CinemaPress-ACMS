@@ -21,7 +21,10 @@ function codesAdv(options, type) {
 
         for (var position in positions[type]) {
             if (positions[type].hasOwnProperty(position) && typeof options.adv === 'object') {
-                if (positions[type][position]) {
+                if (modules.blocking.status && options.sub && modules.blocking.data.sub.keys.indexOf(options.sub)+1) {
+                    positions[type][position] = '';
+                }
+                else if (positions[type][position]) {
                     filterAdv(position);
                 }
                 else if (positions['all'][position]) {
