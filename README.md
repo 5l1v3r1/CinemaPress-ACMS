@@ -9,7 +9,7 @@
 
 ## Установка:
 - [Где зарегистрировать домен?](https://cinemapress.org/article/gde-kupit-domen.html)
-- [Где арендовать VPS сервер?](httpы://cinemapress.org/article/gde-kupit-server.html)
+- [Где арендовать VPS сервер?](https://cinemapress.org/article/gde-kupit-server.html)
 - [Как установить CinemaPress ACMS?](https://cinemapress.org/article/kak-ustanovit-cinemapress-acms.html)
 - [Первые шаги после создания сайта](https://cinemapress.org/article/cinemapress-acms.html)
 
@@ -19,10 +19,10 @@
 ~# wget cinemapress.org/i -qO i && chmod +x i && ./i
 ```
 
-Запасная команда, в случае если команда выше не выполнилась:
+Если команда не выполнилась, выполните команду ниже, а затем повторите попытку:
 
 ```
-~# apt-get -y -qq update && apt-get -y -qq install ca-certificates && wget cinemapress.org/i -qO i && chmod +x i && ./i
+~# apt-get -y -qq update && apt-get -y -qq install ca-certificates
 ```
 
 ## Обновление:
@@ -159,13 +159,9 @@
 
 ![Тема оформления «bran»](https://raw.githubusercontent.com/CinemaPress/Theme-Bran/master/screenshot.png)
 
-# Модули CinemaPress ACMS
+# Параметры и модули CinemaPress ACMS
 
-Подробную информацию о всех модулях системы Вы найдете в [документации](https://cinemapress.org/admin/admin.html).
-
-# Параметры CinemaPress ACMS
-
-Подробную информацию о всех параметрах системы Вы найдете в [документации](https://cinemapress.org/admin/admin.html).
+Подробную информацию о всех параметрах и модулях системы Вы найдете в [документации](https://cinemapress.org/admin/admin.html).
 
 # Использование CinemaPress ACMS
 
