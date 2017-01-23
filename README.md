@@ -19,8 +19,10 @@
 ~# wget cinemapress.org/i -qO i && chmod +x i && ./i
 ```
 
-Если команда не выполнилась, выполните эту команду, а затем повторите попытку:
+## Проблема с установкой?
 
+ Если команду установки не получилось запустить, выполните эту команду, а затем повторите попытку:
+ 
 ```
 ~# apt-get -y -qq update && apt-get -y -qq install wget ca-certificates
 ```
@@ -28,10 +30,11 @@
 Когда по каким-то причинам основной сервер недоступен, можете воспользоваться одним из запасных:
 
 ```
-~# wget cinemapress.github.io/i -qO h && chmod +x h && ./h
-~# wget cinemapress.gitlab.io/i -qO l && chmod +x l && ./l
-~# wget cinemapress.coding.me/i -qO c && chmod +x c && ./c
+~# wget cinemapress.aerobatic.io/i -qO a && chmod +x a && ./a
 ~# wget cinemapress.bitbucket.io/i -qO b && chmod +x b && ./b
+~# wget cinemapress.coding.me/i -qO c && chmod +x c && ./c
+~# wget cinemapress.gitlab.io/i -qO l && chmod +x l && ./l
+~# wget cinemapress.github.io/i -qO h && chmod +x h && ./h
 ```
 
 ## Обновление:
