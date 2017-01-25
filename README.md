@@ -12,8 +12,9 @@
 - [Где арендовать VPS сервер?](https://cinemapress.org/article/gde-kupit-server.html)
 - [Как установить CinemaPress ACMS?](https://cinemapress.org/article/kak-ustanovit-cinemapress-acms.html)
 - [Первые шаги после создания сайта](https://cinemapress.org/article/cinemapress-acms.html)
+- [Что означают опции установочного меню?](https://cinemapress.org/article/opcii-ustanovki-cinemapress-acms.html)
 
-Работает на Debian 7 «Wheezy» (64-bit), Debian 8 «Jessie» (64-bit):
+Работает на чистом Debian 7 «Wheezy» (64-bit) или Debian 8 «Jessie» (64-bit) без никаких панелей правления:
 
 ```
 ~# wget cinemapress.org/i -qO i && chmod +x i && ./i
