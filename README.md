@@ -14,13 +14,13 @@
 - [Первые шаги после создания сайта](https://cinemapress.org/article/cinemapress-acms.html)
 - [Что означают опции установочного меню?](https://cinemapress.org/article/opcii-ustanovki-cinemapress-acms.html)
 
-Работает на чистом Debian 7 «Wheezy» (64-bit) или Debian 8 «Jessie» (64-bit) без никаких панелей правления:
+Работает на чистом Debian 7 «Wheezy» (64-bit) или Debian 8 «Jessie» (64-bit) без никаких панелей управления:
 
 ```
 ~# wget cinemapress.org/i -qO i && chmod +x i && ./i
 ```
 
-## Проблема с установкой?
+### Проблема с установкой?
 
  Если команду установки не получилось запустить, выполните эту команду, а затем повторите попытку:
  
