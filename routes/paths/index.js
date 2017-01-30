@@ -238,6 +238,24 @@ function dataIndex(options, callback) {
                         callback(null, r);
 
                     });
+            },
+            "count": function (callback) {
+                var qwry = {};
+                qwry[config.index.count.type] = config.index.count.key;
+                return (config.index.count.key)
+                    ? CP_get.count(
+                    qwry,
+                    config.index.count.sorting,
+                    function (err, num) {
+                        if (err) return callback(err);
+
+                        num = Math.ceil(parseInt(num)/config.default.count);
+
+                        return (num)
+                            ? callback(null, num)
+                            : callback(null, 0)
+                    })
+                    : callback(null, 0);
             }
         },
         function(err, result) {

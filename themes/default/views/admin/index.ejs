@@ -689,6 +689,61 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-hashtag"></i>&nbsp;&nbsp;&nbsp;Нумерация на главной
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/index.html#count" class="csstip" title="Внизу главной страницы будут цифры, укажите категорию в которую они будут вести." target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <select name="config.index.count.type" class="form-control">
+                                                <% var type = [{'type': 'type', 'name': 'Фильмы из типа:'}, {'type': 'year', 'name': 'Фильмы из года:'}, {'type': 'genre', 'name': 'Фильмы из жанра:'}, {'type': 'country', 'name': 'Фильмы из страны:'}, {'type': 'actor', 'name': 'Фильмы актера:'}, {'type': 'director', 'name': 'Фильмы режиссера:'}]; %>
+                                                <% for (var i = 0, len = type.length; i < len; i++) { %>
+                                                <% if (config.index.count.type == type[i].type) { %>
+                                                <option value="<%- type[i].type %>" selected="selected">
+                                                    <%- type[i].name %>
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- type[i].type %>">
+                                                    <%- type[i].name %>
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <input type="text" name="config.index.count.key" value="<%= config.index.count.key %>" class="form-control" placeholder="Укажите одну категорию">
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <select name="config.index.count.sorting" class="form-control">
+                                                <% for (name in config.sorting) { %>
+                                                <% if (config.index.count.sorting == name) { %>
+                                                <option value="<%- name %>" selected="selected">
+                                                    <%- config.sorting[name] %>
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%- name %>">
+                                                    <%- config.sorting[name] %>
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
