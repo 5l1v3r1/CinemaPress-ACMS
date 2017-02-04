@@ -169,10 +169,12 @@
                 self.innerHTML = '<span class="fa fa-bug"></span>&nbsp;&nbsp;' + err;
             }
             else {
-                self.innerHTML ='<span class="fa fa-picture-o"></span>&nbsp;&nbsp;Фильмы&nbsp;загружены';
                 setTimeout(function() {
-                    window.location.reload();
-                }, 5000);
+                    self.innerHTML ='<span class="fa fa-picture-o"></span>&nbsp;&nbsp;Фильмы&nbsp;загружены';
+                }, 15000);
+                setTimeout(function() {
+                    window.location.href = "<%- config.domain %>/<%- config.urls.admin %>";
+                }, 20000);
             }
         });
 
