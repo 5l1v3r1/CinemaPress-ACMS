@@ -155,11 +155,14 @@ module.exports = {
             "moonwalk": {
                 "token": ""
             },
-            "getmovie": {
-                "token": ""
+            "iframe": {
+                "show": 0
             },
             "kodik": {
                 "show": 0
+            },
+            "moonlight": {
+                "domain": ""
             }
         }
     },

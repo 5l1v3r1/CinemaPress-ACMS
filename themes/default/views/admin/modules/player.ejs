@@ -218,10 +218,10 @@
                             <div class="example-box">
                                 <div class="example-box-header">
                                     <div class="example-label">
-                                        <i class="fa fa-film"></i>&nbsp;&nbsp;&nbsp;Getmovie.cc
+                                        <i class="fa fa-film"></i>&nbsp;&nbsp;&nbsp;Iframe.video
                                     </div>
                                     <div class="example-label" style="float: right">
-                                        <a href="https://CinemaPress.org/admin/player.html#getmovie" class="csstip" title="Указание токен-ключа плеера getmovie.cc" target="_blank">
+                                        <a href="https://CinemaPress.org/admin/player.html#iframe" class="csstip" title="Параметры плеера Iframe.video" target="_blank">
                                             <i class="fa fa-info-circle"></i>
                                         </a>
                                     </div>
@@ -231,12 +231,44 @@
                                         <div class="col-lg-6 col-xs-6 text-center">
                                             <div class="inline-labels">
                                                 <label>
-                                                    <input name="modules.player.data.display" value="getmovie" <% if (modules.player.data.display == 'getmovie') { %> checked="" <% } %> type="radio"><span></span> сделать основным
+                                                    <input name="modules.player.data.display" value="iframe" <% if (modules.player.data.display == 'iframe') { %> checked="" <% } %> type="radio"><span></span> сделать основным
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-xs-6 text-center">
-                                            <input name="modules.player.data.getmovie.token" value="<%- modules.player.data.getmovie.token %>" class="form-control" type="text" placeholder="Токен-ключ getmovie.cc">
+                                            <div class="inline-labels">
+                                                <label>
+                                                    <input name="modules.player.data.iframe.show" value="1" <% if (modules.player.data.iframe.show) { %> checked="" <% } %> type="radio"><span></span> Показывать
+                                                </label>
+                                                <label>
+                                                    <input name="modules.player.data.iframe.show" value="0" <% if (!modules.player.data.iframe.show) { %> checked="" <% } %> type="radio"><span></span> Не показывать
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-film"></i>&nbsp;&nbsp;&nbsp;Moonlight.cx
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/player.html#moonlight" class="csstip" title="Указание папки домена, где находится скрипт Moonlight (например <%- config.domain %>/moonlight)"
+                                                target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-xs-12 text-center">
+                                            <input name="modules.player.data.moonlight.domain" value="<%- modules.player.data.moonlight.domain %>" class="form-control" type="text" placeholder="Ссылка на папку с Moonlight, <%- config.domain %>/moonlight">
                                         </div>
                                     </div>
                                 </div>
