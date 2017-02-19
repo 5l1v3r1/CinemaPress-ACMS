@@ -54,7 +54,7 @@ function codePlayer(type, movie, options) {
         serial.translate = execEpisode[4];
     }
 
-    var title = encodeURIComponent(movie.title + ' (' + movie.year + ')');
+    var title = encodeURIComponent((movie.title_ru || movie.title_en) + ' (' + movie.year + ')');
 
     if (type == 'picture' && movie.pictures.length) {
 
@@ -99,7 +99,7 @@ function codePlayer(type, movie, options) {
             yohohoPlayer();
         }
         else if (modules.player.data.display == 'yohoho') {
-            yohohoPlayer(true);
+            yohohoPlayer(modules.player.data.yohoho.player);
         }
         else {
             yohohoPlayer();
@@ -117,14 +117,14 @@ function codePlayer(type, movie, options) {
 
         code.player = '' +
             '<div id="yohoho" ' +
-            'data-player="' + modules.player.data.yohoho.player + '" ' +
+            'data-player="' + (player || modules.player.data.yohoho.player) + '" ' +
             'data-title="' + title + '" ' +
             'data-kinopoisk="' + movie.kp_id + '" ' +
             'data-season="' + serial.season + '" ' +
             'data-episode="' + serial.episode + '" ' +
             'data-translate="' + serial.translate + '" ' +
             'data-moonwalk="' + modules.player.data.moonwalk.token + '" ' +
-            'data-moonlight="' + modules.player.data.moonwalk.moonlight + '" ' +
+            'data-moonlight="' + modules.player.data.moonlight.domain + '" ' +
             'data-hdgo="' + modules.player.data.hdgo.token + '"></div>';
 
         if (player) {

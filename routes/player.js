@@ -160,11 +160,11 @@ router.get('/?', function(req, res) {
             });
 
         function getMoonlight(iframe_url) {
-            if (modules.player.data.moonwalk.moonlight) {
+            if (modules.player.data.moonlight.domain) {
                 var pat = /\/[a-z]{1,20}\/[a-z0-9]{1,40}\/iframe/i;
                 var str = pat.exec(iframe_url);
                 if (str && str[0]) {
-                    var domain = modules.player.data.moonwalk.moonlight;
+                    var domain = modules.player.data.moonlight.domain;
                     domain = (domain[domain.length-1] == '/')
                         ? domain.slice(0, -1)
                         : domain;
