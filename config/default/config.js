@@ -1,4 +1,8 @@
 module.exports = {
+    "database": {
+        "key": "free",
+        "date": ""
+    },
     "protocol": "http://",
     "domain": "example.com",
     "email": "support@example.com",

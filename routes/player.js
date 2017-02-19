@@ -26,7 +26,7 @@ router.get('/?', function(req, res) {
     var episode   = (parseInt(req.query.episode))   ? parseInt(req.query.episode)   : 0;
     var translate = (parseInt(req.query.translate)) ? parseInt(req.query.translate) : null;
 
-    var script = 'function player(){var a=document.querySelector("#cinemapress-player");if(a){try{if("https:"==window.top.location.protocol)return window.top.location.href="http:"+window.top.location.href.substring(window.top.location.protocol.length),console.log("Error: redirect to http protocol - http:"+window.top.location.href.substring(window.top.location.protocol.length)),!1}catch(a){console.log(a)}var b=a.dataset,c=[],d="",e="";b.title=b.title||"",b.single=b.single||0,e=parseInt(b.single)?"&single="+b.single:"",c.border=a.style.border||0,c.margin=a.style.margin||0,c.padding=a.style.padding||0,c.width=a.style.width||"100%",c.height=a.style.height||"370px",c["overflow-x"]=a.style["overflow-x"]||"hidden",c.background=a.style.background||"none",c.display=a.style.display||"block";for(var f in c)c.hasOwnProperty(f)&&(d+=f+":"+c[f]+";");var g=document.createElement("iframe");g.setAttribute("src","iframe-src"),g.setAttribute("style",d),g.setAttribute("id",a.id),g.setAttribute("data-title",b.title),g.setAttribute("data-single",b.single),g.setAttribute("allowfullscreen",""),a.parentNode.replaceChild(g,a)}return!1}document.addEventListener("DOMContentLoaded",player);';
+    var script = 'function player(){var a=document.querySelector("#yohoho");if(a){var b=a.dataset,c=[],d="";b.title=b.title||"",c.border=a.style.border||0,c.margin=a.style.margin||0,c.padding=a.style.padding||0,c.width=a.style.width||"100%",c.height=a.style.height||"370px",c["overflow-x"]=a.style["overflow-x"]||"hidden",c.background=a.style.background||"none",c.display=a.style.display||"block";for(var e in c)c.hasOwnProperty(e)&&(d+=e+":"+c[e]+";");var f=document.createElement("iframe");f.setAttribute("src","iframe-src"),f.setAttribute("style",d),f.setAttribute("id",a.id),f.setAttribute("data-title",b.title),f.setAttribute("data-single",b.single),f.setAttribute("allowfullscreen",""),a.parentNode.replaceChild(f,a)}return!1}document.addEventListener("DOMContentLoaded",player);';
 
     if (!/googlebot|crawler|spider|robot|crawling|bot/i.test(req.get('User-Agent'))) {
 
@@ -72,7 +72,7 @@ router.get('/?', function(req, res) {
                     }
                 },
                 "yohoho": function (callback) {
-                    if (modules.player.data.yohoho.show) {
+                    if (modules.player.data.yohoho.player) {
                         getYohoho(function (result) {
                             callback(null, result);
                         });
@@ -84,9 +84,11 @@ router.get('/?', function(req, res) {
             },
             function(err, result) {
 
-                if (err) return res.send(err);
+                if (err) {
+                    return res.send(err);
+                }
 
-                if (modules.episode.status && result['moonwalk']) {
+                if (modules.episode.status && season && result['moonwalk']) {
                     script = script.replace('iframe-src', result['moonwalk']);
                 }
                 else if (result[modules.player.data.display]) {
@@ -105,7 +107,7 @@ router.get('/?', function(req, res) {
                     script = script.replace('iframe-src', result['kodik']);
                 }
                 else if (result['yohoho']) {
-                    script = script.replace('iframe-src', result['yohoho']);
+                    script = result['yohoho'];
                 }
                 else {
                     script = '';
@@ -125,112 +127,74 @@ router.get('/?', function(req, res) {
     }
 
     /**
-     * Get HDGO player.
-     */
-
-    function getHdgo(callback) {
-
-        request('http://hdgo.cc/api/video.json?token=' + modules.player.data.hdgo.token.trim() + '&kinopoisk_id=' + id, function (error, response, body) {
-
-            var iframe = '';
-
-            if (!error && response.statusCode == 200) {
-
-                var result = tryParseJSON(body);
-
-                if (!result.error && result.length && result[0].iframe_url) {
-
-                    iframe = result[0].iframe_url;
-
-                }
-
-            }
-
-            callback(iframe);
-
-        });
-
-    }
-
-    /**
      * Get Moonwalk player.
      */
 
     function getMoonwalk(callback) {
 
-        request('http://moonwalk.cc/api/videos.json?api_token=' + modules.player.data.moonwalk.token.trim() + '&kinopoisk_id=' + id, function (error, response, body) {
-
-            var iframe = '';
-
-            if (!error && response.statusCode == 200) {
-
-                var result = tryParseJSON(body);
-
-                if (!result.error && result.length) {
-
+        api('http://moonwalk.cc/api/videos.json?' +
+            'api_token=' + modules.player.data.moonwalk.token.trim() + '&' +
+            'kinopoisk_id=' + id,
+            function (json) {
+                var iframe = '';
+                if (json && !json.error && json.length) {
                     var iframe_url = '';
                     var added = 0;
-                    var pat = /\/[a-z]{1,20}\/[a-z0-9]{1,40}\/iframe/i;
-                    var str = '';
-                    var domain = '';
-
-                    for (var i = 0; i < result.length; i++) {
-
-                        if (season && episode && translate == result[i].translator_id) {
-                            if (modules.player.data.moonlight.domain) {
-                                str = pat.exec(result[i].iframe_url);
-                                if (str && str[0]) {
-                                    domain = modules.player.data.moonlight.domain;
-                                    domain = (domain[domain.length-1] == '/')
-                                        ? domain.slice(0, -1)
-                                        : domain;
-                                    domain = (domain.indexOf('://') == -1)
-                                        ? 'http://' + domain
-                                        : domain;
-                                    iframe_url = domain + str[0] + '?season=' + season + '&episode=' + episode;
-                                }
-                            }
-                            else {
-                                iframe_url = result[i].iframe_url + '?season=' + season + '&episode=' + episode;
-                            }
+                    for (var i = 0; i < json.length; i++) {
+                        if (season && episode && translate == json[i].translator_id) {
+                            iframe_url = getMoonlight(json[i].iframe_url) + '?season=' + season + '&episode=' + episode;
                             break;
                         }
                         else {
-                            var d = result[i].added_at || result[i].last_episode_time || 0;
+                            var d = json[i].added_at || json[i].last_episode_time || 0;
                             var publish = (new Date(d).getTime()/1000);
-
                             if (publish >= added) {
-                                if (modules.player.data.moonlight.domain) {
-                                    str = pat.exec(result[i].iframe_url);
-                                    if (str && str[0]) {
-                                        domain = modules.player.data.moonlight.domain;
-                                        domain = (domain[domain.length-1] == '/')
-                                            ? domain.slice(0, -1)
-                                            : domain;
-                                        domain = (domain.indexOf('://') == -1)
-                                            ? 'http://' + domain
-                                            : domain;
-                                        iframe_url = domain + str[0];
-                                    }
-                                }
-                                else {
-                                    iframe_url = result[i].iframe_url;
-                                }
+                                iframe_url = getMoonlight(json[i].iframe_url);
                                 added = publish;
                             }
                         }
-
                     }
-
                     iframe = iframe_url;
-
                 }
+                callback(iframe);
+            });
 
+        function getMoonlight(iframe_url) {
+            if (modules.player.data.moonwalk.moonlight) {
+                var pat = /\/[a-z]{1,20}\/[a-z0-9]{1,40}\/iframe/i;
+                var str = pat.exec(iframe_url);
+                if (str && str[0]) {
+                    var domain = modules.player.data.moonwalk.moonlight;
+                    domain = (domain[domain.length-1] == '/')
+                        ? domain.slice(0, -1)
+                        : domain;
+                    domain = (domain.indexOf('://') == -1)
+                        ? 'http://' + domain
+                        : domain;
+                    iframe_url = domain + str[0];
+                }
             }
+            return iframe_url;
+        }
 
-            callback(iframe);
+    }
 
-        });
+    /**
+     * Get HDGO player.
+     */
+
+    function getHdgo(callback) {
+
+        api('http://hdgo.cc/api/video.json?' +
+            'token=' + modules.player.data.hdgo.token.trim() + '&' +
+            'kinopoisk_id=' + id,
+            function (json) {
+                var iframe = '';
+                if (json && !json.error && json.length && json[0].iframe_url) {
+                    iframe = json[0].iframe_url;
+                }
+                callback(iframe);
+            });
 
     }
 
@@ -241,68 +205,54 @@ router.get('/?', function(req, res) {
     function getIframe(callback) {
 
         var iframe = '';
-
         async.waterfall([
             function(callback) {
-                request('http://iframe.video/api/v1/movies/&' +
-                    'kp_id=' + id + '',
-                    function (error, response, body) {
-                        if (!error && response.statusCode == 200) {
-                            var result = tryParseJSON(body);
-                            if (result && result.total && parseInt(result.total) && result.results) {
-                                var key = Object.keys(result.results)[0];
-                                if (parseInt(result.results[key].kp_id) == parseInt(req.query.kinopoisk_id)) {
-                                    iframe = result.results[key].path;
-                                }
+                api('http://iframe.video/api/v1/movies/&' +
+                    'kp_id=' + id,
+                    function (json) {
+                        if (json && json.total && parseInt(json.total) && json.results) {
+                            var key = Object.keys(json.results)[0];
+                            if (parseInt(json.results[key].kp_id) == parseInt(req.query.kinopoisk_id)) {
+                                iframe = json.results[key].path;
                             }
-                            return callback(null, iframe);
                         }
+                        callback(null, iframe);
                     });
             },
             function(iframe, callback) {
-                if (!iframe) {
-                    request('http://iframe.video/api/v1/tv-series/&' +
-                        'kp_id=' + id + '',
-                        function (error, response, body) {
-                            if (!error && response.statusCode == 200) {
-                                var result = tryParseJSON(body);
-                                if (result && result.total && parseInt(result.total) && result.results) {
-                                    var key = Object.keys(result.results)[0];
-                                    if (parseInt(result.results[key].kp_id) == parseInt(req.query.kinopoisk_id)) {
-                                        iframe = result.results[key].path;
-                                    }
-                                }
-                                return callback(null, iframe);
-                            }
-                        });
-                }
-                else {
+                if (iframe) {
                     return callback(null, iframe);
                 }
+                api('http://iframe.video/api/v1/tv-series/&' +
+                    'kp_id=' + id,
+                    function (json) {
+                        if (json && json.total && parseInt(json.total) && json.results) {
+                            var key = Object.keys(json.results)[0];
+                            if (parseInt(json.results[key].kp_id) == parseInt(req.query.kinopoisk_id)) {
+                                iframe = json.results[key].path;
+                            }
+                        }
+                        callback(null, iframe);
+                    });
             },
             function(iframe, callback) {
-                if (!iframe) {
-                    request('http://iframe.video/api/v1/tv/&' +
-                        'kp_id=' + id + '',
-                        function (error, response, body) {
-                            if (!error && response.statusCode == 200) {
-                                var result = tryParseJSON(body);
-                                if (result && result.total && parseInt(result.total) && result.results) {
-                                    var key = Object.keys(result.results)[0];
-                                    if (parseInt(result.results[key].kp_id) == parseInt(req.query.kinopoisk_id)) {
-                                        iframe = result.results[key].path;
-                                    }
-                                }
-                                return callback(null, iframe);
-                            }
-                        });
-                }
-                else {
+                if (iframe) {
                     return callback(null, iframe);
                 }
+                api('http://iframe.video/api/v1/tv/&' +
+                    'kp_id=' + id,
+                    function (json) {
+                        if (json && json.total && parseInt(json.total) && json.results) {
+                            var key = Object.keys(json.results)[0];
+                            if (parseInt(json.results[key].kp_id) == parseInt(req.query.kinopoisk_id)) {
+                                iframe = json.results[key].path;
+                            }
+                        }
+                        callback(null, iframe);
+                    });
             }
         ], function (err, iframe) {
-            return callback(iframe);
+            callback(iframe);
         });
 
     }
@@ -313,25 +263,16 @@ router.get('/?', function(req, res) {
 
     function getKodik(callback) {
 
-        request('http://kodik.cc/api.js?kp_id=' + id, function (error, response, body) {
-
-            var iframe = '';
-
-            if (!error && response.statusCode == 200) {
-
-                var matches = /"(http:\/\/kodik\.cc\/video\/.*?)"/.exec(body);
-
-                if (matches && !(matches[1].indexOf('video/3/')+1)) {
-
-                    iframe = matches[1];
-
+        api('http://kodik.cc/api.js?' +
+            'kp_id=' + id,
+            function (json, body) {
+                var iframe_url = '';
+                var matches = /"(http:\/\/kodik\.cc\/[a-z]{1,10}\/[0-9]{1,7}\/[a-z0-9]{5,50}\/[a-z0-9]{1,10})"/i.exec(body);
+                if (matches && matches[1]) {
+                    iframe_url = matches[1];
                 }
-
-            }
-
-            callback(iframe);
-
-        });
+                callback(null, iframe_url);
+            });
 
     }
 
@@ -341,8 +282,27 @@ router.get('/?', function(req, res) {
 
     function getYohoho(callback) {
 
-        callback('http://yohoho.xyz/online?title=" + encodeURIComponent(b.title) + e + "');
+        api('https://yohoho.cc/yo.js',
+            function (json, body) {
+                callback(null, body);
+            });
 
+    }
+
+    /**
+     * Request.
+     */
+
+    function api(url, callback) {
+        request(url, function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                var json = tryParseJSON(body);
+                callback(json, body);
+            }
+            else {
+                callback(null, '');
+            }
+        });
     }
 
     /**
@@ -357,7 +317,7 @@ router.get('/?', function(req, res) {
             }
         }
         catch (e) { }
-        return {};
+        return null;
     }
 
 });

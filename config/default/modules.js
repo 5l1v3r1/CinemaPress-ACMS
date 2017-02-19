@@ -147,12 +147,12 @@ module.exports = {
         "data": {
             "display": "yohoho",
             "yohoho": {
-                "show": 1
-            },
-            "hdgo": {
-                "token": ""
+                "player": "moonwalk,hdgo,iframe,kodik,allserials,trailer"
             },
             "moonwalk": {
+                "token": ""
+            },
+            "hdgo": {
                 "token": ""
             },
             "iframe": {

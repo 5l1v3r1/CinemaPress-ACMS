@@ -80,10 +80,10 @@
                             <div class="example-box">
                                 <div class="example-box-header">
                                     <div class="example-label">
-                                        <i class="fa fa-film"></i>&nbsp;&nbsp;&nbsp;Yohoho.xyz
+                                        <i class="fa fa-film"></i>&nbsp;&nbsp;&nbsp;Yohoho.cc
                                     </div>
                                     <div class="example-label" style="float: right">
-                                        <a href="https://CinemaPress.org/admin/player.html#yohoho" class="csstip" title="Параметры плеера Yohoho.xyz" target="_blank">
+                                        <a href="https://CinemaPress.org/admin/player.html#yohoho" class="csstip" title="Параметры плеера Yohoho.cc" target="_blank">
                                             <i class="fa fa-info-circle"></i>
                                         </a>
                                     </div>
@@ -98,14 +98,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-xs-6 text-center">
-                                            <div class="inline-labels">
-                                                <label>
-                                                    <input name="modules.player.data.yohoho.show" value="1" <% if (modules.player.data.yohoho.show) { %> checked="" <% } %> type="radio"><span></span> Показывать
-                                                </label>
-                                                <label>
-                                                    <input name="modules.player.data.yohoho.show" value="0" <% if (!modules.player.data.yohoho.show) { %> checked="" <% } %> type="radio"><span></span> Не показывать
-                                                </label>
-                                            </div>
+                                            <input name="modules.player.data.yohoho.player" value="<%- modules.player.data.yohoho.player %>" class="form-control" type="text" placeholder="Видео-хостинги источники">
                                         </div>
                                     </div>
                                 </div>
