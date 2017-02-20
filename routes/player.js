@@ -189,11 +189,11 @@ router.get('/?', function(req, res) {
             'token=' + modules.player.data.hdgo.token.trim() + '&' +
             'kinopoisk_id=' + id,
             function (json) {
-                var iframe = '';
+                var iframe_url = '';
                 if (json && !json.error && json.length && json[0].iframe_url) {
-                    iframe = json[0].iframe_url;
+                    iframe_url = json[0].iframe_url;
                 }
-                callback(iframe);
+                callback(iframe_url);
             });
 
     }
@@ -271,7 +271,7 @@ router.get('/?', function(req, res) {
                 if (matches && matches[1]) {
                     iframe_url = matches[1];
                 }
-                callback(null, iframe_url);
+                callback(iframe_url);
             });
 
     }
