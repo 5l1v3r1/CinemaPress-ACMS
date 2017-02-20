@@ -175,11 +175,11 @@
                         "restart": true
                     };
                     sendServer(data, function () {
-                        window.location.href = "<%- config.domain %>/<%- config.urls.admin %>";
+                        window.location.href = "<%- config.protocol %><%- config.domain %>/<%- config.urls.admin %>";
                     });
                 }, 15000);
                 setTimeout(function() {
-                    window.location.href = "<%- config.domain %>/<%- config.urls.admin %>";
+                    window.location.href = "<%- config.protocol %><%- config.domain %>/<%- config.urls.admin %>";
                 }, 20000);
             }
         });

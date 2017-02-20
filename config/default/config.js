@@ -1,6 +1,6 @@
 module.exports = {
     "database": {
-        "key": "free",
+        "key": "FREE",
         "date": ""
     },
     "protocol": "http://",
