@@ -212,7 +212,7 @@ router.get('/?', function(req, res) {
                     function (json) {
                         if (json && json.total && parseInt(json.total) && json.results) {
                             var key = Object.keys(json.results)[0];
-                            if (parseInt(json.results[key].kp_id) == parseInt(req.query.kinopoisk_id)) {
+                            if (parseInt(json.results[key].kp_id) == id) {
                                 iframe = json.results[key].path;
                             }
                         }
@@ -228,7 +228,7 @@ router.get('/?', function(req, res) {
                     function (json) {
                         if (json && json.total && parseInt(json.total) && json.results) {
                             var key = Object.keys(json.results)[0];
-                            if (parseInt(json.results[key].kp_id) == parseInt(req.query.kinopoisk_id)) {
+                            if (parseInt(json.results[key].kp_id) == id) {
                                 iframe = json.results[key].path;
                             }
                         }
@@ -244,7 +244,7 @@ router.get('/?', function(req, res) {
                     function (json) {
                         if (json && json.total && parseInt(json.total) && json.results) {
                             var key = Object.keys(json.results)[0];
-                            if (parseInt(json.results[key].kp_id) == parseInt(req.query.kinopoisk_id)) {
+                            if (parseInt(json.results[key].kp_id) == id) {
                                 iframe = json.results[key].path;
                             }
                         }
@@ -284,7 +284,7 @@ router.get('/?', function(req, res) {
 
         api('https://yohoho.cc/yo.js',
             function (json, body) {
-                callback(null, body);
+                callback(body);
             });
 
     }
