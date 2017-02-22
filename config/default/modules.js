@@ -169,7 +169,7 @@ module.exports = {
     "blocking": {
         "status": false,
         "data": {
-            "display": "share",
+            "display": "adv",
             "share": {
                 "time": 60,
                 "message": "Поделитесь фильмом в одну из социальных сетей чтобы начать просмотр или подождите [timer] секунд и данное сообщение исчезнет."
