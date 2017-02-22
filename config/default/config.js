@@ -46,8 +46,8 @@ module.exports = {
         "count": 15,
         "sorting": "kinopoisk-vote-up",
         "votes": {
-            "kp": 2000,
-            "imdb": 2000
+            "kp": 5000,
+            "imdb": 5000
         }
     },
     "codes": {
