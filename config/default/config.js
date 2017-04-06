@@ -53,7 +53,7 @@ module.exports = {
     "codes": {
         "head": "",
         "footer": "",
-        "robots": "User-agent: *\nDisallow: /\nDisallow: /type/*/*\nDisallow: /movie/*/*\nDisallow: /year/*/*\nDisallow: /genre/*/*\nDisallow: /country/*/*\nDisallow: /director/*/*\nDisallow: /actor/*/*\nDisallow: /search\nDisallow: /*?sorting*"
+        "robots": "User-agent: *\nDisallow: /\nDisallow: /type/*/*\nDisallow: /movie/*/*\nDisallow: /year/*/*\nDisallow: /genre/*/*\nDisallow: /country/*/*\nDisallow: /director/*/*\nDisallow: /actor/*/*\nDisallow: /search\nDisallow: /*?sorting*\nDisallow: /admin*"
     },
     "index": {
         "type": {

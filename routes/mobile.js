@@ -190,7 +190,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                         if (err) {
                             callback(err);
                         }
-                        else if (url.replace('s:', ':') == render.page.url) {
+                        else if (url == render.page.url) {
                             callback(null, render);
                         }
                         else {
@@ -207,7 +207,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                         if (err) {
                             callback(err);
                         }
-                        else if (url.replace('s:', ':') == render.page.url) {
+                        else if (url == render.page.url) {
                             callback(null, render);
                         }
                         else {
@@ -224,7 +224,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                         if (err) {
                             callback(err);
                         }
-                        else if (url.replace('s:', ':') == render.page.url) {
+                        else if (url == render.page.url) {
                             callback(null, render);
                         }
                         else {
@@ -241,7 +241,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                         if (err) {
                             callback(err);
                         }
-                        else if (url.replace('s:', ':') == render.page.url) {
+                        else if (url == render.page.url) {
                             callback(null, render);
                         }
                         else {
@@ -258,7 +258,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                         if (err) {
                             callback(err);
                         }
-                        else if (url.replace('s:', ':') == render.page.url) {
+                        else if (url == render.page.url) {
                             callback(null, render);
                         }
                         else {
@@ -275,7 +275,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                         if (err) {
                             callback(err);
                         }
-                        else if (url.replace('s:', ':') == render.page.url) {
+                        else if (url == render.page.url) {
                             callback(null, render);
                         }
                         else {

@@ -4,6 +4,7 @@
  * Configuration dependencies.
  */
 
+var config  = require('../config/config');
 var modules = require('../config/modules');
 
 /**
@@ -26,7 +27,7 @@ router.get('/?', function(req, res) {
     var episode   = (parseInt(req.query.episode))   ? parseInt(req.query.episode)   : 0;
     var translate = (parseInt(req.query.translate)) ? parseInt(req.query.translate) : null;
 
-    var script = 'function player(){var a=document.querySelector("#yohoho");if(a){var b=a.dataset,c=[],d="";b.title=b.title||"",c.border=a.style.border||0,c.margin=a.style.margin||0,c.padding=a.style.padding||0,c.width=a.style.width||"100%",c.height=a.style.height||"370px",c["overflow-x"]=a.style["overflow-x"]||"hidden",c.background=a.style.background||"none",c.display=a.style.display||"block";for(var e in c)c.hasOwnProperty(e)&&(d+=e+":"+c[e]+";");var f=document.createElement("iframe");f.setAttribute("src","iframe-src"),f.setAttribute("style",d),f.setAttribute("id",a.id),f.setAttribute("data-title",b.title),f.setAttribute("data-single",b.single),f.setAttribute("allowfullscreen",""),a.parentNode.replaceChild(f,a)}return!1}document.addEventListener("DOMContentLoaded",player);';
+    var script = 'function player(){var a=document.querySelector("#yohoho");if(!a)return!1;var b,c,d;b=document.createElement("iframe"),b.setAttribute("id","player-iframe"),b.setAttribute("frameborder","0"),b.setAttribute("allowfullscreen","allowfullscreen"),b.setAttribute("src","iframe-src"),a.appendChild(b),c=parseInt(a.offsetWidth)?parseInt(a.offsetWidth):parseInt(a.parentNode.offsetWidth)?a.parentNode.offsetWidth:610,d=parseInt(a.offsetHeight)&&c/3<parseInt(a.offsetHeight)?parseInt(a.offsetHeight):parseInt(a.parentNode.offsetHeight)&&c/3<parseInt(a.parentNode.offsetHeight)?parseInt(a.parentNode.offsetHeight):c/2;var e="width:"+c+"px;height:"+d+"px";b.setAttribute("style",e),b.setAttribute("width",c),b.setAttribute("height",d),a.setAttribute("style",e)}document.addEventListener("DOMContentLoaded",player);';
 
     if (!/googlebot|crawler|spider|robot|crawling|bot/i.test(req.get('User-Agent'))) {
 
@@ -169,7 +170,7 @@ router.get('/?', function(req, res) {
                         ? domain.slice(0, -1)
                         : domain;
                     domain = (domain.indexOf('://') == -1)
-                        ? 'http://' + domain
+                        ? config.protocol + domain
                         : domain;
                     iframe_url = domain + str[0];
                 }
