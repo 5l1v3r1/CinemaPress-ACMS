@@ -2,6 +2,8 @@
   "apps" : [{
     "name" : "example.com",
     "script" : "/home/example.com/app.js",
+    "instances" : "max",
+    "exec_mode" : "cluster",
     "cwd" : "/home/example.com",
     "error_file" : "/home/example.com/log/err.log",
     "out_file" : "/home/example.com/log/out.log",
@@ -10,15 +12,28 @@
     "watch" : true,
     "ignore_watch" : [
       "config",
+      "files",
       "log",
       "node_modules",
+      "moonlight",
       "themes/*/public",
       "themes/.*",
-      ".*"
+      ".*",
+      "process.json",
+      "package.json"
     ],
     "watch_options" : {
       "followSymlinks": false
     },
-    "vizion" : false
+    "vizion" : false,
+    "env" : {
+      "NODE_ENV": "production",
+      "CP_ALL": "_example_com_",
+      "CP_XMLPIPE2": "xmlpipe2_example_com",
+      "CP_RT": "rt_example_com",
+      "CP_CONTENT": "content_example_com",
+      "CP_COMMENT": "comment_example_com",
+      "CP_USER": "user_example_com"
+    }
   }]
 }

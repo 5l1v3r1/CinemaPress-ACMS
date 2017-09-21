@@ -9,11 +9,11 @@
 
 <% include includes/header.ejs %>
 
-<% if (typeof movies == 'object') { for (var type in movies) { if (movies.hasOwnProperty(type)) { %>
+<% if (typeof index == 'object') { for (var type in index) { if (index.hasOwnProperty(type)) { %>
 
-<% if (movies[type].length) { %>
+<% if (index[type].length) { %>
 
-<% movies[type].forEach(function (category) { %>
+<% index[type].forEach(function (category) { %>
 
 <h2><%- category.name %></h2>
 
@@ -28,7 +28,7 @@
         <img src="<%- movie.poster_min %>" alt="<%- movie.title %> (<%- movie.year %>) смотреть онлайн" title="<%- movie.title %> (<%- movie.year %>)">
     </a>
 </div>
-<h3><a href="<%- movie.url %>"><%- movie.title %> (<%- movie.year %>) <% if (movie.season) { %> <%- movie.season %> сезон <% } %> <% if (movie.episode) { %> <%- movie.episode %> серия<% } %> <% if (movie.translate) { %> <%- movie.translate %> <% } %> смотреть онлайн</a></h3>
+<h3><a href="<%- movie.url %>"><%- movie.title %> (<%- movie.year %>) <% if (movie.season) { %> <%- movie.season %> сезон <% } %> <% if (movie.episode) { %> <%- movie.episode %> серия<% } %> смотреть онлайн</a></h3>
 
 <% if (movie.year_url) { %>
 
@@ -57,19 +57,38 @@
 <div class="info">
     <%
     for (var kp = 1; kp <= 10; kp++) {
-        var star_kp = (Math.round(movie.kp_rating/10) >= kp) ? 'star_on' : 'star_off';
+        var star_kp = (Math.round(movie.kp_rating/10) >= kp)
+                ? '<div class="star-true"></div>'
+                : '<div class="star-false"></div>';
     %>
-    <img src="/themes/default/public/mobile/<%- star_kp %>.png" alt="+">
-    <% } %> - КиноПоиск
+    <%- star_kp %>
+    <% } %> - <span style="color:#F56504; font-weight: bold">КиноПоиск</span>
 </div>
 <div class="info">
     <%
     for (var imdb = 1; imdb <= 10; imdb++) {
-        var star_imdb = (Math.round(movie.imdb_rating/10) >= imdb) ? 'star_on' : 'star_off';
+        var star_imdb = (Math.round(movie.imdb_rating/10) >= imdb)
+                ? '<div class="star-true"></div>'
+                : '<div class="star-false"></div>';
     %>
-    <img src="/themes/default/public/mobile/<%- star_imdb %>.png" alt="+">
-    <% } %> - IMDb
+    <%- star_imdb %>
+    <% } %> - <span style="color:#E3B71E; font-weight: bold">IMDb</span>
 </div>
+
+<% if (movie.quality) { %>
+
+<div class="info">
+    Качество: <%- movie.quality %>
+</div>
+
+<% } %>
+<% if (movie.translate) { %>
+
+<div class="info">
+    Перевод: <%- movie.translate %>
+</div>
+
+<% } %>
 
 <% if (movie.description_short) { %>
 
@@ -88,5 +107,31 @@
 <% } %>
 
 <% } } } %>
+
+<% if (typeof page.pagination === 'object') { %>
+<div class="info block pagination" style="text-align: center">
+    <% if (page.pagination.first) { %>
+    <a href="<%- page.pagination.first.link %>" rel="nofollow"><%- page.pagination.first.number %></a>
+    <span>...</span>
+    <% } %>
+    <% if (page.pagination.prev.length) { %>
+    <% page.pagination.prev.forEach(function (prev) { %>
+    <a href="<%- prev.link %>" rel="nofollow"><%- prev.number %></a>
+    <% }); %>
+    <span>...</span>
+    <% } %>
+    <strong><a><%- page.pagination.current %></a></strong>
+    <% if (page.pagination.next.length) { %>
+    <span>...</span>
+    <% page.pagination.next.forEach(function (next) { %>
+    <a href="<%- next.link %>" rel="nofollow"><%- next.number %></a>
+    <% }); %>
+    <% } %>
+    <% if (page.pagination.last) { %>
+    <span>...</span>
+    <a href="<%- page.pagination.last.link %>" rel="nofollow"><%- page.pagination.last.number %></a>
+    <% } %>
+</div>
+<% } %>
 
 <% include includes/footer.ejs %>

@@ -82,11 +82,11 @@
                                             <select name="config.default.count" class="form-control">
                                                 <% for (var i = 1; i <= 30; i++) { %>
                                                 <% if (config.default.count == i) { %>
-                                                <option value="<%- i %>" selected="selected">
+                                                <option value="<%= i %>" selected="selected">
                                                     <%- i %> фильма(-ов)
                                                 </option>
                                                 <% } else { %>
-                                                <option value="<%- i %>">
+                                                <option value="<%= i %>">
                                                     <%- i %> фильма(-ов)
                                                 </option>
                                                 <% } %>
@@ -103,16 +103,92 @@
                                             <select name="config.default.sorting" class="form-control">
                                                 <% for (name in config.sorting) { %>
                                                 <% if (config.default.sorting == name) { %>
-                                                <option value="<%- name %>" selected="selected">
+                                                <option value="<%= name %>" selected="selected">
                                                     <%- config.sorting[name] %>
                                                 </option>
                                                 <% } else { %>
-                                                <option value="<%- name %>">
+                                                <option value="<%= name %>">
                                                     <%- config.sorting[name] %>
                                                 </option>
                                                 <% } %>
                                                 <% } %>
                                             </select>
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <div class="col-sm-6">
+                                            <div>
+                                                <a href="javascript:void(0)" class="csstip text-muted" title="Укажите какое число страниц отображать внизу каждой категории и главной сайта">
+                                                    <i class="fa fa-info-circle text-muted"></i>
+                                                    Число номеров страниц:
+                                                </a>
+                                            </div>
+                                            <select name="config.default.pages" class="form-control">
+                                                <% for (var i = 1; i <= 10; i++) { if (i%2) continue; %>
+                                                <% if (config.default.pages == i) { %>
+                                                <option value="<%= i %>" selected="selected">
+                                                    <%- i %> номер(-ов)
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%= i %>">
+                                                    <%- i %> номер(-ов)
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div>
+                                                <a href="javascript:void(0)" class="csstip text-muted" title="Показывать кнопку последней страницы на главной и в категориях (ВЫСОКАЯ НАГРУЗКА НА СЕРВЕР).">
+                                                    <i class="fa fa-info-circle text-muted"></i>
+                                                    Последняя страница:
+                                                </a>
+                                            </div>
+                                            <select name="config.default.lastpage" class="form-control">
+                                                <% if (config.default.lastpage) { %>
+                                                <option value="1" selected="selected">
+                                                    Показывать
+                                                </option>
+                                                <option value="0">
+                                                    Не показывать
+                                                </option>
+                                                <% } else { %>
+                                                <option value="1">
+                                                    Показывать
+                                                </option>
+                                                <option value="0" selected="selected">
+                                                    Не показывать
+                                                </option>
+                                                <% } %>
+                                            </select>
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <div class="col-sm-12">
+                                            <div>
+                                                <a href="javascript:void(0)" class="csstip text-muted" title="Укажите
+                                                 изображение, которое будет отображаться, когда люди будут делиться
+                                                 сайтом в соц. сетях">
+                                                    <i class="fa fa-info-circle text-muted"></i>
+                                                    Изображение по умолчанию:
+                                                </a>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-9 col-xs-9 text-center" id="blockPathImage">
+                                                    <input type="text" class="form-control" name="config.default.image" id="textPathImage" value="<% if (config.default.image) { %><%= config.default.image %><% } %>" placeholder="URL изображения"
+                                                           style="font-weight: normal; font-size: 14px;">
+                                                </div>
+                                                <div class="col-lg-3 col-xs-3 text-center" id="blockUploadImage">
+                                                    <div class="btn-group" style="float: right; margin: 0;">
+                                                        <form id="formUploadImage" enctype="multipart/form-data">
+                                                            <input name="content" id="nameUploadImage" type="file" class="form-control" style="float: left; width: 68px; padding: 0">
+                                                            <input class="btn btn-default" id="submitUploadImage" type="submit" value="Загрузить" style="margin: auto 0 auto 5px; display: none">
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <div class="spacer-10"></div>
@@ -127,11 +203,11 @@
                                             <select name="config.default.votes.imdb" class="form-control">
                                                 <% for (var i = 100; i <= 10000; i = i+100) { %>
                                                 <% if (config.default.votes.imdb == i) { %>
-                                                <option value="<%- i %>" selected="selected">
+                                                <option value="<%= i %>" selected="selected">
                                                     <%- i %> голос(-ов)
                                                 </option>
                                                 <% } else { %>
-                                                <option value="<%- i %>">
+                                                <option value="<%= i %>">
                                                     <%- i %> голос(-ов)
                                                 </option>
                                                 <% } %>
@@ -148,11 +224,11 @@
                                             <select name="config.default.votes.kp" class="form-control">
                                                 <% for (var i = 100; i <= 10000; i = i+100) { %>
                                                 <% if (config.default.votes.kp == i) { %>
-                                                <option value="<%- i %>" selected="selected">
+                                                <option value="<%= i %>" selected="selected">
                                                     <%- i %> голос(-ов)
                                                 </option>
                                                 <% } else { %>
-                                                <option value="<%- i %>">
+                                                <option value="<%= i %>">
                                                     <%- i %> голос(-ов)
                                                 </option>
                                                 <% } %>
@@ -184,7 +260,7 @@
                                             <label>Рейтинг КП (по убыванию):</label>
                                         </div>
                                         <div class="col-sm-7">
-                                            <input type="text" name="config.sorting.kinopoisk-rating-up" value="<%- config.sorting['kinopoisk-rating-up'] %>" class="form-control">
+                                            <input type="text" name="config.sorting.kinopoisk-rating-up" value="<%= config.sorting['kinopoisk-rating-up'] %>" class="form-control">
                                         </div>
 
                                         <div class="spacer-10"></div>
@@ -193,7 +269,7 @@
                                             <label>Рейтинг КП (по возрастанию):</label>
                                         </div>
                                         <div class="col-sm-7">
-                                            <input type="text" name="config.sorting.kinopoisk-rating-down" value="<%- config.sorting['kinopoisk-rating-down'] %>" class="form-control">
+                                            <input type="text" name="config.sorting.kinopoisk-rating-down" value="<%= config.sorting['kinopoisk-rating-down'] %>" class="form-control">
                                         </div>
 
                                         <div class="spacer-10"></div>
@@ -202,7 +278,7 @@
                                             <label>Голоса КП (по убыванию):</label>
                                         </div>
                                         <div class="col-sm-7">
-                                            <input type="text" name="config.sorting.kinopoisk-vote-up" value="<%- config.sorting['kinopoisk-vote-up'] %>" class="form-control">
+                                            <input type="text" name="config.sorting.kinopoisk-vote-up" value="<%= config.sorting['kinopoisk-vote-up'] %>" class="form-control">
                                         </div>
 
                                         <div class="spacer-10"></div>
@@ -211,7 +287,7 @@
                                             <label>Голоса КП (по возрастанию):</label>
                                         </div>
                                         <div class="col-sm-7">
-                                            <input type="text" name="config.sorting.kinopoisk-vote-down" value="<%- config.sorting['kinopoisk-vote-down'] %>" class="form-control">
+                                            <input type="text" name="config.sorting.kinopoisk-vote-down" value="<%= config.sorting['kinopoisk-vote-down'] %>" class="form-control">
                                         </div>
 
                                         <div class="spacer-10"></div>
@@ -220,7 +296,7 @@
                                             <label>Рейтинг IMDb (по убыванию):</label>
                                         </div>
                                         <div class="col-sm-7">
-                                            <input type="text" name="config.sorting.imdb-rating-up" value="<%- config.sorting['imdb-rating-up'] %>" class="form-control">
+                                            <input type="text" name="config.sorting.imdb-rating-up" value="<%= config.sorting['imdb-rating-up'] %>" class="form-control">
                                         </div>
 
                                         <div class="spacer-10"></div>
@@ -229,7 +305,7 @@
                                             <label>Рейтинг IMDb (по возрастанию):</label>
                                         </div>
                                         <div class="col-sm-7">
-                                            <input type="text" name="config.sorting.imdb-rating-down" value="<%- config.sorting['imdb-rating-down'] %>" class="form-control">
+                                            <input type="text" name="config.sorting.imdb-rating-down" value="<%= config.sorting['imdb-rating-down'] %>" class="form-control">
                                         </div>
 
                                         <div class="spacer-10"></div>
@@ -238,7 +314,7 @@
                                             <label>Голоса IMDb (по убыванию):</label>
                                         </div>
                                         <div class="col-sm-7">
-                                            <input type="text" name="config.sorting.imdb-vote-up" value="<%- config.sorting['imdb-vote-up'] %>" class="form-control">
+                                            <input type="text" name="config.sorting.imdb-vote-up" value="<%= config.sorting['imdb-vote-up'] %>" class="form-control">
                                         </div>
 
                                         <div class="spacer-10"></div>
@@ -247,7 +323,7 @@
                                             <label>Голоса IMDb (по возрастанию):</label>
                                         </div>
                                         <div class="col-sm-7">
-                                            <input type="text" name="config.sorting.imdb-vote-down" value="<%- config.sorting['imdb-vote-down'] %>" class="form-control">
+                                            <input type="text" name="config.sorting.imdb-vote-down" value="<%= config.sorting['imdb-vote-down'] %>" class="form-control">
                                         </div>
 
                                         <div class="spacer-10"></div>
@@ -256,14 +332,14 @@
                                             <label>Год (по убыванию):</label>
                                         </div>
                                         <div class="col-sm-7">
-                                            <input type="text" name="config.sorting.year-up" value="<%- config.sorting['year-up'] %>" class="form-control">
+                                            <input type="text" name="config.sorting.year-up" value="<%= config.sorting['year-up'] %>" class="form-control">
                                         </div>
                                         <div class="spacer-10"></div>
                                         <div class="col-sm-5">
                                             <label>Год (по возрастанию):</label>
                                         </div>
                                         <div class="col-sm-7">
-                                            <input type="text" name="config.sorting.year-down" value="<%- config.sorting['year-down'] %>" class="form-control">
+                                            <input type="text" name="config.sorting.year-down" value="<%= config.sorting['year-down'] %>" class="form-control">
                                         </div>
 
                                         <div class="spacer-10"></div>
@@ -272,7 +348,7 @@
                                             <label>Премьера (по убыванию):</label>
                                         </div>
                                         <div class="col-sm-7">
-                                            <input type="text" name="config.sorting.premiere-up" value="<%- config.sorting['premiere-up'] %>" class="form-control">
+                                            <input type="text" name="config.sorting.premiere-up" value="<%= config.sorting['premiere-up'] %>" class="form-control">
                                         </div>
 
                                         <div class="spacer-10"></div>
@@ -281,7 +357,7 @@
                                             <label>Премьера (по возрастанию):</label>
                                         </div>
                                         <div class="col-sm-7">
-                                            <input type="text" name="config.sorting.premiere-down" value="<%- config.sorting['premiere-down'] %>" class="form-control">
+                                            <input type="text" name="config.sorting.premiere-down" value="<%= config.sorting['premiere-down'] %>" class="form-control">
                                         </div>
                                     </div>
                                 </div>

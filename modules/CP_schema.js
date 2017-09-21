@@ -4,21 +4,22 @@
  * Configuration dependencies.
  */
 
-var config  = require('../config/config');
-var modules = require('../config/modules');
+var config  = require('../config/production/config');
+var modules = require('../config/production/modules');
 
 /**
  * Create full schema data for movie.
  *
+ * @param {Object} page
  * @param {Object} movie
  * @param {Object} movies - The related movies.
  * @param {Object} [options]
  * @return {String}
  */
 
-function fullMovieSchema(movie, movies, options) {
+function fullMovieSchema(page, movie, movies, options) {
 
-    if (arguments.length == 2) {
+    if (arguments.length === 3) {
         options = {};
         options.domain = '' + config.domain;
     }
@@ -41,19 +42,23 @@ function fullMovieSchema(movie, movies, options) {
                     schemaItemList['itemListOrder'] = 'Descending';
                     schemaItemList['itemListElement'] = [];
 
-                    data.movies.forEach(function(m, key) {
+                    data.movies.forEach(function(movie, key) {
 
                         schemaItemList['itemListElement'].push({
                             "@type": "ListItem",
                             "position": key+1,
-                            "item": onlyMovieSchema(m, options)
+                            "item": onlyMovieSchema(movie, options)
                         });
 
                     });
 
                     result.push(schemaItemList);
 
+                    return false;
+
                 });
+
+                break;
 
             }
         }
@@ -95,15 +100,15 @@ function fullMovieSchema(movie, movies, options) {
         }
     });
 
-    if (options.url && options.url != movie.url) {
+    if (page.url && page.url !== movie.url) {
 
         schemaBreadcrumbList['itemListElement'].push({
             "@type": "ListItem",
             "position": 4,
             "item": {
-                "@id": options.url,
-                "name": options.title,
-                "url": options.url
+                "@id": page.url,
+                "name": page.title,
+                "url": page.url
             }
         });
 
@@ -116,16 +121,31 @@ function fullMovieSchema(movie, movies, options) {
 
     var opengraph = '';
     opengraph += '<meta name="twitter:card" content="summary_large_image" />';
-    opengraph += '<meta property="og:locale" content="ru_RU" />';
-    opengraph += '<meta property="og:site_name" content="' + movie.title + '" />';
-    opengraph += '<meta property="og:title" content="' + movie.title + '" />';
-    opengraph += '<meta property="og:description" content="' + movie.title + ' смотреть онлайн, скачать, трейлер, кадры." />';
-    opengraph += '<meta property="og:type" content="video.movie" />';
-    opengraph += '<meta property="og:url" content="' + movie.url + '" />';
+    opengraph += '<meta property="og:site_name" content="' + config.domain + '" />';
+    opengraph += '<meta property="og:title" content="' + page.title + '" />';
+    opengraph += '<meta property="og:description" content="' + page.description + '" />';
+    opengraph += (movie.episode && movie.season)
+        ? '<meta property="og:type" content="video.episode" />' +
+          '<meta property="ya:ovs:episode" content="' + movie.episode + '" />' +
+          '<meta property="ya:ovs:season " content="' + movie.season + '" />'
+        : '<meta property="og:type" content="video.movie" />' +
+          '<meta property="ya:ovs:original_name" content="' + movie.title_en + '" />' +
+          '<meta property="ya:ovs:release_date" content="' + movie.premiere + '" />';
+    opengraph += '<meta property="og:url" content="' + page.url + '" />';
+    opengraph += '<meta property="og:video" content="//' + config.domain + '/iframe/' + movie.kp_id + '" />';
+    opengraph += '<meta property="og:video:type" content="video/mp4" />';
+    opengraph += '<meta property="video:duration" content="' + (7777 + (movie.title.length*30)) + '" />';
     opengraph += '<meta property="og:image" content="' + movie.picture + '" />';
     opengraph += (movie.poster.indexOf('http')+1)
         ? '<meta property="og:image" content="' + movie.poster + '" />'
-        : '<meta property="og:image" content="' + config.protocol + config.domain + movie.poster + '" />';
+        : '<meta property="og:image" content="//' + config.domain + movie.poster + '" />';
+
+    opengraph += '<meta property="ya:ovs:allow_embed" content="true" />';
+    opengraph += '<meta property="ya:ovs:quality" content="HD" />';
+    opengraph += '<meta property="ya:ovs:available_platform" content="Desktop,Mobile" />';
+    opengraph += '<meta property="ya:ovs:rating" content="' + movie.rating/10 + '" />';
+    opengraph += '<meta property="ya:ovs:adult" content="false" />';
+    opengraph += '<meta property="ya:ovs:upload_date" content="' + movie.premiere + '" />';
 
     return schema + opengraph;
 
@@ -141,7 +161,7 @@ function fullMovieSchema(movie, movies, options) {
 
 function onlyMovieSchema(movie, options) {
 
-    if (arguments.length == 1) {
+    if (arguments.length === 2) {
         options = {};
         options.domain = '' + config.domain;
     }
@@ -150,7 +170,7 @@ function onlyMovieSchema(movie, options) {
 
     result['@context'] = 'http://schema.org';
     result['@type'] = 'Movie';
-    result['name'] = movie.title_ru;
+    result['name'] = movie.title;
     result['alternativeHeadline'] = movie.title_en;
     result['description'] = movie.description;
     result['dateCreated'] = movie.premiere;
@@ -164,11 +184,11 @@ function onlyMovieSchema(movie, options) {
     result['genre'] = [];
     result['aggregateRating'] = (movie.rating)
         ? {
-        "@type": "AggregateRating",
-        "bestRating": 10,
-        "ratingCount": movie.vote,
-        "ratingValue": movie.rating/10
-    }
+            "@type": "AggregateRating",
+            "bestRating": 10,
+            "ratingCount": movie.vote,
+            "ratingValue": movie.rating/10
+        }
         : null;
 
     if (movie.actors_arr) {
@@ -212,7 +232,7 @@ function onlyMovieSchema(movie, options) {
 
 function categorySchema(page, movies, options) {
 
-    if (arguments.length == 2) {
+    if (arguments.length === 2) {
         options = {};
         options.domain = '' + config.domain;
     }
@@ -231,10 +251,14 @@ function categorySchema(page, movies, options) {
 
     movies.forEach(function(movie, key) {
 
+        var item = onlyMovieSchema(movie, options);
+        item['description'] = '';
+        item['actor'] = [];
+        item['url'] = page.url + '#' + (key+1);
         schemaItemList['itemListElement'].push({
             "@type": "ListItem",
             "position": key+1,
-            "item": onlyMovieSchema(movie, options)
+            "item": item
         });
 
     });
@@ -270,13 +294,12 @@ function categorySchema(page, movies, options) {
 
     var opengraph = '';
     opengraph += '<meta name="twitter:card" content="summary_large_image" />';
-    opengraph += '<meta property="og:locale" content="ru_RU" />';
-    opengraph += '<meta property="og:site_name" content="' + page.title + '" />';
+    opengraph += '<meta property="og:site_name" content="' + config.domain + '" />';
     opengraph += '<meta property="og:title" content="' + page.title + '" />';
     opengraph += '<meta property="og:description" content="' + page.description + '" />';
     opengraph += '<meta property="og:type" content="website" />';
     opengraph += '<meta property="og:url" content="' + page.url + '" />';
-    opengraph += '<meta property="og:image" content="' + config.protocol + config.domain + '/themes/default/public/desktop/img/og.png" />';
+    opengraph += '<meta property="og:image" content="//' + config.domain + config.default.image + '" />';
 
     return schema + opengraph;
 
@@ -292,7 +315,7 @@ function categorySchema(page, movies, options) {
 
 function generalSchema(page, options) {
 
-    if (arguments.length == 1) {
+    if (arguments.length === 1) {
         options = {};
         options.domain = '' + config.domain;
     }
@@ -322,19 +345,82 @@ function generalSchema(page, options) {
         if (modules.social.data.gplus) {
             result['sameAs'].push(modules.social.data.gplus);
         }
+        if (modules.social.data.instagram) {
+            result['sameAs'].push(modules.social.data.instagram);
+        }
+        if (modules.social.data.youtube) {
+            result['sameAs'].push(modules.social.data.youtube);
+        }
     }
 
     var schema = '<script type="application/ld+json">' + JSON.stringify(result) + '</script>';
 
     var opengraph = '';
     opengraph += '<meta name="twitter:card" content="summary_large_image" />';
-    opengraph += '<meta property="og:locale" content="ru_RU" />';
-    opengraph += '<meta property="og:site_name" content="' + page.title + '" />';
+    opengraph += '<meta property="og:site_name" content="' + config.domain + '" />';
     opengraph += '<meta property="og:title" content="' + page.title + '" />';
     opengraph += '<meta property="og:description" content="' + page.description + '" />';
     opengraph += '<meta property="og:type" content="website" />';
     opengraph += '<meta property="og:url" content="' + config.protocol + options.domain + '" />';
-    opengraph += '<meta property="og:image" content="' + config.protocol + config.domain + '/themes/default/public/desktop/img/og.png" />';
+    opengraph += '<meta property="og:image" content="//' + config.domain + config.default.image + '" />';
+
+    return schema + opengraph;
+
+}
+
+/**
+ * Create schema data for one content.
+ *
+ * @param {Object} content
+ * @param {Object} [options]
+ * @return {Object}
+ */
+
+function contentSchema(content, options) {
+
+    if (arguments.length === 1) {
+        options = {};
+        options.domain = '' + config.domain;
+    }
+
+    var result = {};
+
+    result['@context'] = 'http://schema.org';
+    result['@type'] = 'NewsArticle';
+    result['headline'] = content.title;
+    result['name'] = content.title;
+    result['author'] = config.protocol + config.domain;
+    result['publisher'] = {
+        "@type": "Organization",
+        "name": config.domain,
+        "logo": {
+            "@type": "ImageObject",
+            "url": config.protocol + config.domain + config.default.image
+        }
+    };
+    result['description'] = content.description_short;
+    result['datePublished'] = content.publish;
+    result['dateModified'] = content.publish;
+    result['image'] = (content.image.indexOf('http')+1)
+        ? content.image
+        : config.protocol + config.domain + content.image;
+    result['sameAs'] = content.url;
+    result['url'] = options.url || content.url;
+    result['mainEntityOfPage'] = {
+        "@type": "WebPage",
+        "@id": options.url || content.url
+    };
+
+    var schema = '<script type="application/ld+json">' + JSON.stringify(result) + '</script>';
+
+    var opengraph = '';
+    opengraph += '<meta name="twitter:card" content="summary_large_image" />';
+    opengraph += '<meta property="og:site_name" content="' + config.domain + '" />';
+    opengraph += '<meta property="og:title" content="' + content.title + '" />';
+    opengraph += '<meta property="og:description" content="' + content.description_short + '" />';
+    opengraph += '<meta property="og:type" content="website" />';
+    opengraph += '<meta property="og:url" content="' + result['url'] + '" />';
+    opengraph += '<meta property="og:image" content="' + result['image'] + '" />';
 
     return schema + opengraph;
 
@@ -343,5 +429,6 @@ function generalSchema(page, options) {
 module.exports = {
     "fullMovie" : fullMovieSchema,
     "category"  : categorySchema,
-    "general"   : generalSchema
+    "general"   : generalSchema,
+    "content"   : contentSchema
 };

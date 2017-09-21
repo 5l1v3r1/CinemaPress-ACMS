@@ -10,7 +10,7 @@
 <% include includes/header.ejs %>
 
 <div class="info">
-    <a href="<%- page.protocol %><%- page.domain %>">Главная</a> » <%- movie.genre_url %> » <%- movie.title %>
+    <a href="/">Главная</a> » <%- movie.genre_url %> » <%- movie.title %>
 </div>
 
 <div class="clear"></div>
@@ -66,19 +66,38 @@
 <div class="info">
     <%
     for (var kp = 1; kp <= 10; kp++) {
-        var star_kp = (Math.round(movie.kp_rating/10) >= kp) ? 'star_on' : 'star_off';
+        var star_kp = (Math.round(movie.kp_rating/10) >= kp)
+                ? '<div class="star-true"></div>'
+                : '<div class="star-false"></div>';
     %>
-    <img src="/themes/default/public/mobile/<%- star_kp %>.png" alt="+">
-    <% } %> - КиноПоиск
+    <%- star_kp %>
+    <% } %> - <span style="color:#F56504; font-weight: bold">КиноПоиск</span>
 </div>
 <div class="info">
     <%
     for (var imdb = 1; imdb <= 10; imdb++) {
-        var star_imdb = (Math.round(movie.imdb_rating/10) >= imdb) ? 'star_on' : 'star_off';
+        var star_imdb = (Math.round(movie.imdb_rating/10) >= imdb)
+                ? '<div class="star-true"></div>'
+                : '<div class="star-false"></div>';
     %>
-    <img src="/themes/default/public/mobile/<%- star_imdb %>.png" alt="+">
-    <% } %> - IMDb
+    <%- star_imdb %>
+    <% } %> - <span style="color:#E3B71E; font-weight: bold">IMDb</span>
 </div>
+
+<% if (movie.quality) { %>
+
+<div class="info">
+    Качество: <%- movie.quality %>
+</div>
+
+<% } %>
+<% if (movie.translate) { %>
+
+<div class="info">
+    Перевод: <%- movie.translate %>
+</div>
+
+<% } %>
 
 <% if (movie.description) { %>
 
@@ -161,6 +180,22 @@
 </div>
 
 <div class="clear"></div>
+
+<% if (typeof contents === 'object' && contents.length) { %>
+<% contents.forEach(function (content) { %>
+<div class="cinemapress-news-block">
+    <div style="margin: 0; padding: 10px">
+        <a href="<%- content.url %>" class="cinemapress-news">
+            <img src="<%- content.image %>" class="cinemapress-news-image" alt="<%- content.title %>" style="height: 200px">
+            <div class="cinemapress-news-title">
+                <%- content.title %>
+            </div>
+        </a>
+    </div>
+</div>
+<% }); %>
+<div class="clear"></div>
+<% } %>
 
 <% if (typeof page.adv == 'object' && page.adv.under) { %>
 <div style="text-align: center; margin: 10px auto;">

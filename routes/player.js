@@ -4,8 +4,8 @@
  * Configuration dependencies.
  */
 
-var config  = require('../config/config');
-var modules = require('../config/modules');
+var config  = require('../config/production/config');
+var modules = require('../config/production/modules');
 
 /**
  * Node dependencies.
@@ -28,6 +28,11 @@ router.get('/?', function(req, res) {
     var translate = (parseInt(req.query.translate)) ? parseInt(req.query.translate) : null;
 
     var script = 'function player(){var a=document.querySelector("#yohoho");if(!a)return!1;var b,c,d;b=document.createElement("iframe"),b.setAttribute("id","player-iframe"),b.setAttribute("frameborder","0"),b.setAttribute("allowfullscreen","allowfullscreen"),b.setAttribute("src","iframe-src"),a.appendChild(b),c=parseInt(a.offsetWidth)?parseInt(a.offsetWidth):parseInt(a.parentNode.offsetWidth)?a.parentNode.offsetWidth:610,d=parseInt(a.offsetHeight)&&c/3<parseInt(a.offsetHeight)?parseInt(a.offsetHeight):parseInt(a.parentNode.offsetHeight)&&c/3<parseInt(a.parentNode.offsetHeight)?parseInt(a.parentNode.offsetHeight):c/2;var e="width:"+c+"px;height:"+d+"px";b.setAttribute("style",e),b.setAttribute("width",c),b.setAttribute("height",d),a.setAttribute("style",e)}document.addEventListener("DOMContentLoaded",player);';
+
+    if (req.query.player) {
+        res.setHeader('Content-Type', 'application/javascript');
+        return res.send(script.replace('iframe-src', req.query.player));
+    }
 
     if (!/googlebot|crawler|spider|robot|crawling|bot/i.test(req.get('User-Agent'))) {
 
@@ -93,7 +98,12 @@ router.get('/?', function(req, res) {
                     script = script.replace('iframe-src', result['moonwalk']);
                 }
                 else if (result[modules.player.data.display]) {
-                    script = script.replace('iframe-src', result[modules.player.data.display]);
+                    if (modules.player.data.display === 'yohoho') {
+                        script = result['yohoho'];
+                    }
+                    else {
+                        script = script.replace('iframe-src', result[modules.player.data.display]);
+                    }
                 }
                 else if (result['moonwalk']) {
                     script = script.replace('iframe-src', result['moonwalk']);
@@ -142,7 +152,7 @@ router.get('/?', function(req, res) {
                     var iframe_url = '';
                     var added = 0;
                     for (var i = 0; i < json.length; i++) {
-                        if (season && episode && translate == json[i].translator_id) {
+                        if (season && episode && translate === json[i].translator_id) {
                             iframe_url = getMoonlight(json[i].iframe_url) + '?season=' + season + '&episode=' + episode;
                             break;
                         }
@@ -161,18 +171,21 @@ router.get('/?', function(req, res) {
             });
 
         function getMoonlight(iframe_url) {
-            if (modules.player.data.moonlight.domain) {
-                var pat = /\/[a-z]{1,20}\/[a-z0-9]{1,40}\/iframe/i;
-                var str = pat.exec(iframe_url);
-                if (str && str[0]) {
+            var pat = /\/[a-z]{1,20}\/[a-z0-9]{1,40}\/iframe/i;
+            var str = pat.exec(iframe_url);
+            if (str && str[0]) {
+                if (modules.player.data.moonlight.domain) {
                     var domain = modules.player.data.moonlight.domain;
-                    domain = (domain[domain.length-1] == '/')
+                    domain = (domain[domain.length-1] === '/')
                         ? domain.slice(0, -1)
                         : domain;
-                    domain = (domain.indexOf('://') == -1)
+                    domain = (domain.indexOf('://') === -1)
                         ? config.protocol + domain
                         : domain;
                     iframe_url = domain + str[0];
+                }
+                else {
+                    iframe_url = 'https://streamguard.cc' + str[0];
                 }
             }
             return iframe_url;
@@ -192,7 +205,7 @@ router.get('/?', function(req, res) {
             function (json) {
                 var iframe_url = '';
                 if (json && !json.error && json.length && json[0].iframe_url) {
-                    iframe_url = json[0].iframe_url;
+                    iframe_url = json[0].iframe_url.replace('.cc', '.cx').replace('http:', 'https:');
                 }
                 callback(iframe_url);
             });
@@ -213,7 +226,7 @@ router.get('/?', function(req, res) {
                     function (json) {
                         if (json && json.total && parseInt(json.total) && json.results) {
                             var key = Object.keys(json.results)[0];
-                            if (parseInt(json.results[key].kp_id) == id) {
+                            if (parseInt(json.results[key].kp_id) === id) {
                                 iframe = json.results[key].path;
                             }
                         }
@@ -229,7 +242,7 @@ router.get('/?', function(req, res) {
                     function (json) {
                         if (json && json.total && parseInt(json.total) && json.results) {
                             var key = Object.keys(json.results)[0];
-                            if (parseInt(json.results[key].kp_id) == id) {
+                            if (parseInt(json.results[key].kp_id) === id) {
                                 iframe = json.results[key].path;
                             }
                         }
@@ -245,7 +258,7 @@ router.get('/?', function(req, res) {
                     function (json) {
                         if (json && json.total && parseInt(json.total) && json.results) {
                             var key = Object.keys(json.results)[0];
-                            if (parseInt(json.results[key].kp_id) == id) {
+                            if (parseInt(json.results[key].kp_id) === id) {
                                 iframe = json.results[key].path;
                             }
                         }
@@ -268,7 +281,7 @@ router.get('/?', function(req, res) {
             'kp_id=' + id,
             function (json, body) {
                 var iframe_url = '';
-                var matches = /"(http:\/\/kodik\.cc\/[a-z]{1,10}\/[0-9]{1,7}\/[a-z0-9]{5,50}\/[a-z0-9]{1,10})"/i.exec(body);
+                var matches = /(\/\/kodik\.cc\/[a-z]{1,10}\/[0-9]{1,7}\/[a-z0-9]{5,50}\/[a-z0-9]{1,10})/i.exec(body);
                 if (matches && matches[1]) {
                     iframe_url = matches[1];
                 }
@@ -295,8 +308,8 @@ router.get('/?', function(req, res) {
      */
 
     function api(url, callback) {
-        request(url, function (error, response, body) {
-            if (!error && response.statusCode == 200) {
+        request({url: url, timeout: 1500}, function (error, response, body) {
+            if (!error && response.statusCode === 200) {
                 var json = tryParseJSON(body);
                 callback(json, body);
             }

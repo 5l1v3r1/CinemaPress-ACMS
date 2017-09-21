@@ -4,7 +4,7 @@
  * Configuration dependencies.
  */
 
-var modules = require('../config/modules');
+var modules = require('../config/production/modules');
 
 /**
  * Add adv to site.
@@ -14,13 +14,13 @@ var modules = require('../config/modules');
 
 function codesAdv(options, type) {
 
-    var positions = JSON.stringify(modules.adv.data[options.adv.device]);
+    var positions = JSON.stringify(modules.adv.data[options.userinfo.device]);
     positions = JSON.parse(positions);
 
     if (modules.adv.status) {
 
         for (var position in positions[type]) {
-            if (positions[type].hasOwnProperty(position) && typeof options.adv === 'object') {
+            if (positions[type].hasOwnProperty(position) && typeof options.userinfo === 'object') {
                 if (modules.blocking.status && options.sub && modules.blocking.data.sub.keys.indexOf(options.sub)+1) {
                     positions[type][position] = '';
                 }
@@ -35,14 +35,14 @@ function codesAdv(options, type) {
         }
 
     }
-    
+
     return positions[type];
 
     function filterAdv(position) {
         var dflt = true;
-        for (var key in options.adv) {
-            if (options.adv.hasOwnProperty(key) && options.adv[key]) {
-                var keywordRegExp = ('' + options.adv[key]).replace(/[-/\\\^$*+?.()|\[\]{}]/g, '\\$&');
+        for (var key in options.userinfo) {
+            if (options.userinfo.hasOwnProperty(key) && options.userinfo[key]) {
+                var keywordRegExp = ('' + options.userinfo[key]).replace(/[-/\\^$*+?.()|\[\]{}]/g, '\\$&');
                 var listKeys = '(' + keywordRegExp + '|[a-zа-яё0-9\\s/\\,-]*' + keywordRegExp + '\\s*,[a-zа-яё0-9\\s/\\,-]*|[a-zа-яё0-9\\s/\\,-]*,\\s*' + keywordRegExp + ')';
                 var allSpecific = new RegExp('(\\s*\\(\\s*' + listKeys + '\\s*\\)\\s*```([^`]*?)```\\s*)', 'gi');
                 var match = allSpecific.exec(positions[type][position]);

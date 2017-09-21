@@ -10,8 +10,8 @@ var CP_blocking = require('./CP_blocking');
  * Configuration dependencies.
  */
 
-var config  = require('../config/config');
-var modules = require('../config/modules');
+var config  = require('../config/production/config');
+var modules = require('../config/production/modules');
 
 /**
  * Node dependencies.
@@ -31,7 +31,7 @@ var async   = require('async');
 
 function codePlayer(type, movie, options) {
 
-    if (arguments.length == 2) {
+    if (arguments.length === 2) {
         options = {};
         options.domain = '' + config.domain;
     }
@@ -54,14 +54,20 @@ function codePlayer(type, movie, options) {
         serial.translate = execEpisode[4];
     }
 
-    var title = encodeURIComponent((movie.title_ru || movie.title_en) + ' (' + movie.year + ')');
+    var title = encodeURIComponent(movie.title_full);
 
-    if (type == 'picture' && movie.pictures.length) {
+    if (type === 'picture') {
 
         var pictures = '';
-        movie.pictures.forEach(function (picture) {
-            pictures += '<img src="' + picture.picture_big + '" alt="Кадр ' + movie.title + '">';
-        });
+
+        if (movie.pictures.length) {
+            movie.pictures.forEach(function (picture) {
+                pictures += '<img src="' + picture.picture_big + '" alt="Кадр ' + movie.title + '">';
+            });
+        }
+        else {
+            pictures += '<img src="' + config.default.image + '" alt="Кадр ' + movie.title + '">';
+        }
 
         code.head = '' +
             '<link rel="stylesheet" href="/themes/default/public/desktop/css/ideal-image-slider.css">';
@@ -74,17 +80,17 @@ function codePlayer(type, movie, options) {
             '<script>new IdealImageSlider.Slider("#slider");</script>';
 
     }
-    else if (type == 'trailer') {
+    else if (type === 'trailer') {
 
         yohohoPlayer('trailer');
 
     }
     else {
 
-        if (modules.abuse.status && modules.abuse.data.movies.indexOf((movie.kp_id + ''))+1) {
+        if (modules.abuse.status && modules.abuse.data.movies.indexOf('' + movie.kp_id)+1) {
 
             code.player = '' +
-                '<div style="position:absolute;background:#000 url(/themes/default/public/desktop/img/player.png) 100% 100% no-repeat;z-index:9999;top:0;left:0;width:100%;height:100%;color:#fff;text-align:center">' +
+                '<div style="position:absolute;background:#000 url(' + config.default.image + ') 100% 100% no-repeat;z-index:9999;top:0;left:0;width:100%;height:100%;color:#fff;text-align:center">' +
                 '<div style="margin:80px auto 0;width:70%">' + modules.abuse.data.message + '</div>' +
                 '</div>';
 
@@ -92,13 +98,30 @@ function codePlayer(type, movie, options) {
 
         }
 
-        if (type == 'download') {
+        if (type === 'download') {
             yohohoPlayer('torrent');
         }
         else if (serial.season && serial.episode) {
             yohohoPlayer();
         }
-        else if (modules.player.data.display == 'yohoho') {
+        else if (movie.player) {
+            code.player = '' +
+                '<div id="yohoho" ' +
+                'data-player="' + modules.player.data.yohoho.player + '" ' +
+                'data-bg="' + modules.player.data.yohoho.bg + '" ' +
+                'data-button="' + modules.player.data.yohoho.button + '" ' +
+                'data-title="' + title + '" ' +
+                'data-kinopoisk="' + movie.kp_id + '" ' +
+                'data-season="' + serial.season + '" ' +
+                'data-episode="' + serial.episode + '" ' +
+                'data-translate="' + serial.translate + '" ' +
+                'data-moonwalk="' + modules.player.data.moonwalk.token + '" ' +
+                'data-youtube="' + modules.player.data.youtube.token + '" ' +
+                'data-moonlight="' + modules.player.data.moonlight.domain + '" ' +
+                'data-hdgo="' + modules.player.data.hdgo.token + '"></div>';
+            code.footer = '<script data-cfasync="false" src="/iframe.player?player=' + encodeURIComponent(movie.player) + '"></script>';
+        }
+        else if (modules.player.data.display === 'yohoho') {
             yohohoPlayer(modules.player.data.yohoho.player);
         }
         else {
@@ -118,22 +141,25 @@ function codePlayer(type, movie, options) {
         code.player = '' +
             '<div id="yohoho" ' +
             'data-player="' + (player || modules.player.data.yohoho.player) + '" ' +
+            'data-bg="' + modules.player.data.yohoho.bg + '" ' +
+            'data-button="' + modules.player.data.yohoho.button + '" ' +
             'data-title="' + title + '" ' +
             'data-kinopoisk="' + movie.kp_id + '" ' +
             'data-season="' + serial.season + '" ' +
             'data-episode="' + serial.episode + '" ' +
             'data-translate="' + serial.translate + '" ' +
             'data-moonwalk="' + modules.player.data.moonwalk.token + '" ' +
+            'data-youtube="' + modules.player.data.youtube.token + '" ' +
             'data-moonlight="' + modules.player.data.moonlight.domain + '" ' +
             'data-hdgo="' + modules.player.data.hdgo.token + '"></div>';
 
         if (player) {
             code.footer = '' +
-                '<script src="//yohoho.cc/yo.js"></script>';
+                '<script data-cfasync="false" src="//yohoho.cc/yo.js"></script>';
         }
         else {
             code.footer = '' +
-                '<script src="/iframe.player?' +
+                '<script data-cfasync="false" src="/iframe.player?' +
                 '&id=' + movie.kp_id +
                 '&season=' + serial.season +
                 '&episode=' + serial.episode +

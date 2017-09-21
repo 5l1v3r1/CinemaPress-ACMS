@@ -60,10 +60,10 @@
                             <div class="example-box">
                                 <div class="example-box-header">
                                     <div class="example-label">
-                                        <i class="fa fa-hourglass-1"></i>&nbsp;&nbsp;&nbsp;Время кэширования
+                                        <i class="fa fa-hourglass-1"></i>&nbsp;&nbsp;&nbsp;Memcached кэширование
                                     </div>
                                     <div class="example-label" style="float: right">
-                                        <a href="https://CinemaPress.org/admin/cache.html#time" class="csstip" title="Указание времени, на которое будет закэширована каждая страница сайта" target="_blank">
+                                        <a href="https://CinemaPress.org/admin/cache.html#time" class="csstip" title="Указание времени, на которое будет закэширована каждая страница сайта." target="_blank">
                                             <i class="fa fa-info-circle"></i>
                                         </a>
                                     </div>
@@ -76,16 +76,16 @@
                                                         for (time in times) { %>
                                                 <% if (time == config.cache.time) { %>
                                                 <% if (config.cache.time) { %>
-                                                <option value="<%- time %>" selected="selected">
+                                                <option value="<%= time %>" selected="selected">
                                                     <%- times[time] %>
                                                 </option>
                                                 <% } else { %>
-                                                <option value="<%- time %>" selected="selected">
+                                                <option value="<%= time %>" selected="selected">
                                                     Отключено
                                                 </option>
                                                 <% } %>
                                                 <% } else { %>
-                                                <option value="<%- time %>">
+                                                <option value="<%= time %>">
                                                     <%- times[time] %>
                                                 </option>
                                                 <% } %>
@@ -94,6 +94,49 @@
                                         </div>
                                         <div class="col-xs-6">
                                             <a href="javascript:void(0)" id="flush" class="btn btn-default btn-block"><span class="fa fa-trash-o"></span>&nbsp;&nbsp;Очистить&nbsp;кэш</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-globe"></i>&nbsp;&nbsp;&nbsp;P2P кэширование
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/cache.html#p2p" class="csstip" title="P2P кэширование - это когда пользователи будут раздавать страницы сайта друг другу." target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-xs-6 text-center">
+                                            <select name="config.cache.p2p" class="form-control">
+                                                <% if (config.cache.p2p) { %>
+                                                <option value="1" selected="selected">
+                                                    Включено
+                                                </option>
+                                                <option value="0">
+                                                    Отключить
+                                                </option>
+                                                <% } else { %>
+                                                <option value="0" selected="selected">
+                                                    Отключено
+                                                </option>
+                                                <option value="1">
+                                                    Включить
+                                                </option>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-xs-6">
+                                            <input value="НЕ включать! Тестируется." class="form-control" disabled="disabled" style="background-color: #334049; border: 0;" type="text">
                                         </div>
                                     </div>
                                 </div>

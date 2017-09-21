@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var CP_get   = require('../lib/CP_get');
+var CP_get   = require('../lib/CP_get.min');
 var CP_text  = require('../lib/CP_text');
 var CP_save  = require('../lib/CP_save');
 var CP_cache = require('../lib/CP_cache');
@@ -13,18 +13,20 @@ var CP_cache = require('../lib/CP_cache');
  * Configuration dependencies.
  */
 
-var config  = require('../config/config');
-var modules = require('../config/modules');
-var texts   = require('../config/texts');
+var config  = require('../config/production/config');
+var modules = require('../config/production/modules');
 
 /**
  * Node dependencies.
  */
 
-var express = require('express');
-var exec    = require('child_process').exec;
-var async   = require('async');
-var router  = express.Router();
+var express    = require('express');
+var fs         = require('fs');
+var exec       = require('child_process').exec;
+var path       = require('path');
+var multer     = require('multer');
+var async      = require('async');
+var router     = express.Router();
 
 /**
  * Callback.
@@ -38,24 +40,24 @@ router.get('/:type?', function(req, res) {
 
     var c = JSON.stringify(config);
     var m = JSON.stringify(modules);
-    var t = JSON.stringify(texts);
 
     var render = {
         "config"  : JSON.parse(c),
         "modules" : JSON.parse(m),
-        "texts"   : JSON.parse(t),
         "type"    : req.params.type || 'admin'
     };
 
-    var kp_id = (req.query.movie)
-        ? req.query.movie
+    var id = (req.query.kp_id)
+        ? (req.query.id !== '_add_' && parseInt(req.query.kp_id))
+            ? parseInt(req.query.kp_id)
+            : '_add_'
         : null;
-    var mass = (req.query.movies)
-        ? req.query.movies
+    var url = (req.query.url)
+        ? req.query.url
         : null;
-    var collection_url = (req.query.collection)
-        ? req.query.collection
-        : null;
+    var num = (req.query.num)
+        ? parseInt(req.query.num)
+        : 1;
 
     switch (req.params.type) {
         case 'index':
@@ -70,7 +72,11 @@ router.get('/:type?', function(req, res) {
             break;
         case 'main':
             render.title = 'Настройки';
-            res.render('admin/main', render);
+            getThemes(function(err, themes) {
+                if (err) return res.render('error', {"message": err});
+                render.themes = themes;
+                res.render('admin/main', render);
+            });
             break;
         case 'urls':
             render.title = 'URL ссылки сайта';
@@ -106,17 +112,8 @@ router.get('/:type?', function(req, res) {
                 CP_get.publishIds(function (err, ids) {
                     if (err) console.log(err);
                     render.soon_id = (ids && ids.soon_id) ? ids.soon_id : [];
-                    render.soon_id = render.soon_id.filter(function(id) {
-                        return texts.ids.indexOf(id) < 0;
-                    });
                     res.render('admin/publish', render);
                 });
-            });
-            break;
-        case 'collections':
-            render.title = 'Коллекции';
-            getCollection(function (err, render) {
-                res.render('admin/modules/collections', render);
             });
             break;
         case 'comments':
@@ -179,6 +176,16 @@ router.get('/:type?', function(req, res) {
             render.title = 'Реклама';
             res.render('admin/modules/adv', render);
             break;
+        case 'content':
+            render.title = 'Контент';
+            getContent(function (err, render) {
+                res.render('admin/modules/content', render);
+            });
+            break;
+        case 'rss':
+            render.title = 'RSS';
+            res.render('admin/modules/rss', render);
+            break;
         default:
             render.title = 'Панель администратора';
             getCountMovies(function (err, render) {
@@ -195,63 +202,118 @@ router.get('/:type?', function(req, res) {
 
     function getMovie(callback) {
 
+        render.num = num;
+        render.all = num;
+        render.mass = null;
         render.movie = null;
         render.movies = null;
 
-        if (kp_id) {
-            kp_id = parseInt(kp_id);
-            CP_get.movies({"query_id": kp_id, "certainly": true}, function (err, movies) {
-                if (err) {
-                    console.log(err);
-                }
-
-                render.movie = {};
-                render.movie.kp_id = kp_id;
-
-                if (movies && movies.length) {
-                    render.movie = movies[0];
-                    render.movie.title = CP_text.formatting(config.titles.movie.single, movies[0]);
-                }
-
-                if (texts.ids.indexOf(kp_id)+1) {
-                    render.movie.title = render.texts.movies[kp_id].title;
-                    render.movie.description = render.texts.movies[kp_id].description;
-                }
-
-                callback(null, render);
-            });
-        }
-        else if (mass) {
-            render.movies = true;
+        if (id === '_add_') {
+            render.movie = {};
             callback(null, render);
+        }
+        else if (id) {
+            CP_get.movies(
+                {"query_id": id, "certainly": true},
+                config.default.count,
+                'kinopoisk-vote-up',
+                1,
+                false,
+                function (err, movies) {
+                    if (err) console.log(err);
+
+                    render.movie = {};
+                    render.movie.kp_id = id;
+
+                    if (movies && movies.length) {
+                        render.movie = movies[0];
+                        render.movie.title = CP_text.formatting(config.titles.movie.single, movies[0]);
+                    }
+
+                    callback(null, render);
+                });
         }
         else {
-            callback(null, render);
+            CP_get.movies(
+                {"from": process.env.CP_RT, "certainly": true},
+                config.default.count,
+                '',
+                num,
+                function (err, movies) {
+                    if (err) console.log(err);
+
+                    render.movies = [];
+
+                    if (movies && movies.length) {
+                        render.next = (!(movies.length % config.default.count)) ? 1 : 0;
+                        render.movies = movies;
+                    }
+
+                    callback(null, render);
+                });
         }
 
     }
 
     /**
-     * Get collection.
+     * Get content.
      *
      * @param {Callback} callback
      */
 
-    function getCollection(callback) {
+    function getContent(callback) {
 
-        render.collection = null;
+        render.num = num;
+        render.all = num;
+        render.content = null;
+        render.contents = null;
 
-        if (collection_url) {
-            if (render.modules.collections.data.collections[collection_url]) {
-                render.collection = render.modules.collections.data.collections[collection_url];
-                render.collection.url = collection_url;
-            }
-            else {
-                render.collection = {};
-            }
+        if (url === '_add_') {
+            render.content = {};
+            callback(null, render);
         }
+        else if (url) {
+            CP_get.contents(
+                {"content_url": url},
+                1,
+                1,
+                false,
+                function (err, contents) {
+                    if (err) {
+                        console.log(err);
+                    }
 
-        return callback(null, render);
+                    render.content = {};
+                    render.content.content_url = url;
+
+                    if (contents && contents.length) {
+                        render.content = contents[0];
+                    }
+
+                    callback(null, render);
+                });
+        }
+        else {
+            CP_get.contents(
+                {},
+                50,
+                num,
+                false,
+                function (err, contents) {
+                    if (err) {
+                        console.log(err);
+                    }
+
+                    render.contents = [];
+
+                    if (contents && contents.length) {
+                        render.next = (!(contents.length % 50)) ? 1 : 0;
+                        render.contents = contents;
+                    }
+
+                    callback(null, render);
+                });
+        }
 
     }
 
@@ -265,7 +327,7 @@ router.get('/:type?', function(req, res) {
 
         async.series({
                 "all": function (callback) {
-                    CP_get.count({"all_movies": "_all_", "certainly": true}, function (err, count) {
+                    CP_get.count({"certainly": true}, function (err, count) {
                         if (err) return callback(err);
 
                         callback(null, count);
@@ -273,7 +335,7 @@ router.get('/:type?', function(req, res) {
                     });
                 },
                 "publish": function (callback) {
-                    CP_get.count({"all_movies": "_all_"}, function (err, count) {
+                    CP_get.count({}, function (err, count) {
                         if (err) return callback(err);
 
                         callback(null, count);
@@ -300,225 +362,204 @@ router.get('/:type?', function(req, res) {
 
     }
 
+    /**
+     * Get themes name.
+     *
+     * @param {Callback} callback
+     */
+
+    function getThemes(callback) {
+        var dir = '/home/' + config.domain + '/themes/';
+        fs.readdir(dir, function(err, files) {
+            if (err) return callback(err);
+            var dirs = [];
+            for (var index = 0; index < files.length; ++index) {
+                var file = files[index];
+                if (file[0] !== '.') {
+                    var filePath = dir + file;
+                    fs.stat(filePath, function(err, stat) {
+                        if (err) return callback(err);
+                        if (stat.isDirectory()) {
+                            if (this.file !== this.file.toLowerCase()) {
+                                callback('Название папки с темой должно быть в нижнем регистре и состоять только из названия (без themes), например «drogo». Пожалуйста, впредь будьте внимательнее читая инструкции.');
+                            }
+                            else {
+                                dirs.push(this.file);
+                            }
+                        }
+                        if (files.length === (this.index + 1)) {
+                            return callback(null, dirs);
+                        }
+                    }.bind({index: index, file: file}));
+                }
+            }
+        });
+    }
+
 });
 
 router.post('/change', function(req, res) {
 
     var form = req.body;
-
     var configs = {
         "config"  : config,
-        "modules" : modules,
-        "texts"   : texts
+        "modules" : modules
     };
 
-    var change = {
-        "config"  : false,
-        "modules" : false,
-        "texts"   : false,
-        "restart" : false
-    };
-
-    if (form.config) {
-
-        if ((form.config.urls && form.config.urls.admin && form.config.urls.admin != configs.config.urls.admin) || (form.config.theme && form.config.theme != configs.config.theme)) {
-            change.restart = true;
-        }
-
-        change.config  = true;
-        configs.config = parseData(configs.config, form.config);
-
-    }
-
-    if (form.modules) {
-
-        change.modules  = true;
-        configs.modules = parseData(configs.modules, form.modules);
-
-    }
-
-    if (form.collection) {
-
-        if (form.collection.url) {
-
-            if (form.delete) {
-                if (configs.modules.collections.data.collections[form.collection.url]) {
-                    delete configs.modules.collections.data.collections[form.collection.url];
+    async.series({
+            "config": function (callback) {
+                if (!form.config) return callback(null, 'Null');
+                if ((
+                        form.config.urls &&
+                        form.config.urls.admin &&
+                        form.config.urls.admin !== configs.config.urls.admin &&
+                        form.config.urls.admin.indexOf('admin') !== -1
+                    ) || (
+                        form.config.theme &&
+                        form.config.theme !== configs.config.theme
+                    ))
+                {
+                    form.restart = true;
                 }
-            }
-            else {
-                var movies = [];
-                form.collection.movies = form.collection.movies.split(',');
-                for (var i = 0; i < form.collection.movies.length; i++) {
-                    if (parseInt(form.collection.movies[i])) {
-                        movies.push(parseInt(form.collection.movies[i]));
-                    }
+                if (form.config.urls && form.config.urls.admin && form.config.urls.admin.indexOf('admin') === -1) {
+                    form.config.urls.admin = 'admin';
                 }
-                if (movies.length) {
-                    change.modules = true;
-                    form.collection.movies = movies;
-                    configs.modules.collections.data.collections[form.collection.url] = form.collection;
-                }
-            }
-
-        }
-
-    }
-
-    if (form.movie) {
-
-        form.movie.kp_id = (parseInt(form.movie.kp_id)) ? parseInt(form.movie.kp_id) : 0;
-
-        if (form.movie.kp_id)
-            addMovie(form.movie);
-
-    }
-
-    if (form.movies) {
-
-        var reg = new RegExp('\\s*\\(\\s*([0-9]{3,7})\\s*\\)\\s*\\{([^]*?)\\}\\s*', 'gi');
-
-        var parts = form.movies.match(reg);
-
-        parts.forEach(function (part) {
-
-            var r = new RegExp('\\s*\\(\\s*([0-9]{3,7})\\s*\\)\\s*\\{([^]*?)\\}\\s*', 'gi');
-
-            var p = r.exec(part);
-
-            if (p && p.length) {
-
-                var movie = {};
-
-                movie.kp_id = parseInt(p[1]);
-
-                var td = p[2].split('|');
-                if (td.length == 2) {
-                    movie.title = td[0].replace(/\s+/g, ' ').replace(/(^\s*)|(\s*)$/g, '');
-                    movie.description = td[1].replace(/\s+/g, ' ').replace(/(^\s*)|(\s*)$/g, '');
-                }
-                else {
-                    movie.description = td[0].replace(/\s+/g, ' ').replace(/(^\s*)|(\s*)$/g, '');
-                }
-
-                addMovie(movie);
-
-            }
-
-        });
-
-    }
-
-    if (form.switch && form.switch.module && modules[form.switch.module]) {
-
-        change.modules = true;
-        configs.modules[form.switch.module].status = (form.switch.status === 'true');
-
-    }
-
-    if (form.restart) {
-
-        CP_save.restart(function (err, result) {
-            console.log('Type:', 'restart', 'Error:', err, 'Result:', result);
-            return (err)
-                ? res.status(404).send(err)
-                : res.send(result)
-        });
-
-    }
-    else if (form.flush) {
-
-        CP_cache.flush(function(err) {
-            console.log('Type:', 'flush', 'Error:', err);
-            return (err)
-                ? res.status(404).send(err)
-                : res.send('Flush.')
-        });
-
-    }
-    else if (form.image) {
-
-        exec('/home/' + config.domain + '/config/i 9', function (err, out, stderr) {
-            console.log('Type:', 'image', 'Error:', err);
-            return (err)
-                ? res.status(404).send(err)
-                : res.send('Image.')
-        });
-
-    }
-    else if (form.database) {
-
-        exec('/home/' + config.domain + '/config/i 4 ' + config.domain + ' ' + form.database + ' Yes', function (err, out, stderr) {
-            console.log('Type:', 'database', 'Error:', err);
-            return (err)
-                ? res.status(404).send(err)
-                : res.send('Database.')
-        });
-
-    }
-    else if (change.config || change.modules || change.texts) {
-
-        async.series({
-                "config": function (callback) {
-                    return (change.config)
-                        ? CP_save.save(
-                        configs.config,
-                        'config',
-                        function (err, result) {
-                            return (err)
-                                ? callback(err)
-                                : callback(null, result)
-                        })
-                        : callback(null, null);
-                },
-                "modules": function (callback) {
-                    return (change.modules)
-                        ? CP_save.save(
-                        configs.modules,
-                        'modules',
-                        function (err, result) {
-                            return (err)
-                                ? callback(err)
-                                : callback(null, result)
-                        })
-                        : callback(null, null);
-                },
-                "texts": function (callback) {
-                    return (change.texts)
-                        ? CP_save.save(
-                        configs.texts,
-                        'texts',
-                        function (err, result) {
-                            return (err)
-                                ? callback(err)
-                                : callback(null, result)
-                        })
-                        : callback(null, null);
-                }
-            },
-            function(err, result) {
-
-                console.log('Type:', 'save', 'Result:', result, 'Error:', err);
-                return (err)
-                    ? res.status(404).send(err)
-                    : (change.restart)
-                    ? CP_save.restart(
+                configs.config = parseData(configs.config, form.config);
+                CP_save.save(
+                    configs.config,
+                    'config',
                     function (err, result) {
-                        console.log('Type:', 'restart', 'Error:', err, 'Result:', result);
                         return (err)
-                            ? res.status(404).send(err)
-                            : res.send(result)
-                    })
-                    : res.send(result);
-
-            });
-
-    }
-    else {
-
-        res.send('Nothing to form.');
-
-    }
+                            ? callback(err)
+                            : callback(null, result);
+                    });
+            },
+            "modules": function (callback) {
+                if (!form.modules) return callback(null, 'Null');
+                configs.modules = parseData(configs.modules, form.modules);
+                CP_save.save(
+                    configs.modules,
+                    'modules',
+                    function (err, result) {
+                        return (err)
+                            ? callback(err)
+                            : callback(null, result);
+                    });
+            },
+            "movie": function (callback) {
+                if (!form.movie) return callback(null, 'Null');
+                form.movie.id = (form.movie.id)
+                    ? form.movie.id
+                    : (form.movie.kp_id)
+                    ? form.movie.kp_id
+                    : 0;
+                if (!form.movie.id) return callback(null, 'Null');
+                var premiereDate = new Date(form.movie.premiere);
+                form.movie.premiere = ((premiereDate.getTime() / 1000 / 60 / 60 / 24) + 719527) + '';
+                addMovie(form.movie, function (err, result) {
+                    return (err)
+                        ? callback(err)
+                        : callback(null, result);
+                });
+            },
+            "movies": function (callback) {
+                if (!form.movies) return callback(null, 'Null');
+                var reg = new RegExp('\\s*\\(\\s*([0-9]{3,7})\\s*\\)\\s*\\{([^]*?)\\}\\s*', 'gi');
+                var parts = form.movies.match(reg);
+                async.eachLimit(parts, 1, function (part, callback) {
+                    var r = new RegExp('\\s*\\(\\s*([0-9]{3,7})\\s*\\)\\s*\\{([^]*?)\\}\\s*', 'gi');
+                    var p = r.exec(part);
+                    if (p && p.length) {
+                        var movie = {};
+                        movie.id = parseInt(p[1]);
+                        var td = p[2].split('|');
+                        if (td.length === 2) {
+                            movie.title = td[0].replace(/\s+/g, ' ').replace(/(^\s*)|(\s*)$/g, '');
+                            movie.description = td[1].replace(/\s+/g, ' ').replace(/(^\s*)|(\s*)$/g, '');
+                        }
+                        else {
+                            movie.description = td[0].replace(/\s+/g, ' ').replace(/(^\s*)|(\s*)$/g, '');
+                        }
+                        addMovie(movie, function (err) {
+                            return (err)
+                                ? callback(err)
+                                : callback(null);
+                        });
+                    }
+                    else {
+                        callback(null);
+                    }
+                }, function (err) {
+                    return (err)
+                        ? callback(err)
+                        : callback(null, 'Insert');
+                });
+            },
+            "switch": function (callback) {
+                if (!form.switch || !form.switch.module || !modules[form.switch.module]) return callback(null, 'Null');
+                configs.modules[form.switch.module].status = (form.switch.status === 'true');
+                CP_save.save(
+                    configs.modules,
+                    'modules',
+                    function (err, result) {
+                        return (err)
+                            ? callback(err)
+                            : callback(null, result);
+                    });
+            },
+            "content": function (callback) {
+                if (!form.content) return callback(null, 'Null');
+                if (form.delete) {
+                    if (!form.content.id) return callback(null, 'Null');
+                    form.content.delete = true;
+                }
+                CP_save.save(
+                    form.content,
+                    'content',
+                    function (err, result) {
+                        return (err)
+                            ? callback(err)
+                            : callback(null, result);
+                    });
+            },
+            "flush": function (callback) {
+                if (!form.flush) return callback(null, 'Null');
+                CP_cache.flush(function(err) {
+                    return (err)
+                        ? callback(err)
+                        : callback(null, 'Flush');
+                });
+            },
+            "image": function (callback) {
+                if (!form.image) return callback(null, 'Null');
+                exec('/home/' + config.domain + '/config/production/i 9', function (err) {
+                    return (err)
+                        ? callback(err)
+                        : callback(null, 'Image');
+                });
+            },
+            "database": function (callback) {
+                if (!form.database) return callback(null, 'Null');
+                exec('/home/' + config.domain + '/config/production/i 4 ' + config.domain + ' ' + form.database + ' Yes', function (err) {
+                    return (err)
+                        ? callback(err)
+                        : callback(null, 'Database');
+                });
+            },
+            "restart": function (callback) {
+                if (!form.restart) return callback(null, 'Null');
+                CP_save.restart(function (err) {
+                    return (err)
+                        ? callback(err)
+                        : callback(null, 'Restart');
+                });
+            }
+        },
+        function(err, result) {
+            return (err)
+                ? res.status(404).send(err)
+                : res.json(result);
+        });
 
     /**
      * Determine what the configuration settings have been changed.
@@ -534,7 +575,6 @@ router.post('/change', function(req, res) {
 
         for (var key in originals) {
             if (originals.hasOwnProperty(key) && changes.hasOwnProperty(key)) {
-
                 if (Array.isArray(originals[key])) {
                     var arr = (changes[key])
                         ? changes[key].split(',')
@@ -551,7 +591,7 @@ router.post('/change', function(req, res) {
                     originals[key] = clear_arr;
                 }
                 else if (typeof originals[key] === 'string') {
-                    originals[key] = changes[key].toString()
+                    originals[key] = ('' + changes[key])
                         .replace(/\u2028/g, '')
                         .replace(/\u2029/g, '');
                 }
@@ -564,7 +604,6 @@ router.post('/change', function(req, res) {
                 else if (typeof originals[key] === 'object') {
                     originals[key] = parseData(originals[key], changes[key]);
                 }
-
             }
         }
 
@@ -573,48 +612,63 @@ router.post('/change', function(req, res) {
     }
 
     /**
-     * Add movie in texts.
+     * Add movie in rt.
      *
      * @param {Object} movie
+     * @param {Callback} callback
      */
 
-    function addMovie(movie) {
-
-        var id = movie.kp_id;
+    function addMovie(movie, callback) {
 
         if (form.delete) {
-            change.texts = true;
-            while (configs.texts.ids.indexOf(id) !== -1)
-                configs.texts.ids.splice(configs.texts.ids.indexOf(id), 1);
-            delete configs.texts.movies[id];
-
-            if (configs.modules.collections.data.collections.choice) {
-                change.modules = true;
-                configs.modules.collections.data.collections.choice.movies.unshift(id);
-                while (configs.modules.collections.data.collections.choice.movies.indexOf(id) !== -1)
-                    configs.modules.collections.data.collections.choice.movies.splice(configs.modules.collections.data.collections.choice.movies.indexOf(id), 1);
-            }
+            movie.delete = true;
         }
-        else {
-            change.texts = true;
-            if (configs.texts.ids.indexOf(id) === -1) {
-                configs.texts.ids.push(id);
-            }
-            configs.texts.movies[id] = movie;
-
-            if (configs.modules.collections.data.collections.choice) {
-                change.modules = true;
-                if (configs.modules.collections.data.collections.choice.movies.indexOf(id) === -1) {
-                    if (configs.modules.collections.data.collections.choice.movies.length > 500) {
-                        configs.modules.collections.data.collections.choice.movies.shift();
-                    }
-                    configs.modules.collections.data.collections.choice.movies.unshift(id);
-                }
-            }
-        }
-
+        CP_save.save(
+            movie,
+            'rt',
+            function (err, result) {
+                return (err)
+                    ? callback(err)
+                    : callback(null, result);
+            });
     }
 
+});
+
+router.post('/upload', function(req, res) {
+
+    var filepath = path.join(__dirname, '..', 'themes', 'default', 'public', 'desktop', 'img');
+    var filename = 'CinemaPress.png';
+    var fieldname = '';
+
+    var storage = multer.diskStorage({
+        destination: function(req, file, cb) {
+            fieldname = file.fieldname;
+            cb(null, path.join(filepath, fieldname));
+        },
+        filename: function(req, file, cb) {
+            filename = Date.now() + '-' + file.originalname;
+            cb(null, filename);
+        }
+    });
+
+    var upload = multer({
+        storage: storage,
+        fileFilter: function(req, file, callback) {
+            var ext = path.extname(file.originalname);
+            if (ext !== '.png' && ext !== '.jpg' && ext !== '.gif' && ext !== '.jpeg') {
+                return callback('Only images are allowed', null);
+            }
+            callback(null, true);
+        }
+    }).any();
+
+    upload(req, res, function (err) {
+        if (err) {
+            return res.status(404).send('{"error": "' + err + '"}');
+        }
+        res.status(200).send('{"file": "' + path.join('/', 'themes', 'default', 'public', 'desktop', 'img', fieldname, filename) + '"}');
+    });
 });
 
 module.exports = router;

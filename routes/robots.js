@@ -4,7 +4,7 @@
  * Configuration dependencies.
  */
 
-var config = require('../config/config');
+var config = require('../config/production/config');
 
 /**
  * Node dependencies.
@@ -19,11 +19,15 @@ var router  = express.Router();
 
 router.get('/?', function(req, res) {
 
+    var protocol = (config.protocol === 'https://')
+        ? config.protocol
+        : '';
+
     res.header('Content-Type', 'text/plain');
 
     res.send(
         config.codes.robots + '\n\n' +
-        'Host: ' + config.domain + '\n\n' +
+        'Host: ' + protocol + config.domain + '\n\n' +
         'Sitemap: ' + config.protocol + config.domain + '/' + config.urls.sitemap
     );
 

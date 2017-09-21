@@ -114,7 +114,7 @@
                                                         <label>Пароль</label>
                                                     </div>
                                                     <div class="col-lg-9 col-xs-9 text-center">
-                                                        <input type="text" name="modules.abuse.data.imap.password" value="<%= modules.abuse.data.imap.password %>" class="form-control" placeholder="Hg6fHg872Khdohs9">
+                                                        <input type="text" name="modules.abuse.data.imap.password" value="<%= modules.abuse.data.imap.password %>" class="form-control" placeholder="Ваш пароль от почтового ящика">
                                                     </div>
                                                 </div>
                                             </div>
@@ -226,7 +226,7 @@
                                         <% if (modules.abuse.data.movies) { %>
                                         <% modules.abuse.data.movies.forEach(function (id) { %>
                                         <li data-delete-id="<%- id %>" data-delete-name="modules.abuse.data.movies">
-                                            <img class="media-object" src="https://st.kp.yandex.net/images/sm_film/<%- id %>.jpg" alt="ID: <%- id %>" title="ID: <%- id %>">
+                                            <img class="media-object" src="https://cdn.cinemapress.org/images/sm_film/<%- id %>.jpg" alt="ID: <%- id %>" title="ID: <%- id %>">
                                         </li>
                                         <% }); %>
                                         <% } %>

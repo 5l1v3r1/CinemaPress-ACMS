@@ -1,3 +1,20 @@
+<% if (typeof news === 'object' && news.length) { %>
+<div class="clear"></div>
+<% news.forEach(function (content) { %>
+<div class="cinemapress-news-block">
+    <div style="margin: 0; padding: 10px">
+        <a href="<%- content.url %>" class="cinemapress-news">
+            <img src="<%- content.image %>" class="cinemapress-news-image" alt="<%- content.title %>" style="height: 200px">
+            <div class="cinemapress-news-title">
+                <%- content.title %>
+            </div>
+        </a>
+    </div>
+</div>
+<% }); %>
+<div class="clear"></div>
+<% } %>
+
 <% if (typeof page.adv == 'object' && page.adv.bottom) { %>
 <div style="text-align: center; margin: 10px auto;">
     <%- page.adv.bottom %>
@@ -18,6 +35,8 @@
     <% if (page.social.facebook) { %><span> | </span><a href="<%- page.social.facebook %>" target="_blank">facebook</a><% } %>
     <% if (page.social.twitter) { %><span> | </span><a href="<%- page.social.twitter %>" target="_blank">twitter</a><% } %>
     <% if (page.social.gplus) { %><span> | </span><a href="<%- page.social.gplus %>" target="_blank">G+</a><% } %>
+    <% if (page.social.instagram) { %><span> | </span><a href="<%- page.social.instagram %>" target="_blank">Instagram</a><% } %>
+    <% if (page.social.youtube) { %><span> | </span><a href="<%- page.social.youtube %>" target="_blank">YouTube</a><% } %>
 </div>
 <% } %>
 
@@ -28,7 +47,7 @@
 </div>
 
 <div class="info">
-    <strong>© 2016 CinemaPress ACMS</strong> | Для связи с администрацией <%- page.email %>
+    <strong>&copy;&nbsp;<%- new Date().getFullYear() %>&nbsp;<a href="https://cinemapress.org" target="_blank">CinemaPress&nbsp;ACMS</a></strong> | <%- page.email %>
 </div>
 
 <%- page.codes.footer %>

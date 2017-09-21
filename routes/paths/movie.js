@@ -4,16 +4,18 @@
  * Module dependencies.
  */
 
-var CP_page   = require('../../lib/CP_page');
-var CP_get    = require('../../lib/CP_get');
-var CP_decode = require('../../lib/CP_decode');
+var CP_page     = require('../../lib/CP_page');
+var CP_get      = require('../../lib/CP_get.min');
+var CP_decode   = require('../../lib/CP_decode');
+
+var CP_comments = require('../../modules/CP_comments');
 
 /**
  * Configuration dependencies.
  */
 
-var config  = require('../../config/config');
-var modules = require('../../config/modules');
+var config  = require('../../config/production/config');
+var modules = require('../../config/production/modules');
 
 /**
  * Node dependencies.
@@ -40,7 +42,7 @@ var async = require('async');
 
 function dataMovie(id, type, options, callback) {
 
-    if (arguments.length == 3) {
+    if (arguments.length === 3) {
         callback = options;
         options = {};
         options.domain = '' + config.domain;
@@ -79,25 +81,83 @@ function dataMovie(id, type, options, callback) {
                         if (err) return callback(err);
 
                         return (movies && movies.length)
-                            ? callback(null, movies[0])
-                            : callback(null, null)
+                            ? callback(null, movies)
+                            : callback(null, [])
                     })
-                    : callback(null, null)
+                    : callback(null, [])
             },
             "soon": function (callback) {
                 return (modules.soon.status)
                     ? CP_get.additional(
-                    {"all_movies": "_all_"},
+                    {"all_movies": process.env.CP_ALL},
                     'soon',
                     options,
                     function (err, movies) {
                         if (err) return callback(err);
 
                         return (movies && movies.length)
-                            ? callback(null, movies[0])
-                            : callback(null, null)
+                            ? callback(null, movies)
+                            : callback(null, [])
                     })
-                    : callback(null, null)
+                    : callback(null, [])
+            },
+            "news": function (callback) {
+                return (modules.content.status && modules.content.data.news.tags && modules.content.data.news.count)
+                    ? CP_get.contents(
+                    {"content_tags": modules.content.data.news.tags},
+                    modules.content.data.news.count,
+                    1,
+                    true,
+                    options,
+                    function (err, contents) {
+                        if (err) return callback(err);
+
+                        return (contents && contents.length)
+                            ? callback(null, contents)
+                            : callback(null, [])
+                    })
+                    : callback(null, [])
+            },
+            "contents": function (callback) {
+                return (modules.content.status && modules.content.data.movie.count)
+                    ? CP_get.contents(
+                    {"content_movies": id},
+                    modules.content.data.movie.count,
+                    1,
+                    true,
+                    options,
+                    function (err, contents) {
+                        if (err) return callback(err);
+
+                        return (contents && contents.length)
+                            ? callback(null, contents)
+                            : callback(null, [])
+                    })
+                    : callback(null, [])
+            },
+            "recent": function (callback) {
+                var service = [];
+                if (modules.comments.data.disqus.shortname &&
+                    modules.comments.data.disqus.recent.num_items &&
+                    modules.comments.data.disqus.recent.display.indexOf('movie')+1) {
+                    service.push('disqus');
+                }
+                if (modules.comments.data.hypercomments.widget_id &&
+                    modules.comments.data.hypercomments.recent.num_items &&
+                    modules.comments.data.hypercomments.recent.display.indexOf('movie')+1) {
+                    service.push('hypercomments');
+                }
+                return (service.length)
+                    ? CP_comments.recent(
+                    service,
+                    function (err, comments) {
+                        if (err) return callback(err);
+
+                        return (comments)
+                            ? callback(null, comments)
+                            : callback(null, [])
+                    })
+                    : callback(null, [])
             },
             "movies": function(callback) {
                 return (related.id && modules.related.status)
@@ -312,7 +372,7 @@ function typeMovie(type) {
     if (execType) {
         for (var e in config.urls.movies) {
             if (config.urls.movies.hasOwnProperty(e)) {
-                if (config.urls.movies[e] == execType[1]) {
+                if (config.urls.movies[e] === execType[1]) {
                     type = e;
                     break;
                 }

@@ -71,7 +71,7 @@
                                 <div class="inner-padding">
                                     <div class="row">
                                         <div class="col-lg-12 col-xs-12 text-center">
-                                            <input name="config.nginx.addr" value="<%- config.nginx.addr %>" class="form-control" type="text" disabled="disabled" style="background-color: #272F38;">
+                                            <input name="config.nginx.addr" value="<%= config.nginx.addr %>" class="form-control" type="text" disabled="disabled" style="background-color: #272F38;">
                                         </div>
                                     </div>
                                 </div>
@@ -95,7 +95,7 @@
                                 <div class="inner-padding">
                                     <div class="row">
                                         <div class="col-lg-6 col-xs-6 text-center">
-                                            <input name="config.sphinx.addr" value="<%- config.sphinx.addr %>" class="form-control" type="text">
+                                            <input name="config.sphinx.addr" value="<%= config.sphinx.addr %>" class="form-control" type="text">
                                         </div>
                                         <div class="col-lg-6 col-xs-6 text-center">
                                             <a href="javascript:void(0)" class="btn btn-block btn-default" id="restart">
@@ -124,7 +124,7 @@
                                 <div class="inner-padding">
                                     <div class="row">
                                         <div class="col-lg-6 col-xs-6 text-center">
-                                            <input name="config.cache.addr" value="<%- config.cache.addr %>" class="form-control" type="text">
+                                            <input name="config.cache.addr" value="<%= config.cache.addr %>" class="form-control" type="text">
                                         </div>
                                         <div class="col-lg-6 col-xs-6 text-center">
                                             <a href="javascript:void(0)" class="btn btn-block btn-default" id="flush">
@@ -153,12 +153,22 @@
                                 <div class="inner-padding">
                                     <div class="row">
                                         <div class="col-lg-6 col-xs-6 text-center">
-                                            <input name="config.image.addr" value="<%- config.image.addr %>" class="form-control" type="text">
+                                            <input name="config.image.addr" value="<%= config.image.addr %>" class="form-control" type="text">
                                         </div>
                                         <div class="col-lg-6 col-xs-6 text-center">
-                                            <a href="javascript:void(0)" class="btn btn-block btn-default" id="image">
-                                                <span class="fa fa-download"></span>&nbsp;&nbsp;Загрузить&nbsp;на&nbsp;сервер
-                                            </a>
+                                            <select name="config.image.size" class="form-control">
+                                                <% for (var i = 60; i <= 180; i = i+30) { %>
+                                                <% if (config.image.size == i) { %>
+                                                <option value="<%= i %>" selected="selected">
+                                                    Ширина постера: <%- i %> px
+                                                </option>
+                                                <% } else { if (i === 150) continue; %>
+                                                <option value="<%= i %>">
+                                                    Ширина постера: <%- i %> px
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>

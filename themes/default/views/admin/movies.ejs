@@ -55,70 +55,19 @@
 
                 <div class="inner-padding">
 
-                    <% if (movies) { %>
+                    <% if (movie) { %>
 
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="example-box">
-                                <div class="example-box-header">
-                                    <div class="example-label">
-                                        <i class="fa fa-pencil"></i>&nbsp;&nbsp;&nbsp;Массовое добавление описаний
-                                    </div>
-                                    <div class="example-label" style="float: right">
-                                        <a href="https://CinemaPress.org/admin/movies.html#mass" class="csstip" title="Массовое добавление описаний фильмам" target="_blank">
-                                            <i class="fa fa-info-circle"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="inner-padding">
-                                    <div class="row">
-                                        <div class="col-lg-12 col-xs-12 text-center">
-                                            <textarea class="form-control descriptions" name="movies" placeholder="(ID_КиноПоиск) {Название | Описание} или (ID_КиноПоиск) {Описание}"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <% } else if (movie) { %>
-
-                    <% if (movie.kp_id) { %>
-
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="example-box">
-                                <div class="example-box-header">
-                                    <div class="example-label">
-                                        <i class="fa fa-id-badge"></i>&nbsp;&nbsp;&nbsp;Текущее описание
-                                    </div>
-                                </div>
-                                <div class="inner-padding">
-                                    <div class="row">
-                                        <div class="col-lg-12 col-xs-12">
-                                            <a href="<%- movie.url %>" target="_blank">
-                                                <img src="https://st.kp.yandex.net/images/sm_film/<%- movie.kp_id %>.jpg" style="float: left; margin: 5px 10px 10px 0; width: 60px; height: 85px;">
-                                            </a>
-                                            <div class="test-justify">
-                                                <%- movie.description %>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <% } %>
-
-                    <div class="spacer-10"></div>
+                    <input name="movie.id" value="<% if (movie.id) { %><%- movie.id %><% } %>" type="hidden">
 
                     <div class="row">
                         <div class="col-sm-3">
-                            <label>ID КиноПоиск <% if (movie.kp_id) { %><a href="https://www.kinopoisk.ru/film/<%- movie.kp_id %>/" class="visible-xs-inline" style="text-decoration:none;" target="_blank"><span class="fa fa-external-link-square"></span></a><% } %></label>
+                            <label>ID КиноПоиск <% if (movie.kp_id) { %><a href="https://href.li/?https://www.kinopoisk.ru/film/<%- movie.kp_id %>/" class="visible-xs-inline" style="text-decoration:none;" target="_blank"><span class="fa fa-external-link-square"></span></a><% } %></label>
                         </div>
-                        <div class="col-sm-9">
+                        <div class="col-sm-4">
                             <input type="text" class="form-control input_number" name="movie.kp_id" value="<% if (movie.kp_id) { %><%- movie.kp_id %><% } %>" placeholder="Укажите ID фильма">
+                        </div>
+                        <div class="col-sm-5 text-right">
+                            <label><% if (movie.kp_id) { var kp_id = parseInt(movie.kp_id) - parseInt(config.urls.unique_id); %><%- config.domain + '/' + config.urls.movie + '/' + config.urls.prefix_id + kp_id %> <a href="<%- config.protocol + config.domain + '/' + config.urls.prefix_id + kp_id %>" class="visible-xs-inline" style="text-decoration:none;" target="_blank"><span class="fa fa-external-link-square"></span></a><% } %></label>
                         </div>
                     </div>
 
@@ -128,22 +77,35 @@
                         <div class="col-sm-12">
                             <div class="advanced-textarea">
 
-                                <div class="text-muted">
+                                <div style="color: #4B5B6C">
                                     &lt;title&gt; страницы с фильмом:
                                 </div>
-
                                 <div class="spacer-10"></div>
+                                <input type="text" class="form-control" name="movie.title_page" value="<% if (movie.title_page) { %><%= movie.title_page %><% } %>" placeholder="Название страницы фильма (до 70 символов)" style="font-weight: normal; font-size: 14px;">
 
-                                <input type="text" class="form-control" name="movie.title" value="<% if (movie.title) { %><%= movie.title %><% } %>" placeholder="Название страницы">
+                                <div style="color: #4B5B6C">
+                                    &lt;meta name="description"&gt; страницы:
+                                </div>
+                                <div class="spacer-10"></div>
+                                <input type="text" class="form-control" name="movie.description_short" value="<% if (movie.description_short) { %><%= movie.description_short %><% } %>" placeholder="Короткое описание фильма (до 200 символов)" style="font-weight: normal; font-size: 14px;">
 
-                                <div class="text-muted">
+                                <div style="color: #4B5B6C">
+                                    Русское название:
+                                </div>
+                                <div class="spacer-10"></div>
+                                <input type="text" class="form-control" name="movie.title_ru" value="<% if (movie.title_ru) { %><%= movie.title_ru %><% } %>" placeholder="Название на русском языке" style="font-weight: normal; font-size: 14px;">
+
+                                <div style="color: #4B5B6C">
+                                    Оригинальное название:
+                                </div>
+                                <div class="spacer-10"></div>
+                                <input type="text" class="form-control" name="movie.title_en" value="<% if (movie.title_en) { %><%= movie.title_en %><% } %>" placeholder="Название на оригинальном языке" style="font-weight: normal; font-size: 14px;">
+
+                                <div style="color: #4B5B6C">
                                     Описание фильма:
                                 </div>
-
                                 <div class="spacer-10"></div>
-
-                                <textarea class="form-control descriptions" name="movie.description" placeholder="Уникальное описание фильма"><% if (movie.description) { %><%- movie.description %><% } %></textarea>
-
+                                <textarea class="form-control descriptions" name="movie.description" placeholder="Уникальное описание фильма"><% if (movie.description) { %><%- movie.description.trim() %><% } %></textarea>
                                 <div class="advanced-textarea-footer">
                                     <div class="pull-left">
                                         <div class="text text-muted" style="float: none;"><span id="movie.description">0</span> символа(-ов)</div>
@@ -162,29 +124,29 @@
                                             <%- movie.year %>
                                         </a>
                                         <% } %>
-                                        <% if (movie.countries_arr && movie.countries_arr.length) { %>
-                                        <% movie.countries_arr.forEach(function (value) { %>
+                                        <% if (movie.country) { %>
+                                        <% movie.country.split(',').forEach(function (value) { value = value.trim(); %>
                                         <a href="javascript:void(0)" data-name="movie.description" data-code="<%- value %>" class="btn btn-default codes">
                                             <%- value %>
                                         </a>
                                         <% }); %>
                                         <% } %>
-                                        <% if (movie.genres_arr && movie.genres_arr.length) { %>
-                                        <% movie.genres_arr.forEach(function (value) { %>
+                                        <% if (movie.genre) { %>
+                                        <% movie.genre.split(',').forEach(function (value) { value = value.trim(); %>
                                         <a href="javascript:void(0)" data-name="movie.description" data-code="<%- value %>" class="btn btn-default codes">
                                             <%- value %>
                                         </a>
                                         <% }); %>
                                         <% } %>
-                                        <% if (movie.actors_arr && movie.actors_arr.length) { %>
-                                        <% movie.actors_arr.forEach(function (value) { %>
+                                        <% if (movie.actor) { %>
+                                        <% movie.actor.split(',').forEach(function (value) { value = value.trim(); %>
                                         <a href="javascript:void(0)" data-name="movie.description" data-code="<%- value %>" class="btn btn-default codes">
                                             <%- value %>
                                         </a>
                                         <% }); %>
                                         <% } %>
-                                        <% if (movie.directors_arr && movie.directors_arr.length) { %>
-                                        <% movie.directors_arr.forEach(function (value) { %>
+                                        <% if (movie.director) { %>
+                                        <% movie.director.split(',').forEach(function (value) { value = value.trim(); %>
                                         <a href="javascript:void(0)" data-name="movie.description" data-code="<%- value %>" class="btn btn-default codes">
                                             <%- value %>
                                         </a>
@@ -192,7 +154,10 @@
                                         <% } %>
                                     </div>
                                 </div>
+
                             </div>
+
+                            <div class="spacer-10"></div>
 
                             <div class="faq">
 
@@ -202,92 +167,150 @@
                                         <h3>Информационные данные фильма</h3>
                                     </header>
                                     <div class="faq-content clearfix">
-
                                         <div class="advanced-textarea">
 
-                                            <% if (movie.poster) { %>
-
-                                            <div class="text-muted text-center">
-                                                <img src="<% if (movie.poster) { %><%- movie.poster %><% } %>" style="margin: 5px; width: 60px; height: 85px;">
-                                                <div><% if (movie.poster) { %><%- movie.poster %><% } %></div>
+                                            <div style="color: #4B5B6C">
+                                                URL постера:
+                                            </div>
+                                            <div class="spacer-10"></div>
+                                            <div class="row">
+                                                <div class="col-lg-9 col-xs-9 text-center" id="blockPathImage">
+                                                    <input type="text" class="form-control" name="movie.poster" id="textPathImage" value="<% if (movie.poster) { %><%= movie.poster %><% } else { %>1<% } %>" placeholder="URL постера фильма" style="font-weight: normal; font-size: 14px;">
+                                                </div>
+                                                <div class="col-lg-3 col-xs-3 text-center" id="blockUploadImage">
+                                                    <div class="btn-group" style="float: right; margin: 0;">
+                                                        <form id="formUploadImage" enctype="multipart/form-data">
+                                                            <input name="poster" id="nameUploadImage" type="file" class="form-control" style="float: left; width: 68px; padding: 0">
+                                                            <input class="btn btn-default" id="submitUploadImage" type="submit" value="Загрузить" style="margin: auto 0 auto 5px; display: none">
+                                                        </form>
+                                                    </div>
+                                                </div>
                                             </div>
 
-                                            <div class="spacer-10"></div>
-
-                                            <% } %>
-
-                                            <input type="text" class="form-control" name="movie.poster" placeholder="URL постера фильма" style="font-weight: normal; font-size: 14px;">
-
-                                            <div class="text-muted">
-                                                Русское название<% if (movie.title_ru) { %> (<%- movie.title_ru %>)<% } %>:
+                                            <div style="color: #4B5B6C">
+                                                Тип:
                                             </div>
-
+                                            <div class="spacer-10"></div>
+                                            <select name="movie.type" class="form-control">
+                                                <option value="0" <% if (movie.type === 0) { %>selected="selected"<%
+                                                } %>>
+                                                    Фильм
+                                                </option>
+                                                <option value="1" <% if (movie.type === 1) { %>selected="selected"<%
+                                                } %>>
+                                                    Сериал
+                                                </option>
+                                            </select>
                                             <div class="spacer-10"></div>
 
-                                            <input type="text" class="form-control" name="movie.title_ru" placeholder="Новое название на русском языке" style="font-weight: normal; font-size: 14px;">
-
-                                            <div class="text-muted">
-                                                Оригинальное название<% if (movie.title_en) { %> (<%- movie.title_en %>)<% } %>:
+                                            <div style="color: #4B5B6C">
+                                                Год:
                                             </div>
-
                                             <div class="spacer-10"></div>
+                                            <input type="text" class="form-control" name="movie.year" value="<% if (movie.year) { %><%= movie.year %><% } else { %><%- new Date().toJSON().substr(0, 4) %><% } %>" placeholder="Год" style="font-weight: normal; font-size: 14px;">
 
-                                            <input type="text" class="form-control" name="movie.title_en" placeholder="Новое название на оригинальном языке" style="font-weight: normal; font-size: 14px;">
-
-                                            <div class="text-muted">
-                                                Год<% if (movie.year) { %> (<%- movie.year %>)<% } %>:
+                                            <div style="color: #4B5B6C">
+                                                Страна:
                                             </div>
-
                                             <div class="spacer-10"></div>
+                                            <input type="text" class="form-control" name="movie.country" value="<% if (movie.country) {  %><%- movie.country %><% } %>" placeholder="Список стран через запятую" style="font-weight: normal; font-size: 14px;">
 
-                                            <input type="text" class="form-control" name="movie.year" placeholder="Другой год" style="font-weight: normal; font-size: 14px;">
-
-                                            <div class="text-muted">
-                                                Страна<% if (movie.countries_arr && movie.countries_arr.length) {  %> (<%- movie.countries_arr.join(',') %>)<% } %>:
+                                            <div style="color: #4B5B6C">
+                                                Жанры:
                                             </div>
-
                                             <div class="spacer-10"></div>
+                                            <input type="text" class="form-control" name="movie.genre" value="<% if (movie.genre) {  %><%- movie.genre %><% } %>" placeholder="Список жанров через запятую" style="font-weight: normal; font-size: 14px;">
 
-                                            <input type="text" class="form-control" name="movie.country" placeholder="Новая страна" style="font-weight: normal; font-size: 14px;">
-
-                                            <div class="text-muted">
-                                                Жанры<% if (movie.genres_arr && movie.genres_arr.length) {  %> (<%- movie.genres_arr.join(',') %>)<% } %>:
+                                            <div style="color: #4B5B6C">
+                                                Режиссер:
                                             </div>
-
                                             <div class="spacer-10"></div>
+                                            <input type="text" class="form-control" name="movie.director" value="<% if (movie.director) {  %><%- movie.director %><% } %>" placeholder="Список режиссеров через запятую" style="font-weight: normal; font-size: 14px;">
 
-                                            <input type="text" class="form-control" name="movie.genre" placeholder="Новый список жанров" style="font-weight: normal; font-size: 14px;">
-
-                                            <div class="text-muted">
-                                                Режиссер<% if (movie.directors_arr && movie.directors_arr.length) {  %> (<%- movie.directors_arr.join(',') %>)<% } %>:
+                                            <div style="color: #4B5B6C">
+                                                Актеры:
                                             </div>
-
                                             <div class="spacer-10"></div>
+                                            <input type="text" class="form-control" name="movie.actor" value="<% if (movie.actor) {  %><%- movie.actor %><% } %>" placeholder="Список актеров через запятую" style="font-weight: normal; font-size: 14px;">
 
-                                            <input type="text" class="form-control" name="movie.director" placeholder="Новый режиссер" style="font-weight: normal; font-size: 14px;">
-
-                                            <div class="text-muted">
-                                                Актеры<% if (movie.actors_arr && movie.actors_arr.length) {  %> (<%- movie.actors_arr.join(',') %>)<% } %>:
+                                            <div style="color: #4B5B6C">
+                                                Премьера:
                                             </div>
-
                                             <div class="spacer-10"></div>
+                                            <input type="text" class="form-control" name="movie.premiere" value="<% if (movie.premiere) { %><%- new Date(((movie.premiere - 719527) * 1000 * 60 * 60 * 24)).toJSON().substr(0, 10) %><% } else { %><%- new Date().toJSON().substr(0, 10) %><% } %>" placeholder="Дата премьеры фильма" style="font-weight: normal; font-size: 14px;">
 
-                                            <input type="text" class="form-control" name="movie.actor" placeholder="Новый список актеров" style="font-weight: normal; font-size: 14px;">
-
-                                            <div class="text-muted">
-                                                URL кадра <% if (movie.picture) { %>(<%- movie.picture %>)<% } %>:
+                                            <div style="color: #4B5B6C">
+                                                Рейтинг КиноПоиск:
                                             </div>
-
                                             <div class="spacer-10"></div>
+                                            <input type="text" class="form-control" name="movie.kp_rating" value="<% if (movie.kp_rating) {  %><%- movie.kp_rating %><% } %>" placeholder="Рейтинг КиноПоиск" style="font-weight: normal; font-size: 14px;">
 
-                                            <input type="text" class="form-control" name="movie.picture" placeholder="URL кадра из фильма (для слайдера)" style="font-weight: normal; font-size: 14px;">
+                                            <div style="color: #4B5B6C">
+                                                Число голосов КиноПоиск:
+                                            </div>
+                                            <div class="spacer-10"></div>
+                                            <input type="text" class="form-control" name="movie.kp_vote" value="<% if (movie.kp_vote) {  %><%- movie.kp_vote %><% } %>" placeholder="Число голосов КиноПоиск" style="font-weight: normal; font-size: 14px;">
+
+                                            <div style="color: #4B5B6C">
+                                                Рейтинг IMDb:
+                                            </div>
+                                            <div class="spacer-10"></div>
+                                            <input type="text" class="form-control" name="movie.imdb_rating" value="<% if (movie.imdb_rating) {  %><%- movie.imdb_rating %><% } %>" placeholder="Рейтинг IMDb" style="font-weight: normal; font-size: 14px;">
+
+                                            <div style="color: #4B5B6C">
+                                                Число голосов IMDb:
+                                            </div>
+                                            <div class="spacer-10"></div>
+                                            <input type="text" class="form-control" name="movie.imdb_vote" value="<% if (movie.imdb_vote) {  %><%- movie.imdb_vote %><% } %>" placeholder="Число голосов IMDb" style="font-weight: normal; font-size: 14px;">
+
+                                            <div style="color: #4B5B6C">
+                                                URL кадров:
+                                            </div>
+                                            <div class="spacer-10"></div>
+                                            <input type="text" class="form-control" name="movie.pictures" value="<% if (movie.pictures) {  %><%- movie.pictures %><% } %>" placeholder="URL кадров из фильма через запятую или ID кадров из КиноПоиск" style="font-weight: normal; font-size: 14px;">
+
+                                            <div style="color: #4B5B6C">
+                                                URL плеера:
+                                            </div>
+                                            <div class="spacer-10"></div>
+                                            <input type="text" class="form-control" name="movie.player" value="<% if (movie.player) { %><%- movie.player %><% } %>" placeholder="URL плеера для вставки в iframe" style="font-weight: normal; font-size: 14px;">
+
+                                            <div style="color: #4B5B6C">
+                                                Качество:
+                                            </div>
+                                            <div class="spacer-10"></div>
+                                            <input type="text" class="form-control" name="movie.quality" value="<% if (movie.quality) { %><%- movie.quality %><% } %>" placeholder="Текущее качество фильма" style="font-weight: normal; font-size: 14px;">
+
+                                            <div style="color: #4B5B6C">
+                                                Перевод:
+                                            </div>
+                                            <div class="spacer-10"></div>
+                                            <input type="text" class="form-control" name="movie.translate" value="<% if (movie.translate) { %><%- movie.translate %><% } %>" placeholder="Текущий перевод фильма" style="font-weight: normal; font-size: 14px;">
+
+                                            <div style="color: #4B5B6C">
+                                                Своё поле:
+                                            </div>
+                                            <div class="spacer-10"></div>
+                                            <textarea class="form-control custom" name="movie.custom" placeholder='{"name": "Текст к этому полю", "name2": "Текст к этому полю"}'><% if (movie.custom) { %><%- movie.custom %><% } %></textarea>
+                                            <script>
+                                                document.addEventListener('DOMContentLoaded', function () {
+                                                    var json = document.querySelector('.custom');
+                                                    if (json) {
+                                                        jsonPretty();
+                                                        json.oninput = function () {
+                                                            jsonPretty();
+                                                        };
+                                                        function jsonPretty() {
+                                                            var ugly = document.querySelector('.custom').value;
+                                                            var obj = JSON.parse(ugly);
+                                                            var pr = JSON.stringify(obj, undefined, 4);
+                                                            document.querySelector('.custom').value = pr;
+                                                        }
+                                                    }
+                                                });
+                                            </script>
 
                                         </div>
-
-                                        <div class="helper-text-box">
-                                            Если Вы изменяли какой-то пункт и вернулись чтобы изменить еще что-то, то чтобы предыдущее изменение не потерялось, его нужно указать еще раз, вместе с новым. К примеру, если Вы изменяли год с <code>2016</code> на <code>2017</code> и сейчас вернулись, чтобы изменить еще <code>Русское название</code>, то также в раздел <code>Год</code>, добавьте предыдущее изменение, т.е. <code>2017</code>.
-                                        </div>
-
                                     </div>
                                 </article>
 
@@ -299,10 +322,10 @@
                     <% } else { %>
 
                     <div class="row">
-                        <div class="col-sm-4">
+                        <!--<div class="col-sm-4">
                             <a href="/<%- config.urls.admin %>/movies?movies=add" class="btn btn-default btn-block">Массовое добавление</a>
-                        </div>
-                        <div class="col-sm-8">
+                        </div>-->
+                        <div class="col-sm-12">
                             <div class="input-group">
                                 <input class="form-control" type="text" id="id" placeholder="ID КиноПоиск фильма или ссылка на фильм">
                                 <span class="input-group-btn">
@@ -331,63 +354,69 @@
                                     }
 
                                     if (kp_id) {
-                                        location.href = '/<%- config.urls.admin %>/movies?movie=' + kp_id;
+                                        location.href = '/<%- config.urls.admin %>/movies?kp_id=' + kp_id;
                                     }
                                     else {
-                                        location.href = '/<%- config.urls.admin %>/movies?movie=add';
+                                        location.href = '/<%- config.urls.admin %>/movies?kp_id=_add_';
                                     }
                                 });
                             </script>
                         </div>
                     </div>
 
-                    <% if (texts.ids.length) { %>
+                    <% if (movies && movies.length) { %>
 
                     <div class="spacer-10"></div>
 
                     <table class="table table-bordered table-striped">
                         <thead>
                         <tr>
-                            <th scope="col" class="th-square" style="padding: 0 0 10px 15px;">
-                                <i class="fa fa-times text-muted"></i>
+                            <th scope="col" class="th-square">
+                                <% if (num-1) { %>
+                                <a href="/<%- config.urls.admin %>/movies?num=<%- num-1 %>" class="btn-less" style="margin: 4px;"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                                <% } %>
                             </th>
                             <th scope="col" class="text-muted">
-                                Фильмов с уникальным описанием <%- texts.ids.length %> шт. <% if (texts.ids.length > 100) { %><span class="text-muted">(показано 100 последних)</span><% } %>
+                                Фильмы с уникальным описанием
                             </th>
-                            <th scope="col" class="th-square" style="padding: 0 0 10px 15px;">
-                                <i class="fa fa-pencil text-muted"></i>
+                            <th scope="col" class="th-square">
+                                <% if (next) { %>
+                                <a href="/<%- config.urls.admin %>/movies?num=<%- num+1 %>" class="btn-less" style="margin: 4px;"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                                <% } %>
                             </th>
                         </tr>
                         </thead>
+                        <tfoot style="background-color: #272F38;">
+                        <tr>
+                            <th scope="col" class="th-square">
+                                <% if (num-1) { %>
+                                <a href="/<%- config.urls.admin %>/movies?num=<%- num-1 %>" class="btn-less" style="margin: 4px;"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                                <% } %>
+                            </th>
+                            <th scope="col" class="text-muted">
+                                Фильмы с уникальным описанием
+                            </th>
+                            <th scope="col" class="th-square">
+                                <% if (next) { %>
+                                <a href="/<%- config.urls.admin %>/movies?num=<%- num+1 %>" class="btn-less" style="margin: 4px;"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                                <% } %>
+                            </th>
+                        </tr>
+                        </tfoot>
                         <tbody>
-                        <%
-                            function reverseForIn(obj, f) {
-                                var arr = [];
-                                for (var key in obj) {
-                                    if (obj.hasOwnProperty(key)) {
-                                        arr.push(key);
-                                    }
-                                }
-                                for (var i=arr.length-1; i>=0; i--) {
-                                    if (i < arr.length-101) break;
-                                    f.call(obj, arr[i]);
-                                }
-                            }
-                        %>
-                        <% reverseForIn(texts.movies, function(movie){ %>
+                        <% movies.forEach(function(movie) { %>
                         <tr>
                             <td class="td-highlight">
-                                <a href="javascript:void(0)" data-kp_id="<%- movie %>" class="btn-less del" style="margin: 4px;"><i class="fa fa-times"></i></a>
+                                <a href="javascript:void(0)" data-type="movie" data-id="<%- movie.id %>" class="btn-less del" style="margin: 4px;"><i class="fa fa-times"></i></a>
                             </td>
                             <td>
-                                <%- movie %>. <% if (texts.movies[movie].title) { %><%- texts.movies[movie].title %><% } else { %>Фильм с ID КиноПоиск <%- movie %><% } %>&nbsp;<a href="<%- config.protocol + config.domain + '/' + config.urls.movie + '/' + config.urls.prefix_id + (parseInt(movie) + parseInt(config.urls.unique_id)) %>" style="text-decoration:none;" target="_blank"><span class="fa fa-external-link-square"></span></a>
+                                <%- movie.kp_id %>. <% if (movie.title) { %><%- movie.title %><% } else { %>Фильм с ID КиноПоиск <%- movie.kp_id %><% } %>&nbsp;<a href="<%- config.protocol + config.domain + '/' + config.urls.movie + '/' + config.urls.prefix_id + movie.id %>" style="text-decoration:none;" target="_blank"><span class="fa fa-external-link-square"></span></a>
                             </td>
                             <td class="td-highlight">
-                                <a href="/<%- config.urls.admin %>/movies?movie=<%- movie %>" class="btn-less" style="margin: 4px;"><i class="fa fa-pencil"></i></a>
+                                <a href="/<%- config.urls.admin %>/movies?kp_id=<%- movie.kp_id %>" class="btn-less" style="margin: 4px;"><i class="fa fa-pencil"></i></a>
                             </td>
                         </tr>
-                        <% }) %>
-
+                        <% }); %>
                         </tbody>
                     </table>
 

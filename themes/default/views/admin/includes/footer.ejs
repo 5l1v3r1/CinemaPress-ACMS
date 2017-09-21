@@ -16,7 +16,7 @@
 
 <script>
 
-    window.onload = function() {
+    document.addEventListener('DOMContentLoaded', function() {
 
         var i = 0;
 
@@ -64,14 +64,18 @@
 
         inputData();
 
-    };
+        uploadImage();
+
+        translit();
+
+    });
 
     function statusData() {
 
         var self = this;
         self.removeEventListener('click', statusData);
         self.innerHTML = '<span class="fa fa-spinner fa-spin"></span>&nbsp;&nbsp;Изменяется&nbsp;статус';
-        
+
         var data = {
             "switch": {
                 "module": self.dataset.module,
@@ -133,7 +137,7 @@
 
         var self = this;
         self.removeEventListener('click', imageData);
-        self.innerHTML = '<span class="fa fa-spinner fa-spin"></span>&nbsp;&nbsp;Загружаются&nbsp;(около&nbsp;20&nbsp;минут)';
+        self.innerHTML = '<span class="fa fa-spinner fa-spin"></span>&nbsp;&nbsp;Загружаются&nbsp;(около&nbsp;60&nbsp;минут)';
 
         var data = {
             "image": true
@@ -147,6 +151,10 @@
                 self.innerHTML ='<span class="fa fa-picture-o"></span>&nbsp;&nbsp;Картинки&nbsp;загружены';
             }
         });
+
+        setTimeout(function() {
+            window.location.href = "<%- config.protocol %><%- config.domain %>/<%- config.urls.admin %>";
+        }, 1000*60*60);
 
     }
 
@@ -184,6 +192,10 @@
             }
         });
 
+        setTimeout(function() {
+            window.location.href = "<%- config.protocol %><%- config.domain %>/<%- config.urls.admin %>";
+        }, 1000*60*10);
+
     }
 
     function delData() {
@@ -192,15 +204,15 @@
         self.removeEventListener('click', delData);
         self.innerHTML = '<span class="fa fa-spinner fa-spin"></span>';
 
-        var data = {
-            "movie": {
-                "kp_id": (self.dataset.kp_id) ? self.dataset.kp_id : null
-            },
-            "collection": {
-                "url": (self.dataset.url) ? self.dataset.url : null
-            },
-            "delete": true
-        };
+        var data = {};
+        data.delete = true;
+        data[self.dataset.type] = {};
+        if (self.dataset.type === 'collection') {
+            data[self.dataset.type].url = self.dataset.id;
+        }
+        else {
+            data[self.dataset.type].id = self.dataset.id;
+        }
 
         sendServer(data, function (err, result) {
             if (err) {
@@ -257,7 +269,7 @@
             if (!(ids.indexOf(kp_id)+1)) {
                 ids.unshift(kp_id);
                 addList.value = ids.join(',');
-                addPoster.innerHTML = '<li data-delete-id="' + kp_id + '" data-delete-name="' + self.dataset.addName + '"><img class="media-object" src="https://st.kp.yandex.net/images/sm_film/' + kp_id + '.jpg" alt="ID: ' + kp_id + '" title="ID: ' + kp_id + '"></li>' + addPoster.innerHTML;
+                addPoster.innerHTML = '<li data-delete-id="' + kp_id + '" data-delete-name="' + self.dataset.addName + '"><img class="media-object" src="https://cdn.cinemapress.org/images/sm_film/' + kp_id + '.jpg" alt="ID: ' + kp_id + '" title="ID: ' + kp_id + '"></li>' + addPoster.innerHTML;
                 var delId = document.querySelectorAll('li[data-delete-name]');
                 if (delId)
                     for (var i = 0; i < delId.length; i++)
@@ -283,10 +295,10 @@
         for (var i = 0; i < configs.length; i++) {
 
             if (configs[i].getAttribute('type')) {
-                if (configs[i].getAttribute('type') == 'checkbox' && !configs[i].checked) {
+                if (configs[i].getAttribute('type') === 'checkbox' && !configs[i].checked) {
                     continue;
                 }
-                else if (configs[i].getAttribute('type') == 'radio' && !configs[i].checked) {
+                else if (configs[i].getAttribute('type') === 'radio' && !configs[i].checked) {
                     continue;
                 }
             }
@@ -294,63 +306,72 @@
             if (!configs[i].value) {
                 if (
                         configs[i].getAttribute('type') &&
-                        configs[i].getAttribute('type') == 'checkbox'
+                        configs[i].getAttribute('type') === 'checkbox'
                 ) { console.log('Empty checkbox.'); }
                 else if (
-                        configs[i].name == 'collection.image'
+                        configs[i].name === 'collection.image'
                 ) { console.log('Empty collection.'); }
                 else if (
-                        configs[i].name == 'config.codes.head' ||
-                        configs[i].name == 'config.codes.footer' ||
-                        configs[i].name == 'config.publish.thematic.country' ||
-                        configs[i].name == 'config.publish.thematic.genre' ||
-                        configs[i].name == 'config.publish.thematic.year' ||
-                        configs[i].name == 'config.publish.thematic.type' ||
-                        configs[i].name == 'config.publish.thematic.actor' ||
-                        configs[i].name == 'config.publish.thematic.director' ||
-                        configs[i].name == 'config.publish.thematic.query_id' ||
-                        configs[i].name == 'config.index.country.keys' ||
-                        configs[i].name == 'config.index.genre.keys' ||
-                        configs[i].name == 'config.index.year.keys' ||
-                        configs[i].name == 'config.index.type.keys' ||
-                        configs[i].name == 'config.index.actor.keys' ||
-                        configs[i].name == 'config.index.director.keys' ||
-                        configs[i].name == 'config.index.collections.keys' ||
-                        configs[i].name == 'config.index.ids.keys' ||
-                        configs[i].name == 'config.index.count.key' ||
-                        configs[i].name == 'config.urls.prefix_id'
+                        configs[i].name === 'config.codes.head' ||
+                        configs[i].name === 'config.codes.footer' ||
+                        configs[i].name === 'config.publish.thematic.country' ||
+                        configs[i].name === 'config.publish.thematic.genre' ||
+                        configs[i].name === 'config.publish.thematic.year' ||
+                        configs[i].name === 'config.publish.thematic.type' ||
+                        configs[i].name === 'config.publish.thematic.actor' ||
+                        configs[i].name === 'config.publish.thematic.director' ||
+                        configs[i].name === 'config.publish.thematic.query_id' ||
+                        configs[i].name === 'config.index.country.keys' ||
+                        configs[i].name === 'config.index.genre.keys' ||
+                        configs[i].name === 'config.index.year.keys' ||
+                        configs[i].name === 'config.index.type.keys' ||
+                        configs[i].name === 'config.index.actor.keys' ||
+                        configs[i].name === 'config.index.director.keys' ||
+                        configs[i].name === 'config.index.ids.keys' ||
+                        configs[i].name === 'config.index.count.key' ||
+                        configs[i].name === 'config.urls.prefix_id'
                 ) { console.log('Empty config.'); }
                 else if (
-                        configs[i].name == 'modules.comments.data.cackle.id' ||
-                        configs[i].name == 'modules.comments.data.hypercomments.widget_id' ||
-                        configs[i].name == 'modules.comments.data.disqus.shortname' ||
-                        configs[i].name == 'modules.comments.data.facebook.admins' ||
-                        configs[i].name == 'modules.comments.data.vk.app_id' ||
-                        configs[i].name == 'modules.social.data.gplus' ||
-                        configs[i].name == 'modules.social.data.twitter' ||
-                        configs[i].name == 'modules.social.data.facebook' ||
-                        configs[i].name == 'modules.social.data.vk' ||
-                        configs[i].name == 'modules.player.data.yohoho.player' ||
-                        configs[i].name == 'modules.player.data.hdgo.token' ||
-                        configs[i].name == 'modules.player.data.moonwalk.token' ||
-                        configs[i].name == 'modules.player.data.moonlight.domain' ||
-                        configs[i].name == 'modules.blocking.data.share.message' ||
-                        configs[i].name == 'modules.blocking.data.sub.message' ||
-                        configs[i].name == 'modules.blocking.data.adv.code' ||
-                        configs[i].name == 'modules.blocking.data.adv.message' ||
-                        configs[i].name == 'modules.blocking.data.adv.skip' ||
-                        configs[i].name == 'modules.blocking.data.adblock.message' ||
-                        configs[i].name == 'modules.soon.data.movies' ||
-                        configs[i].name == 'modules.abuse.data.movies' ||
-                        configs[i].name == 'modules.abuse.data.imap.user' ||
-                        configs[i].name == 'modules.abuse.data.imap.password' ||
-                        configs[i].name == 'modules.abuse.data.imap.host' ||
-                        configs[i].name == 'modules.abuse.data.imap.port' ||
-                        configs[i].name == 'modules.episode.data.translate' ||
-                        configs[i].name == 'modules.slider.data.movies' ||
+                        configs[i].name === 'modules.content.data.index.url' ||
+                        configs[i].name === 'modules.content.data.side.tags' ||
+                        configs[i].name === 'modules.comments.data.cackle.id' ||
+                        configs[i].name === 'modules.comments.data.hypercomments.widget_id' ||
+                        configs[i].name === 'modules.comments.data.disqus.shortname' ||
+                        configs[i].name === 'modules.comments.data.facebook.admins' ||
+                        configs[i].name === 'modules.comments.data.vk.app_id' ||
+                        configs[i].name === 'modules.comments.data.gplus.admins' ||
+                        configs[i].name === 'modules.comments.data.sigcomments.host_id' ||
+                        configs[i].name === 'modules.social.data.gplus' ||
+                        configs[i].name === 'modules.social.data.twitter' ||
+                        configs[i].name === 'modules.social.data.facebook' ||
+                        configs[i].name === 'modules.social.data.vk' ||
+                        configs[i].name === 'modules.player.data.yohoho.player' ||
+                        configs[i].name === 'modules.player.data.hdgo.token' ||
+                        configs[i].name === 'modules.player.data.moonwalk.token' ||
+                        configs[i].name === 'modules.player.data.moonlight.domain' ||
+                        configs[i].name === 'modules.player.data.youtube.token' ||
+                        configs[i].name === 'modules.blocking.data.share.message' ||
+                        configs[i].name === 'modules.blocking.data.sub.message' ||
+                        configs[i].name === 'modules.blocking.data.adv.code' ||
+                        configs[i].name === 'modules.blocking.data.adv.message' ||
+                        configs[i].name === 'modules.blocking.data.adv.skip' ||
+                        configs[i].name === 'modules.blocking.data.adblock.message' ||
+                        configs[i].name === 'modules.blocking.data.legal.countries' ||
+                        configs[i].name === 'modules.blocking.data.legal.message' ||
+                        configs[i].name === 'modules.soon.data.movies' ||
+                        configs[i].name === 'modules.abuse.data.movies' ||
+                        configs[i].name === 'modules.abuse.data.imap.user' ||
+                        configs[i].name === 'modules.abuse.data.imap.password' ||
+                        configs[i].name === 'modules.abuse.data.imap.host' ||
+                        configs[i].name === 'modules.abuse.data.imap.port' ||
+                        configs[i].name === 'modules.episode.data.translate' ||
+                        configs[i].name === 'modules.slider.data.movies' ||
                         configs[i].name.indexOf('modules.adv.data.desktop')+1 ||
                         configs[i].name.indexOf('modules.adv.data.mobile')+1
                 ) { console.log('Empty modules.'); }
+                else if (
+                        configs[i].name.indexOf('movie.')+1
+                ) { console.log('Empty movie.'); }
                 else {
                     continue;
                 }
@@ -360,46 +381,46 @@
 
             for (var j = 1; j <= objects.length; j++) {
 
-                if (j == 1) {
-                    data[objects[0]] = (j == objects.length)
+                if (j === 1) {
+                    data[objects[0]] = (j === objects.length)
                             ? (data[objects[0]])
-                                ? data[objects[0]] + ',' + configs[i].value
-                                : configs[i].value
+                            ? data[objects[0]] + ',' + configs[i].value
+                            : configs[i].value
                             : data[objects[0]] || {};
                 }
-                else if (j == 2) {
-                    data[objects[0]][objects[1]] = (j == objects.length)
+                else if (j === 2) {
+                    data[objects[0]][objects[1]] = (j === objects.length)
                             ? (data[objects[0]][objects[1]])
-                                ? data[objects[0]][objects[1]] + ',' + configs[i].value
-                                : configs[i].value
+                            ? data[objects[0]][objects[1]] + ',' + configs[i].value
+                            : configs[i].value
                             : data[objects[0]][objects[1]] || {};
                 }
-                else if (j == 3) {
-                    data[objects[0]][objects[1]][objects[2]] = (j == objects.length)
+                else if (j === 3) {
+                    data[objects[0]][objects[1]][objects[2]] = (j === objects.length)
                             ? (data[objects[0]][objects[1]][objects[2]])
-                                ? data[objects[0]][objects[1]][objects[2]] + ',' + configs[i].value
-                                : configs[i].value
+                            ? data[objects[0]][objects[1]][objects[2]] + ',' + configs[i].value
+                            : configs[i].value
                             : data[objects[0]][objects[1]][objects[2]] || {};
                 }
-                else if (j == 4) {
-                    data[objects[0]][objects[1]][objects[2]][objects[3]] = (j == objects.length)
+                else if (j === 4) {
+                    data[objects[0]][objects[1]][objects[2]][objects[3]] = (j === objects.length)
                             ? (data[objects[0]][objects[1]][objects[2]][objects[3]])
-                                ? data[objects[0]][objects[1]][objects[2]][objects[3]] + ',' + configs[i].value
-                                : configs[i].value
+                            ? data[objects[0]][objects[1]][objects[2]][objects[3]] + ',' + configs[i].value
+                            : configs[i].value
                             : data[objects[0]][objects[1]][objects[2]][objects[3]] || {};
                 }
-                else if (j == 5) {
-                    data[objects[0]][objects[1]][objects[2]][objects[3]][objects[4]] = (j == objects.length)
+                else if (j === 5) {
+                    data[objects[0]][objects[1]][objects[2]][objects[3]][objects[4]] = (j === objects.length)
                             ? (data[objects[0]][objects[1]][objects[2]][objects[3]][objects[4]])
-                                ? data[objects[0]][objects[1]][objects[2]][objects[3]][objects[4]] + ',' + configs[i].value
-                                : configs[i].value
+                            ? data[objects[0]][objects[1]][objects[2]][objects[3]][objects[4]] + ',' + configs[i].value
+                            : configs[i].value
                             : data[objects[0]][objects[1]][objects[2]][objects[3]][objects[4]] || {};
                 }
-                else if (j == 6) {
-                    data[objects[0]][objects[1]][objects[2]][objects[3]][objects[4]][objects[5]] = (j == objects.length)
+                else if (j === 6) {
+                    data[objects[0]][objects[1]][objects[2]][objects[3]][objects[4]][objects[5]] = (j === objects.length)
                             ? (data[objects[0]][objects[1]][objects[2]][objects[3]][objects[4]][objects[5]])
-                                ? data[objects[0]][objects[1]][objects[2]][objects[3]][objects[4]][objects[5]] + ',' + configs[i].value
-                                : configs[i].value
+                            ? data[objects[0]][objects[1]][objects[2]][objects[3]][objects[4]][objects[5]] + ',' + configs[i].value
+                            : configs[i].value
                             : data[objects[0]][objects[1]][objects[2]][objects[3]][objects[4]][objects[5]] || {};
                 }
 
@@ -407,16 +428,21 @@
 
         }
 
-        if (data.collection && data.collection.movies && data.collection.movies.split(',').length > 500) {
-            self.innerHTML = '<span class="fa fa-bug"></span>&nbsp;&nbsp;Запрещено&nbsp;больше&nbsp;500&nbsp;фильмов';
-            return;
+        if (data.content && data.content.content_movies && data.content.content_movies.split(',').length > 100) {
+            self.innerHTML = '<span class="fa fa-exclamation-triangle text-danger"></span>&nbsp;&nbsp;Желательно&nbsp;не&nbsp;больше&nbsp;100&nbsp;фильмов';
         }
 
         sendServer(data, function (err, result) {
-            if (data.config && data.config.urls && data.config.urls.admin && data.config.urls.admin != '<%- config.urls.admin %>') {
+            if (data.config && data.config.urls && data.config.urls.admin && data.config.urls.admin !== '<%- config.urls.admin %>' && data.config.urls.admin.indexOf('admin') !== -1) {
                 location.href = '<%- config.protocol + config.domain + '/' %>' + data.config.urls.admin;
             }
-            else if (data.config && data.config.theme && data.config.theme != '<%- config.theme %>') {
+            else if (data.content && !data.content.id) {
+                location.href = '<%- config.protocol + config.domain + '/' + config.urls.admin + '/content' %>';
+            }
+            else if (data.movie && !data.movie.id) {
+                location.href = '<%- config.protocol + config.domain + '/' + config.urls.admin + '/movies' %>';
+            }
+            else if (data.config && data.config.theme && data.config.theme !== '<%- config.theme %>') {
                 self.innerHTML = '<span class="fa fa-floppy-o"></span>&nbsp;&nbsp;Сохранить&nbsp;изменения';
                 self.addEventListener('click', saveData);
             }
@@ -433,7 +459,7 @@
 
     function sendServer(data, long, callback) {
 
-        if (arguments.length == 2) {
+        if (arguments.length === 2) {
             callback = long;
             long = false;
         }
@@ -453,7 +479,7 @@
                 status = xhr.status;
                 result = xhr.responseText;
                 state = xhr.readyState;
-                if (xhr.readyState == 4 && xhr.status == 200) {
+                if (xhr.readyState === 4 && xhr.status === 200) {
                     return callback(null, xhr.responseText);
                 }
             };
@@ -461,15 +487,15 @@
 
             if (!long) {
                 setTimeout(function () {
-                    if (state == 4 && status != 200) {
+                    if (state === 4 && status !== 200) {
                         console.log('Site error:', status, result);
                         return callback('Ошибка&nbsp;сайта');
                     }
-                    else if (state != 4) {
+                    else if (state !== 4) {
                         console.log('Server error:', status, result);
                         return callback('Ошибка&nbsp;сервера');
                     }
-                }, 7000);
+                }, 10000);
             }
 
         }
@@ -481,7 +507,7 @@
         var xhr = new XMLHttpRequest();
         xhr.open('GET', 'https://cinemapress.org/article/articles.json', true);
         xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
+            if (xhr.readyState === 4 && xhr.status === 200) {
 
                 var result = JSON.parse(xhr.responseText);
 
@@ -506,6 +532,18 @@
                     li.appendChild(i);
                     ul.appendChild(li);
                     articlesCP.appendChild(ul);
+
+                    var mainBottom = document.querySelector('.header-main-bottom');
+                    if (mainBottom) {
+                        var style = '';
+                        if (articles.background) {
+                            style += 'background: ' + articles.background + ';';
+                        }
+                        if (articles.style) {
+                            style += articles.style;
+                        }
+                        mainBottom.setAttribute('style', style);
+                    }
                 }
 
             }
@@ -521,7 +559,9 @@
         var counts = document.querySelectorAll('.keywords,.titles,.descriptions');
         if (counts && counts.length) {
             for (i = 0; i < counts.length; i++) {
-                document.getElementById(counts[i].name).textContent = ((counts[i].value.replace(/(\s+|<.*?>)/g, '')).length).toString();
+                var n = document.getElementById(counts[i].name);
+                if (n)
+                    n.textContent = ((counts[i].value.replace(/(\s+|<.*?>)/g, '')).length).toString();
                 counts[i].oninput = function () {
                     document.getElementById(this.name).textContent = ((this.value.replace(/(\s+|<.*?>)/g, '')).length).toString();
                 };
@@ -536,12 +576,12 @@
                     var data_code = this.getAttribute('data-code');
                     var caret_pos = 0;
                     var textarea = document.getElementsByName(data_name)[0];
-                    if ( document.selection ) {
+                    if (document.selection) {
                         textarea.focus();
                         var sel = document.selection.createRange();
                         sel.moveStart ('character', -textarea.value.length);
                         caret_pos = sel.text.length;
-                    } else if ( textarea.selectionStart || textarea.selectionStart == '0' ) {
+                    } else if (textarea.selectionStart || parseInt(textarea.selectionStart) === 0) {
                         caret_pos = textarea.selectionStart;
                     }
                     textarea.value = textarea.value.slice(0,caret_pos) + data_code + textarea.value.slice(caret_pos);
@@ -592,6 +632,69 @@
             }
         }
 
+    }
+
+    function uploadImage() {
+        var formUploadImage = document.forms.namedItem('formUploadImage');
+        var nameUploadImage = document.querySelector('#nameUploadImage');
+        if (formUploadImage && nameUploadImage) {
+            nameUploadImage.addEventListener('change', function () {
+                var formData = new FormData(formUploadImage);
+                var req = new XMLHttpRequest();
+                req.open('POST', '/<%- config.urls.admin %>/upload', true);
+                req.onload = function () {
+                    if (req.readyState === 4 && req.status === 200) {
+                        var uploadMessage = JSON.parse(req.responseText);
+                        var textPathImage = document.querySelector('#textPathImage');
+                        var page_image = document.querySelector('input[name="' + textPathImage.getAttribute('name') + '"]');
+                        if (uploadMessage.error) {
+                            console.log(uploadMessage.error);
+                            return;
+                        }
+                        page_image.value = uploadMessage.file;
+                        var pageImage = document.querySelector('#blockPathImage');
+                        pageImage.setAttribute('class', 'col-lg-12 col-xs-12 text-center');
+                        var uploadImage = document.querySelector('#blockUploadImage');
+                        uploadImage.style.display = 'none';
+                    }
+                }
+                req.send(formData);
+                var image = document.querySelector('#nameUploadImage');
+                var mySpan = document.createElement('span');
+                mySpan.innerHTML = '<div style="float: left;" id="nameUploadImage"><a href="javascript:void(0)" class="btn btn-default"><span class="fa fa-spinner fa-spin"></span></a></div>';
+                image.parentNode.replaceChild(mySpan, image);
+            });
+        }
+    }
+
+    function translit() {
+        var content_title = document.querySelector('input[name="content.content_title"]');
+        if (!content_title) return;
+        content_title.oninput = function () {
+            var str = content_title.value;
+            var space = '-';
+            var link = '';
+            var transl = {
+                'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'e', 'ж': 'zh',
+                'з': 'z', 'и': 'i', 'й': 'j', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n',
+                'о': 'o', 'п': 'p', 'р': 'r','с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'h',
+                'ц': 'c', 'ч': 'ch', 'ш': 'sh', 'щ': 'sh','ъ': space,
+                'ы': 'y', 'ь': space, 'э': 'e', 'ю': 'yu', 'я': 'ya'
+            }
+            if (str != '')
+                str = str.toLowerCase();
+
+            for (var i = 0; i < str.length; i++) {
+                if (/[а-яё]/.test(str.charAt(i))) {
+                    link += transl[str.charAt(i)];
+                } else if (/[a-z0-9]/.test(str.charAt(i))) {
+                    link += str.charAt(i);
+                } else {
+                    if (link.slice(-1) !== space) link += space;
+                }
+            }
+            document.querySelector('input[name="content.content_url"]').value = link;
+        }
     }
 
 </script>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rss version="2.0">
+    <% if (typeof movies === 'object') { %>
+    <channel>
+        <title><%- config.titles.index %></title>
+        <link><%- config.protocol %><%- config.domain %></link>
+        <description><%- config.descriptions.index %></description>
+            <% movies.forEach(function (movie) { %>
+            <item>
+                <title><%- movie.title %></title>
+                <link><%- movie.url %></link>
+                <description><![CDATA[<img align="left" hspace="5" width="150" src="<%- movie.poster %>"/><%- movie.description %><br />]]></description>
+                <enclosure url="<%- movie.poster %>" type="image/jpeg" />
+            </item>
+            <% }); %>
+    </channel>
+    <% } %>
+</rss>

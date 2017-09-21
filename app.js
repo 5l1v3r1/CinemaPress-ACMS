@@ -4,10 +4,10 @@
  * Configuration dependencies.
  */
 
-var config = require('./config/config');
+var config = require('./config/production/config');
 
 /**
- * Node dependencies. 
+ * Node dependencies.
  */
 
 var cookieParser = require('cookie-parser');
@@ -20,9 +20,11 @@ var app          = express();
  * Route dependencies.
  */
 
+var iframe  = require('./routes/iframe');
 var player  = require('./routes/player');
 var episode = require('./routes/episode');
 var robots  = require('./routes/robots');
+var rss     = require('./routes/rss');
 var admin   = require('./routes/admin');
 var website = require('./routes/website');
 var mobile  = require('./routes/mobile');
@@ -58,11 +60,15 @@ app.use(bodyParser.urlencoded({limit: '64mb', extended: true}));
 app.use('/mobile-version/iframe.player', player);
 app.use('/mobile-version/episode.list', episode);
 app.use('/mobile-version/robots.txt', robots);
+app.use('/mobile-version/iframe', iframe);
+app.use('/mobile-version/rss.xml', rss);
 app.use('/mobile-version', mobile);
 
 app.use('/iframe.player', player);
 app.use('/episode.list', episode);
 app.use('/robots.txt', robots);
+app.use('/iframe', iframe);
+app.use('/rss.xml', rss);
 app.use('/' + config.urls.admin, admin);
 app.use(website);
 

@@ -5,16 +5,17 @@
  */
 
 var CP_page = require('../../lib/CP_page');
-var CP_get  = require('../../lib/CP_get');
+var CP_get  = require('../../lib/CP_get.min');
 
-var CP_episode = require('../../modules/CP_episode');
+var CP_episode  = require('../../modules/CP_episode');
+var CP_comments = require('../../modules/CP_comments');
 
 /**
  * Configuration dependencies.
  */
 
-var config  = require('../../config/config');
-var modules = require('../../config/modules');
+var config  = require('../../config/production/config');
+var modules = require('../../config/production/modules');
 
 /**
  * Node dependencies.
@@ -39,7 +40,7 @@ var async = require('async');
 
 function dataIndex(options, callback) {
 
-    if (arguments.length == 1) {
+    if (arguments.length === 1) {
         callback = options;
         options = {};
         options.domain = '' + config.domain;
@@ -56,27 +57,68 @@ function dataIndex(options, callback) {
                         if (err) return callback(err);
 
                         return (movies && movies.length)
-                            ? callback(null, movies[0])
-                            : callback(null, null)
+                            ? callback(null, movies)
+                            : callback(null, [])
                     })
-                    : callback(null, null)
+                    : callback(null, [])
             },
             "soon": function (callback) {
                 return (modules.soon.status)
                     ? CP_get.additional(
-                    {"all_movies": "_all_"},
+                    {"all_movies": process.env.CP_ALL},
                     'soon',
                     options,
                     function (err, movies) {
                         if (err) return callback(err);
 
                         return (movies && movies.length)
-                            ? callback(null, movies[0])
-                            : callback(null, null)
+                            ? callback(null, movies)
+                            : callback(null, [])
                     })
-                    : callback(null, null)
+                    : callback(null, [])
             },
-            "movies": function(callback) {
+            "news": function (callback) {
+                return (modules.content.status && modules.content.data.news.tags && modules.content.data.news.count)
+                    ? CP_get.contents(
+                    {"content_tags": modules.content.data.news.tags},
+                    modules.content.data.news.count,
+                    1,
+                    true,
+                    options,
+                    function (err, contents) {
+                        if (err) return callback(err);
+
+                        return (contents && contents.length)
+                            ? callback(null, contents)
+                            : callback(null, [])
+                    })
+                    : callback(null, [])
+            },
+            "recent": function (callback) {
+                var service = [];
+                if (modules.comments.data.disqus.shortname &&
+                    modules.comments.data.disqus.recent.num_items &&
+                    modules.comments.data.disqus.recent.display.indexOf('index')+1) {
+                    service.push('disqus');
+                }
+                if (modules.comments.data.hypercomments.widget_id &&
+                    modules.comments.data.hypercomments.recent.num_items &&
+                    modules.comments.data.hypercomments.recent.display.indexOf('index')+1) {
+                    service.push('hypercomments');
+                }
+                return (service.length)
+                    ? CP_comments.recent(
+                    service,
+                    function (err, comments) {
+                        if (err) return callback(err);
+
+                        return (comments)
+                            ? callback(null, comments)
+                            : callback(null, [])
+                    })
+                    : callback(null, [])
+            },
+            "index": function(callback) {
                 async.parallel({
                         "type": function (callback) {
                             return (config.index.type.keys)
@@ -177,26 +219,44 @@ function dataIndex(options, callback) {
                                 function (err, movies) {
                                     if (err) return callback(err);
 
+                                    if (movies && movies.length) {
+                                        movies = sortingIds(config.index.ids.keys.split(','), movies);
+                                    }
+
                                     return (movies && movies.length)
                                         ? callback(null, movies)
                                         : callback(null, [])
                                 })
                                 : callback(null, [])
                         },
-                        "collections": function (callback) {
-                            return (modules.collections.status && modules.collections.data.index.keys)
-                                ? CP_get.additional(
-                                {"query_id": modules.collections.data.index.keys},
-                                'index_collections',
-                                options,
-                                function (err, movies) {
+                        "content": function (callback) {
+                            return (modules.content.status && modules.content.data.index.url)
+                                ? CP_get.contents(
+                                {"content_url": modules.content.data.index.url},
+                                function (err, contents) {
                                     if (err) return callback(err);
 
-                                    config.index.collections = {};
-                                    config.index.collections.order = modules.collections.data.index.order;
+                                    return (contents && contents.length && contents[0].movies)
+                                        ? CP_get.movies(
+                                        {"query_id": contents[0].movies.join('|')},
+                                        contents[0].movies.length,
+                                        function (err, movies) {
+                                            if (err) return callback(err);
 
-                                    return (movies && movies.length)
-                                        ? callback(null, movies)
+                                            config.index.content = {};
+                                            config.index.content.order = modules.content.data.index.order;
+
+                                            var r = [];
+                                            r[0] = {};
+                                            if (movies && movies.length) {
+                                                r[0].movies = sortingIds(contents[0].movies, movies, modules.content.data.index.count);
+                                            }
+                                            r[0].name = contents[0].title;
+
+                                            return (movies && movies.length)
+                                                ? callback(null, r)
+                                                : callback(null, [])
+                                        })
                                         : callback(null, [])
                                 })
                                 : callback(null, [])
@@ -230,7 +290,7 @@ function dataIndex(options, callback) {
 
                         var r = {};
                         keysSorted.forEach(function (key) {
-                            if (result[key].length) {
+                            if (result[key].length && result[key][0].movies.length) {
                                 r[key] = result[key];
                             }
                         });
@@ -242,6 +302,9 @@ function dataIndex(options, callback) {
             "count": function (callback) {
                 var qwry = {};
                 qwry[config.index.count.type] = config.index.count.key;
+                if (!config.default.lastpage && config.index.count.key) {
+                    return callback(null, config.default.pages+1);
+                }
                 return (config.index.count.key)
                     ? CP_get.count(
                     qwry,
@@ -273,6 +336,36 @@ function dataIndex(options, callback) {
             });
 
         });
+
+    /**
+     * Sort films are turned by id list.
+     *
+     * @param {Object} ids
+     * @param {Object} movies
+     * @param {Number} [count]
+     * @return {Array}
+     */
+
+    function sortingIds(ids, movies, count) {
+
+        if (arguments.length === 2) {
+            count = 0;
+        }
+
+        var result = [];
+
+        for (var id = 0; id < ids.length; id++) {
+            for (var i = 0; i < movies.length; i++) {
+                if (parseInt(movies[i].kp_id) === parseInt(('' + ids[id]).trim())) {
+                    result.push(movies[i]);
+                    if (result.length === count) return result;
+                }
+            }
+        }
+
+        return result;
+
+    }
 
 }
 

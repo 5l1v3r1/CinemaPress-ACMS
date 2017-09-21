@@ -4,13 +4,13 @@
  * Module dependencies.
  */
 
-var CP_get = require('../lib/CP_get');
+var CP_get = require('../lib/CP_get.min');
 
 /**
  * Configuration dependencies.
  */
 
-var modules = require('../config/modules');
+var modules = require('../config/production/modules');
 
 /**
  * Node dependencies.
@@ -67,16 +67,16 @@ router.get('/?', function(req, res) {
 
                 if (err) return res.status(404).send('{"error": "' + err + '"}');
 
-                if (movies[0] && movies[0].movies && movies[0].movies.length) {
+                if (movies && movies.length) {
 
-                    if (type == 'serial') {
-                        getSerial(list, movies[0].movies[0], function (err, result) {
+                    if (type === 'serial') {
+                        getSerial(list, movies[0], function (err, result) {
                             if (err) return res.status(404).send('{"error": "' + err + '"}');
                             return res.send(result);
                         });
                     }
                     else {
-                        getSerials(list.updates, movies[0].movies, function (err, result) {
+                        getSerials(list.updates, movies, function (err, result) {
                             if (err) return res.status(404).send('{"error": "' + err + '"}');
                             return res.send(result);
                         });
@@ -102,7 +102,7 @@ router.get('/?', function(req, res) {
 
         request(url, function (error, response, body) {
 
-            var result = (body) ? JSON.parse(body) : {};
+            var result = (body) ? tryParseJSON(body) : {};
 
             if (error || response.statusCode != 200 || result.error) {
                 return callback('Moonwalk request error.');
@@ -112,6 +112,23 @@ router.get('/?', function(req, res) {
 
         });
 
+    }
+
+    /**
+     * Valid JSON.
+     *
+     * @param {string} jsonString
+     */
+
+    function tryParseJSON(jsonString) {
+        try {
+            var o = JSON.parse(jsonString);
+            if (o && typeof o === 'object') {
+                return o;
+            }
+        }
+        catch (e) { }
+        return {};
     }
 
     /**
@@ -192,7 +209,7 @@ router.get('/?', function(req, res) {
 
         for (var i = 0, num = list.length; i < num; i++) {
             for (var j = 0, len = movies.length; j < len; j++) {
-                if (parseInt(list[i].serial.kinopoisk_id) == parseInt(movies[j].kp_id)) {
+                if (parseInt(list[i].serial.kinopoisk_id) === parseInt(movies[j].kp_id)) {
 
                     var serial_moon = JSON.stringify(list[i].serial);
                     serial_moon = JSON.parse(serial_moon);

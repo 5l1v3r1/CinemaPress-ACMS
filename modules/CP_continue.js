@@ -4,7 +4,7 @@
  * Configuration dependencies.
  */
 
-var modules = require('../config/modules');
+var modules = require('../config/production/modules');
 
 /**
  * Add the function to continue viewing.

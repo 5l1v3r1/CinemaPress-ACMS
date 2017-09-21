@@ -88,7 +88,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="input-group">
-                                                <input class="form-control" type="text" placeholder="Введите ключ базы 600 000 фильмов" id="key">
+                                                <input class="form-control" type="text" placeholder="Введите ключ базы фильмов" id="key">
                                                 <span class="input-group-btn">
                                                     <a href="javascript:void(0)" class="btn btn-default" id="database">
                                                         <span class="fa fa-plus"></span> Добавить фильмы
@@ -101,6 +101,9 @@
                                             <div class="example-box">
                                                 <div class="example-box-header">
                                                     <div class="example-label"><i class="fa fa-film"></i>&nbsp;&nbsp;&nbsp;Start</div>
+                                                    <div class="example-label" style="float: right; background:#459E45; color: #fff; margin: 5px 5px -10px 0; border-radius: 3px; padding-top: 2px; font-size: 18px;">
+                                                        <strong>99$</strong>
+                                                    </div>
                                                 </div>
                                                 <div class="inner-padding" style="font-size: 12px;">
                                                     <div class="row">
@@ -108,7 +111,7 @@
                                                             Фильмов:
                                                         </div>
                                                         <div class="col-md-7 col-sm-12 col-xs-12">
-                                                            609 705 штук
+                                                            102 815
                                                         </div>
                                                         <div class="col-md-5 col-sm-12 col-xs-12">
                                                             Тема:
@@ -124,7 +127,7 @@
                                                         </div>
                                                         <div class="spacer-10"></div>
                                                         <div class="col-md-12 col-sm-12 col-xs-12">
-                                                            <a href="https://goo.gl/5ex0ph" target="_blank" class="btn btn-block btn-success">
+                                                            <a href="https://goo.gl/5ex0ph" target="_blank" class="btn btn-block btn-default">
                                                                 <span class="fa fa-money"></span>&nbsp;&nbsp;99$ Оплатить ключ
                                                             </a>
                                                         </div>
@@ -136,6 +139,10 @@
                                             <div class="example-box">
                                                 <div class="example-box-header">
                                                     <div class="example-label"><i class="fa fa-film"></i>&nbsp;&nbsp;&nbsp;Expanded</div>
+                                                    <div class="example-label" style="float: right; background:#459E45; color: #fff; margin: 5px 5px -10px 0; border-radius: 3px; padding-top: 2px; font-size: 18px;">
+                                                        <s style="color: #ccc; font-size: 14px; font-weight:bold;">246$</s>
+                                                        <strong>149$</strong>
+                                                    </div>
                                                 </div>
                                                 <div class="inner-padding" style="font-size: 12px;">
                                                     <div class="row">
@@ -143,7 +150,7 @@
                                                             Фильмов:
                                                         </div>
                                                         <div class="col-md-7 col-sm-12 col-xs-12">
-                                                            609 705 штук
+                                                            631 192
                                                         </div>
                                                         <div class="col-md-5 col-sm-12 col-xs-12">
                                                             Тема:
@@ -159,7 +166,7 @@
                                                         </div>
                                                         <div class="spacer-10"></div>
                                                         <div class="col-md-12 col-sm-12 col-xs-12">
-                                                            <a href="https://goo.gl/O4Zxws" target="_blank" class="btn btn-block btn-success">
+                                                            <a href="https://goo.gl/O4Zxws" target="_blank" class="btn btn-block btn-default">
                                                                 <span class="fa fa-money"></span>&nbsp;&nbsp;149$ Оплатить ключ
                                                             </a>
                                                         </div>
@@ -285,9 +292,9 @@
                                                         <div class="thumbs-list thumbs-small">
                                                             <ul>
                                                                 <% soon_id.forEach(function (id) { %>
-                                                                <a href="/<%- config.urls.admin %>/movies?movie=<%- id %>" target="_blank">
+                                                                <a href="/<%- config.urls.admin %>/movies?kp_id=<%- id %>" target="_blank">
                                                                     <li style="background: none !important;">
-                                                                        <img class="media-object" src="https://st.kp.yandex.net/images/sm_film/<%- id %>.jpg" alt="Poster">
+                                                                        <img class="media-object" src="https://cdn.cinemapress.org/images/sm_film/<%- id %>.jpg" alt="Poster">
                                                                     </li>
                                                                 </a>
                                                                 <% }); %>
@@ -364,53 +371,14 @@
                                                     Только фильмы с постерами
                                                 </label>
                                                 <label>
-                                                    <input name="config.publish.required" value="pictures" type="checkbox" <% if (config.publish.required.indexOf('pictures')+1) { %> checked="" <% } %>>
-                                                    <span></span>
-                                                    Только фильмы с кадрами
-                                                </label>
-                                                <label>
                                                     <input name="config.publish.required" value="title_ru" type="checkbox" <% if (config.publish.required.indexOf('title_ru')+1) { %> checked="" <% } %>>
                                                     <span></span>
                                                     Только имеющие русское название
                                                 </label>
                                                 <label>
-                                                    <input name="config.publish.required" value="title_en" type="checkbox" <% if (config.publish.required.indexOf('title_en')+1) { %> checked="" <% } %>>
-                                                    <span></span>
-                                                    Только имеющие оригинальное название
-                                                </label>
-                                                <label>
                                                     <input name="config.publish.required" value="description" type="checkbox" <% if (config.publish.required.indexOf('description')+1) { %> checked="" <% } %>>
                                                     <span></span>
                                                     Только имеющие стандартное описание
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="spacer-10"></div>
-
-                        <div class="col-sm-12">
-                            <div class="example-box">
-                                <div class="example-box-header">
-                                    <div class="example-label"><i class="fa fa-hourglass-2"></i>&nbsp;&nbsp;&nbsp;Публикация «Вне очереди»</div>
-                                    <div class="example-label" style="float: right">
-                                        <a href="https://CinemaPress.org/admin/publish.html#text" class="csstip" title="Фильмы, для которых написаны уникальные описания, будут сразу опубликованы на сайте" target="_blank">
-                                            <i class="fa fa-info-circle"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="inner-padding">
-                                    <div class="row">
-                                        <div class="col-lg-12 col-xs-12 text-center">
-                                            <div class="inline-labels">
-                                                <label style="color: rgb(196, 250, 198);">
-                                                    <input name="config.publish.text" value="0" <% if (!config.publish.text) { %> checked="" <% } %> type="radio"><span></span> Ожидать публикацию
-                                                </label>
-                                                <label style="color: rgb(253, 221, 210);">
-                                                    <input name="config.publish.text" value="1" <% if (config.publish.text) { %> checked="" <% } %> type="radio"><span></span> Публиковать сразу
                                                 </label>
                                             </div>
                                         </div>
@@ -539,7 +507,7 @@
             </div>
 
             <script>
-                $("#movies_slider").noUiSlider({range:[0,1e3],start:[<%= config.publish.every.movies %>],handles:1,step:1,connect:"lower",serialization:{resolution:1,to:[$("#movies")]}}),$("#hours_slider").noUiSlider({range:[0,24],start:[<%= config.publish.every.hours %>],handles:1,step:1,connect:"lower",serialization:{resolution:1,to:[$("#hours")]}}),$("#diapason").noUiSlider({range:[298,11e5],start:[<%= config.publish.start %>,<%= config.publish.stop %>],handles:2,step:1,connect:"lower",serialization:{to:[$("#start"),$("#stop")],resolution:1}});
+                $("#movies_slider").noUiSlider({range:[0,1e3],start:[<%= config.publish.every.movies %>],handles:1,step:1,connect:"lower",serialization:{resolution:1,to:[$("#movies")]}}),$("#hours_slider").noUiSlider({range:[0,24],start:[<%= config.publish.every.hours %>],handles:1,step:1,connect:"lower",serialization:{resolution:1,to:[$("#hours")]}}),$("#diapason").noUiSlider({range:[298,3000000],start:[<%= config.publish.start %>,<%= config.publish.stop %>],handles:2,step:1,connect:"lower",serialization:{to:[$("#start"),$("#stop")],resolution:1}});
             </script>
 
             <% include ./includes/footer.ejs %>

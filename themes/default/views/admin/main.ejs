@@ -102,7 +102,7 @@
                                 <div class="inner-padding">
                                     <div class="row">
                                         <div class="col-xs-6 text-center">
-                                            <input name="config.domain" value="<%- config.domain %>" class="form-control input_url" type="text" disabled="disabled" style="background-color: #272F38;">
+                                            <input name="config.domain" value="<%= config.domain %>" class="form-control input_url" type="text" disabled="disabled" style="background-color: #272F38;">
                                         </div>
                                         <div class="col-xs-6 text-center" style="padding: 5px;">
                                             <%- config.database.key %>
@@ -129,7 +129,7 @@
                                 <div class="inner-padding">
                                     <div class="row">
                                         <div class="col-lg-12 col-xs-12 text-center">
-                                            <input name="config.email" value="<%- config.email %>" class="form-control" type="text">
+                                            <input name="config.email" value="<%= config.email %>" class="form-control" type="text">
                                         </div>
                                     </div>
                                 </div>
@@ -153,7 +153,19 @@
                                 <div class="inner-padding">
                                     <div class="row">
                                         <div class="col-xs-5 text-center">
-                                            <input name="config.theme" value="<%- config.theme %>" class="form-control input_url" type="text">
+                                            <select name="config.theme" class="form-control">
+                                                <% themes.forEach(function(theme) { %>
+                                                    <% if (config.theme === theme) { %>
+                                                    <option value="<%= theme %>" selected="selected">
+                                                        <%- theme %>
+                                                    </option>
+                                                    <% } else { %>
+                                                    <option value="<%= theme %>">
+                                                        <%- theme %>
+                                                    </option>
+                                                    <% } %>
+                                                <% }); %>
+                                            </select>
                                         </div>
                                         <div class="col-xs-5 text-center">
                                             <a href="https://goo.gl/6YLOhe" target="_blank" class="btn btn-block btn-default">

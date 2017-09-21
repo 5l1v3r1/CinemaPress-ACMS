@@ -4,14 +4,14 @@
  * Module dependencies.
  */
 
-var CP_get = require('../lib/CP_get');
+var CP_get = require('../lib/CP_get.min');
 
 /**
  * Configuration dependencies.
  */
 
-var config  = require('../config/config');
-var modules = require('../config/modules');
+var config  = require('../config/production/config');
+var modules = require('../config/production/modules');
 
 /**
  * Node dependencies.
@@ -37,7 +37,7 @@ var request = require('request');
 
 function indexEpisode(options, callback) {
 
-    if (arguments.length == 1) {
+    if (arguments.length === 1) {
         options = {};
         options.domain = '' + config.domain;
     }
@@ -64,7 +64,7 @@ function indexEpisode(options, callback) {
             options,
             function (err, movies) {
 
-                if (err || !movies[0] || !movies[0].movies || !movies[0].movies.length) {
+                if (err || !movies.length) {
                     return callback(null, null);
                 }
 
@@ -73,13 +73,13 @@ function indexEpisode(options, callback) {
                 result.movies = [];
 
                 for (var i = 0, num1 = list.updates.length; i < num1; i++) {
-                    for (var j = 0, num2 = movies[0].movies.length; j < num2; j++) {
-                        if (parseInt(list.updates[i].serial.kinopoisk_id) == parseInt(movies[0].movies[j].kp_id)) {
+                    for (var j = 0, num2 = movies.length; j < num2; j++) {
+                        if (parseInt(list.updates[i].serial.kinopoisk_id) === parseInt(movies[j].kp_id)) {
 
                             var serial_moon = JSON.stringify(list.updates[i]);
                             serial_moon = JSON.parse(serial_moon);
 
-                            var serial_base = JSON.stringify(movies[0].movies[j]);
+                            var serial_base = JSON.stringify(movies[j]);
                             serial_base = JSON.parse(serial_base);
 
                             var season_num = /season=([0-9]{1,4})/i.exec(serial_moon.episode_iframe_url);
@@ -93,6 +93,7 @@ function indexEpisode(options, callback) {
                             var translate = (serial_moon.serial.translator)
                                 ? serial_moon.serial.translator
                                 : modules.episode.data.default;
+                            var premiere = serial_moon.added_at.slice(0,10);
 
                             season_url = (season_url <= 9) ? '0' + season_url : season_url;
                             episode_url = (episode_url <= 9) ? '0' + episode_url : episode_url;
@@ -101,6 +102,7 @@ function indexEpisode(options, callback) {
                             serial_base.translate = translate;
                             serial_base.season = season_num[1];
                             serial_base.episode = episode_num[1];
+                            serial_base.premiere = premiere;
                             serial_base.url = serial_base.url + '/s' + season_url + 'e' + episode_url + translate_url;
 
                             result.movies.push(serial_base);
@@ -136,11 +138,11 @@ function indexEpisode(options, callback) {
 
         request(url, function (error, response, body) {
 
-            var result = (body) ? JSON.parse(body) : {};
+            var result = (body) ? tryParseJSON(body) : {};
 
             try {
 
-                if (error || response.statusCode != 200 || result.error) {
+                if (error || response.statusCode !== 200 || result.error) {
                     console.log('[modules/CP_episode.js:indexEpisode:getReq] Error:', error, result.error);
                     return callback('Moonwalk request error.');
                 }
@@ -155,6 +157,23 @@ function indexEpisode(options, callback) {
 
         });
 
+    }
+
+    /**
+     * Valid JSON.
+     *
+     * @param {string} jsonString
+     */
+
+    function tryParseJSON(jsonString) {
+        try {
+            var o = JSON.parse(jsonString);
+            if (o && typeof o === 'object') {
+                return o;
+            }
+        }
+        catch (e) { }
+        return {};
     }
 
 }
@@ -190,7 +209,7 @@ function codeEpisode(type) {
 
 function parseEpisode(type, options) {
 
-    if (arguments.length == 1) {
+    if (arguments.length === 1) {
         options = {};
         options.domain = '' + config.domain;
     }
@@ -199,16 +218,16 @@ function parseEpisode(type, options) {
     var execEpisode   = regexpEpisode.exec(type);
 
     var serial = {};
-    serial.season = (execEpisode && execEpisode[1]) ? parseInt(execEpisode[1]) + '' : '';
-    serial.episode = (execEpisode && execEpisode[2]) ? parseInt(execEpisode[2]) + '' : '';
-    serial.translate_id = (execEpisode && execEpisode[4]) ? parseInt(execEpisode[4]) + '' : '';
+    serial.season = (execEpisode && execEpisode[1]) ? ('' + parseInt(execEpisode[1])) : '';
+    serial.episode = (execEpisode && execEpisode[2]) ? ('' + parseInt(execEpisode[2])) : '';
+    serial.translate_id = (execEpisode && execEpisode[4]) ? ('' + parseInt(execEpisode[4])) : '';
     serial.translate = 'Оригинал';
 
-    var translates = require('../config/default/translates.json');
-    if (translates && translates.length) {
-        for (var i = 0, len = translates.length; i < len; i++) {
-            if (parseInt(translates[i].id) == parseInt(serial.translate_id)) {
-                serial.translate = translates[i].name;
+    var translators = require('../files/translators.json');
+    if (translators && translators.length) {
+        for (var i = 0, len = translators.length; i < len; i++) {
+            if (parseInt(translators[i].id) === parseInt(serial.translate_id)) {
+                serial.translate = translators[i].name;
                 break;
             }
         }

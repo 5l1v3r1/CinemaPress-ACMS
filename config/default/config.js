@@ -8,11 +8,13 @@ module.exports = {
     "email": "support@example.com",
     "theme": "default",
     "image": {
-        "addr": "st.kp.yandex.net"
+        "addr": "cdn.cinemapress.org",
+        "size": 120
     },
     "cache": {
         "time": 0,
-        "addr": "127.0.0.1:11211"
+        "addr": "127.0.0.1:11211",
+        "p2p": 0
     },
     "sphinx": {
         "addr": "127.0.0.1:9306"
@@ -45,6 +47,9 @@ module.exports = {
     "default": {
         "count": 15,
         "sorting": "kinopoisk-vote-up",
+        "pages": 4,
+        "lastpage": 0,
+        "image": "/themes/default/public/desktop/img/player.png",
         "votes": {
             "kp": 5000,
             "imdb": 5000
@@ -53,33 +58,33 @@ module.exports = {
     "codes": {
         "head": "",
         "footer": "",
-        "robots": "User-agent: *\nDisallow: /\nDisallow: /type/*/*\nDisallow: /movie/*/*\nDisallow: /year/*/*\nDisallow: /genre/*/*\nDisallow: /country/*/*\nDisallow: /director/*/*\nDisallow: /actor/*/*\nDisallow: /search\nDisallow: /*?sorting*\nDisallow: /admin*"
+        "robots": "User-agent: *\nDisallow: /\nDisallow: /type/*/*\nDisallow: /movie/*/*\nDisallow: /year/*/*\nDisallow: /genre/*/*\nDisallow: /country/*/*\nDisallow: /director/*/*\nDisallow: /actor/*/*\nDisallow: /search\nDisallow: /*?sorting*\nDisallow: /*?tag*\nDisallow: /admin*"
     },
     "index": {
+        "year": {
+            "name": "Фильмы [year] года",
+            "keys": "2017",
+            "sorting": "kinopoisk-vote-up",
+            "count": 10,
+            "order": 1
+        },
         "type": {
             "name": "Лучшие [type] онлайн",
             "keys": "фильмы",
             "sorting": "kinopoisk-rating-up",
-            "count": 10,
-            "order": 1
-        },
-        "year": {
-            "name": "Фильмы [year] года",
-            "keys": "2016",
-            "sorting": "kinopoisk-vote-up",
-            "count": 10,
-            "order": 2
+            "count": 15,
+            "order": 3
         },
         "genre": {
             "name": "Фильмы в жанре [genre]",
-            "keys": "комедия,ужасы",
+            "keys": "комедия",
             "sorting": "imdb-vote-up",
             "count": 10,
-            "order": 3
+            "order": 2
         },
         "country": {
             "name": "Фильмы из страны [country]",
-            "keys": "США",
+            "keys": "",
             "sorting": "imdb-rating-up",
             "count": 10,
             "order": 4
@@ -100,7 +105,7 @@ module.exports = {
         },
         "ids": {
             "name": "Новые фильмы онлайн",
-            "keys": "277328,770631,822708,814016,786958,841152,807318,797840,394619,918087",
+            "keys": "",
             "order": 7
         },
         "count": {
@@ -125,11 +130,11 @@ module.exports = {
         "search": "Поиск фильма [search] [sorting] [page]",
         "num": "на странице [num]",
         "movie": {
-            "movie": "[title_ru]",
-            "online": "[title_ru] онлайн",
-            "download": "[title_ru] скачать",
-            "trailer": "[title_ru] трейлер",
-            "picture": "[title_ru] кадры"
+            "movie": "[title]",
+            "online": "[title] онлайн",
+            "download": "[title] скачать",
+            "trailer": "[title] трейлер",
+            "picture": "[title] кадры"
         },
         "sorting": {
             "kinopoisk-rating-up": "отсортировано по рейтингу КиноПоиска",
@@ -161,11 +166,11 @@ module.exports = {
         "type": "[type]",
         "search" : "Поиск фильма [search]",
         "movie": {
-            "movie": "[title_ru] смотреть онлайн",
-            "online": "[title_ru] смотреть онлайн",
-            "download": "[title_ru] скачать",
-            "trailer": "[title_ru] трейлер",
-            "picture": "[title_ru] кадры"
+            "movie": "[title] смотреть онлайн",
+            "online": "[title] смотреть онлайн",
+            "download": "[title] скачать",
+            "trailer": "[title] трейлер",
+            "picture": "[title] кадры"
         }
     },
     "sorting": {
@@ -186,6 +191,7 @@ module.exports = {
         "prefix_id": "id",
         "unique_id": 0,
         "separator": "-",
+        "translit": 0,
         "movie_url": "[prefix_id][separator][title_ru][separator][title_en]",
         "movie": "movie",
         "year" : "year",

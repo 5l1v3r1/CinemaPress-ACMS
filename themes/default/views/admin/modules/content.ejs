@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>  <html class="ie ie6 lte9 lte8 lte7 no-js"> <![endif]-->
+<!--[if IE 7]>     <html class="ie ie7 lte9 lte8 lte7 no-js"> <![endif]-->
+<!--[if IE 8]>     <html class="ie ie8 lte9 lte8 no-js">      <![endif]-->
+<!--[if IE 9]>     <html class="ie ie9 lte9 no-js">           <![endif]-->
+<!--[if gt IE 9]>  <html class="no-js">                       <![endif]-->
+<!--[if !IE]><!--> <html class="no-js">                   <!--<![endif]-->
+<head>
+
+    <% include ../includes/head.ejs %>
+
+</head>
+<body>
+<div id="container" class="clearfix">
+
+    <% include ../includes/left.ejs %>
+
+    <% include ../includes/right.ejs %>
+
+    <div id="main" class="clearfix">
+
+        <% include ../includes/header.ejs %>
+
+        <div id="content" class="clearfix">
+
+            <header id="header-sec">
+                <div class="inner-padding">
+                    <div class="pull-left">
+                        <h2>
+                            <%- title %>
+                        </h2>
+                    </div>
+                    <div class="pull-right">
+                        <% if (modules.content.status) { %>
+                        <a href="javascript:void(0)" data-module="content" data-status="false" class="btn btn-danger module-status">
+                            <i class="fa fa-power-off"></i>&nbsp;Отключить
+                        </a>
+                        <% } else { %>
+                        <a href="javascript:void(0)" data-module="content" data-status="true" class="btn btn-success module-status">
+                            <i class="fa fa-power-off"></i>&nbsp;Активировать
+                        </a>
+                        <% } %>
+                    </div>
+                </div>
+            </header>
+
+            <div class="window">
+                <div class="actionbar">
+                    <div class="pull-left">
+                        <a href="javascript:void(0)" class="btn" data-toggle-sidebar="left">
+                            <i class="fa fa-chevron-left"></i>
+                        </a>
+                        <a href="/<%- config.urls.admin %>/content" class="btn">
+                            Модуль создания страниц сайта
+                        </a>
+                        <a href="https://CinemaPress.org/admin/content.html" class="btn" title="Информация о параметрах модуля создания страниц сайта" target="_blank">
+                            <i class="fa fa-info-circle text-muted"></i>
+                        </a>
+                    </div>
+                    <div class="pull-right">
+                        <p>
+                            <% if (modules.content.status) { %>
+                            <span class="label label-success">Включен</span>
+                            <% } else { %>
+                            <span class="label label-danger">Отключен</span>
+                            <% } %>
+                        </p>
+                        <a href="javascript:void(0)" class="btn" data-toggle-sidebar="right">
+                            <i class="fa fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="inner-padding">
+
+                    <% if (modules.content.status) { %>
+
+                    <% if (content) { %>
+
+                    <input name="content.id" value="<% if (content.id) { %><%- content.id %><% } %>" type="hidden">
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="advanced-textarea">
+
+                                <div class="text-muted">
+                                    Название страницы:
+                                </div>
+
+                                <div class="spacer-10"></div>
+
+                                <input type="text" class="form-control" name="content.content_title" value="<% if (content.content_title) { %><%= content.content_title %><% } %>" placeholder="Название страницы">
+
+                                <div class="text-muted">
+                                    Описание страницы:
+                                </div>
+
+                                <div class="spacer-10"></div>
+
+                                <textarea class="form-control descriptions" name="content.content_description" placeholder="Описание страницы"><% if (content.content_description) { %><%- content.content_description %><% } %></textarea>
+
+                                <div class="advanced-textarea-footer">
+                                    <div class="pull-left">
+                                        <div class="text text-muted"><span id="content.content_description">0</span> символа(-ов)
+                                        </div>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="javascript:void(0)" data-name="content.content_description" data-code="&#13;&#10;<img src=&quot;ссылка_изображение&quot; style=&quot;float:left;width:250px;margin:20px 20px 20px 0;&quot;>&#13;&#10;" class="btn btn-default codes">
+                                            <i class="fa fa-picture-o"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spacer-10"></div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-link"></i>&nbsp;&nbsp;&nbsp;Уникальный ключ для URL
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/content.html#add" class="csstip" title="Уникальный ключ для URl страницы" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-xs-12 text-center">
+                                            <div class="input-group">
+                                                <span class="input-group-addon text-muted"><%- config.domain + '/' + modules.content.data.url %>/</span>
+                                                <input class="form-control input_url" name="content.content_url" value="<% if (content.content_url) { %><%- content.content_url %><% } %>" placeholder="Уникальное имя для URL" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-image"></i>&nbsp;&nbsp;&nbsp;Ссылка на изображение страницы
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-9 col-xs-9 text-center" id="blockPathImage">
+                                            <input type="text" class="form-control" name="content.content_image" id="textPathImage" value="<%= content.content_image %>" placeholder="Изображение страницы">
+                                        </div>
+                                        <div class="col-lg-3 col-xs-3 text-center" id="blockUploadImage">
+                                            <div class="btn-group" style="float: right; margin: 0;">
+                                                <form id="formUploadImage" enctype="multipart/form-data">
+                                                    <input name="content" id="nameUploadImage" type="file" class="form-control" style="float: left; width: 68px; padding: 0">
+                                                    <input class="btn btn-default" id="submitUploadImage" type="submit" value="Загрузить" style="margin: auto 0 auto 5px; display: none">
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-image"></i>&nbsp;&nbsp;&nbsp;Теги через запятую
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-xs-12 text-center">
+                                            <input type="text" class="form-control" name="content.content_tags" value="<% if (content.content_tags) { %><%- content.content_tags %><% } %>" placeholder="Теги через запятую">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="spacer-10"></div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+
+                            <div class="input-group">
+                                <input class="form-control" type="text" placeholder="ID КиноПоиск фильма или ссылка на фильм" data-add-id="content.content_movies">
+                                <span class="input-group-btn">
+                                    <a href="javascript:void(0)" class="btn btn-default" data-add-name="content.content_movies">
+                                        <span class="fa fa-plus"></span> Добавить фильм
+                                    </a>
+                                </span>
+                            </div>
+
+                            <div class="spacer-10"></div>
+
+                            <div class="advanced-textarea">
+
+                                <div class="thumbs-list thumbs-small">
+                                    <ul data-add-name="content.content_movies">
+                                        <% if (content.content_movies) { %>
+                                        <% content.content_movies.split(',').forEach(function (id) { %>
+                                        <li data-delete-id="<%- id %>" data-delete-name="content.content_movies">
+                                            <img class="media-object" src="https://cdn.cinemapress.org/images/sm_film/<%- id %>.jpg" alt="ID: <%- id %>" title="ID: <%- id %>">
+                                        </li>
+                                        <% }); %>
+                                        <% } %>
+                                    </ul>
+                                </div>
+
+                                <div style="display: none" id="content_ids">
+
+                                    <div class="spacer-10"></div>
+
+                                    <div class="text-muted">
+                                        Фильмы:
+                                    </div>
+
+                                    <div class="spacer-10"></div>
+
+                                    <textarea class="form-control input_ids" name="content.content_movies" placeholder="ID КиноПоиск фильмов"><% if (content.content_movies) { %><%- content.content_movies %><% } %></textarea>
+
+                                    <div class="spacer-10"></div>
+
+                                </div>
+
+                                <div class="advanced-textarea-footer">
+                                    <div class="pull-right">
+                                        <a href="javascript:void(0)" onclick="document.querySelector('#content_ids').style.display = 'block'" class="btn btn-default">
+                                            Редактировать список ID
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% } else { %>
+
+                    <div class="faq">
+                        <article class="faq-group">
+                            <header>
+                                <i class="fa fa-minus"></i>
+                                <h3>Настройка страницы со списком новостей</h3>
+                            </header>
+                            <div class="faq-content clearfix">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="example-box">
+                                            <div class="example-box-header">
+                                                <div class="example-label">
+                                                    <i class="fa fa-link"></i>&nbsp;&nbsp;&nbsp;URL путь
+                                                </div>
+                                                <div class="example-label" style="float: right">
+                                                    <a href="https://CinemaPress.org/admin/content.html#settings" class="csstip" title="Параметр пути в URL" target="_blank">
+                                                        <i class="fa fa-info-circle"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="inner-padding">
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-xs-12 text-center">
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon text-muted"><%- config.domain %>/</span>
+                                                            <input class="form-control input_url" name="modules.content.data.url" value="<%= modules.content.data.url %>" type="text">
+                                                            <span class="input-group-addon text-muted">/avatar-5-vyydet-v-2025-godu</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="spacer-10"></div>
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="advanced-textarea">
+                                            <div class="text-muted">
+                                                Страница со списком страниц <a href="<%- config.protocol + config.domain + '/' + modules.content.data.url %>" style="text-decoration:none;"><span class="fa fa-external-link-square"></span></a> :
+                                            </div>
+
+                                            <div class="spacer-10"></div>
+
+                                            <input type="text" class="form-control" name="modules.content.data.title" value="<%= modules.content.data.title %>" placeholder="Название страницы со списком страниц">
+
+                                            <textarea class="form-control descriptions" name="modules.content.data.description" placeholder="Описание страницы со списком страниц"><%- modules.content.data.description %></textarea>
+
+                                            <div class="advanced-textarea-footer">
+                                                <div class="pull-left">
+                                                    <div class="text text-muted"><span id="modules.content.data.description">0</span> символа(-ов)</div>
+                                                </div>
+                                                <div class="pull-right">
+                                                    <a href="javascript:void(0)" data-name="modules.content.data.description" data-code="&#13;&#10;<img src=&quot;ссылка_изображение&quot; style=&quot;float:left;width:250px;margin:20px 20px 20px 0;&quot;>&#13;&#10;" class="btn btn-default codes">
+                                                        <i class="fa fa-picture-o"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="spacer-10"></div>
+
+                    <div class="faq">
+                        <article class="faq-group">
+                            <header>
+                                <i class="fa fa-minus"></i>
+                                <h3>Блоки новостей на сайте</h3>
+                            </header>
+                            <div class="faq-content clearfix">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="example-box">
+                                            <div class="example-box-header">
+                                                <div class="example-label">
+                                                    <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;Блок новостей в боковой панели
+                                                </div>
+                                                <div class="example-label" style="float: right">
+                                                    <a href="https://CinemaPress.org/admin/content.html#news" class="csstip" title="Блок постов в боковой панели на страницах сайта"
+                                                       target="_blank">
+                                                        <i class="fa fa-info-circle"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="inner-padding">
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <select name="modules.content.data.news.count" class="form-control without">
+                                                            <% for (var i = 0; i <= 20; i++) { %>
+                                                            <% if (modules.content.data.news.count == i) { %>
+                                                            <% if (i === 0) { %>
+                                                            <option value="<%= i %>" selected="selected">
+                                                                Не показывать
+                                                            </option>
+                                                            <% } else { %>
+                                                            <option value="<%= i %>" selected="selected">
+                                                                <%- i %> пост(-ов)
+                                                            </option>
+                                                            <% } %>
+                                                            <% } else { %>
+                                                            <% if (i === 0) { %>
+                                                            <option value="<%= i %>">
+                                                                Не показывать
+                                                            </option>
+                                                            <% } else { %>
+                                                            <option value="<%= i %>">
+                                                                <%- i %> пост(-ов)
+                                                            </option>
+                                                            <% } %>
+                                                            <% } %>
+                                                            <% } %>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-sm-9">
+                                                        <input type="text" name="modules.content.data.news.tags" value="<%= modules.content.data.news.tags %>" class="form-control" placeholder="Теги через запятую">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="spacer-10"></div>
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="example-box">
+                                            <div class="example-box-header">
+                                                <div class="example-label">
+                                                    <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;Блок новостей на странице фильма
+                                                </div>
+                                                <div class="example-label" style="float: right">
+                                                    <a href="https://CinemaPress.org/admin/content.html#content" class="csstip" title="Блок постов в которых указан фильм" target="_blank">
+                                                        <i class="fa fa-info-circle"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="inner-padding">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <select name="modules.content.data.movie.count" class="form-control without">
+                                                            <% for (var i = 0; i <= 20; i++) { %>
+                                                            <% if (modules.content.data.movie.count == i) { %>
+                                                            <% if (i === 0) { %>
+                                                            <option value="<%= i %>" selected="selected">
+                                                                Не показывать
+                                                            </option>
+                                                            <% } else { %>
+                                                            <option value="<%= i %>" selected="selected">
+                                                                <%- i %> пост(-ов)
+                                                            </option>
+                                                            <% } %>
+                                                            <% } else { %>
+                                                            <% if (i === 0) { %>
+                                                            <option value="<%= i %>">
+                                                                Не показывать
+                                                            </option>
+                                                            <% } else { %>
+                                                            <option value="<%= i %>">
+                                                                <%- i %> пост(-ов)
+                                                            </option>
+                                                            <% } %>
+                                                            <% } %>
+                                                            <% } %>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="spacer-10"></div>
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="example-box">
+                                            <div class="example-box-header">
+                                                <div class="example-label">
+                                                    <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;Блок с фильмами из новости на главной
+                                                </div>
+                                                <div class="example-label" style="float: right">
+                                                    <a href="https://CinemaPress.org/admin/content.html#index" class="csstip" title="Блок с фильмами из новости на главной" target="_blank">
+                                                        <i class="fa fa-info-circle"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="inner-padding">
+                                                <div class="row">
+                                                    <div class="col-sm-2">
+                                                        <select name="modules.content.data.index.order" class="form-control without">
+                                                            <% for (var i = 1; i <= 10; i++) { %>
+                                                            <% if (modules.content.data.index.order == i) { %>
+                                                            <option value="<%= i %>" selected="selected">
+                                                                <%- i %>-й
+                                                            </option>
+                                                            <% } else { %>
+                                                            <option value="<%= i %>">
+                                                                <%- i %>-й
+                                                            </option>
+                                                            <% } %>
+                                                            <% } %>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-sm-7">
+                                                        <input type="text" name="modules.content.data.index.url" value="<%= modules.content.data.index.url %>" class="form-control" placeholder="Ключ URL новости с которой брать фильмы (например filmy-pro-vampirov)">
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <select name="modules.content.data.index.count" class="form-control without">
+                                                            <% for (var i = 1; i <= 20; i++) { %>
+                                                            <% if (modules.content.data.index.count == i) { %>
+                                                            <option value="<%= i %>" selected="selected">
+                                                                <%- i %> фильм(-ов)
+                                                            </option>
+                                                            <% } else { %>
+                                                            <option value="<%= i %>">
+                                                                <%- i %> фильм(-ов)
+                                                            </option>
+                                                            <% } %>
+                                                            <% } %>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="spacer-10"></div>
+
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-6">
+                            <a href="/<%- config.urls.admin %>/content?url=_add_" class="btn btn-default btn-block"><span class="fa fa-plus"></span> Добавить страницу</a>
+                        </div>
+                    </div>
+
+                    <% if (contents.length) { %>
+
+                    <div class="spacer-10"></div>
+
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="th-square">
+                                <% if (num-1) { %>
+                                <a href="/<%- config.urls.admin %>/content?num=<%- num-1 %>" class="btn-less" style="margin: 4px;"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                                <% } %>
+                            </th>
+                            <th scope="col" class="text-muted">
+                                Страницы сайта
+                            </th>
+                            <th scope="col" class="th-square">
+                                <% if (next) { %>
+                                <a href="/<%- config.urls.admin %>/content?num=<%- num+1 %>" class="btn-less" style="margin: 4px;"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                                <% } %>
+                            </th>
+                        </tr>
+                        </thead>
+                        <tfoot style="background-color: #272F38;">
+                        <tr>
+                            <th scope="col" class="th-square">
+                                <% if (num-1) { %>
+                                <a href="/<%- config.urls.admin %>/content?num=<%- num-1 %>" class="btn-less" style="margin: 4px;"><i class="fa fa-chevron-left" aria-hidden="true"></i></a>
+                                <% } %>
+                            </th>
+                            <th scope="col" class="text-muted">
+                                Страницы сайта
+                            </th>
+                            <th scope="col" class="th-square">
+                                <% if (next) { %>
+                                <a href="/<%- config.urls.admin %>/content?num=<%- num+1 %>" class="btn-less" style="margin: 4px;"><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                                <% } %>
+                            </th>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                        <% contents.forEach(function(content) { %>
+                        <tr>
+                            <td class="td-highlight">
+                                <a href="javascript:void(0)" data-type="content" data-id="<%- content.id %>" class="btn-less del" style="margin: 4px;"><i class="fa fa-times"></i></a>
+                            </td>
+                            <td>
+                                <%- content.content_title %>&nbsp;<span class="label label-default" style="float: none; padding: 2px 5px;margin: 0;"><%- content.content_tags %></span>&nbsp;<a href="<%- config.protocol + config.domain + '/' + modules.content.data.url + '/' + content.content_url %>" style="text-decoration:none;" target="_blank"><span class="fa fa-external-link-square"></span></a>
+                            </td>
+                            <td class="td-highlight">
+                                <a href="/<%- config.urls.admin %>/content?url=<%- content.content_url %>" class="btn-less" style="margin: 4px;"><i class="fa fa-pencil"></i></a>
+                            </td>
+                        </tr>
+                        <% }); %>
+
+                        </tbody>
+                    </table>
+
+                    <% } %>
+
+                    <% } %>
+
+                    <% } else { %>
+
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="attention-box attention-danger">
+                                <h4>Модуль «<%- title %>» отключен</h4>
+                                <div class="spacer-20"></div>
+                                <p class="text-muted">
+                                    Модуль «<%- title %>» позволяет создавать страницы на сайте.
+                                    <br>
+                                    Чтобы включить модуль, нажмите на кнопку «Активировать» вверху экрана.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% } %>
+
+                </div>
+            </div>
+
+            <% include ../includes/footer.ejs %>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

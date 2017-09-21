@@ -94,11 +94,11 @@
                                             <select name="modules.top.data.count" class="form-control">
                                                 <% for (var i = 1; i <= 20; i++) { %>
                                                 <% if (modules.top.data.count == i) { %>
-                                                <option value="<%- i %>" selected="selected">
+                                                <option value="<%= i %>" selected="selected">
                                                     <%- i %> фильма(ов)
                                                 </option>
                                                 <% } else { %>
-                                                <option value="<%- i %>">
+                                                <option value="<%= i %>">
                                                     <%- i %> фильма(ов)
                                                 </option>
                                                 <% } %>
@@ -109,11 +109,11 @@
                                             <select name="modules.top.data.sorting" class="form-control">
                                                 <% for (name in config.sorting) { %>
                                                 <% if (modules.top.data.sorting == name) { %>
-                                                <option value="<%- name %>" selected="selected">
+                                                <option value="<%= name %>" selected="selected">
                                                     <%- config.sorting[name] %>
                                                 </option>
                                                 <% } else { %>
-                                                <option value="<%- name %>">
+                                                <option value="<%= name %>">
                                                     <%- config.sorting[name] %>
                                                 </option>
                                                 <% } %>

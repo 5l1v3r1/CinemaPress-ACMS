@@ -9,6 +9,8 @@
 
     <% include ../includes/head.ejs %>
 
+    <script src="/themes/default/public/admin/js/jscolor.min.js"></script>
+
 </head>
 <body>
 <div id="container" class="clearfix">
@@ -98,7 +100,23 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-xs-6 text-center">
-                                            <input name="modules.player.data.yohoho.player" value="<%- modules.player.data.yohoho.player %>" class="form-control" type="text" placeholder="Видео-хостинги источники">
+                                            <input name="modules.player.data.yohoho.player" value="<%= modules.player.data.yohoho.player %>" class="form-control" type="text" placeholder="Видео-хостинги источники">
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <div class="col-lg-6 col-xs-6 text-right">
+                                        </div>
+                                        <div class="col-lg-6 col-xs-6 text-center">
+                                            <input name="modules.player.data.yohoho.bg" value="<%= modules.player.data.yohoho.bg %>" class="form-control jscolor {hash:true}" type="text" placeholder="Цвет элементов в плеере">
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <div class="col-lg-6 col-xs-6 text-right">
+                                        </div>
+                                        <div class="col-lg-6 col-xs-6 text-center">
+                                            <input name="modules.player.data.yohoho.button" value="<%= modules.player.data.yohoho.button %>" class="form-control" type="text" placeholder="moonwalk: Плеер, hdgo: Онлайн">
                                         </div>
                                     </div>
                                 </div>
@@ -167,7 +185,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-xs-6 text-center">
-                                            <input name="modules.player.data.moonwalk.token" value="<%- modules.player.data.moonwalk.token %>" class="form-control" type="text" placeholder="Токен-ключ moonwalk.cc">
+                                            <input name="modules.player.data.moonwalk.token" value="<%= modules.player.data.moonwalk.token %>" class="form-control" type="text" placeholder="Токен-ключ moonwalk.cc">
                                         </div>
                                     </div>
                                 </div>
@@ -198,7 +216,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-xs-6 text-center">
-                                            <input name="modules.player.data.hdgo.token" value="<%- modules.player.data.hdgo.token %>" class="form-control" type="text" placeholder="Токен-ключ hdgo.cc">
+                                            <input name="modules.player.data.hdgo.token" value="<%= modules.player.data.hdgo.token %>" class="form-control" type="text" placeholder="Токен-ключ hdgo.cc">
                                         </div>
                                     </div>
                                 </div>
@@ -249,11 +267,11 @@
                             <div class="example-box">
                                 <div class="example-box-header">
                                     <div class="example-label">
-                                        <i class="fa fa-film"></i>&nbsp;&nbsp;&nbsp;Moonlight.cx
+                                        <i class="fa fa-film"></i>&nbsp;&nbsp;&nbsp;YouTube.com
                                     </div>
                                     <div class="example-label" style="float: right">
-                                        <a href="https://CinemaPress.org/admin/player.html#moonlight" class="csstip" title="Указание папки домена, где находится скрипт Moonlight (например <%- config.domain %>/moonlight)"
-                                                target="_blank">
+                                        <a href="https://CinemaPress.org/admin/player.html#youtube" class="csstip" title="Указание токен-ключа YouTube API"
+                                           target="_blank">
                                             <i class="fa fa-info-circle"></i>
                                         </a>
                                     </div>
@@ -261,7 +279,32 @@
                                 <div class="inner-padding">
                                     <div class="row">
                                         <div class="col-lg-12 col-xs-12 text-center">
-                                            <input name="modules.player.data.moonlight.domain" value="<%- modules.player.data.moonlight.domain %>" class="form-control" type="text" placeholder="Ссылка на папку с Moonlight, <%- config.domain %>/moonlight">
+                                            <input name="modules.player.data.youtube.token" value="<%= modules.player.data.youtube.token %>" class="form-control" type="text" placeholder="Токен-ключ YouTube API">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-film"></i>&nbsp;&nbsp;&nbsp;Moonlight.cx
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/player.html#moonlight" class="csstip" title="Указание папки домена, где находится скрипт Moonlight (например <%- config.domain %>/moonlight)"
+                                           target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-xs-12 text-center">
+                                            <input name="modules.player.data.moonlight.domain" value="<%= modules.player.data.moonlight.domain %>" class="form-control" type="text" placeholder="Ссылка на папку с Moonlight, <%- config.domain %>/moonlight">
                                         </div>
                                     </div>
                                 </div>

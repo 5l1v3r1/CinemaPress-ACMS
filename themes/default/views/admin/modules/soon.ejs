@@ -94,11 +94,11 @@
                                             <select name="modules.soon.data.count" class="form-control">
                                                 <% for (var i = 1; i <= 20; i++) { %>
                                                 <% if (modules.soon.data.count == i) { %>
-                                                <option value="<%- i %>" selected="selected">
+                                                <option value="<%= i %>" selected="selected">
                                                     <%- i %> фильм(ов)
                                                 </option>
                                                 <% } else { %>
-                                                <option value="<%- i %>">
+                                                <option value="<%= i %>">
                                                     <%- i %> фильм(ов)
                                                 </option>
                                                 <% } %>
@@ -146,7 +146,7 @@
                                                         <% if (modules.soon.data.movies) { %>
                                                         <% modules.soon.data.movies.forEach(function (id) { %>
                                                         <li data-delete-id="<%- id %>" data-delete-name="modules.soon.data.movies">
-                                                            <img class="media-object" src="https://st.kp.yandex.net/images/sm_film/<%- id %>.jpg" alt="ID: <%- id %>" title="ID: <%- id %>">
+                                                            <img class="media-object" src="https://cdn.cinemapress.org/images/sm_film/<%- id %>.jpg" alt="ID: <%- id %>" title="ID: <%- id %>">
                                                         </li>
                                                         <% }); %>
                                                         <% } %>

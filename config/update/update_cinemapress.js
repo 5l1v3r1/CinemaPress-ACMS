@@ -4,14 +4,14 @@
  * Module dependencies.
  */
 
-var CP_save = require('../lib/CP_save');
+var CP_save = require('../../lib/CP_save');
 
 /**
  * Configuration dependencies.
  */
 
-var config  = require('./config');
-var modules = require('./modules');
+var config  = require('../production/config');
+var modules = require('../production/modules');
 
 /**
  * Node dependencies.
@@ -26,8 +26,8 @@ var fs    = require('fs');
  */
 
 try {
-    fs.statSync(path.join(__dirname, 'default', 'config.js'));
-    fs.statSync(path.join(__dirname, 'default', 'modules.js'));
+    fs.statSync(path.join(__dirname, '..', 'default', 'config.js'));
+    fs.statSync(path.join(__dirname, '..', 'default', 'modules.js'));
 }
 catch(err) {
     return console.log('NOT DEFAULT CONFIG AND MODULES');
@@ -37,8 +37,8 @@ catch(err) {
  * New configuration dependencies.
  */
 
-var config_default  = require('./default/config');
-var modules_default = require('./default/modules');
+var config_default  = require('../default/config');
+var modules_default = require('../default/modules');
 
 function objReplace(obj_new, obj_old) {
 
@@ -115,8 +115,6 @@ async.series({
         if (err) {
             return console.log(err);
         }
-
-        console.log(result);
 
         CP_save.restart(
             function (err, result) {

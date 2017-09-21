@@ -114,11 +114,11 @@
                                                                 <select name="modules.blocking.data.adv.time" class="form-control">
                                                                     <% for (var i = 10; i <= 600; i = i+10) { %>
                                                                     <% if (modules.blocking.data.adv.time == i) { %>
-                                                                    <option value="<%- i %>" selected="selected">
+                                                                    <option value="<%= i %>" selected="selected">
                                                                         <%- i %> секунд
                                                                     </option>
                                                                     <% } else { %>
-                                                                    <option value="<%- i %>">
+                                                                    <option value="<%= i %>">
                                                                         <%- i %> секунд
                                                                     </option>
                                                                     <% } %>
@@ -130,7 +130,7 @@
                                                                 Пропустить:
                                                             </div>
                                                             <div class="col-xs-6">
-                                                                <input type="text" name="modules.blocking.data.adv.skip" value="<%- modules.blocking.data.adv.skip %>" class="form-control">
+                                                                <input type="text" name="modules.blocking.data.adv.skip" value="<%= modules.blocking.data.adv.skip %>" class="form-control">
                                                             </div>
                                                             <div class="spacer-10"></div>
                                                             <div class="col-sm-12">
@@ -236,7 +236,7 @@
                                                                                 plus10.addEventListener('click', function () {
                                                                                     var keys = [];
                                                                                     for (var i = 1; i <= 10; i++) {
-                                                                                        keys.push('CP' + (Math.random() + '').split('.')[1]);
+                                                                                        keys.push('CP' + Math.random().toString().split('.')[1]);
                                                                                     }
                                                                                     var key = document.getElementById('key');
                                                                                     key.value += ',' + keys.join(',');
@@ -296,11 +296,11 @@
                                                                 <select name="modules.blocking.data.share.time" class="form-control">
                                                                     <% for (var i = 10; i <= 600; i = i+10) { %>
                                                                     <% if (modules.blocking.data.share.time == i) { %>
-                                                                    <option value="<%- i %>" selected="selected">
+                                                                    <option value="<%= i %>" selected="selected">
                                                                         <%- i %> секунд
                                                                     </option>
                                                                     <% } else { %>
-                                                                    <option value="<%- i %>">
+                                                                    <option value="<%= i %>">
                                                                         <%- i %> секунд
                                                                     </option>
                                                                     <% } %>
@@ -376,11 +376,11 @@
                                                                 <select name="modules.blocking.data.adblock.time" class="form-control">
                                                                     <% for (var i = 10; i <= 600; i = i+10) { %>
                                                                     <% if (modules.blocking.data.adblock.time == i) { %>
-                                                                    <option value="<%- i %>" selected="selected">
+                                                                    <option value="<%= i %>" selected="selected">
                                                                         <%- i %> секунд
                                                                     </option>
                                                                     <% } else { %>
-                                                                    <option value="<%- i %>">
+                                                                    <option value="<%= i %>">
                                                                         <%- i %> секунд
                                                                     </option>
                                                                     <% } %>
@@ -417,6 +417,107 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-gavel"></i>&nbsp;&nbsp;&nbsp;Легальный киносайт
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/blocking.html#blocking5" class="csstip" title="Показывать только трейлер фильма для легализации киносайта" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-1 col-xs-1 text-center">
+                                            <div class="inline-labels">
+                                                <label style="margin: 5px;">
+                                                    <input name="modules.blocking.data.display" value="legal" <% if (modules.blocking.data.display == 'legal') { %> checked="" <% } %> type="radio"><span></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-11 col-xs-11">
+                                            <div class="faq">
+                                                <article class="faq-group">
+                                                    <header>
+                                                        <i class="fa fa-minus"></i>
+                                                        <h3>Параметры</h3>
+                                                    </header>
+                                                    <div class="faq-content clearfix">
+
+                                                        <div class="row">
+                                                            <div class="col-xs-6">
+                                                                Таймер блокировки:
+                                                            </div>
+                                                            <div class="col-xs-6">
+                                                                <select name="modules.blocking.data.legal.time" class="form-control">
+                                                                    <% for (var i = 0; i <= 600; i = i+10) { %>
+                                                                    <% if (modules.blocking.data.legal.time == i) { %>
+                                                                        <% if (i === 0) { %>
+                                                                        <option value="<%= i %>" selected="selected">
+                                                                            Не показывать
+                                                                        </option>
+                                                                        <% } else { %>
+                                                                        <option value="<%= i %>" selected="selected">
+                                                                            <%- i %> секунд
+                                                                        </option>
+                                                                        <% } %>
+                                                                    <% } else { %>
+                                                                        <% if (i === 0) { %>
+                                                                        <option value="<%= i %>">
+                                                                            Не показывать
+                                                                        </option>
+                                                                        <% } else { %>
+                                                                        <option value="<%= i %>">
+                                                                            <%- i %> секунд
+                                                                        </option>
+                                                                        <% } %>
+                                                                    <% } %>
+                                                                    <% } %>
+                                                                </select>
+                                                            </div>
+                                                            <div class="spacer-10"></div>
+                                                            <div class="col-sm-12">
+                                                                <div class="advanced-textarea">
+
+                                                                    <div class="text-muted">
+                                                                        Сообщение для пользователя:
+                                                                    </div>
+
+                                                                    <div class="spacer-10"></div>
+
+                                                                    <textarea class="form-control textarea" name="modules.blocking.data.legal.message"><%- modules.blocking.data.legal.message %></textarea>
+
+                                                                </div>
+                                                                <div class="helper-text-box">
+                                                                    <p>
+                                                                        Код <code>[timer]</code> отображает обратный отсчет.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="spacer-10"></div>
+                                                            <div class="col-xs-6">
+                                                                Разрешить плеер в странах:
+                                                            </div>
+                                                            <div class="col-xs-6">
+                                                                <input type="text" name="modules.blocking.data.legal.countries" value="<%= modules.blocking.data.legal.countries %>" class="form-control" placeholder="Россия,Украина,Беларусь,Казахстан">
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+                                                </article>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <% } else { %>
@@ -431,7 +532,8 @@
                                     <br>1) Просмотр Вашей рекламы в плеере;
                                     <br>2) Платная подписка;
                                     <br>3) Поделиться фильмом в соц. сети;
-                                    <br>4) Отключение AdBlock на сайте.
+                                    <br>4) Отключение AdBlock на сайте;
+                                    <br>5) Легальный киносайт, показывать только трейлеры.
                                     <br>Чтобы включить модуль, нажмите на кнопку «Активировать» вверху экрана.
                                 </p>
                             </div>

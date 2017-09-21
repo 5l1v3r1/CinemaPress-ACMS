@@ -6,14 +6,16 @@
 
 var CP_structure = require('../../lib/CP_structure');
 var CP_page      = require('../../lib/CP_page');
-var CP_get       = require('../../lib/CP_get');
+var CP_get       = require('../../lib/CP_get.min');
+
+var CP_comments  = require('../../modules/CP_comments');
 
 /**
  * Configuration dependencies.
  */
 
-var config  = require('../../config/config');
-var modules = require('../../config/modules');
+var config  = require('../../config/production/config');
+var modules = require('../../config/production/modules');
 
 /**
  * Node dependencies.
@@ -39,7 +41,7 @@ var async = require('async');
 
 function allCategory(type, options, callback) {
 
-    if (arguments.length == 2) {
+    if (arguments.length === 2) {
         callback = options;
         options = {};
         options.domain = '' + config.domain;
@@ -100,7 +102,7 @@ function allCategory(type, options, callback) {
                     query[category] = '!_empty';
                     return CP_get.movies(
                         query,
-                        1000,
+                        300,
                         'kinopoisk-vote-up',
                         1,
                         false,
@@ -123,25 +125,42 @@ function allCategory(type, options, callback) {
                             if (err) return callback(err);
 
                             return (movies && movies.length)
-                                ? callback(null, movies[0])
-                                : callback(null, null)
+                                ? callback(null, movies)
+                                : callback(null, [])
                         })
-                        : callback(null, null)
+                        : callback(null, [])
                 },
                 "soon": function (callback) {
                     return (modules.soon.status)
                         ? CP_get.additional(
-                        {"all_movies": "_all_"},
+                        {"all_movies": process.env.CP_ALL},
                         'soon',
                         options,
                         function (err, movies) {
                             if (err) return callback(err);
 
                             return (movies && movies.length)
-                                ? callback(null, movies[0])
-                                : callback(null, null)
+                                ? callback(null, movies)
+                                : callback(null, [])
                         })
-                        : callback(null, null)
+                        : callback(null, [])
+                },
+                "news": function (callback) {
+                    return (modules.content.status && modules.content.data.news.tags && modules.content.data.news.count)
+                        ? CP_get.contents(
+                        {"content_tags": modules.content.data.news.tags},
+                        modules.content.data.news.count,
+                        1,
+                        true,
+                        options,
+                        function (err, contents) {
+                            if (err) return callback(err);
+
+                            return (contents && contents.length)
+                                ? callback(null, contents)
+                                : callback(null, [])
+                        })
+                        : callback(null, [])
                 }
             },
             function(err, result) {
@@ -177,7 +196,7 @@ function allCategory(type, options, callback) {
 
 function oneCategory(type, key, page, sorting, options, callback) {
 
-    if (arguments.length == 5) {
+    if (arguments.length === 5) {
         callback = options;
         options = {};
         options.domain = '' + config.domain;
@@ -275,10 +294,10 @@ function oneCategory(type, key, page, sorting, options, callback) {
                             if (err) return callback(err);
 
                             return (movies && movies.length)
-                                ? callback(null, movies[0])
-                                : callback(null, null)
+                                ? callback(null, movies)
+                                : callback(null, [])
                         })
-                        : callback(null, null)
+                        : callback(null, [])
                 },
                 "slider": function (callback) {
                     return (modules.slider.status)
@@ -290,27 +309,74 @@ function oneCategory(type, key, page, sorting, options, callback) {
                             if (err) return callback(err);
 
                             return (movies && movies.length)
-                                ? callback(null, movies[0])
-                                : callback(null, null)
+                                ? callback(null, movies)
+                                : callback(null, [])
                         })
-                        : callback(null, null)
+                        : callback(null, [])
                 },
                 "soon": function (callback) {
                     return (modules.soon.status)
                         ? CP_get.additional(
-                        {"all_movies": "_all_"},
+                        {"all_movies": process.env.CP_ALL},
                         'soon',
                         options,
                         function (err, movies) {
                             if (err) return callback(err);
 
                             return (movies && movies.length)
-                                ? callback(null, movies[0])
-                                : callback(null, null)
+                                ? callback(null, movies)
+                                : callback(null, [])
                         })
-                        : callback(null, null)
+                        : callback(null, [])
+                },
+                "news": function (callback) {
+                    return (modules.content.status && modules.content.data.news.tags && modules.content.data.news.count)
+                        ? CP_get.contents(
+                        {"content_tags": modules.content.data.news.tags},
+                        modules.content.data.news.count,
+                        1,
+                        true,
+                        options,
+                        function (err, contents) {
+                            if (err) return callback(err);
+
+                            return (contents && contents.length)
+                                ? callback(null, contents)
+                                : callback(null, [])
+                        })
+                        : callback(null, [])
+                },
+                "recent": function (callback) {
+                    var service = [];
+                    if (modules.comments.data.disqus.shortname &&
+                        modules.comments.data.disqus.recent.num_items &&
+                        modules.comments.data.disqus.recent.display.indexOf('category')+1) {
+                        service.push('disqus');
+                    }
+                    if (modules.comments.data.hypercomments.widget_id &&
+                        modules.comments.data.hypercomments.recent.num_items &&
+                        modules.comments.data.hypercomments.recent.display.indexOf('category')+1) {
+                        service.push('hypercomments');
+                    }
+                    return (service.length)
+                        ? CP_comments.recent(
+                        service,
+                        function (err, comments) {
+                            if (err) return callback(err);
+
+                            return (comments)
+                                ? callback(null, comments)
+                                : callback(null, [])
+                        })
+                        : callback(null, [])
                 },
                 "count": function (callback) {
+                    if (!config.default.lastpage) {
+                        var pages = (page <= config.default.pages / 2)
+                            ? page + config.default.pages
+                            : page + config.default.pages/2;
+                        return callback(null, pages);
+                    }
                     return CP_get.count(
                         query,
                         sorting,
@@ -328,6 +394,10 @@ function oneCategory(type, key, page, sorting, options, callback) {
             function(err, result) {
 
                 if (err) return callback(err);
+
+                if (!config.default.lastpage && result.movies.length < config.default.count) {
+                    result.count = page;
+                }
 
                 for (var r in result) {
                     if (result.hasOwnProperty(r) && result[r] === null) {

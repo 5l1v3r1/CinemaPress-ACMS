@@ -101,10 +101,10 @@
                                 <i class="fa fa-power-off pull-right" style="color: <% if (modules.related.status) { %>#5CB85C<%  } else { %>#E8443A<% } %>"></i>
                             </a>
                         </li>
-                        <li<% if (type == 'collections') { %> class="page-arrow active-page"<% } %>>
-                            <a href="/<%- config.urls.admin %>/collections">
-                                <i class="fa fa-indent"></i> Коллекции фильмов
-                                <i class="fa fa-power-off pull-right" style="color: <% if (modules.collections.status) { %>#5CB85C<%  } else { %>#E8443A<% } %>"></i>
+                        <li<% if (type == 'content') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/content">
+                                <i class="fa fa-file-text-o"></i> Контент сайта
+                                <i class="fa fa-power-off pull-right" style="color: <% if (modules.content.status) { %>#5CB85C<%  } else { %>#E8443A<% } %>"></i>
                             </a>
                         </li>
                         <li<% if (type == 'slider') { %> class="page-arrow active-page"<% } %>>
@@ -151,7 +151,7 @@
                         </li>
                         <li<% if (type == 'player') { %> class="page-arrow active-page"<% } %>>
                             <a href="/<%- config.urls.admin %>/player">
-                                <i class="fa fa-desktop"></i> Плеер
+                                <i class="fa fa-desktop"></i> Плеер фильмов
                                 <i class="fa fa-power-off pull-right" style="color: <% if (modules.player.status) { %>#5CB85C<%  } else { %>#E8443A<% } %>"></i>
                             </a>
                         </li>
@@ -177,6 +177,30 @@
                             <a href="/<%- config.urls.admin %>/adv">
                                 <i class="fa fa-money"></i> Ваша реклама
                                 <i class="fa fa-power-off pull-right" style="color: <% if (modules.adv.status) { %>#5CB85C<%  } else { %>#E8443A<% } %>"></i>
+                            </a>
+                        </li>
+                        <li<% if (type == 'rss') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/rss">
+                                <i class="fa fa-rss"></i> RSS-канал
+                                <i class="fa fa-power-off pull-right" style="color: <% if (modules.rss.status) { %>#5CB85C<%  } else { %>#E8443A<% } %>"></i>
+                            </a>
+                        </li>
+                        <li<% if (type == 'unique') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/unique">
+                                <i class="fa fa-pencil"></i> Уник. описания
+                                <i class="fa fa-spinner pull-right" style="color: <% if (modules.unique.status) { %>#5CB85C<%  } else { %>#F0AD4E<% } %>"></i>
+                            </a>
+                        </li>
+                        <li<% if (type == 'voting') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/voting">
+                                <i class="fa fa-thumbs-up"></i> Голосование
+                                <i class="fa fa-spinner pull-right" style="color: <% if (modules.voting.status) { %>#5CB85C<%  } else { %>#F0AD4E<% } %>"></i>
+                            </a>
+                        </li>
+                        <li<% if (type == 'bots') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/bots">
+                                <i class="fa fa-telegram"></i> Боты для мессенджеров
+                                <i class="fa fa-spinner pull-right" style="color: <% if (modules.bots.status) { %>#5CB85C<%  } else { %>#F0AD4E<% } %>"></i>
                             </a>
                         </li>
                     </ul>

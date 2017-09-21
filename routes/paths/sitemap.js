@@ -5,14 +5,14 @@
  */
 
 var CP_structure = require('../../lib/CP_structure');
-var CP_get       = require('../../lib/CP_get');
+var CP_get       = require('../../lib/CP_get.min');
 
 /**
  * Configuration dependencies.
  */
 
-var config  = require('../../config/config');
-var modules = require('../../config/modules');
+var config  = require('../../config/production/config');
+var modules = require('../../config/production/modules');
 
 /**
  * Callback.
@@ -34,7 +34,7 @@ function allSitemap(callback) {
     query['year'] = '!_empty';
     return CP_get.movies(
         query,
-        1000,
+        500,
         'kinopoisk-vote-up',
         1,
         false,
@@ -52,10 +52,6 @@ function allSitemap(callback) {
                 }
             }
 
-            var collection = (modules.collections.status)
-                ? modules.collections.data.url
-                : null;
-
             var c = [
                 config.urls.year,
                 config.urls.genre,
@@ -63,7 +59,7 @@ function allSitemap(callback) {
                 config.urls.actor,
                 config.urls.director,
                 config.urls.type,
-                collection
+                modules.content.data.url
             ];
 
             for (var cat in c) {
@@ -152,8 +148,8 @@ function oneSitemap(type, year, callback) {
                         : callback(null, render)
                 });
             break;
-        case (modules.collections.data.url):
-            getCollections(
+        case (modules.content.data.url):
+            getContents(
                 function(err, render) {
                     return (err)
                         ? callback(err)
@@ -210,7 +206,7 @@ function oneSitemap(type, year, callback) {
         query[category] = '!_empty';
         return CP_get.movies(
             query,
-            1000,
+            500,
             'kinopoisk-vote-up',
             1,
             false,
@@ -235,25 +231,34 @@ function oneSitemap(type, year, callback) {
     }
 
     /**
-     * Get collections.
+     * Get contents.
      *
      * @param {Callback} callback
      */
 
-    function getCollections(callback) {
+    function getContents(callback) {
 
         var render = {};
         render.links = [];
 
-        if (modules.collections.status) {
-            for (var collection in modules.collections.data.collections) {
-                if (modules.collections.data.collections.hasOwnProperty(collection)) {
-                    render.links[render.links.length] = config.protocol + config.domain + '/' + modules.collections.data.url + '/' + encodeURIComponent(collection);
-                }
-            }
-        }
+        CP_get.contents(
+            {},
+            500,
+            function (err, contents) {
+                if (err) return callback(err);
 
-        callback(null, render);
+                var render = {};
+                render.links = [];
+
+                for (var content in contents) {
+                    if (contents.hasOwnProperty(content)) {
+                        render.links[render.links.length] = contents[content].url;
+                    }
+                }
+
+                return callback(null, render);
+
+            });
 
     }
 
@@ -266,7 +271,7 @@ function oneSitemap(type, year, callback) {
 
     function getMovies(year, callback) {
 
-        CP_get.movies({"year": year}, 10000, function (err, movies) {
+        CP_get.movies({"year": year}, 2525, function (err, movies) {
 
             if (err) return callback(err);
 
