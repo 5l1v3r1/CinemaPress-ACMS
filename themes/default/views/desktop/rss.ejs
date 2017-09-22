@@ -9,8 +9,8 @@
             <item>
                 <title><%- movie.title %></title>
                 <link><%- movie.url %></link>
-                <description><![CDATA[<img align="left" hspace="5" width="150" src="<%- movie.poster %>"/><%- movie.description %><br />]]></description>
-                <enclosure url="<%- movie.poster %>" type="image/jpeg" />
+                <description><![CDATA[<img align="left" hspace="5" width="150" src="<%- movie.poster_big %>"/><%- movie.description %><br />]]></description>
+                <enclosure url="<%- movie.poster_big %>" type="image/jpeg" />
             </item>
             <% }); %>
     </channel>
