@@ -178,7 +178,7 @@ function recentComments(service, callback) {
             function(callback) {
                 if (!(service.indexOf('disqus')+1)) return callback(null, null);
 
-                var url = 'https://films-online.disqus.com/recent_comments_widget.js?' +
+                var url = 'https://' + modules.comments.data.disqus.shortname + '.disqus.com/recent_comments_widget.js?' +
                     '&num_items=' + modules.comments.data.disqus.recent.num_items +
                     '&hide_avatars=' + modules.comments.data.disqus.recent.hide_avatars +
                     '&excerpt_length=' + modules.comments.data.disqus.recent.excerpt_length +
