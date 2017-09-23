@@ -1,16 +1,16 @@
 {
-  "apps" : [{
-    "name" : "example.com",
-    "script" : "/home/example.com/app.js",
-    "instances" : "max",
-    "exec_mode" : "cluster",
-    "cwd" : "/home/example.com",
-    "error_file" : "/home/example.com/log/err.log",
-    "out_file" : "/home/example.com/log/out.log",
-    "node_args" : "--max-old-space-size=768",
-    "max_memory_restart" : "768M",
-    "watch" : true,
-    "ignore_watch" : [
+  "apps": [{
+    "name": "example.com",
+    "script": "/home/example.com/app.js",
+    "instances": "max",
+    "exec_mode": "cluster",
+    "cwd": "/home/example.com",
+    "error_file": "/home/example.com/log/err.log",
+    "out_file": "/home/example.com/log/out.log",
+    "node_args": "--max-old-space-size=768",
+    "max_memory_restart": "768M",
+    "watch": true,
+    "ignore_watch": [
       "config",
       "files",
       "log",
@@ -22,11 +22,11 @@
       "process.json",
       "package.json"
     ],
-    "watch_options" : {
+    "watch_options": {
       "followSymlinks": false
     },
-    "vizion" : false,
-    "env" : {
+    "vizion": false,
+    "env": {
       "NODE_ENV": "production",
       "CP_ALL": "_example_com_",
       "CP_XMLPIPE2": "xmlpipe2_example_com",

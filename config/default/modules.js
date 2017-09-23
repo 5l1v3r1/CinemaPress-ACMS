@@ -16,7 +16,7 @@ module.exports = {
                 }
             },
             "disqus": {
-                "shortname": "films-online",
+                "shortname": "cinemapress",
                 "recent": {
                     "num_items": 5,
                     "excerpt_length": 250,
