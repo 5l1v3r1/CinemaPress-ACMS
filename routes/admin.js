@@ -6,7 +6,7 @@
 
 var CP_get   = require('../lib/CP_get.min');
 var CP_text  = require('../lib/CP_text');
-var CP_save  = require('../lib/CP_save');
+var CP_save  = require('../lib/CP_save.min');
 var CP_cache = require('../lib/CP_cache');
 
 /**

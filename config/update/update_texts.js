@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var CP_save = require('../../lib/CP_save');
+var CP_save = require('../../lib/CP_save.min');
 
 /**
  * Node dependencies.
