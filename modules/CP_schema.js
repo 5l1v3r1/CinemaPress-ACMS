@@ -136,6 +136,8 @@ function fullMovieSchema(page, movie, movies, options) {
     opengraph += '<meta property="og:video:type" content="video/mp4" />';
     opengraph += '<meta property="video:duration" content="' + (7777 + (movie.title.length*30)) + '" />';
     opengraph += '<meta property="og:image" content="' + movie.picture + '" />';
+    opengraph += '<meta property="og:image:width" content="600" />';
+    opengraph += '<meta property="og:image:height" content="400" />';
     opengraph += (movie.poster.indexOf('http')+1)
         ? '<meta property="og:image" content="' + movie.poster + '" />'
         : '<meta property="og:image" content="//' + config.domain + movie.poster + '" />';
@@ -300,6 +302,8 @@ function categorySchema(page, movies, options) {
     opengraph += '<meta property="og:type" content="website" />';
     opengraph += '<meta property="og:url" content="' + page.url + '" />';
     opengraph += '<meta property="og:image" content="//' + config.domain + config.default.image + '" />';
+    opengraph += '<meta property="og:image:width" content="600" />';
+    opengraph += '<meta property="og:image:height" content="400" />';
 
     return schema + opengraph;
 
@@ -363,6 +367,8 @@ function generalSchema(page, options) {
     opengraph += '<meta property="og:type" content="website" />';
     opengraph += '<meta property="og:url" content="' + config.protocol + options.domain + '" />';
     opengraph += '<meta property="og:image" content="//' + config.domain + config.default.image + '" />';
+    opengraph += '<meta property="og:image:width" content="600" />';
+    opengraph += '<meta property="og:image:height" content="400" />';
 
     return schema + opengraph;
 
@@ -421,6 +427,8 @@ function contentSchema(content, options) {
     opengraph += '<meta property="og:type" content="website" />';
     opengraph += '<meta property="og:url" content="' + result['url'] + '" />';
     opengraph += '<meta property="og:image" content="' + result['image'] + '" />';
+    opengraph += '<meta property="og:image:width" content="600" />';
+    opengraph += '<meta property="og:image:height" content="400" />';
 
     return schema + opengraph;
 
