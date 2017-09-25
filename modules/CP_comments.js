@@ -202,7 +202,7 @@ function recentComments(service, callback) {
                             var r = {};
                             r['url'] = $(elem).find('.dsq-widget-meta a').first().attr('href');
                             r['user'] = $(elem).find('.dsq-widget-user').text();
-                            r['avatar'] = ($(elem).find('.dsq-widget-avatar').attr('src')).replace('ar92', 'ar36');
+                            r['avatar'] = ($(elem).find('.dsq-widget-avatar').attr('src')).replace('/avatar92', '/avatar36');
                             r['title'] = $(elem).find('.dsq-widget-meta a').first().text();
                             r['comment'] = $(elem).find('.dsq-widget-comment').text();
 
