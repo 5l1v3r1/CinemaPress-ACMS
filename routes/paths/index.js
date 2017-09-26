@@ -216,15 +216,17 @@ function dataIndex(options, callback) {
                                 {"query_id": config.index.ids.keys},
                                 'index_ids',
                                 options,
-                                function (err, movies) {
+                                function (err, index_ids) {
                                     if (err) return callback(err);
 
-                                    if (movies && movies.length) {
-                                        movies = sortingIds(config.index.ids.keys.split(','), movies);
+                                    var movies = [];
+                                    if (index_ids && index_ids.length && index_ids[0].movies) {
+                                        movies = sortingIds(config.index.ids.keys.split(','), index_ids[0].movies);
+                                        index_ids[0].movies = movies;
                                     }
 
                                     return (movies && movies.length)
-                                        ? callback(null, movies)
+                                        ? callback(null, index_ids)
                                         : callback(null, [])
                                 })
                                 : callback(null, [])
