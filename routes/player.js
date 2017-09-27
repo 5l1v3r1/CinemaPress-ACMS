@@ -22,10 +22,11 @@ var router  = express.Router();
 
 router.get('/?', function(req, res) {
 
-    var id        = (parseInt(req.query.id))        ? parseInt(req.query.id)        : 0;
-    var season    = (parseInt(req.query.season))    ? parseInt(req.query.season)    : 0;
-    var episode   = (parseInt(req.query.episode))   ? parseInt(req.query.episode)   : 0;
-    var translate = (parseInt(req.query.translate)) ? parseInt(req.query.translate) : null;
+    var id         = (parseInt(req.query.id))         ? parseInt(req.query.id)         : 0;
+    var season     = (parseInt(req.query.season))     ? parseInt(req.query.season)     : 0;
+    var episode    = (parseInt(req.query.episode))    ? parseInt(req.query.episode)    : 0;
+    var translate  = (parseInt(req.query.translate))  ? parseInt(req.query.translate)  : null;
+    var start_time = (parseInt(req.query.start_time)) ? parseInt(req.query.start_time) : 0;
 
     var script = 'function player(){var a=document.querySelector("#yohoho");if(!a)return!1;var b,c,d;b=document.createElement("iframe"),b.setAttribute("id","player-iframe"),b.setAttribute("frameborder","0"),b.setAttribute("allowfullscreen","allowfullscreen"),b.setAttribute("src","iframe-src"),a.appendChild(b),c=parseInt(a.offsetWidth)?parseInt(a.offsetWidth):parseInt(a.parentNode.offsetWidth)?a.parentNode.offsetWidth:610,d=parseInt(a.offsetHeight)&&c/3<parseInt(a.offsetHeight)?parseInt(a.offsetHeight):parseInt(a.parentNode.offsetHeight)&&c/3<parseInt(a.parentNode.offsetHeight)?parseInt(a.parentNode.offsetHeight):c/2;var e="width:"+c+"px;height:"+d+"px";b.setAttribute("style",e),b.setAttribute("width",c),b.setAttribute("height",d),a.setAttribute("style",e)}document.addEventListener("DOMContentLoaded",player);';
 
@@ -163,6 +164,14 @@ router.get('/?', function(req, res) {
                                 iframe_url = getMoonlight(json[i].iframe_url);
                                 added = publish;
                             }
+                        }
+                    }
+                    if (iframe_url && start_time) {
+                        if (iframe_url.indexOf('?')+1) {
+                            iframe_url = iframe_url + '&start_time=' + start_time
+                        }
+                        else {
+                            iframe_url = iframe_url + '?start_time=' + start_time
                         }
                     }
                     iframe = iframe_url;

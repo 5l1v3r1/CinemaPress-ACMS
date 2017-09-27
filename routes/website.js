@@ -72,6 +72,12 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
     options.domain = '' + config.domain;
     options.sub = req.cookies.CP_sub || '';
 
+    req.query.start_time = req.query.start_time || '';
+    if (req.query.start_time &&
+        req.query.start_time.replace(/[^0-9]/g, '')) {
+        options.start_time = req.query.start_time.replace(/[^0-9]/g, '');
+    }
+
     if (modules.adv.status || modules.blocking.status) {
         options.userinfo = {};
         options.userinfo.device = 'desktop';

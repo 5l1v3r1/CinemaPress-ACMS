@@ -116,6 +116,7 @@ function codePlayer(type, movie, options) {
                 'data-episode="' + serial.episode + '" ' +
                 'data-translate="' + serial.translate + '" ' +
                 'data-moonwalk="' + modules.player.data.moonwalk.token + '" ' +
+                'data-start_time="' + options.start_time + '" ' +
                 'data-youtube="' + modules.player.data.youtube.token + '" ' +
                 'data-moonlight="' + modules.player.data.moonlight.domain + '" ' +
                 'data-hdgo="' + modules.player.data.hdgo.token + '"></div>';
@@ -149,6 +150,7 @@ function codePlayer(type, movie, options) {
             'data-episode="' + serial.episode + '" ' +
             'data-translate="' + serial.translate + '" ' +
             'data-moonwalk="' + modules.player.data.moonwalk.token + '" ' +
+            'data-start_time="' + options.start_time + '" ' +
             'data-youtube="' + modules.player.data.youtube.token + '" ' +
             'data-moonlight="' + modules.player.data.moonlight.domain + '" ' +
             'data-hdgo="' + modules.player.data.hdgo.token + '"></div>';
@@ -163,7 +165,8 @@ function codePlayer(type, movie, options) {
                 '&id=' + movie.kp_id +
                 '&season=' + serial.season +
                 '&episode=' + serial.episode +
-                '&translate=' + serial.translate + '"></script>';
+                '&translate=' + serial.translate +
+                '&start_time=' + options.start_time + '"></script>';
         }
 
     }
