@@ -14,7 +14,7 @@
 - [Первые шаги после создания сайта](https://cinemapress.org/article/cinemapress-acms.html)
 - [Что означают опции установочного меню?](https://cinemapress.org/article/opcii-ustanovki-cinemapress-acms.html)
 
-Работает на чистом Debian 7 «Wheezy» (64-bit) или Debian 8 «Jessie» (64-bit) без никаких панелей управления:
+Работает на чистом Debian 8 «Jessie» (64-bit) или Debian 9 «Stretch» (64-bit) без никаких панелей управления:
 
 ```
 ~# wget cinemapress.org/i -qO i && chmod +x i && ./i
@@ -180,4 +180,4 @@
 
 CinemaPress ACMS распространяется под [MIT лицензией](https://github.com/CinemaPress/CinemaPress-ACMS/blob/master/LICENSE.txt).
 
-Copyright (c) 2017 CinemaPress ACMS
+© 2016-2017 CinemaPress ACMS
