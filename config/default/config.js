@@ -106,6 +106,7 @@ module.exports = {
         "ids": {
             "name": "Новые фильмы онлайн",
             "keys": "",
+            "count": 10,
             "order": 7
         },
         "count": {

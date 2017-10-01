@@ -302,6 +302,7 @@
                                                         };
                                                         function jsonPretty() {
                                                             var ugly = document.querySelector('.custom').value;
+                                                            if (!ugly) return;
                                                             var obj = JSON.parse(ugly);
                                                             var pr = JSON.stringify(obj, undefined, 4);
                                                             document.querySelector('.custom').value = pr;

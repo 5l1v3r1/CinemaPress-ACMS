@@ -406,6 +406,31 @@ router.post('/change', function(req, res) {
         "modules" : modules
     };
 
+    if (form.movie && (form.movie.id || form.movie.kp_id)) {
+        var id = form.movie.id || form.movie.kp_id; id = '' + id;
+        var keys = config.index.ids.keys.split(',');
+        var count = config.index.ids.count;
+        if (keys.length) {
+            var i = keys.indexOf(id);
+            if (i+1) keys.splice(i, 1);
+        }
+        if (!form.delete) {
+            keys.unshift(id);
+            keys = keys.slice(0, count);
+        }
+        keys = keys.filter(function(id) {
+            id = id.replace(/[^0-9]/, '');
+            return (id);
+        });
+        form.config = {
+            "index": {
+                "ids": {
+                    "keys": keys.join(',')
+                }
+            }
+        }
+    }
+
     async.series({
             "config": function (callback) {
                 if (!form.config) return callback(null, 'Null');

@@ -98,7 +98,7 @@ function allContents(tag, options, callback) {
                     : callback(null, [])
             },
             "news": function (callback) {
-                return (modules.content.status)
+                return (modules.content.status && modules.content.data.news.tags && modules.content.data.news.count)
                     ? CP_get.contents(
                         {"content_tags": modules.content.data.news.tags},
                         modules.content.data.news.count,
