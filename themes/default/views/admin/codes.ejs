@@ -123,8 +123,9 @@
                                         <div class="col-lg-12 col-xs-12 text-center">
                                             <textarea class="form-control textarea" name="config.codes.robots" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="border-bottom: 0; border-radius: 3px 3px 0 0; height: 260px !important;"><%- config.codes.robots %></textarea>
                                             <div class="text-left" style="background: #272F38; border-radius:0 0 3px 3px; border-top: 0; border-right: 1px solid #222; border-left: 1px solid #222; border-bottom: 1px solid #222; padding: 5px;">
+                                                <% var protocol = (config.protocol === 'https://') ? config.protocol : ''; %>
                                                 <div>
-                                                    Host: <%- config.domain %>
+                                                    Host: <%- protocol + config.domain %>
                                                 </div>
                                                 <div>
                                                     Sitemap: <%- config.protocol + config.domain + '/' + config.urls.sitemap %>
