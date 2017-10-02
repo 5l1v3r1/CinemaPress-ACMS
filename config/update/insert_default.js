@@ -10,8 +10,9 @@ var CP_save = require('../../lib/CP_save.min');
  * Node dependencies.
  */
 
-var path = require('path');
-var fs   = require('fs');
+var async = require('async');
+var path  = require('path');
+var fs    = require('fs');
 
 /**
  * Check files.
@@ -21,7 +22,7 @@ try {
     var data = tryParseJSON(fs.readFileSync(path.join(__dirname, 'default.json'), 'utf8'));
 }
 catch(err) {
-    return console.log('NOT FILE MODULES');
+    return console.log('NOT FILE DEFAULT DATA');
 }
 
 /**
@@ -36,39 +37,34 @@ function tryParseJSON(jsonString) {
         }
     }
     catch (e) { }
-    return null;
+    return {};
 }
 
 if (data.movies && data.movies.length) {
-    data.movies.forEach(function (movie) {
-        sleep2(100);
+    async.eachOfLimit(data.movies, 1, function (movie, key, callback) {
         movie.id = movie.kp_id;
         CP_save.save(
             movie,
             'rt',
             function (err, result) {
-                return (err)
-                    ? console.log(err)
-                    : console.log(result);
+                console.log(err || '', result);
+                return callback();
             });
-    })
+    }, function (err) {
+        console.log(err || 'The movies has been added.');
+    });
 }
 
 if (data.contents && data.contents.length) {
-    data.contents.forEach(function (content) {
-        sleep2(100);
+    async.eachOfLimit(data.contents, 1, function (content, key, callback) {
         CP_save.save(
             content,
             'content',
             function (err, result) {
-                return (err)
-                    ? console.log(err)
-                    : console.log(result);
+                console.log(err || '', result);
+                return callback();
             });
+    }, function (err) {
+        console.log(err || 'The contents has been added.');
     });
-}
-
-function sleep2(ms) {
-    ms += new Date().getTime();
-    while (new Date() < ms){}
 }
