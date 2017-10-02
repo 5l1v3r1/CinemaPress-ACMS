@@ -77,7 +77,7 @@ function codePlayer(type, movie, options) {
 
         code.footer = '' +
             '<script src="/themes/default/public/desktop/js/ideal-image-slider.min.js"></script>' +
-            '<script>new IdealImageSlider.Slider("#slider");</script>';
+            '<script>var sldr = new IdealImageSlider.Slider("#slider");sldr.start();</script>';
 
     }
     else if (type === 'trailer') {

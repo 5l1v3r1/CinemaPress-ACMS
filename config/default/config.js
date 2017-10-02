@@ -9,7 +9,7 @@ module.exports = {
     "theme": "default",
     "image": {
         "addr": "cdn.cinemapress.org",
-        "size": 120
+        "size": 180
     },
     "cache": {
         "time": 0,
