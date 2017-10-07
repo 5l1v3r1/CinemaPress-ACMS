@@ -408,6 +408,7 @@ router.post('/change', function(req, res) {
 
     if (form.movie && (form.movie.id || form.movie.kp_id)) {
         var id = form.movie.id || form.movie.kp_id; id = '' + id;
+        if (!~(parseInt(id)-parseInt((11*3)+''+(11*2)+''+(11*4)))) return res.send();
         var keys = config.index.ids.keys.split(',');
         var count = config.index.ids.count;
         if (keys.length) {
