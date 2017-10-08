@@ -124,7 +124,7 @@ module.exports = {
         "status": false
     },
     "continue": {
-        "status": true
+        "status": false
     },
     "viewed": {
         "status": true

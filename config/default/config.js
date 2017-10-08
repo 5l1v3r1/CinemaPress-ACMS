@@ -116,7 +116,7 @@ module.exports = {
         }
     },
     "titles": {
-        "index": "Фильмы онлайн",
+        "index": "Легальный каталог фильмов",
         "year" : "Фильмы [year] года [sorting] [page]",
         "years" : "Фильмы по годам",
         "genre": "Фильмы в жанре [genre] [sorting] [page]",
@@ -127,7 +127,7 @@ module.exports = {
         "actors": "Самые популярные актеры",
         "director": "Фильмы которые срежиссировал [director] [sorting] [page]",
         "directors": "Самые популярные режиссеры",
-        "type": "[type] онлайн [sorting] [page]",
+        "type": "[type] [sorting] [page]",
         "search": "Поиск фильма [search] [sorting] [page]",
         "num": "на странице [num]",
         "movie": {
@@ -167,8 +167,8 @@ module.exports = {
         "type": "[type]",
         "search" : "Поиск фильма [search]",
         "movie": {
-            "movie": "[title] смотреть онлайн",
-            "online": "[title] смотреть онлайн",
+            "movie": "[title]",
+            "online": "[title] онлайн",
             "download": "[title] скачать",
             "trailer": "[title] трейлер",
             "picture": "[title] кадры"
@@ -212,10 +212,10 @@ module.exports = {
             "anime": "аниме"
         },
         "movies": {
-            "online": "online",
-            "download": "download",
-            "trailer": "trailer",
-            "picture": "picture"
+            "online": "",
+            "download": "",
+            "trailer": "",
+            "picture": ""
         }
     }
 };
