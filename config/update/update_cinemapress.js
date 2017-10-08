@@ -55,7 +55,7 @@ function objReplace(obj_new, obj_old) {
             }
             else {
                 if (typeof obj_new[key] === typeof obj_old[key]) {
-                    if (key === 'addr') continue;
+                    if (key === 'addr' && !process.argv[2]) continue;
                     obj_new[key] = obj_old[key];
                 }
             }
