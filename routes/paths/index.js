@@ -264,7 +264,7 @@ function dataIndex(options, callback) {
                                 : callback(null, [])
                         },
                         "episode": function (callback) {
-                            return (modules.episode.status)
+                            return (modules.episode.status && modules.episode.data.index.count)
                                 ? CP_episode.index(
                                 options,
                                 function (err, movies) {
