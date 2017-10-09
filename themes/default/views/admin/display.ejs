@@ -235,6 +235,117 @@
                                                 <% } %>
                                             </select>
                                         </div>
+                                        <div class="col-sm-6">
+                                            <div>
+                                                <a href="javascript:void(0)" class="csstip text-muted" title="Конечная дата премьер, которые будут показаны при сортировке по дате премьеры или году">
+                                                    <i class="fa fa-info-circle text-muted"></i>
+                                                    Конечная дата:
+                                                </a>
+                                            </div>
+                                            <select name="config.default.days" class="form-control">
+                                                <% for (var i = -35; i <= 728; i = i+7) { %>
+                                                <% if (i === -35) { %>
+                                                <% if (config.default.days == i) { %>
+                                                <option value="<%= i %>" selected="selected">
+                                                    Месяц назад
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%= i %>">
+                                                    Месяц назад
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                                <% else if (i === -7) { %>
+                                                <% if (config.default.days == i) { %>
+                                                <option value="<%= i %>" selected="selected">
+                                                    Неделю назад
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%= i %>">
+                                                    Неделю назад
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                                <% else if (i === 0) { %>
+                                                <% if (config.default.days == i) { %>
+                                                <option value="<%= i %>" selected="selected">
+                                                    Сегодня
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%= i %>">
+                                                    Сегодня
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                                <% else if (i === 7) { %>
+                                                <% if (config.default.days == i) { %>
+                                                <option value="<%= i %>" selected="selected">
+                                                    Через неделю
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%= i %>">
+                                                    Через неделю
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                                <% else if (i === 35) { %>
+                                                <% if (config.default.days == i) { %>
+                                                <option value="<%= i %>" selected="selected">
+                                                    Через месяц
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%= i %>">
+                                                    Через месяц
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                                <% else if (i === 91) { %>
+                                                <% if (config.default.days == i) { %>
+                                                <option value="<%= i %>" selected="selected">
+                                                    Через квартал
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%= i %>">
+                                                    Через квартал
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                                <% else if (i === 182) { %>
+                                                <% if (config.default.days == i) { %>
+                                                <option value="<%= i %>" selected="selected">
+                                                    Через пол года
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%= i %>">
+                                                    Через пол года
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                                <% else if (i === 364) { %>
+                                                <% if (config.default.days == i) { %>
+                                                <option value="<%= i %>" selected="selected">
+                                                    Через год
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%= i %>">
+                                                    Через год
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                                <% else if (i === 364*2) { %>
+                                                <% if (config.default.days == i) { %>
+                                                <option value="<%= i %>" selected="selected">
+                                                    Через 2 года
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%= i %>">
+                                                    Через 2 года
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

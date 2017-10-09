@@ -49,6 +49,7 @@ module.exports = {
         "sorting": "kinopoisk-vote-up",
         "pages": 4,
         "lastpage": 0,
+        "days": 0,
         "image": "/themes/default/public/desktop/img/player.png",
         "votes": {
             "kp": 5000,
