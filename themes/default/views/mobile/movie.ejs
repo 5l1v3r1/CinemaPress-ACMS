@@ -122,6 +122,7 @@
 <div class="clear"></div>
 <% } %>
 
+<% if (page.urls.movies.online || page.urls.movies.download || page.urls.movies.trailer || page.urls.movies.picture) { %>
 <div class="info block" style="text-align: center">
     <% if (page.urls.movies.online) { %>
     <a href="<%- movie.url %>/<%- page.urls.movies.online %>">Онлайн</a>
@@ -145,6 +146,7 @@
     <a href="<%- movie.url %>/<%- page.urls.movies.picture %>">Кадры</a>
     <% } %>
 </div>
+<% } %>
 
 <div class="clear"></div>
 
