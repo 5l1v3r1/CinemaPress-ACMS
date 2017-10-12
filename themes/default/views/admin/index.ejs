@@ -636,15 +636,27 @@
                                         </div>
                                         <div class="col-sm-3">
                                             <select name="config.index.ids.count" class="form-control without">
-                                                <% for (var i = 1; i <= 20; i++) { %>
+                                                <% for (var i = 0; i <= 20; i++) { %>
                                                 <% if (config.index.ids.count == i) { %>
+                                                <% if (i === 0) { %>
+                                                <option value="<%= i %>" selected="selected">
+                                                    Не показывать
+                                                </option>
+                                                <% } else { %>
                                                 <option value="<%= i %>" selected="selected">
                                                     <%- i %> фильма(-ов)
+                                                </option>
+                                                <% } %>
+                                                <% } else { %>
+                                                <% if (i === 0) { %>
+                                                <option value="<%= i %>">
+                                                    Не показывать
                                                 </option>
                                                 <% } else { %>
                                                 <option value="<%= i %>">
                                                     <%- i %> фильма(-ов)
                                                 </option>
+                                                <% } %>
                                                 <% } %>
                                                 <% } %>
                                             </select>

@@ -28,7 +28,7 @@ router.get('/?', function(req, res) {
     var translate  = (parseInt(req.query.translate))  ? parseInt(req.query.translate)  : null;
     var start_time = (parseInt(req.query.start_time)) ? parseInt(req.query.start_time) : 0;
 
-    var script = 'function player(){var a=document.querySelector("#yohoho");if(!a)return!1;var b,c,d;b=document.createElement("iframe"),b.setAttribute("id","player-iframe"),b.setAttribute("frameborder","0"),b.setAttribute("allowfullscreen","allowfullscreen"),b.setAttribute("src","iframe-src"),a.appendChild(b),c=parseInt(a.offsetWidth)?parseInt(a.offsetWidth):parseInt(a.parentNode.offsetWidth)?a.parentNode.offsetWidth:610,d=parseInt(a.offsetHeight)&&c/3<parseInt(a.offsetHeight)?parseInt(a.offsetHeight):parseInt(a.parentNode.offsetHeight)&&c/3<parseInt(a.parentNode.offsetHeight)?parseInt(a.parentNode.offsetHeight):c/2;var e="width:"+c+"px;height:"+d+"px";b.setAttribute("style",e),b.setAttribute("width",c),b.setAttribute("height",d),a.setAttribute("style",e)}document.addEventListener("DOMContentLoaded",player);';
+    var script = 'function player(){var a=document.querySelector("#yohoho");if(!a)return!1;var b,c,d;b=document.createElement("iframe"),b.setAttribute("id","player-iframe"),b.setAttribute("frameborder","0"),b.setAttribute("allowfullscreen","allowfullscreen"),b.setAttribute("src","iframe-src"),a.appendChild(b),c=parseInt(a.offsetWidth)?parseInt(a.offsetWidth):parseInt(a.parentNode.offsetWidth)?a.parentNode.offsetWidth:610,d=parseInt(a.offsetHeight)&&c/3<parseInt(a.offsetHeight)?parseInt(a.offsetHeight):parseInt(a.parentNode.offsetHeight)&&c/3<parseInt(a.parentNode.offsetHeight)?parseInt(a.parentNode.offsetHeight):c/2;var e="width:"+c+"px;height:"+d+"px";b.setAttribute("style",e),b.setAttribute("width",c),b.setAttribute("height",d),a.setAttribute("style",e)}document.addEventListener("DOMContentLoaded",player);document.addEventListener("DOMContentLoaded",function(){var t=document.querySelector("#player-translate");var it="iframe-translate";if(t&&it&&it!=="iframe"+"-"+"translate"){t.innerHTML=it;}var q=document.querySelector("#player-quality");var iq="iframe-quality";if(q&&iq&&iq!=="iframe"+"-"+"quality"){q.innerHTML=iq;}});';
 
     if (req.query.player) {
         res.setHeader('Content-Type', 'application/javascript');
@@ -95,28 +95,46 @@ router.get('/?', function(req, res) {
                     return res.send(err);
                 }
 
-                if (modules.episode.status && season && result['moonwalk']) {
-                    script = script.replace('iframe-src', result['moonwalk']);
+                if (modules.episode.status && season && result['moonwalk'].src) {
+                    script = script
+                        .replace('iframe-src', result['moonwalk'].src)
+                        .replace('iframe-translate', result['moonwalk'].translate.toUpperCase())
+                        .replace('iframe-quality', result['moonwalk'].quality.toUpperCase());
                 }
                 else if (result[modules.player.data.display]) {
                     if (modules.player.data.display === 'yohoho') {
                         script = result['yohoho'];
                     }
                     else {
-                        script = script.replace('iframe-src', result[modules.player.data.display]);
+                        script = script
+                            .replace('iframe-src', result[modules.player.data.display].src)
+                            .replace('iframe-translate', result[modules.player.data.display].translate.toUpperCase())
+                            .replace('iframe-quality', result[modules.player.data.display].quality.toUpperCase());
                     }
                 }
                 else if (result['moonwalk']) {
-                    script = script.replace('iframe-src', result['moonwalk']);
+                    script = script
+                        .replace('iframe-src', result['moonwalk'].src)
+                        .replace('iframe-translate', result['moonwalk'].translate.toUpperCase())
+                        .replace('iframe-quality', result['moonwalk'].quality.toUpperCase());
                 }
                 else if (result['hdgo']) {
-                    script = script.replace('iframe-src', result['hdgo']);
+                    script = script
+                        .replace('iframe-src', result['hdgo'].src)
+                        .replace('iframe-translate', result['hdgo'].translate.toUpperCase())
+                        .replace('iframe-quality', result['hdgo'].quality.toUpperCase());
                 }
                 else if (result['iframe']) {
-                    script = script.replace('iframe-src', result['iframe']);
+                    script = script
+                        .replace('iframe-src', result['iframe'].src)
+                        .replace('iframe-translate', result['iframe'].translate.toUpperCase())
+                        .replace('iframe-quality', result['iframe'].quality.toUpperCase());
                 }
                 else if (result['kodik']) {
-                    script = script.replace('iframe-src', result['kodik']);
+                    script = script
+                        .replace('iframe-src', result['kodik'].src)
+                        .replace('iframe-translate', result['kodik'].translate.toUpperCase())
+                        .replace('iframe-quality', result['kodik'].quality.toUpperCase());
                 }
                 else if (result['yohoho']) {
                     script = result['yohoho'];
@@ -148,13 +166,17 @@ router.get('/?', function(req, res) {
             'api_token=' + modules.player.data.moonwalk.token.trim() + '&' +
             'kinopoisk_id=' + id,
             function (json) {
-                var iframe = '';
+                var iframe_src = '';
+                var iframe_translate = '';
+                var iframe_quality = '';
                 if (json && !json.error && json.length) {
                     var iframe_url = '';
                     var added = 0;
                     for (var i = 0; i < json.length; i++) {
                         if (season && episode && translate === json[i].translator_id) {
                             iframe_url = getMoonlight(json[i].iframe_url) + '?season=' + season + '&episode=' + episode;
+                            iframe_translate = json[i].translator ? json[i].translator : '';
+                            iframe_quality = json[i].source_type ? json[i].source_type : '';
                             break;
                         }
                         else {
@@ -162,6 +184,8 @@ router.get('/?', function(req, res) {
                             var publish = (new Date(d).getTime()/1000);
                             if (publish >= added) {
                                 iframe_url = getMoonlight(json[i].iframe_url);
+                                iframe_translate = json[i].translator ? json[i].translator : '';
+                                iframe_quality = json[i].source_type ? json[i].source_type : '';
                                 added = publish;
                             }
                         }
@@ -174,9 +198,13 @@ router.get('/?', function(req, res) {
                             iframe_url = iframe_url + '?start_time=' + start_time
                         }
                     }
-                    iframe = iframe_url;
+                    iframe_src = iframe_url;
                 }
-                callback(iframe);
+                callback({
+                    "src": iframe_src,
+                    "translate": iframe_translate,
+                    "quality": iframe_quality
+                });
             });
 
         function getMoonlight(iframe_url) {
@@ -212,11 +240,19 @@ router.get('/?', function(req, res) {
             'token=' + modules.player.data.hdgo.token.trim() + '&' +
             'kinopoisk_id=' + id,
             function (json) {
-                var iframe_url = '';
+                var iframe_src = '';
+                var iframe_translate = '';
+                var iframe_quality = '';
                 if (json && !json.error && json.length && json[0].iframe_url) {
-                    iframe_url = json[0].iframe_url.replace('.cc', '.cx').replace('http:', 'https:');
+                    iframe_src = json[0].iframe_url.replace('.cc', '.cx').replace('http:', 'https:');
+                    iframe_translate = json[0].translator ? json[0].translator : '';
+                    iframe_quality = json[0].quality ? json[0].quality : '';
                 }
-                callback(iframe_url);
+                callback({
+                    "src": iframe_src,
+                    "translate": iframe_translate,
+                    "quality": iframe_quality
+                });
             });
 
     }
@@ -227,7 +263,9 @@ router.get('/?', function(req, res) {
 
     function getIframe(callback) {
 
-        var iframe = '';
+        var iframe_src = '';
+        var iframe_translate = '';
+        var iframe_quality = '';
         async.waterfall([
             function(callback) {
                 api('http://iframe.video/api/v1/movies/&' +
@@ -236,14 +274,23 @@ router.get('/?', function(req, res) {
                         if (json && json.total && parseInt(json.total) && json.results) {
                             var key = Object.keys(json.results)[0];
                             if (parseInt(json.results[key].kp_id) === id) {
-                                iframe = json.results[key].path;
+                                iframe_src = json.results[key].path;
+                                var media = (json.results[key].media)
+                                    ? json.results[key].media[Object.keys(json.results[key].media)[Object.keys(json.results[key].media).length-1]]
+                                    : {};
+                                iframe_translate = media.translation ? media.translation : '';
+                                iframe_quality = media.source ? media.source : '';
                             }
                         }
-                        callback(null, iframe);
+                        callback(null, {
+                            "src": iframe_src,
+                            "translate": iframe_translate,
+                            "quality": iframe_quality
+                        });
                     });
             },
             function(iframe, callback) {
-                if (iframe) {
+                if (iframe.src) {
                     return callback(null, iframe);
                 }
                 api('http://iframe.video/api/v1/tv-series/&' +
@@ -252,14 +299,23 @@ router.get('/?', function(req, res) {
                         if (json && json.total && parseInt(json.total) && json.results) {
                             var key = Object.keys(json.results)[0];
                             if (parseInt(json.results[key].kp_id) === id) {
-                                iframe = json.results[key].path;
+                                iframe_src = json.results[key].path;
+                                var media = (json.results[key].media)
+                                    ? json.results[key].media[Object.keys(json.results[key].media)[Object.keys(json.results[key].media).length-1]]
+                                    : {};
+                                iframe_translate = media.translation ? media.translation : '';
+                                iframe_quality = media.source ? media.source : '';
                             }
                         }
-                        callback(null, iframe);
+                        callback(null, {
+                            "src": iframe_src,
+                            "translate": iframe_translate,
+                            "quality": iframe_quality
+                        });
                     });
             },
             function(iframe, callback) {
-                if (iframe) {
+                if (iframe.src) {
                     return callback(null, iframe);
                 }
                 api('http://iframe.video/api/v1/tv/&' +
@@ -268,14 +324,23 @@ router.get('/?', function(req, res) {
                         if (json && json.total && parseInt(json.total) && json.results) {
                             var key = Object.keys(json.results)[0];
                             if (parseInt(json.results[key].kp_id) === id) {
-                                iframe = json.results[key].path;
+                                iframe_src = json.results[key].path;
+                                var media = (json.results[key].media)
+                                    ? json.results[key].media[Object.keys(json.results[key].media)[Object.keys(json.results[key].media).length-1]]
+                                    : {};
+                                iframe_translate = media.translation ? media.translation : '';
+                                iframe_quality = media.source ? media.source : '';
                             }
                         }
-                        callback(null, iframe);
+                        callback(null, {
+                            "src": iframe_src,
+                            "translate": iframe_translate,
+                            "quality": iframe_quality
+                        });
                     });
             }
-        ], function (err, iframe) {
-            callback(iframe);
+        ], function (err, result) {
+            callback(result);
         });
 
     }
@@ -289,12 +354,16 @@ router.get('/?', function(req, res) {
         api('http://kodik.cc/api.js?' +
             'kp_id=' + id,
             function (json, body) {
-                var iframe_url = '';
+                var iframe_src = '';
                 var matches = /(\/\/kodik\.cc\/[a-z]{1,10}\/[0-9]{1,7}\/[a-z0-9]{5,50}\/[a-z0-9]{1,10})/i.exec(body);
                 if (matches && matches[1]) {
-                    iframe_url = matches[1];
+                    iframe_src = matches[1];
                 }
-                callback(iframe_url);
+                callback({
+                    "src": iframe_src,
+                    "translate": '',
+                    "quality": ''
+                });
             });
 
     }

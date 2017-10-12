@@ -9,17 +9,15 @@
 
 <% include includes/header.ejs %>
 
-<% if (typeof index == 'object') { for (var type in index) { if (index.hasOwnProperty(type)) { %>
-
-<% if (index[type].length) { %>
-
-<% index[type].forEach(function (category) { %>
+<% if (typeof index == 'object') {
+    for (var type in index) {
+        if (index.hasOwnProperty(type) && index[type].length) {
+            index[type].forEach(function (category) { %>
 
 <h2><%- category.name %></h2>
 
-<% if (category.movies.length) { %>
-
-<% category.movies.forEach(function (movie) { %>
+<% if (category.movies.length) {
+    category.movies.forEach(function (movie) { %>
 
 <div class="clear"></div>
 
@@ -96,17 +94,7 @@
     <%- movie.description_short %>...
 </div>
 
-<% } %>
-
-<% }); %>
-
-<% } %>
-
-<% }); %>
-
-<% } %>
-
-<% } } } %>
+<% } }); } }); } } } %>
 
 <% if (typeof page.pagination === 'object') { %>
 <div class="info block pagination" style="text-align: center">

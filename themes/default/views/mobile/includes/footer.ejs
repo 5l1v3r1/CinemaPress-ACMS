@@ -15,6 +15,39 @@
 <div class="clear"></div>
 <% } %>
 
+<% if (typeof recent === 'object' && recent.length) { %>
+<% recent.forEach(function (comment) { %>
+<div style="margin: 10px;">
+    <div class="cinemapress-recent">
+        <div class="cinemapress-recent-head">
+            <% if (comment.avatar) { %>
+            <div class="cinemapress-recent-head-avatar">
+                <img src="<%- comment.avatar %>" alt="<%- comment.user %>">
+            </div>
+            <% } %>
+            <div class="cinemapress-recent-head-meta">
+                <div>
+                    <a href="<%- comment.url %>"><%- comment.title %></a>
+                </div>
+                <div>
+                        <span>
+                            <%- comment.user %>
+                        </span><span>
+                            сказал(а)
+                        </span><span>
+                            <%- comment.date %>
+                        </span>
+                </div>
+            </div>
+        </div>
+        <div class="cinemapress-recent-comment">
+            <%- comment.comment %>
+        </div>
+    </div>
+</div>
+<% }); %>
+<% } %>
+
 <% if (typeof page.adv == 'object' && page.adv.bottom) { %>
 <div style="text-align: center; margin: 10px auto;">
     <%- page.adv.bottom %>
