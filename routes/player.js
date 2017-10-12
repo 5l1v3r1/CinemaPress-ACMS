@@ -45,7 +45,7 @@ router.get('/?', function(req, res) {
                         });
                     }
                     else {
-                        callback(null, '');
+                        callback(null, {});
                     }
                 },
                 "hdgo": function (callback) {
@@ -55,7 +55,7 @@ router.get('/?', function(req, res) {
                         });
                     }
                     else {
-                        callback(null, '');
+                        callback(null, {});
                     }
                 },
                 "iframe": function (callback) {
@@ -65,7 +65,7 @@ router.get('/?', function(req, res) {
                         });
                     }
                     else {
-                        callback(null, '');
+                        callback(null, {});
                     }
                 },
                 "kodik": function (callback) {
@@ -75,7 +75,7 @@ router.get('/?', function(req, res) {
                         });
                     }
                     else {
-                        callback(null, '');
+                        callback(null, {});
                     }
                 },
                 "yohoho": function (callback) {
@@ -85,7 +85,7 @@ router.get('/?', function(req, res) {
                         });
                     }
                     else {
-                        callback(null, '');
+                        callback(null, {});
                     }
                 }
             },
@@ -101,9 +101,9 @@ router.get('/?', function(req, res) {
                         .replace('iframe-translate', result['moonwalk'].translate.toUpperCase())
                         .replace('iframe-quality', result['moonwalk'].quality.toUpperCase());
                 }
-                else if (result[modules.player.data.display]) {
+                else if (result[modules.player.data.display].src) {
                     if (modules.player.data.display === 'yohoho') {
-                        script = result['yohoho'];
+                        script = result['yohoho'].src;
                     }
                     else {
                         script = script
@@ -112,32 +112,32 @@ router.get('/?', function(req, res) {
                             .replace('iframe-quality', result[modules.player.data.display].quality.toUpperCase());
                     }
                 }
-                else if (result['moonwalk']) {
+                else if (result['moonwalk'].src) {
                     script = script
                         .replace('iframe-src', result['moonwalk'].src)
                         .replace('iframe-translate', result['moonwalk'].translate.toUpperCase())
                         .replace('iframe-quality', result['moonwalk'].quality.toUpperCase());
                 }
-                else if (result['hdgo']) {
+                else if (result['hdgo'].src) {
                     script = script
                         .replace('iframe-src', result['hdgo'].src)
                         .replace('iframe-translate', result['hdgo'].translate.toUpperCase())
                         .replace('iframe-quality', result['hdgo'].quality.toUpperCase());
                 }
-                else if (result['iframe']) {
+                else if (result['iframe'].src) {
                     script = script
                         .replace('iframe-src', result['iframe'].src)
                         .replace('iframe-translate', result['iframe'].translate.toUpperCase())
                         .replace('iframe-quality', result['iframe'].quality.toUpperCase());
                 }
-                else if (result['kodik']) {
+                else if (result['kodik'].src) {
                     script = script
                         .replace('iframe-src', result['kodik'].src)
                         .replace('iframe-translate', result['kodik'].translate.toUpperCase())
                         .replace('iframe-quality', result['kodik'].quality.toUpperCase());
                 }
-                else if (result['yohoho']) {
-                    script = result['yohoho'];
+                else if (result['yohoho'].src) {
+                    script = result['yohoho'].src;
                 }
                 else {
                     script = '';
@@ -361,8 +361,8 @@ router.get('/?', function(req, res) {
                 }
                 callback({
                     "src": iframe_src,
-                    "translate": '',
-                    "quality": ''
+                    "translate": "",
+                    "quality": ""
                 });
             });
 
@@ -376,7 +376,11 @@ router.get('/?', function(req, res) {
 
         api('https://yohoho.cc/yo.js',
             function (json, body) {
-                callback(body);
+                callback({
+                    "src": body,
+                    "translate": "",
+                    "quality": ""
+                });
             });
 
     }
