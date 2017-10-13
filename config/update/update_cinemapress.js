@@ -118,6 +118,7 @@ async.series({
         }
 
         CP_save.restart(
+            true,
             function (err, result) {
                 return (err)
                     ? console.log(err)
