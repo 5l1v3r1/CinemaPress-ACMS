@@ -129,7 +129,7 @@ function codePlayer(type, movie, options) {
             yohohoPlayer();
         }
 
-        code = CP_blocking.code(code, options);
+        code = CP_blocking.code(code, movie, options);
 
     }
 

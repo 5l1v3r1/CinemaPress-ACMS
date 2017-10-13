@@ -1,6 +1,12 @@
 'use strict';
 
 /**
+ * Module dependencies.
+ */
+
+var CP_text = require('../lib/CP_text');
+
+/**
  * Configuration dependencies.
  */
 
@@ -11,11 +17,12 @@ var modules = require('../config/production/modules');
  * Blocking a page player.
  *
  * @param {Object} code
+ * @param {Object} [movie]
  * @param {Object} [options]
  * @return {Object}
  */
 
-function blockingPlayer(code, options) {
+function blockingPlayer(code, movie, options) {
 
     if (arguments.length === 1) {
         options = {};
@@ -27,6 +34,7 @@ function blockingPlayer(code, options) {
         var block = modules.blocking.data[modules.blocking.data.display];
 
         var message = block.message.replace('[timer]', '<span id="blockingTimer" style="background:#000;color:#fff;padding:2px 7px 0;border-radius:3px;border:1px solid #666;font-family:monospace,sans-serif">--</span>');
+        message = CP_text.formatting(message, movie);
 
         if (modules.blocking.data.display === 'share') {
 
@@ -65,6 +73,7 @@ function blockingPlayer(code, options) {
                     ? '<div id="blocking" style="position:absolute;background:#000 url(' + config.default.image + ') 100% 100% no-repeat;background-size:100% 100%;z-index:998;top:0;left:0;width:100%;height:100%;color:#fff;text-align:center"><div id="blockingMessage" style="margin:80px auto 0;width:70%">' + message + '</div></div><script>window.addEventListener("load",function(){var e=document.getElementById("blockingTimer"),n=' + block.time + ';var si=setInterval(function(){if(e.innerHTML=""+n,n=parseInt(n),n--,0>n){var t=document.getElementById("blocking");t.parentElement.removeChild(t);clearInterval(si)}},1e3);});</script>' + code.player.replace(/data-player="[a-z0-9,\s]*?"/i, 'data-player="trailer"')
                     : code.player.replace(/data-player="[a-z0-9,\s]*?"/i, 'data-player="trailer"');
                 code.footer = code.footer.replace(/\?player=.*?"/i, '"').replace(/\?&id=.*?"/i, '"');
+                code.footer = code.footer + "<style>.search-ggl span.g{color:#4285F4}.search-ggl span.o:nth-child(2){color:#EA4335}.search-ggl span.o:nth-child(3){color:#FBBC05}.search-ggl span.l{color:#34A853}.search-ggl span.e{color:#EA4335}.search-ynd span.y{color:#FF0000}.search-ggl, .search-ynd{float:left;width:50%;background:#333;padding:10px 0;cursor:pointer;text-align:center;color:#fff;}.search-ggl:hover, .search-ynd:hover{background:#444;}div.search-ggl{border-radius:5px 0 0 5px;}div.search-ynd{border-radius:0 5px 5px 0;}</style>";
 
             }
 
