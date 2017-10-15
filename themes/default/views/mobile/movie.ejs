@@ -20,7 +20,7 @@
         <img src="<%- movie.poster_min %>" alt="<%= movie.title %> (<%- movie.year %>) смотреть онлайн" title="<%= movie.title %> (<%- movie.year %>)">
     </a>
 </div>
-<h3><%- page.title %></h3>
+<h3><%= page.title %></h3>
 
 <% if (movie.year_url) { %>
 
@@ -202,9 +202,9 @@
 <div class="cinemapress-news-block">
     <div style="margin: 0; padding: 10px">
         <a href="<%- content.url %>" class="cinemapress-news">
-            <img src="<%- content.image %>" class="cinemapress-news-image" alt="<%- content.title %>" style="height: 200px">
+            <img src="<%- content.image %>" class="cinemapress-news-image" alt="<%= content.title %>" style="height: 200px">
             <div class="cinemapress-news-title">
-                <%- content.title %>
+                <%= content.title %>
             </div>
         </a>
     </div>

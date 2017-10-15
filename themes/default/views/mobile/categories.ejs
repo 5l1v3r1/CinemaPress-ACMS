@@ -10,12 +10,12 @@
 <% include includes/header.ejs %>
 
 <div class="info">
-    <a href="/">Главная</a> » <%- page.title %>
+    <a href="/">Главная</a> » <%= page.title %>
 </div>
 
 <div class="clear"></div>
 
-<h2><%- page.title %></h2>
+<h2><%= page.title %></h2>
 
 <% if (typeof categories == 'object' && categories.length) { %>
 
