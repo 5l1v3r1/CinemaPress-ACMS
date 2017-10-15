@@ -77,10 +77,10 @@
 
 <div class="poster">
     <a href="<%- movie.url %>">
-        <img src="<%- movie.poster_min %>" alt="<%- movie.title %> (<%- movie.year %>) смотреть онлайн" title="<%- movie.title %> (<%- movie.year %>)">
+        <img src="<%- movie.poster_min %>" alt="<%= movie.title %> (<%- movie.year %>) смотреть онлайн" title="<%= movie.title %> (<%- movie.year %>)">
     </a>
 </div>
-<h3><a href="<%- movie.url %>"><%- movie.title %> (<%- movie.year %>) <% if (movie.season) { %> <%- movie.season %> сезон <% } %> <% if (movie.episode) { %> <%- movie.episode %> серия<% } %> <% if (movie.translate) { %> <%- movie.translate %> <% } %> смотреть онлайн</a></h3>
+<h3><a href="<%- movie.url %>"><%= movie.title %> (<%- movie.year %>) <% if (movie.season) { %> <%- movie.season %> сезон <% } %> <% if (movie.episode) { %> <%- movie.episode %> серия<% } %> <% if (movie.translate) { %> <%- movie.translate %> <% } %> смотреть онлайн</a></h3>
 
 <% if (movie.year_url) { %>
 

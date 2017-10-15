@@ -10,14 +10,14 @@
 <% include includes/header.ejs %>
 
 <div class="info">
-    <a href="/">Главная</a> » <%- movie.genre_url %> » <%- movie.title %>
+    <a href="/">Главная</a> » <%- movie.genre_url %> » <%= movie.title %>
 </div>
 
 <div class="clear"></div>
 
 <div class="poster">
     <a href="<%- movie.url %>">
-        <img src="<%- movie.poster_min %>" alt="<%- movie.title %> (<%- movie.year %>) смотреть онлайн" title="<%- movie.title %> (<%- movie.year %>)">
+        <img src="<%- movie.poster_min %>" alt="<%= movie.title %> (<%- movie.year %>) смотреть онлайн" title="<%= movie.title %> (<%- movie.year %>)">
     </a>
 </div>
 <h3><%- page.title %></h3>
@@ -238,8 +238,8 @@ movies[type].forEach(function (category) { %>
     <% if (category.movies.length) {
     category.movies.forEach(function (movie) { %>
 
-    <a href="<%- movie.url %>" title="<%- movie.title %> (<%- movie.year %>)">
-        <%- movie.title %> (<%- movie.year %>)
+    <a href="<%- movie.url %>" title="<%= movie.title %> (<%- movie.year %>)">
+        <%= movie.title %> (<%- movie.year %>)
     </a>
 
     <div class="clear"></div>
