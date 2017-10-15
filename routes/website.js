@@ -509,19 +509,27 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
 
                     if (err) console.log('[renderData] Render Error:', err);
 
+                    var h = '';
+
                     if (template !== 'desktop/sitemap' && (config.cache.time || config.cache.p2p)) {
-                        html = minify(html, {
-                            removeComments: true,
-                            removeCommentsFromCDATA: true,
-                            collapseWhitespace: true,
-                            collapseBooleanAttributes: true,
-                            removeRedundantAttributes: true,
-                            useShortDoctype: true,
-                            removeAttributeQuotes: true,
-                            removeEmptyAttributes: true,
-                            minifyCSS: true,
-                            minifyJS: true
-                        });
+                        try {
+                            h = minify(html, {
+                                removeComments: true,
+                                removeCommentsFromCDATA: true,
+                                collapseWhitespace: true,
+                                collapseBooleanAttributes: true,
+                                removeRedundantAttributes: true,
+                                useShortDoctype: true,
+                                removeAttributeQuotes: true,
+                                removeEmptyAttributes: true,
+                                minifyCSS: true,
+                                minifyJS: true
+                            });
+                        } catch (err) {
+                            h = html;
+                            console.log('[minifyData] Minify Error:', err);
+                        }
+                        html = h;
                     }
 
                     res.send(html);
