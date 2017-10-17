@@ -56,6 +56,7 @@ function objReplace(obj_new, obj_old) {
             else {
                 if (typeof obj_new[key] === typeof obj_old[key]) {
                     if (key === 'addr' && !process.argv[2]) continue;
+                    if (key === 'protocol' && !process.argv[2]) continue;
                     obj_new[key] = obj_old[key];
                 }
             }
@@ -117,12 +118,10 @@ async.series({
             return console.log(err);
         }
 
-        CP_save.restart(
-            true,
-            function (err, result) {
-                return (err)
-                    ? console.log(err)
-                    : console.log(result)
-            });
+        CP_save.restart(true, function (err, result) {
+            return (err)
+                ? console.log(err)
+                : console.log(result)
+        });
 
     });

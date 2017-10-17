@@ -574,10 +574,10 @@ router.post('/change', function(req, res) {
             },
             "restart": function (callback) {
                 if (!form.restart) return callback(null, 'Null');
-                CP_save.restart(true, function (err) {
+                CP_save.restart(true, function (err, result) {
                     return (err)
                         ? callback(err)
-                        : callback(null, 'Restart');
+                        : callback(null, result);
                 });
             }
         },
