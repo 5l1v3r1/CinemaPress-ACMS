@@ -479,10 +479,7 @@ router.post('/change', function(req, res) {
                     : (form.movie.kp_id)
                     ? form.movie.kp_id
                     : 0;
-                if (
-                    !form.movie.id ||
-                    (!form.movie.title_ru && !form.movie.title_en)
-                ) return callback(null, 'Null');
+                if (!form.movie.id) return callback(null, 'Null');
                 form.movie.search = (form.movie.title_ru)
                     ? form.movie.title_ru + ((form.movie.title_en) ? ' / ' + form.movie.title_en : '')
                     : (form.movie.title_en)
