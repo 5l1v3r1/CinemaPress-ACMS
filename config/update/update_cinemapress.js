@@ -28,6 +28,9 @@ var fs    = require('fs');
 try {
     fs.statSync(path.join(__dirname, '..', 'default', 'config.js'));
     fs.statSync(path.join(__dirname, '..', 'default', 'modules.js'));
+    if (process.argv[2]) {
+        fs.statSync(process.argv[2]);
+    }
 }
 catch(err) {
     return console.log('NOT DEFAULT CONFIG AND MODULES');
@@ -40,7 +43,9 @@ catch(err) {
 var config_default  = require('../default/config');
 var modules_default = require('../default/modules');
 
-function objReplace(obj_new, obj_old) {
+var config_old = (process.argv[2]) ? require(process.argv[2]) : {};
+
+function objReplace(obj_new, obj_old, port) {
 
     obj_new = JSON.stringify(obj_new);
     obj_new = JSON.parse(obj_new);
@@ -54,10 +59,15 @@ function objReplace(obj_new, obj_old) {
                 obj_new[key] = objReplace(obj_new[key], obj_old[key]);
             }
             else {
-                if (typeof obj_new[key] === typeof obj_old[key]) {
-                    if (key === 'addr' && !process.argv[2]) continue;
-                    if (key === 'protocol' && !process.argv[2]) continue;
-                    obj_new[key] = obj_old[key];
+                if (port) {
+                    if (typeof obj_new[key] === typeof obj_old[key] && (key === 'addr')) {
+                        obj_new[key] = obj_old[key];
+                    }
+                }
+                else {
+                    if (typeof obj_new[key] === typeof obj_old[key]) {
+                        obj_new[key] = obj_old[key];
+                    }
                 }
             }
         }
@@ -93,7 +103,7 @@ function objAdd(obj_new, obj_old) {
 async.series({
         "config": function (callback) {
             CP_save.save(
-                objAdd(objReplace(config_default, config), config),
+                objAdd(objReplace(objReplace(config_default, config_old, true), config), config),
                 'config',
                 function (err, result) {
                     return (err)

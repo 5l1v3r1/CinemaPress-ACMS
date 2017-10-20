@@ -73,9 +73,17 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
     options.sub = req.cookies.CP_sub || '';
 
     req.query.start_time = req.query.start_time || '';
+    options.start_time = '';
     if (req.query.start_time &&
-        req.query.start_time.replace(/[^0-9]/g, '')) {
-        options.start_time = req.query.start_time.replace(/[^0-9]/g, '');
+        req.query.start_time.replace(/[^0-9]/ig, '')) {
+        options.start_time = req.query.start_time.replace(/[^0-9]/ig, '');
+    }
+
+    req.query.start_episode = req.query.start_episode || '';
+    options.start_episode = '';
+    if (req.query.start_episode &&
+        req.query.start_episode.replace(/[^0-9a-z|]/ig, '')) {
+        options.start_episode = req.query.start_episode.replace(/[^0-9a-z|]/ig, '');
     }
 
     if (modules.adv.status || modules.blocking.status) {

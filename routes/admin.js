@@ -479,7 +479,15 @@ router.post('/change', function(req, res) {
                     : (form.movie.kp_id)
                     ? form.movie.kp_id
                     : 0;
-                if (!form.movie.id) return callback(null, 'Null');
+                if (
+                    !form.movie.id ||
+                    (!form.movie.title_ru && !form.movie.title_en)
+                ) return callback(null, 'Null');
+                form.movie.search = (form.movie.title_ru)
+                    ? form.movie.title_ru + ((form.movie.title_en) ? ' / ' + form.movie.title_en : '')
+                    : (form.movie.title_en)
+                        ? form.movie.title_en
+                        : '';
                 var premiereDate = new Date(form.movie.premiere);
                 form.movie.premiere = ((premiereDate.getTime() / 1000 / 60 / 60 / 24) + 719527) + '';
                 addMovie(form.movie, function (err, result) {

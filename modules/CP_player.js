@@ -117,6 +117,7 @@ function codePlayer(type, movie, options) {
                 'data-translate="' + serial.translate + '" ' +
                 'data-moonwalk="' + modules.player.data.moonwalk.token + '" ' +
                 'data-start_time="' + options.start_time + '" ' +
+                'data-start_episode="' + options.start_episode + '" ' +
                 'data-youtube="' + modules.player.data.youtube.token + '" ' +
                 'data-moonlight="' + modules.player.data.moonlight.domain + '" ' +
                 'data-hdgo="' + modules.player.data.hdgo.token + '"></div>';
@@ -151,6 +152,7 @@ function codePlayer(type, movie, options) {
             'data-translate="' + serial.translate + '" ' +
             'data-moonwalk="' + modules.player.data.moonwalk.token + '" ' +
             'data-start_time="' + options.start_time + '" ' +
+            'data-start_episode="' + options.start_episode + '" ' +
             'data-youtube="' + modules.player.data.youtube.token + '" ' +
             'data-moonlight="' + modules.player.data.moonlight.domain + '" ' +
             'data-hdgo="' + modules.player.data.hdgo.token + '"></div>';
@@ -166,7 +168,8 @@ function codePlayer(type, movie, options) {
                 '&season=' + serial.season +
                 '&episode=' + serial.episode +
                 '&translate=' + serial.translate +
-                '&start_time=' + options.start_time + '"></script>';
+                '&start_time=' + options.start_time +
+                '&start_episode=' + options.start_episode + '"></script>';
         }
 
     }
