@@ -99,11 +99,11 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
             options.userinfo.ip = (req.ip)
                 ? req.ip
                 : '';
-            options.userinfo.country = (info.country && info.country.names && info.country.names.ru)
-                ? info.country.names.ru
+            options.userinfo.country = (info.country && info.country.names && info.country.names.en)
+                ? info.country.names.en
                 : '';
-            options.userinfo.city = (info.city && info.city.names && info.city.names.ru)
-                ? info.city.names.ru
+            options.userinfo.city = (info.city && info.city.names && info.city.names.en)
+                ? info.city.names.en
                 : '';
             options.userinfo.browser = (user.browser && user.browser.name)
                 ? user.browser.name
