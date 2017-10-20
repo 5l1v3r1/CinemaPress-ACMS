@@ -12,6 +12,7 @@
     "watch": true,
     "ignore_watch": [
       "config",
+      "backup",
       "files",
       "log",
       "node_modules",
