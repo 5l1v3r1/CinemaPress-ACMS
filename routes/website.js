@@ -8,6 +8,7 @@ var CP_cache    = require('../lib/CP_cache');
 var CP_cachep2p = require('../lib/CP_cachep2p');
 var CP_decode   = require('../lib/CP_decode');
 var CP_translit = require('../lib/CP_translit');
+var CP_regexp   = require('../lib/CP_regexp');
 
 /**
  * Configuration dependencies.
@@ -128,11 +129,11 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
     var url = parseUrl();
     var urlHash = md5(JSON.stringify(options) + url.toLowerCase());
 
-    var level1  = clearString(req.params.level1) || null;
-    var level2  = clearString(req.query.q)       || clearString(CP_translit.text(req.params.level2, true)) || null;
-    var level3  = clearString(req.params.level3) || null;
-    var sorting = clearString(req.query.sorting) || config.default.sorting;
-    var tag     = clearString(req.query.tag)     || null;
+    var level1  = CP_regexp.str(req.params.level1) || null;
+    var level2  = CP_regexp.str(req.query.q)       || CP_regexp.str(CP_translit.text(req.params.level2, true)) || null;
+    var level3  = CP_regexp.str(req.params.level3) || null;
+    var sorting = CP_regexp.str(req.query.sorting) || config.default.sorting;
+    var tag     = CP_regexp.str(req.query.tag)     || null;
 
     var development = process.env.NODE_ENV !== 'production';
 
@@ -390,10 +391,10 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                 url += '?sorting=' + req.query.sorting;
             }
             else if (req.query.q) {
-                url += '?q=' + req.query.q.replace(/[^A-zА-яЁё0-9 \-]/g, '');
+                url += '?q=' + CP_regexp.str(req.query.q);
             }
             else if (req.query.tag) {
-                url += '?tag=' + req.query.tag.replace(/[^A-zА-яЁё0-9 \-]/g, '');
+                url += '?tag=' + CP_regexp.str(req.query.tag);
             }
         }
 
@@ -466,19 +467,6 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
             default:
                 return 'error';
         }
-
-    }
-
-    /**
-     * Clear string.
-     *
-     * @param {String} string
-     * @return {String}
-     */
-
-    function clearString(string) {
-
-        return (string) ? string.replace(/[^\w\sа-яё._-]/gi, '') : null;
 
     }
 

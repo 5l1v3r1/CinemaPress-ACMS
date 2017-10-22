@@ -474,10 +474,10 @@ router.post('/change', function(req, res) {
             },
             "movie": function (callback) {
                 if (!form.movie) return callback(null, 'Null');
-                form.movie.id = (form.movie.id)
-                    ? form.movie.id
-                    : (form.movie.kp_id)
-                    ? form.movie.kp_id
+                form.movie.id = ((''+form.movie.id).replace(/[^0-9]/g,''))
+                    ? (''+form.movie.id).replace(/[^0-9]/g,'')
+                    : ((''+form.movie.kp_id).replace(/[^0-9]/g,''))
+                    ? (''+form.movie.kp_id).replace(/[^0-9]/g,'')
                     : 0;
                 if (!form.movie.id) return callback(null, 'Null');
                 form.movie.search = (form.movie.title_ru)
@@ -491,39 +491,6 @@ router.post('/change', function(req, res) {
                     return (err)
                         ? callback(err)
                         : callback(null, result);
-                });
-            },
-            "movies": function (callback) {
-                if (!form.movies) return callback(null, 'Null');
-                var reg = new RegExp('\\s*\\(\\s*([0-9]{3,7})\\s*\\)\\s*\\{([^]*?)\\}\\s*', 'gi');
-                var parts = form.movies.match(reg);
-                async.eachLimit(parts, 1, function (part, callback) {
-                    var r = new RegExp('\\s*\\(\\s*([0-9]{3,7})\\s*\\)\\s*\\{([^]*?)\\}\\s*', 'gi');
-                    var p = r.exec(part);
-                    if (p && p.length) {
-                        var movie = {};
-                        movie.id = parseInt(p[1]);
-                        var td = p[2].split('|');
-                        if (td.length === 2) {
-                            movie.title = td[0].replace(/\s+/g, ' ').replace(/(^\s*)|(\s*)$/g, '');
-                            movie.description = td[1].replace(/\s+/g, ' ').replace(/(^\s*)|(\s*)$/g, '');
-                        }
-                        else {
-                            movie.description = td[0].replace(/\s+/g, ' ').replace(/(^\s*)|(\s*)$/g, '');
-                        }
-                        addMovie(movie, function (err) {
-                            return (err)
-                                ? callback(err)
-                                : callback(null);
-                        });
-                    }
-                    else {
-                        callback(null);
-                    }
-                }, function (err) {
-                    return (err)
-                        ? callback(err)
-                        : callback(null, 'Insert');
                 });
             },
             "switch": function (callback) {
