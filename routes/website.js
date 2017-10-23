@@ -130,9 +130,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
     var urlHash = md5(JSON.stringify(options) + url.toLowerCase());
 
     var level1  = CP_regexp.str(req.params.level1) || null;
-    var level2  = CP_regexp.str(req.query.q) || ((config.urls.type !== level1)
-        ? CP_regexp.str(CP_translit.text(req.params.level2, true))
-        : CP_translit.text(req.params.level2, true)) || null;
+    var level2  = CP_regexp.str(req.query.q)       || CP_regexp.str(CP_translit.text(req.params.level2, true)) || null;
     var level3  = CP_regexp.str(req.params.level3) || null;
     var sorting = CP_regexp.str(req.query.sorting) || config.default.sorting;
     var tag     = CP_regexp.str(req.query.tag)     || null;
