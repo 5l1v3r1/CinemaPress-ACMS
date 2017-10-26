@@ -115,6 +115,8 @@ function codePlayer(type, movie, options) {
                 'data-season="' + serial.season + '" ' +
                 'data-episode="' + serial.episode + '" ' +
                 'data-translate="' + serial.translate + '" ' +
+                'data-country="' + config.country + '" ' +
+                'data-language="' + config.language + '" ' +
                 'data-moonwalk="' + modules.player.data.moonwalk.token + '" ' +
                 'data-start_time="' + options.start_time + '" ' +
                 'data-start_episode="' + options.start_episode + '" ' +
@@ -150,6 +152,8 @@ function codePlayer(type, movie, options) {
             'data-season="' + serial.season + '" ' +
             'data-episode="' + serial.episode + '" ' +
             'data-translate="' + serial.translate + '" ' +
+            'data-country="' + config.country + '" ' +
+            'data-language="' + config.language + '" ' +
             'data-moonwalk="' + modules.player.data.moonwalk.token + '" ' +
             'data-start_time="' + options.start_time + '" ' +
             'data-start_episode="' + options.start_episode + '" ' +

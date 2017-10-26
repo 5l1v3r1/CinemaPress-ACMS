@@ -7,6 +7,8 @@ module.exports = {
     "domain": "example.com",
     "email": "support@example.com",
     "theme": "default",
+    "country": "RU",
+    "language": "ru",
     "image": {
         "addr": "cdn.cinemapress.org",
         "size": 180

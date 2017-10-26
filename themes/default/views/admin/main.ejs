@@ -135,6 +135,59 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-picture-o"></i>&nbsp;&nbsp;&nbsp;Язык и страна сайта
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/main.html#language" class="csstip" title="Указание языка и страны, для аудитории которой работает сайт." target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-xs-6 text-center">
+                                            <select name="config.theme" class="form-control">
+                                                <% var languages = [{"iso": "ru", "name": "Русский"}]; %>
+                                                <% languages.forEach(function(language) { %>
+                                                <% if (config.language === language.iso) { %>
+                                                <option value="<%= language.iso %>" selected="selected">
+                                                    <%- language.name %>
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%= language.iso %>">
+                                                    <%- language.name %>
+                                                </option>
+                                                <% } %>
+                                                <% }); %>
+                                            </select>
+                                        </div>
+                                        <div class="col-xs-6 text-center">
+                                            <select name="config.theme" class="form-control">
+                                                <% var countries = [{"iso": "RU", "name": "Россия"}]; %>
+                                                <% countries.forEach(function(country) { %>
+                                                <% if (config.country === country.iso) { %>
+                                                <option value="<%= country.iso %>" selected="selected">
+                                                    <%- country.name %>
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%= country.iso %>">
+                                                    <%- country.name %>
+                                                </option>
+                                                <% } %>
+                                                <% }); %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         
                         <div class="spacer-10"></div>
 
