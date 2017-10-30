@@ -33,7 +33,7 @@ router.get('/?', function(req, res) {
 
     if (req.query.player) {
         res.setHeader('Content-Type', 'application/javascript');
-        return res.send(script.replace('iframe-src', req.query.player));
+        return res.send(script.replace('iframe-src', decodeURIComponent(req.query.player)));
     }
 
     if (!/googlebot|crawler|spider|robot|crawling|bot/i.test(req.get('User-Agent'))) {

@@ -105,25 +105,7 @@ function codePlayer(type, movie, options) {
             yohohoPlayer();
         }
         else if (movie.player) {
-            code.player = '' +
-                '<div id="yohoho" ' +
-                'data-player="' + modules.player.data.yohoho.player + '" ' +
-                'data-bg="' + modules.player.data.yohoho.bg + '" ' +
-                'data-button="' + modules.player.data.yohoho.button + '" ' +
-                'data-title="' + title + '" ' +
-                'data-kinopoisk="' + movie.kp_id + '" ' +
-                'data-season="' + serial.season + '" ' +
-                'data-episode="' + serial.episode + '" ' +
-                'data-translate="' + serial.translate + '" ' +
-                'data-country="' + config.country + '" ' +
-                'data-language="' + config.language + '" ' +
-                'data-moonwalk="' + modules.player.data.moonwalk.token + '" ' +
-                'data-start_time="' + options.start_time + '" ' +
-                'data-start_episode="' + options.start_episode + '" ' +
-                'data-youtube="' + modules.player.data.youtube.token + '" ' +
-                'data-moonlight="' + modules.player.data.moonlight.domain + '" ' +
-                'data-hdgo="' + modules.player.data.hdgo.token + '"></div>';
-            code.footer = '<script data-cfasync="false" src="/iframe.player?player=' + encodeURIComponent(movie.player) + '"></script>';
+            yohohoPlayer();
         }
         else if (modules.player.data.display === 'yohoho') {
             yohohoPlayer(modules.player.data.yohoho.player);
@@ -142,24 +124,101 @@ function codePlayer(type, movie, options) {
 
     function yohohoPlayer(player) {
 
+        var data = {};
+
+        data.player = (player)
+            ? player
+            : (modules.player.data.yohoho.player)
+                ? modules.player.data.yohoho.player
+                : '';
+        data.bg = (modules.player.data.yohoho.bg)
+            ? modules.player.data.yohoho.bg
+            : '';
+        data.button = (modules.player.data.yohoho.button)
+            ? modules.player.data.yohoho.button
+            : '';
+        data.title = (title)
+            ? title
+            : '';
+        data.kinopoisk = (movie.kp_id)
+            ? movie.kp_id
+            : '';
+        data.season = (serial.season)
+            ? serial.season
+            : '';
+        data.episode = (serial.episode)
+            ? serial.episode
+            : '';
+        data.translate = (serial.translate)
+            ? serial.translate
+            : '';
+        data.country = (config.country)
+            ? config.country
+            : '';
+        data.language = (config.language)
+            ? config.language
+            : '';
+        data.moonwalk = (modules.player.data.moonwalk.token)
+            ? modules.player.data.moonwalk.token
+            : '';
+        data.hdgo = (modules.player.data.hdgo.token)
+            ? modules.player.data.hdgo.token
+            : '';
+        data.youtube = (modules.player.data.youtube.token)
+            ? modules.player.data.youtube.token
+            : '';
+        data.start_time = (options.start_time)
+            ? options.start_time
+            : '';
+        data.start_episode = (options.start_episode)
+            ? options.start_episode
+            : '';
+        data.moonlight = (modules.player.data.moonlight.domain)
+            ? modules.player.data.moonlight.domain
+            : '';
+
+        var div = '';
+        for (var data_key in data) {
+            if (data.hasOwnProperty(data_key) && data[data_key]) {
+                data[data_key] = (''+data[data_key]).trim();
+                div += ' data-' + data_key + '="' + encodeURIComponent(data[data_key]) + '"';
+            }
+        }
+
+        var param = {};
+
+        param.id = (movie.kp_id)
+            ? movie.kp_id
+            : '';
+        param.season = (serial.season)
+            ? serial.season
+            : '';
+        param.episode = (serial.episode)
+            ? serial.episode
+            : '';
+        param.translate = (serial.translate)
+            ? serial.translate
+            : '';
+        param.start_time = (options.start_time)
+            ? options.start_time
+            : '';
+        param.start_episode = (options.start_episode)
+            ? options.start_episode
+            : '';
+        param.player = (movie.player)
+            ? movie.player
+            : '';
+
+        var script = '';
+        for (var param_key in param) {
+            if (param.hasOwnProperty(param_key) && param[param_key]) {
+                param[param_key] = (''+param[param_key]).trim();
+                script += '&' + param_key + '=' + encodeURIComponent(param[param_key]);
+            }
+        }
+
         code.player = '' +
-            '<div id="yohoho" ' +
-            'data-player="' + (player || modules.player.data.yohoho.player) + '" ' +
-            'data-bg="' + modules.player.data.yohoho.bg + '" ' +
-            'data-button="' + modules.player.data.yohoho.button + '" ' +
-            'data-title="' + title + '" ' +
-            'data-kinopoisk="' + movie.kp_id + '" ' +
-            'data-season="' + serial.season + '" ' +
-            'data-episode="' + serial.episode + '" ' +
-            'data-translate="' + serial.translate + '" ' +
-            'data-country="' + config.country + '" ' +
-            'data-language="' + config.language + '" ' +
-            'data-moonwalk="' + modules.player.data.moonwalk.token + '" ' +
-            'data-start_time="' + options.start_time + '" ' +
-            'data-start_episode="' + options.start_episode + '" ' +
-            'data-youtube="' + modules.player.data.youtube.token + '" ' +
-            'data-moonlight="' + modules.player.data.moonlight.domain + '" ' +
-            'data-hdgo="' + modules.player.data.hdgo.token + '"></div>';
+            '<div id="yohoho" ' + div + '></div>';
 
         if (player) {
             code.footer = '' +
@@ -167,13 +226,7 @@ function codePlayer(type, movie, options) {
         }
         else {
             code.footer = '' +
-                '<script data-cfasync="false" src="/iframe.player?' +
-                '&id=' + movie.kp_id +
-                '&season=' + serial.season +
-                '&episode=' + serial.episode +
-                '&translate=' + serial.translate +
-                '&start_time=' + options.start_time +
-                '&start_episode=' + options.start_episode + '"></script>';
+                '<script data-cfasync="false" src="/iframe.player?' + script + '"></script>';
         }
 
     }

@@ -10,6 +10,7 @@ var CP_get = require('../lib/CP_get.min');
  * Configuration dependencies.
  */
 
+var config  = require('../config/production/config');
 var modules = require('../config/production/modules');
 
 /**
@@ -29,6 +30,22 @@ router.get('/:id?/:title?', function(req, res) {
     var title = (req.params.title) ? req.params.title.replace(/"/g, '\'') : '';
 
     if (kinopoisk && title) {
+        res.send(
+            '<!DOCTYPE html><html><body>' +
+            '<style>body,html{border:0;padding:0;margin:0;width:100%;height:100%;overflow:hidden}</style>' +
+            '<div id="yohoho" ' +
+            'data-kinopoisk="' + kinopoisk + '" ' +
+            'data-title="' + title + '" ' +
+            'data-bg="' + (modules.player.data.yohoho.bg || '') + '" ' +
+            'data-country="' + (config.country || '') + '" ' +
+            'data-language="' + (config.language || '') + '" ' +
+            'data-moonwalk="' + (modules.player.data.moonwalk.token || '') + '" ' +
+            'data-hdgo="' + (modules.player.data.hdgo.token || '') + '" ' +
+            'data-youtube="' + (modules.player.data.youtube.token || '') + '" ' +
+            '></div>' +
+            '<script data-cfasync="false" src="//yohoho.cc/yo.js"></script>' +
+            '</body></html>'
+        );
     }
     else if (kinopoisk) {
         CP_get.movies(
@@ -39,27 +56,31 @@ router.get('/:id?/:title?', function(req, res) {
                 if (movies && movies.length) {
                     title = (movies[0].title_ru || movies[0].title_en) + ' (' + movies[0].year + ')';
                     title = title.replace(/"/g, '\'');
+                    res.send(
+                        '<!DOCTYPE html><html><body>' +
+                        '<style>body,html{border:0;padding:0;margin:0;width:100%;height:100%;overflow:hidden}</style>' +
+                        '<div id="yohoho" ' +
+                        'data-kinopoisk="' + kinopoisk + '" ' +
+                        'data-title="' + title + '" ' +
+                        'data-bg="' + (modules.player.data.yohoho.bg || '') + '" ' +
+                        'data-country="' + (config.country || '') + '" ' +
+                        'data-language="' + (config.language || '') + '" ' +
+                        'data-moonwalk="' + (modules.player.data.moonwalk.token || '') + '" ' +
+                        'data-hdgo="' + (modules.player.data.hdgo.token || '') + '" ' +
+                        'data-youtube="' + (modules.player.data.youtube.token || '') + '" ' +
+                        '></div>' +
+                        '<script data-cfasync="false" src="//yohoho.cc/yo.js"></script>' +
+                        '</body></html>'
+                    );
                 }
                 else {
-                    return res.status(404).send('Данного фильма на сайте нет.');
+                    res.status(404).send('Данного фильма на сайте нет.');
                 }
             });
     }
     else {
-        return res.status(404).send('Неверный ID.')
+        res.status(404).send('Неверный ID.')
     }
-
-    res.send(
-        '<!DOCTYPE html><html><body>' +
-        '<style>body,html{border:0;padding:0;margin:0;width:100%;height:100%;overflow:hidden}</style>' +
-        '<div id="yohoho" ' +
-        'data-kinopoisk="' + kinopoisk + '" ' +
-        'data-title="' + title + '" ' +
-        'data-bg="' + modules.player.data.yohoho.bg + '" ' +
-        '></div>' +
-        '<script data-cfasync="false" src="//yohoho.cc/yo.js"></script>' +
-        '</body></html>'
-    );
 
 });
 
