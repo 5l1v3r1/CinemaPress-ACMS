@@ -305,7 +305,9 @@ function categorySchema(page, movies, options) {
     opengraph += '<meta property="og:image:width" content="600" />';
     opengraph += '<meta property="og:image:height" content="400" />';
 
-    return schema + opengraph;
+    var canonical = '<link rel="canonical" href="' + page.url + '"/>';
+
+    return schema + opengraph + canonical;
 
 }
 
