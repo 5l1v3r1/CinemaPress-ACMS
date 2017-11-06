@@ -543,10 +543,10 @@
                                 <a href="javascript:void(0)" data-type="content" data-id="<%- content.id %>" class="btn-less del" style="margin: 4px;"><i class="fa fa-times"></i></a>
                             </td>
                             <td>
-                                <%- content.content_title %>&nbsp;<span class="label label-default" style="float: none; padding: 2px 5px;margin: 0;"><%- content.content_tags %></span>&nbsp;<a href="<%- config.protocol + config.domain + '/' + modules.content.data.url + '/' + content.content_url %>" style="text-decoration:none;" target="_blank"><span class="fa fa-external-link-square"></span></a>
+                                <%- content.content_title %>&nbsp;<span class="label label-default" style="float: none; padding: 2px 5px;margin: 0;"><%- content.content_tags %></span>&nbsp;<a href="<%- config.protocol + config.domain + '/' + modules.content.data.url + '/' + decodeURIComponent(content.content_url) %>" style="text-decoration:none;" target="_blank"><span class="fa fa-external-link-square"></span></a>
                             </td>
                             <td class="td-highlight">
-                                <a href="/<%- config.urls.admin %>/content?url=<%- content.content_url %>" class="btn-less" style="margin: 4px;"><i class="fa fa-pencil"></i></a>
+                                <a href="/<%- config.urls.admin %>/content?url=<%- encodeURIComponent(content.content_url) %>" class="btn-less" style="margin: 4px;"><i class="fa fa-pencil"></i></a>
                             </td>
                         </tr>
                         <% }); %>
