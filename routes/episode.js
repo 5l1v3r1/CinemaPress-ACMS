@@ -104,7 +104,7 @@ router.get('/?', function(req, res) {
 
             var result = (body) ? tryParseJSON(body) : {};
 
-            if (error || response.statusCode != 200 || result.error) {
+            if (error || response.statusCode !== 200 || result.error) {
                 return callback('Moonwalk request error.');
             }
 
@@ -146,7 +146,7 @@ router.get('/?', function(req, res) {
 
         async.each(list, function(serial, callback) {
 
-            if (serial.type != 'serial') return callback();
+            if (serial.type !== 'serial') return callback();
 
             serial.translator = (serial.translator) ? serial.translator : 'Оригинал';
             serial.translator_id = (serial.translator_id) ? serial.translator_id : '';
