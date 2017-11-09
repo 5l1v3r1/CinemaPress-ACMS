@@ -207,6 +207,13 @@ function recentComments(service, callback) {
                             r['avatar'] = ($(elem).find('.dsq-widget-avatar').attr('src')).replace('/avatar92', '/avatar36');
                             r['title'] = $(elem).find('.dsq-widget-meta a').first().text();
                             r['comment'] = $(elem).find('.dsq-widget-comment').text();
+                            r['comment'] = (r['comment'])
+                                ? r['comment']
+                                    .replace(/\s+/g, ' ')
+                                    .replace(/(^\s*)|(\s*)$/g, '')
+                                    .replace(/['"]/g, '')
+                                    .replace(/(<([^>]+)>)/ig,'')
+                                : '';
 
                             var date = ($(elem).find('.dsq-widget-meta a').last().text() + '');
                             var num = date.replace(/[^0-9]/g, '') || 1;
@@ -254,7 +261,13 @@ function recentComments(service, callback) {
                             return callback(null, null);
                         }
                         json.data.forEach(function(comment){
-                            comment.text = comment.text || '';
+                            comment.text = (comment.text)
+                                ? comment.text
+                                    .replace(/\s+/g, ' ')
+                                    .replace(/(^\s*)|(\s*)$/g, '')
+                                    .replace(/['"]/g, '')
+                                    .replace(/(<([^>]+)>)/ig,'')
+                                : '';
                             var tri = (('' + comment.text).length >= modules.comments.data.hypercomments.recent.excerpt_length) ? '...' : '';
                             var r = {};
                             r['url'] = comment.link;
