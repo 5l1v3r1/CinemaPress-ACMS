@@ -3,10 +3,13 @@ module.exports = {
         "status": true,
         "data": {
             "cackle": {
-                "id": ""
+                "id": "",
+                "siteApiKey": "",
+                "accountApiKey": ""
             },
             "hypercomments": {
                 "widget_id": "",
+                "sekretkey": "",
                 "recent": {
                     "num_items": 0,
                     "excerpt_length": 250,
@@ -17,6 +20,7 @@ module.exports = {
             },
             "disqus": {
                 "shortname": "cinemapress",
+                "api_key": "",
                 "recent": {
                     "num_items": 5,
                     "excerpt_length": 250,

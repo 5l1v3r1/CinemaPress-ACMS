@@ -159,6 +159,20 @@ function dataMovie(id, type, options, callback) {
                     })
                     : callback(null, [])
             },
+            "indexer": function (callback) {
+                return (modules.comments.data.disqus.api_key || modules.comments.data.hypercomments.sekretkey)
+                    ? CP_comments.indexer(
+                        related.url,
+                        related.pathname,
+                        function (err, comments) {
+                            if (err) return callback(err);
+
+                            return (comments)
+                                ? callback(null, comments)
+                                : callback(null, '')
+                        })
+                    : callback(null, '')
+            },
             "movies": function(callback) {
                 return (related.id && modules.related.status)
                     ? async.parallel({
@@ -312,11 +326,18 @@ function dataMovie(id, type, options, callback) {
 
             if (err) return callback(err);
 
-            for (var r in result)
-                if (result.hasOwnProperty(r) && result[r] === null)
+            for (var r in result) {
+                if (result.hasOwnProperty(r) && result[r] === null) {
                     delete result[r];
+                }
+            }
+
+            var indexer = (result.indexer) ? result.indexer : '';
 
             CP_page.movie(result, type, options, function (err, result) {
+                if (result.page.comments) {
+                    result.page.comments = indexer + result.page.comments
+                }
                 callback(err, result);
             });
 

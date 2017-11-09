@@ -262,6 +262,20 @@ function oneContent(url, page, sorting, options, callback) {
                     })
                     : callback(null, [])
             },
+            "indexer": function (callback) {
+                return (modules.comments.data.disqus.api_key || modules.comments.data.hypercomments.sekretkey)
+                    ? CP_comments.indexer(
+                        config.protocol + options.domain + '/' + modules.content.data.url + '/' + url,
+                        '/' + modules.content.data.url + '/' + url,
+                        function (err, comments) {
+                            if (err) return callback(err);
+
+                            return (comments)
+                                ? callback(null, comments)
+                                : callback(null, '')
+                        })
+                    : callback(null, '')
+            },
             "count": function (callback) {
                 if (!query) return callback(null, 0);
                 return CP_get.count(
@@ -287,7 +301,12 @@ function oneContent(url, page, sorting, options, callback) {
                 }
             }
 
+            var indexer = (result.indexer) ? result.indexer : '';
+
             CP_page.content(result, url, page, sorting, options, function (err, result) {
+                if (result.page.comments) {
+                    result.page.comments = indexer + result.page.comments
+                }
                 callback(err, result);
             });
 

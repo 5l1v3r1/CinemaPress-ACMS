@@ -83,15 +83,19 @@
                                         <i class="fa fa-comment"></i>&nbsp;&nbsp;&nbsp;Disqus
                                     </div>
                                     <div class="example-label" style="float: right">
-                                        <a href="https://CinemaPress.org/admin/comments.html#cmnt1" class="csstip" title="Ваш shortname указанный при регистрации сайта на Disqus.com" target="_blank">
+                                        <a href="https://CinemaPress.org/admin/comments.html#cmnt1" class="csstip" title="Ваш shortname указанный при регистрации сайта на Disqus.com и ключ API" target="_blank">
                                             <i class="fa fa-info-circle"></i>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="inner-padding">
                                     <div class="row">
-                                        <div class="col-lg-12 col-xs-12 text-center">
+                                        <div class="col-lg-6 col-xs-6 text-center">
                                             <input name="modules.comments.data.disqus.shortname" value="<%= modules.comments.data.disqus.shortname %>" class="form-control" type="text" placeholder="Ваш shortname сайта">
+                                        </div>
+
+                                        <div class="col-lg-6 col-xs-6 text-center">
+                                            <input name="modules.comments.data.disqus.api_key" value="<%= modules.comments.data.disqus.api_key %>" class="form-control" type="text" placeholder="Ваш api_key для индексации комментариев">
                                         </div>
 
                                         <div class="spacer-10"></div>
@@ -213,15 +217,19 @@
                                         <i class="fa fa-comment-o"></i>&nbsp;&nbsp;&nbsp;HyperComments
                                     </div>
                                     <div class="example-label" style="float: right">
-                                        <a href="https://CinemaPress.org/admin/comments.html#cmnt2" class="csstip" title="Укажите widget_id который Вы получите после создания виджета комментариев на HyperComments.com" target="_blank">
+                                        <a href="https://CinemaPress.org/admin/comments.html#cmnt2" class="csstip" title="Укажите widget_id который Вы получите после создания виджета комментариев на HyperComments.com и sekretkey для индексации комментариев" target="_blank">
                                             <i class="fa fa-info-circle"></i>
                                         </a>
                                     </div>
                                 </div>
                                 <div class="inner-padding">
                                     <div class="row">
-                                        <div class="col-lg-12 col-xs-12 text-center">
+                                        <div class="col-lg-6 col-xs-6 text-center">
                                             <input name="modules.comments.data.hypercomments.widget_id" value="<%= modules.comments.data.hypercomments.widget_id %>" class="form-control" type="text" placeholder="Ваш widget_id">
+                                        </div>
+
+                                        <div class="col-lg-6 col-xs-6 text-center">
+                                            <input name="modules.comments.data.hypercomments.sekretkey" value="<%= modules.comments.data.hypercomments.sekretkey %>" class="form-control" type="text" placeholder="Ваш sekretkey для индексации комментариев">
                                         </div>
 
                                         <div class="spacer-10"></div>

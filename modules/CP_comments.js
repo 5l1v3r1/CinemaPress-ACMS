@@ -12,6 +12,7 @@ var modules = require('../config/production/modules');
  */
 
 var async   = require('async');
+var crypto  = require('crypto');
 var request = require('request');
 var cheerio = require('cheerio');
 var moment  = require('moment');
@@ -80,10 +81,11 @@ function headComments() {
  * Adding social comments for page.
  *
  * @param {String} url
+ * @param {String} pathname
  * @return {String}
  */
 
-function codesComments(url) {
+function codesComments(url, pathname) {
 
     var data = {};
 
@@ -92,11 +94,11 @@ function codesComments(url) {
     }
 
     if (modules.comments.data.hypercomments.widget_id) {
-        data.hypercomments = '<div id="hypercomments_widget"></div><script>_hcwp=window._hcwp||[],_hcwp.push({widget:"Stream",widget_id:' + modules.comments.data.hypercomments.widget_id + '}),function(){if(!("HC_LOAD_INIT"in window)){HC_LOAD_INIT=!0;var a=("ru").substr(0,2).toLowerCase(),b=document.createElement("script");b.type="text/javascript",b.async=!0,b.src=("https:"==document.location.protocol?"https":"http")+"://w.hypercomments.com/widget/hc/' + modules.comments.data.hypercomments.widget_id + '/"+a+"/widget.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c.nextSibling)}}();</script>';
+        data.hypercomments = '<div id="hypercomments_widget"></div><script>_hcwp=window._hcwp||[],_hcwp.push({widget:"Stream",widget_id:' + modules.comments.data.hypercomments.widget_id + ',xid:"' + pathname + '"}),function(){if(!("HC_LOAD_INIT"in window)){HC_LOAD_INIT=!0;var a=("ru").substr(0,2).toLowerCase(),b=document.createElement("script");b.type="text/javascript",b.async=!0,b.src=("https:"==document.location.protocol?"https":"http")+"://w.hypercomments.com/widget/hc/' + modules.comments.data.hypercomments.widget_id + '/"+a+"/widget.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c.nextSibling)}}();</script>';
     }
 
     if (modules.comments.data.disqus.shortname) {
-        data.disqus = '<div id="disqus_thread"></div><script>var disqus_config=function(){this.page.url="' + url + '",this.page.identifier="' + url + '"};!function(){var e=document,t=e.createElement("script");t.src="//' + modules.comments.data.disqus.shortname + '.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t)}();</script>';
+        data.disqus = '<div id="disqus_thread"></div><script>var disqus_config=function(){this.page.url="' + url + '",this.page.identifier="' + pathname + '"};!function(){var e=document,t=e.createElement("script");t.src="//' + modules.comments.data.disqus.shortname + '.disqus.com/embed.js",t.setAttribute("data-timestamp",+new Date),(e.head||e.body).appendChild(t)}();</script>';
     }
 
     if (modules.comments.data.vk.app_id) {
@@ -155,7 +157,7 @@ function codesComments(url) {
         single++;
     }
 
-    buttons = (single == 1) ? '' : buttons;
+    buttons = (single === 1) ? '' : buttons;
 
     return '' +
         '<div class="CP_buttons" style="margin:30px 0 !important; float: none !important;">' + buttons + '</div>' +
@@ -280,25 +282,116 @@ function recentComments(service, callback) {
 
         });
 
-    /**
-     * Valid JSON.
-     */
+}
 
-    function tryParseJSON(jsonString) {
-        try {
-            var o = JSON.parse(jsonString);
-            if (o && typeof o === "object") {
-                return o;
+/**
+ * Adding comments to body page.
+ *
+ * @param {String} thread
+ * @param {String} pathname
+ * @param {Callback} callback
+ */
+
+function indexerComments(thread, pathname, callback) {
+
+    async.parallel([
+            function(callback) {
+                if (!modules.comments.data.disqus.api_key) return callback(null, '');
+
+                var url = 'https://disqus.com/api/3.0/threads/listPosts.json?api_key=' + modules.comments.data.disqus.api_key.trim() + '&forum=' + modules.comments.data.disqus.shortname.trim() + '&limit=100&thread=ident:' + encodeURIComponent(pathname);
+
+                request({url: url, timeout: 500}, function (error, response, body) {
+
+                    if (error) {
+                        console.log(error);
+                        return callback(null, '');
+                    }
+
+                    var comments = '';
+
+                    if (response.statusCode === 200 && body) {
+                        var json = tryParseJSON(body);
+                        if (json && json.response && json.response.length) {
+                            json.response.forEach(function(comment){
+                                if (comment.raw_message) {
+                                    comments += comment.raw_message + ' ';
+                                }
+                            });
+                        }
+                    }
+
+                    callback(null, comments);
+
+                });
+            },
+            function(callback) {
+                if (!modules.comments.data.hypercomments.sekretkey) return callback(null, '');
+
+                var body = '{"body":{"widget_id":' + modules.comments.data.hypercomments.widget_id.trim() + ',"link":"'  + thread +'","xid":"' + pathname + '","sort":"new","limit":20,"offset":0}';
+
+                var signature = crypto
+                    .createHash('sha1')
+                    .update(body + modules.comments.data.hypercomments.sekretkey)
+                    .digest('hex');
+
+                var url = {
+                    url: 'http://c1api.hypercomments.com/1.0/comments/list',
+                    method: 'POST',
+                    form: {body: body, signature: signature},
+                    timeout: 500
+                };
+                request(url, function (error, response, body) {
+
+                    if (error) {
+                        console.log(error);
+                        return callback(null, '');
+                    }
+
+                    var comments = '';
+
+                    if (response.statusCode === 200 && body) {
+                        var json = tryParseJSON(body);
+                        if (!json || !json.result || json.result !== 'success' || !json.data) {
+                            return callback(null, '');
+                        }
+                        json.data.forEach(function(comment){
+                            if (comment.text) {
+                                comments += comment.text + ' ';
+                            }
+                        });
+                    }
+
+                    callback(null, comments);
+
+                });
             }
-        }
-        catch (e) { }
-        return null;
-    }
+        ],
+        function(err, results) {
+
+            callback(err, '<span style="display: none !important;">' + results.join(' ') + '</span>');
+
+        });
 
 }
 
+/**
+ * Valid JSON.
+ */
+
+function tryParseJSON(jsonString) {
+    try {
+        var o = JSON.parse(jsonString);
+        if (o && typeof o === "object") {
+            return o;
+        }
+    }
+    catch (e) { }
+    return null;
+}
+
 module.exports = {
-    "codes"  : codesComments,
-    "head"   : headComments,
-    "recent" : recentComments
+    "codes"   : codesComments,
+    "head"    : headComments,
+    "recent"  : recentComments,
+    "indexer" : indexerComments
 };
