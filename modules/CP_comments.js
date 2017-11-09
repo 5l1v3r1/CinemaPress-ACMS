@@ -369,7 +369,7 @@ function indexerComments(thread, pathname, callback) {
         function(err, results) {
 
             var c = '';
-            if (results) {
+            if (results && results.length) {
                 c = '<span style="display: none !important;">' + (results.join(' '))
                     .replace(/\s+/g, ' ')
                     .replace(/(^\s*)|(\s*)$/g, '')
