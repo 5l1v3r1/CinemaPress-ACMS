@@ -368,7 +368,16 @@ function indexerComments(thread, pathname, callback) {
         ],
         function(err, results) {
 
-            callback(err, '<span style="display: none !important;">' + results.join(' ') + '</span>');
+            var c = '';
+            if (results) {
+                c = '<span style="display: none !important;">' + (results.join(' '))
+                    .replace(/\s+/g, ' ')
+                    .replace(/(^\s*)|(\s*)$/g, '')
+                    .replace(/['"]/g, '')
+                    .replace(/(<([^>]+)>)/ig,'') + '</span>';
+            }
+
+            callback(err, c);
 
         });
 
