@@ -296,7 +296,7 @@ function indexerComments(thread, pathname, callback) {
 
     async.parallel([
             function(callback) {
-                if (!modules.comments.data.disqus.api_key) return callback(null, '');
+                if (!modules.comments.data.disqus.api_key || !modules.comments.data.disqus.shortname) return callback(null, '');
 
                 var url = 'https://disqus.com/api/3.0/threads/listPosts.json?api_key=' + modules.comments.data.disqus.api_key.trim() + '&forum=' + modules.comments.data.disqus.shortname.trim() + '&limit=100&thread=ident:' + encodeURIComponent(pathname);
 
@@ -325,9 +325,9 @@ function indexerComments(thread, pathname, callback) {
                 });
             },
             function(callback) {
-                if (!modules.comments.data.hypercomments.sekretkey) return callback(null, '');
+                if (!modules.comments.data.hypercomments.sekretkey || !modules.comments.data.hypercomments.widget_id) return callback(null, '');
 
-                var body = '{"body":{"widget_id":' + modules.comments.data.hypercomments.widget_id.trim() + ',"link":"'  + thread +'","xid":"' + pathname + '","sort":"new","limit":20,"offset":0}';
+                var body = '{"widget_id":' + modules.comments.data.hypercomments.widget_id.trim() + ',"link":"'  + thread +'","xid":"' + pathname + '","sort":"new","limit":"20","offset":"0"}';
 
                 var signature = crypto
                     .createHash('sha1')
