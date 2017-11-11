@@ -124,28 +124,28 @@
                                             <%- movie.year %>
                                         </a>
                                         <% } %>
-                                        <% if (movie.country) { %>
+                                        <% if (movie.country && movie.country !== '_empty') { %>
                                         <% movie.country.split(',').forEach(function (value) { value = value.trim(); %>
                                         <a href="javascript:void(0)" data-name="movie.description" data-code="<%- value %>" class="btn btn-default codes">
                                             <%- value %>
                                         </a>
                                         <% }); %>
                                         <% } %>
-                                        <% if (movie.genre) { %>
+                                        <% if (movie.genre && movie.genre !== '_empty') { %>
                                         <% movie.genre.split(',').forEach(function (value) { value = value.trim(); %>
                                         <a href="javascript:void(0)" data-name="movie.description" data-code="<%- value %>" class="btn btn-default codes">
                                             <%- value %>
                                         </a>
                                         <% }); %>
                                         <% } %>
-                                        <% if (movie.actor) { %>
+                                        <% if (movie.actor && movie.actor !== '_empty') { %>
                                         <% movie.actor.split(',').forEach(function (value) { value = value.trim(); %>
                                         <a href="javascript:void(0)" data-name="movie.description" data-code="<%- value %>" class="btn btn-default codes">
                                             <%- value %>
                                         </a>
                                         <% }); %>
                                         <% } %>
-                                        <% if (movie.director) { %>
+                                        <% if (movie.director && movie.director !== '_empty') { %>
                                         <% movie.director.split(',').forEach(function (value) { value = value.trim(); %>
                                         <a href="javascript:void(0)" data-name="movie.description" data-code="<%- value %>" class="btn btn-default codes">
                                             <%- value %>
@@ -192,13 +192,17 @@
                                             </div>
                                             <div class="spacer-10"></div>
                                             <select name="movie.type" class="form-control">
-                                                <option value="0" <% if (movie.type === 0) { %>selected="selected"<%
-                                                } %>>
+                                                <option value="0" <% if (movie.type === 0) { %>selected="selected"<% } %>>
                                                     Фильм
                                                 </option>
-                                                <option value="1" <% if (movie.type === 1) { %>selected="selected"<%
-                                                } %>>
+                                                <option value="1" <% if (movie.type === 1) { %>selected="selected"<% } %>>
                                                     Сериал
+                                                </option>
+                                                <option value="2" <% if (movie.type === 2) { %>selected="selected"<% } %>>
+                                                    Видео
+                                                </option>
+                                                <option value="3" <% if (movie.type === 3) { %>selected="selected"<% } %>>
+                                                    ТВ
                                                 </option>
                                             </select>
                                             <div class="spacer-10"></div>
@@ -213,25 +217,25 @@
                                                 Страна:
                                             </div>
                                             <div class="spacer-10"></div>
-                                            <input type="text" class="form-control" name="movie.country" value="<% if (movie.country) {  %><%- movie.country %><% } %>" placeholder="Список стран через запятую" style="font-weight: normal; font-size: 14px;">
+                                            <input type="text" class="form-control" name="movie.country" value="<% if (movie.country && movie.country !== '_empty') { %><%- movie.country %><% } %>" placeholder="Список стран через запятую" style="font-weight: normal; font-size: 14px;">
 
                                             <div style="color: #4B5B6C">
                                                 Жанры:
                                             </div>
                                             <div class="spacer-10"></div>
-                                            <input type="text" class="form-control" name="movie.genre" value="<% if (movie.genre) {  %><%- movie.genre %><% } %>" placeholder="Список жанров через запятую" style="font-weight: normal; font-size: 14px;">
+                                            <input type="text" class="form-control" name="movie.genre" value="<% if (movie.genre && movie.genre !== '_empty') { %><%- movie.genre %><% } %>" placeholder="Список жанров через запятую" style="font-weight: normal; font-size: 14px;">
 
                                             <div style="color: #4B5B6C">
                                                 Режиссер:
                                             </div>
                                             <div class="spacer-10"></div>
-                                            <input type="text" class="form-control" name="movie.director" value="<% if (movie.director) {  %><%- movie.director %><% } %>" placeholder="Список режиссеров через запятую" style="font-weight: normal; font-size: 14px;">
+                                            <input type="text" class="form-control" name="movie.director" value="<% if (movie.director && movie.director !== '_empty') { %><%- movie.director %><% } %>" placeholder="Список режиссеров через запятую" style="font-weight: normal; font-size: 14px;">
 
                                             <div style="color: #4B5B6C">
                                                 Актеры:
                                             </div>
                                             <div class="spacer-10"></div>
-                                            <input type="text" class="form-control" name="movie.actor" value="<% if (movie.actor) {  %><%- movie.actor %><% } %>" placeholder="Список актеров через запятую" style="font-weight: normal; font-size: 14px;">
+                                            <input type="text" class="form-control" name="movie.actor" value="<% if (movie.actor && movie.actor !== '_empty') { %><%- movie.actor %><% } %>" placeholder="Список актеров через запятую" style="font-weight: normal; font-size: 14px;">
 
                                             <div style="color: #4B5B6C">
                                                 Премьера:
@@ -243,25 +247,25 @@
                                                 Рейтинг КиноПоиск:
                                             </div>
                                             <div class="spacer-10"></div>
-                                            <input type="text" class="form-control" name="movie.kp_rating" value="<% if (movie.kp_rating) {  %><%- movie.kp_rating %><% } %>" placeholder="Рейтинг КиноПоиск" style="font-weight: normal; font-size: 14px;">
+                                            <input type="text" class="form-control" name="movie.kp_rating" value="<% if (movie.kp_rating) {  %><%- movie.kp_rating %><% } else { %>0<% } %>" placeholder="Рейтинг КиноПоиск" style="font-weight: normal; font-size: 14px;">
 
                                             <div style="color: #4B5B6C">
                                                 Число голосов КиноПоиск:
                                             </div>
                                             <div class="spacer-10"></div>
-                                            <input type="text" class="form-control" name="movie.kp_vote" value="<% if (movie.kp_vote) {  %><%- movie.kp_vote %><% } %>" placeholder="Число голосов КиноПоиск" style="font-weight: normal; font-size: 14px;">
+                                            <input type="text" class="form-control" name="movie.kp_vote" value="<% if (movie.kp_vote) {  %><%- movie.kp_vote %><% } else { %>0<% } %>" placeholder="Число голосов КиноПоиск" style="font-weight: normal; font-size: 14px;">
 
                                             <div style="color: #4B5B6C">
                                                 Рейтинг IMDb:
                                             </div>
                                             <div class="spacer-10"></div>
-                                            <input type="text" class="form-control" name="movie.imdb_rating" value="<% if (movie.imdb_rating) {  %><%- movie.imdb_rating %><% } %>" placeholder="Рейтинг IMDb" style="font-weight: normal; font-size: 14px;">
+                                            <input type="text" class="form-control" name="movie.imdb_rating" value="<% if (movie.imdb_rating) {  %><%- movie.imdb_rating %><% } else { %>0<% } %>" placeholder="Рейтинг IMDb" style="font-weight: normal; font-size: 14px;">
 
                                             <div style="color: #4B5B6C">
                                                 Число голосов IMDb:
                                             </div>
                                             <div class="spacer-10"></div>
-                                            <input type="text" class="form-control" name="movie.imdb_vote" value="<% if (movie.imdb_vote) {  %><%- movie.imdb_vote %><% } %>" placeholder="Число голосов IMDb" style="font-weight: normal; font-size: 14px;">
+                                            <input type="text" class="form-control" name="movie.imdb_vote" value="<% if (movie.imdb_vote) {  %><%- movie.imdb_vote %><% } else { %>0<% } %>" placeholder="Число голосов IMDb" style="font-weight: normal; font-size: 14px;">
 
                                             <div style="color: #4B5B6C">
                                                 URL кадров:

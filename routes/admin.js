@@ -487,6 +487,18 @@ router.post('/change', function(req, res) {
                         : '';
                 var premiereDate = new Date(form.movie.premiere);
                 form.movie.premiere = ((premiereDate.getTime() / 1000 / 60 / 60 / 24) + 719527) + '';
+                form.movie.country = (form.movie.country)
+                    ? form.movie.country.replace(/\s*,\s*/g, ',').replace(/\s+/g, ' ').replace(/(^\s*)|(\s*)$/g, '')
+                    : '_empty';
+                form.movie.genre = (form.movie.genre)
+                    ? form.movie.genre.replace(/\s*,\s*/g, ',').replace(/\s+/g, ' ').replace(/(^\s*)|(\s*)$/g, '')
+                    : '_empty';
+                form.movie.director = (form.movie.director)
+                    ? form.movie.director.replace(/\s*,\s*/g, ',').replace(/\s+/g, ' ').replace(/(^\s*)|(\s*)$/g, '')
+                    : '_empty';
+                form.movie.actor = (form.movie.actor)
+                    ? form.movie.actor.replace(/\s*,\s*/g, ',').replace(/\s+/g, ' ').replace(/(^\s*)|(\s*)$/g, '')
+                    : '_empty';
                 addMovie(form.movie, function (err, result) {
                     return (err)
                         ? callback(err)
