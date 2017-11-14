@@ -232,36 +232,52 @@ function dataIndex(options, callback) {
                                 : callback(null, [])
                         },
                         "content": function (callback) {
-                            return (modules.content.status && modules.content.data.index.url)
-                                ? CP_get.contents(
-                                {"content_url": modules.content.data.index.url},
-                                function (err, contents) {
-                                    if (err) return callback(err);
+                            if (modules.content.status && modules.content.data.index.url) {
+                                var r = [];
+                                var content_urls = modules.content.data.index.url.split(',');
+                                async.eachOf(content_urls, function (content_url, key, callback) {
+                                    content_url = content_url.trim();
+                                    return (content_url)
+                                        ? CP_get.contents(
+                                            {"content_url": content_url},
+                                            function (err, contents) {
+                                                if (err) return callback(err);
 
-                                    return (contents && contents.length && contents[0].movies)
-                                        ? CP_get.movies(
-                                        {"query_id": contents[0].movies.join('|')},
-                                        contents[0].movies.length,
-                                        function (err, movies) {
-                                            if (err) return callback(err);
+                                                return (contents && contents.length && contents[0].movies)
+                                                    ? CP_get.movies(
+                                                        {"query_id": contents[0].movies.join('|')},
+                                                        contents[0].movies.length,
+                                                        function (err, movies) {
+                                                            if (err) return callback(err);
 
-                                            config.index.content = {};
-                                            config.index.content.order = modules.content.data.index.order;
+                                                            config.index.content = {};
+                                                            config.index.content.order = modules.content.data.index.order;
 
-                                            var r = [];
-                                            r[0] = {};
-                                            if (movies && movies.length) {
-                                                r[0].movies = sortingIds(contents[0].movies, movies, modules.content.data.index.count);
-                                            }
-                                            r[0].name = contents[0].title;
+                                                            var block = {};
+                                                            block.movies = (movies && movies.length)
+                                                                ? sortingIds(contents[0].movies, movies, modules.content.data.index.count)
+                                                                : [];
+                                                            block.name = (contents[0].title)
+                                                                ? contents[0].title
+                                                                : '';
 
-                                            return (movies && movies.length)
-                                                ? callback(null, r)
-                                                : callback(null, [])
-                                        })
-                                        : callback(null, [])
-                                })
-                                : callback(null, [])
+                                                            if (block.movies && block.movies.length && block.name) {
+                                                                r.push(block);
+                                                            }
+
+                                                            callback();
+                                                        })
+                                                    : callback();
+                                            })
+                                        : callback();
+                                }, function (err) {
+                                    if (err) console.log(err);
+                                    callback(null, r);
+                                });
+                            }
+                            else {
+                                callback(null, []);
+                            }
                         },
                         "episode": function (callback) {
                             return (modules.episode.status && modules.episode.data.index.count)
@@ -292,7 +308,7 @@ function dataIndex(options, callback) {
 
                         var r = {};
                         keysSorted.forEach(function (key) {
-                            if (result[key].length && result[key][0].movies.length) {
+                            if (result[key] && result[key].length && result[key][0].movies && result[key][0].movies.length) {
                                 r[key] = result[key];
                             }
                         });
@@ -307,19 +323,52 @@ function dataIndex(options, callback) {
                 if (!config.default.lastpage && config.index.count.key) {
                     return callback(null, config.default.pages+1);
                 }
+                config.index.count.sorting = (config.index.count.sorting)
+                    ? config.index.count.sorting
+                    : config.default.sorting;
                 return (config.index.count.key)
-                    ? CP_get.count(
-                    qwry,
-                    config.index.count.sorting,
-                    function (err, num) {
-                        if (err) return callback(err);
+                    ? (config.index.count.type === 'content_url')
+                        ? CP_get.contents(
+                            qwry,
+                            1,
+                            1,
+                            true,
+                            options,
+                            function (err, contents) {
+                                if (err) return callback(err);
 
-                        num = Math.ceil(parseInt(num)/config.default.count);
+                                var qwry2 = {};
 
-                        return (num)
-                            ? callback(null, num)
-                            : callback(null, 0)
-                    })
+                                if (contents && contents.length && contents[0].movies && contents[0].movies.length) {
+                                    qwry2 = {"query_id": contents[0].movies.join('|')};
+                                }
+
+                                return (qwry2 && qwry2.query_id)
+                                    ? CP_get.count(
+                                        qwry2,
+                                        function (err, num) {
+                                            if (err) return callback(err);
+
+                                            num = Math.ceil(parseInt(num)/config.default.count);
+
+                                            return (num)
+                                                ? callback(null, num)
+                                                : callback(null, 0)
+                                        })
+                                    : callback(null, 0)
+                            })
+                        : CP_get.count(
+                            qwry,
+                            config.index.count.sorting,
+                            function (err, num) {
+                                if (err) return callback(err);
+
+                                num = Math.ceil(parseInt(num)/config.default.count);
+
+                                return (num)
+                                    ? callback(null, num)
+                                    : callback(null, 0)
+                            })
                     : callback(null, 0);
             }
         },

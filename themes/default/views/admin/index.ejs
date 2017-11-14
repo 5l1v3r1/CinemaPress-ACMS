@@ -9,6 +9,7 @@
 
     <% include includes/head.ejs %>
 
+    <style>.inner-padding:hover{opacity: 1 !important;}</style>
 </head>
 <body>
 <div id="container" class="clearfix">
@@ -138,7 +139,7 @@
                             <div class="example-box">
                                 <div class="example-box-header">
                                     <div class="example-label">
-                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.type.order %>. Типы: <%- config.index.type.keys %>
+                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.type.order %>. <% if (config.index.type.keys) { %>Типы: <%- config.index.type.keys %><% } else { %>Блок с типами пустой<% } %>
                                     </div>
                                     <div class="example-label" style="float: right">
                                         <a href="https://CinemaPress.org/admin/index.html#type" class="csstip" title="Блок на главной странице сайта в котором фильмы из определенных типов: <%- config.urls.types.movie %>, <%- config.urls.types.serial %>, <%- config.urls.types.mult %>, <%- config.urls.types.anime %> или <%- config.urls.types.tv %>." target="_blank">
@@ -146,7 +147,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="inner-padding">
+                                <div class="inner-padding" <% if (!config.index.type.keys) { %>style="opacity:.5;"<% } %>>
                                     <div class="row">
                                         <div class="col-sm-2">
                                             <select name="config.index.type.order" class="form-control without">
@@ -203,7 +204,7 @@
                                             <label>из типа(-ов)</label>
                                         </div>
                                         <div class="col-sm-6">
-                                            <input type="text" name="config.index.type.keys" value="<%= config.index.type.keys %>" class="form-control">
+                                            <input type="text" name="config.index.type.keys" value="<%= config.index.type.keys %>" class="form-control" placeholder="<%- config.urls.types.movie %>,<%- config.urls.types.serial %>,<%- config.urls.types.mult %>,<%- config.urls.types.anime %>,<%- config.urls.types.tv %>">
                                         </div>
                                     </div>
                                 </div>
@@ -216,7 +217,7 @@
                             <div class="example-box">
                                 <div class="example-box-header">
                                     <div class="example-label">
-                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.year.order %>. Годы: <%- config.index.year.keys %>
+                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.year.order %>. <% if (config.index.year.keys) { %>Годы: <%- config.index.year.keys %><% } else { %>Блок с годами пустой<% } %>
                                     </div>
                                     <div class="example-label" style="float: right">
                                         <a href="https://CinemaPress.org/admin/index.html#year" class="csstip" title="Блок на главной странице сайта в котором фильмы из определеных годов." target="_blank">
@@ -224,7 +225,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="inner-padding">
+                                <div class="inner-padding" <% if (!config.index.year.keys) { %>style="opacity:.5;"<% } %>>
                                     <div class="row">
                                         <div class="col-sm-2">
                                             <select name="config.index.year.order" class="form-control without">
@@ -281,7 +282,7 @@
                                             <label>из года(-ов)</label>
                                         </div>
                                         <div class="col-sm-6">
-                                            <input type="text" name="config.index.year.keys" value="<%= config.index.year.keys %>" class="form-control">
+                                            <input type="text" name="config.index.year.keys" value="<%= config.index.year.keys %>" class="form-control" placeholder="2017,2018,2019,2020">
                                         </div>
                                     </div>
                                 </div>
@@ -294,7 +295,7 @@
                             <div class="example-box">
                                 <div class="example-box-header">
                                     <div class="example-label">
-                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.genre.order %>. Жанры: <%- config.index.genre.keys %>
+                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.genre.order %>. <% if (config.index.genre.keys) { %>Жанры: <%- config.index.genre.keys %><% } else { %>Блок с жанрами пустой<% } %>
                                     </div>
                                     <div class="example-label" style="float: right">
                                         <a href="https://CinemaPress.org/admin/index.html#genre" class="csstip" title="Блок на главной странице сайта в котором фильмы из определеных жанров." target="_blank">
@@ -302,7 +303,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="inner-padding">
+                                <div class="inner-padding" <% if (!config.index.genre.keys) { %>style="opacity:.5;"<% } %>>
                                     <div class="row">
                                         <div class="col-sm-2">
                                             <select name="config.index.genre.order" class="form-control without">
@@ -359,7 +360,7 @@
                                             <label>из жанра(-ов)</label>
                                         </div>
                                         <div class="col-sm-6">
-                                            <input type="text" name="config.index.genre.keys" value="<%= config.index.genre.keys %>" class="form-control">
+                                            <input type="text" name="config.index.genre.keys" value="<%= config.index.genre.keys %>" class="form-control" placeholder="комедия,драма,фантастика">
                                         </div>
                                     </div>
                                 </div>
@@ -372,7 +373,7 @@
                             <div class="example-box">
                                 <div class="example-box-header">
                                     <div class="example-label">
-                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.country.order %>. Страны: <%- config.index.country.keys %>
+                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.country.order %>. <% if (config.index.country.keys) { %>Страны: <%- config.index.country.keys %><% } else { %>Блок со странами пустой<% } %>
                                     </div>
                                     <div class="example-label" style="float: right">
                                         <a href="https://CinemaPress.org/admin/index.html#country" class="csstip" title="Блок на главной странице сайта в котором фильмы из определеных стран." target="_blank">
@@ -380,7 +381,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="inner-padding">
+                                <div class="inner-padding" <% if (!config.index.country.keys) { %>style="opacity:.5;"<% } %>>
                                     <div class="row">
                                         <div class="col-sm-2">
                                             <select name="config.index.country.order" class="form-control without">
@@ -437,7 +438,7 @@
                                             <label>из стран(-ы)</label>
                                         </div>
                                         <div class="col-sm-6">
-                                            <input type="text" name="config.index.country.keys" value="<%= config.index.country.keys %>" class="form-control">
+                                            <input type="text" name="config.index.country.keys" value="<%= config.index.country.keys %>" class="form-control" placeholder="США,Россия,Франция">
                                         </div>
                                     </div>
                                 </div>
@@ -450,7 +451,7 @@
                             <div class="example-box">
                                 <div class="example-box-header">
                                     <div class="example-label">
-                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.actor.order %>. Актеры: <%- config.index.actor.keys %>
+                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.actor.order %>. <% if (config.index.actor.keys) { %>Актеры: <%- config.index.actor.keys %><% } else { %>Блок с актерами пустой<% } %>
                                     </div>
                                     <div class="example-label" style="float: right">
                                         <a href="https://CinemaPress.org/admin/index.html#actor" class="csstip" title="Блок на главной странице сайта в котором фильмы с участием определенных актеров." target="_blank">
@@ -458,7 +459,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="inner-padding">
+                                <div class="inner-padding" <% if (!config.index.actor.keys) { %>style="opacity:.5;"<% } %>>
                                     <div class="row">
                                         <div class="col-sm-2">
                                             <select name="config.index.actor.order" class="form-control without">
@@ -515,7 +516,7 @@
                                             <label>с актером(-ами)</label>
                                         </div>
                                         <div class="col-sm-6">
-                                            <input type="text" name="config.index.actor.keys" value="<%= config.index.actor.keys %>" class="form-control">
+                                            <input type="text" name="config.index.actor.keys" value="<%= config.index.actor.keys %>" class="form-control" placeholder="Том Круз">
                                         </div>
                                     </div>
                                 </div>
@@ -528,7 +529,7 @@
                             <div class="example-box">
                                 <div class="example-box-header">
                                     <div class="example-label">
-                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.director.order %>. Режиссеры: <%- config.index.director.keys %>
+                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.director.order %>. <% if (config.index.director.keys) { %>Актеры: <%- config.index.director.keys %><% } else { %>Блок с режиссерами пустой<% } %>
                                     </div>
                                     <div class="example-label" style="float: right">
                                         <a href="https://CinemaPress.org/admin/index.html#director" class="csstip" title="Блок на главной странице сайта в котором фильмы из фильмографии определенных режиссеров." target="_blank">
@@ -536,7 +537,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="inner-padding">
+                                <div class="inner-padding" <% if (!config.index.director.keys) { %>style="opacity:.5;"<% } %>>
                                     <div class="row">
                                         <div class="col-sm-2">
                                             <select name="config.index.director.order" class="form-control without">
@@ -593,7 +594,7 @@
                                             <label>с режиссером(-ами)</label>
                                         </div>
                                         <div class="col-sm-6">
-                                            <input type="text" name="config.index.director.keys" value="<%= config.index.director.keys %>" class="form-control">
+                                            <input type="text" name="config.index.director.keys" value="<%= config.index.director.keys %>" class="form-control" placeholder="Джеймс Кэмерон">
                                         </div>
                                     </div>
                                 </div>
@@ -606,7 +607,7 @@
                             <div class="example-box">
                                 <div class="example-box-header">
                                     <div class="example-label">
-                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.ids.order %>. Фильмы с ID КиноПоиск
+                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.ids.order %>. <% if (config.index.ids.keys) { %>Фильмы с ID КиноПоиск<% } else { %>Блок с ID пустой<% } %>
                                     </div>
                                     <div class="example-label" style="float: right">
                                         <a href="https://CinemaPress.org/admin/index.html#ids" class="csstip" title="Блок на главной странице сайта в котором фильмы с определенными ID КиноПоиск." target="_blank">
@@ -614,7 +615,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="inner-padding">
+                                <div class="inner-padding" <% if (!config.index.ids.keys) { %>style="opacity:.5;"<% } %>>
                                     <div class="row">
                                         <div class="col-sm-2">
                                             <select name="config.index.ids.order" class="form-control without">
@@ -717,13 +718,141 @@
                             </div>
                         </div>
 
+                        <% if (modules.episode.status) { %>
+
                         <div class="spacer-10"></div>
 
                         <div class="col-sm-12">
                             <div class="example-box">
                                 <div class="example-box-header">
                                     <div class="example-label">
-                                        <i class="fa fa-hashtag"></i>&nbsp;&nbsp;&nbsp;Нумерация на главной
+                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- modules.episode.data.index.order %>. <% if (modules.episode.data.index.count) { %>Блок с новыми сериями<% } else { %>Блок с новыми сериями пустой<% } %>
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/episode.html#index" class="csstip" title="Блок на главной странице сайта в котором будут появляться новые серии сериалов" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding" <% if (!modules.episode.data.index.count) { %>style="opacity:.5;"<% } %>>
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <select name="modules.episode.data.index.order" class="form-control without">
+                                                <% for (var i = 1; i <= 10; i++) { %>
+                                                <% if (modules.episode.data.index.order == i) { %>
+                                                <option value="<%= i %>" selected="selected">
+                                                    <%- i %>-й
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%= i %>">
+                                                    <%- i %>-й
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <select name="modules.episode.data.index.count" class="form-control without">
+                                                <% for (var i = 0; i <= 20; i++) { %>
+                                                <% if (modules.episode.data.index.count == i) { %>
+                                                <% if (i === 0) { %>
+                                                <option value="<%= i %>" selected="selected">
+                                                    Не показывать
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%= i %>" selected="selected">
+                                                    <%- i %> серий
+                                                </option>
+                                                <% } %>
+                                                <% } else { %>
+                                                <% if (i === 0) { %>
+                                                <option value="<%= i %>">
+                                                    Не показывать
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%= i %>">
+                                                    <%- i %> серий
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="modules.episode.data.index.name" value="<%= modules.episode.data.index.name %>" class="form-control" placeholder="Новые серии сериалов">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <% } %>
+
+                        <% if (modules.content.status) { %>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- modules.content.data.index.order %>. <% if (modules.content.data.index.url) { %>Блок с фильмами из коллекций<% } else { %>Блок с фильмами из коллекций пустой<% } %>
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/content.html#index" class="csstip" title="Блок с фильмами из новостей/коллекций на главной странице (перечислять через запятую URL-ключи)" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding" <% if (!modules.content.data.index.url) { %>style="opacity:.5;"<% } %>>
+                                    <div class="row">
+                                        <div class="col-sm-2">
+                                            <select name="modules.content.data.index.order" class="form-control without">
+                                                <% for (var i = 1; i <= 10; i++) { %>
+                                                <% if (modules.content.data.index.order == i) { %>
+                                                <option value="<%= i %>" selected="selected">
+                                                    <%- i %>-й
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%= i %>">
+                                                    <%- i %>-й
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <input type="text" name="modules.content.data.index.url" value="<%= modules.content.data.index.url %>" class="form-control" placeholder="Ключ URL новости (например filmy-pro-vampirov)">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <select name="modules.content.data.index.count" class="form-control without">
+                                                <% for (var i = 1; i <= 20; i++) { %>
+                                                <% if (modules.content.data.index.count == i) { %>
+                                                <option value="<%= i %>" selected="selected">
+                                                    <%- i %> фильм(-ов)
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%= i %>">
+                                                    <%- i %> фильм(-ов)
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <% } %>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-hashtag"></i>&nbsp;&nbsp;&nbsp;Нумерация на главной <% if (!config.index.count.key) { %>отключена<% } %>
                                     </div>
                                     <div class="example-label" style="float: right">
                                         <a href="https://CinemaPress.org/admin/index.html#count" class="csstip" title="Внизу главной страницы будут цифры, укажите категорию в которую они будут вести." target="_blank">
@@ -731,11 +860,11 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="inner-padding">
+                                <div class="inner-padding" <% if (!config.index.count.key) { %>style="opacity:.5;"<% } %>>
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <select name="config.index.count.type" class="form-control without">
-                                                <% var type = [{'type': 'type', 'name': 'Фильмы из типа:'}, {'type': 'year', 'name': 'Фильмы из года:'}, {'type': 'genre', 'name': 'Фильмы из жанра:'}, {'type': 'country', 'name': 'Фильмы из страны:'}, {'type': 'actor', 'name': 'Фильмы актера:'}, {'type': 'director', 'name': 'Фильмы режиссера:'}]; %>
+                                                <% var type = [{'type': 'type', 'name': 'Фильмы из типа:'}, {'type': 'year', 'name': 'Фильмы из года:'}, {'type': 'genre', 'name': 'Фильмы из жанра:'}, {'type': 'country', 'name': 'Фильмы из страны:'}, {'type': 'actor', 'name': 'Фильмы актера:'}, {'type': 'director', 'name': 'Фильмы режиссера:'}, {'type': 'content_url', 'name': 'Фильмы из коллекции:'}]; %>
                                                 <% for (var i = 0, len = type.length; i < len; i++) { %>
                                                 <% if (config.index.count.type == type[i].type) { %>
                                                 <option value="<%= type[i].type %>" selected="selected">
@@ -754,7 +883,7 @@
                                         </div>
                                         <div class="col-sm-4">
                                             <select name="config.index.count.sorting" class="form-control without">
-                                                <% for (name in config.sorting) { %>
+                                                <% for (var name in config.sorting) { %>
                                                 <% if (config.index.count.sorting == name) { %>
                                                 <option value="<%= name %>" selected="selected">
                                                     <%- config.sorting[name] %>

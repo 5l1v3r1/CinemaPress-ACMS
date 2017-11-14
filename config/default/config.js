@@ -64,57 +64,57 @@ module.exports = {
         "robots": "User-agent: *\nDisallow: /\nDisallow: /type/*/*\nDisallow: /movie/*/*\nDisallow: /year/*/*\nDisallow: /genre/*/*\nDisallow: /country/*/*\nDisallow: /director/*/*\nDisallow: /actor/*/*\nDisallow: /search\nDisallow: /*?sorting*\nDisallow: /*?tag*\nDisallow: /admin*"
     },
     "index": {
+        "type": {
+            "name": "Лучшие [type]",
+            "keys": "",
+            "sorting": "kinopoisk-rating-up",
+            "count": 15,
+            "order": 2
+        },
         "year": {
             "name": "Фильмы [year] года",
             "keys": "2017",
             "sorting": "kinopoisk-vote-up",
-            "count": 10,
-            "order": 1
-        },
-        "type": {
-            "name": "Лучшие [type]",
-            "keys": "фильмы",
-            "sorting": "kinopoisk-rating-up",
             "count": 15,
             "order": 3
         },
         "genre": {
             "name": "Фильмы в жанре [genre]",
-            "keys": "комедия",
+            "keys": "",
             "sorting": "imdb-vote-up",
             "count": 10,
-            "order": 2
+            "order": 4
         },
         "country": {
             "name": "Фильмы из страны [country]",
             "keys": "",
             "sorting": "imdb-rating-up",
             "count": 10,
-            "order": 4
+            "order": 5
         },
         "actor": {
             "name": "Лучшие фильмы [actor]",
             "keys": "",
             "sorting": "kinopoisk-vote-up",
             "count": 10,
-            "order": 5
+            "order": 6
         },
         "director": {
             "name": "Лучшие фильмы [director]",
             "keys": "",
             "sorting": "kinopoisk-vote-up",
             "count": 10,
-            "order": 6
+            "order": 7
         },
         "ids": {
             "name": "Новые фильмы",
             "keys": "",
             "count": 10,
-            "order": 7
+            "order": 1
         },
         "count": {
-            "type": "type",
-            "key": "фильмы",
+            "type": "year",
+            "key": "2017",
             "sorting": "kinopoisk-vote-up"
         }
     },

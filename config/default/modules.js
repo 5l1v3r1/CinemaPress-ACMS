@@ -209,7 +209,7 @@ module.exports = {
             "index": {
                 "name": "Новые серии сериалов",
                 "count": 10,
-                "order": 1
+                "order": 2
             }
         }
     },
@@ -382,12 +382,38 @@ module.exports = {
                 "tags": "новость"
             },
             "index": {
-                "count": 5,
-                "url": "",
-                "order": 1
+                "count": 10,
+                "url": "poslednie-obnovleniya-filmov",
+                "order": 2
             },
             "movie": {
                 "count": 2
+            },
+            "auto": {
+                "moonwalk_movies": {
+                    "count": 10,
+                    "url": "poslednie-obnovleniya-filmov"
+                },
+                "moonwalk_serials": {
+                    "count": 10,
+                    "url": ""
+                },
+                "hdgo_movies": {
+                    "count": 10,
+                    "url": "poslednie-obnovleniya-filmov"
+                },
+                "hdgo_serials": {
+                    "count": 10,
+                    "url": ""
+                },
+                "kodik_movies": {
+                    "count": 10,
+                    "url": "poslednie-obnovleniya-filmov"
+                },
+                "kodik_serials": {
+                    "count": 10,
+                    "url": ""
+                }
             }
         }
     },

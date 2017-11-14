@@ -108,6 +108,14 @@
       "content_tags": "коллекция",
       "content_image": "/themes/default/public/desktop/img/content/collection3.png",
       "content_movies": "195524,801,577,427122,64021,8370,5916,17159,36544,2894,55945,197615,9923,325598,261636,9917,497077,95434,24186,273063,32282,417895,222496,88172,195870,62623,397229,81601,409208,260981,426314"
+    },
+    {
+      "content_url": "poslednie-obnovleniya-filmov",
+      "content_title": "Последние обновления фильмов",
+      "content_description": "Последние обновления фильмов",
+      "content_tags": "коллекция",
+      "content_image": "/themes/default/public/desktop/img/content/collection4.png",
+      "content_movies": "623250,484628,589290,641780,690593,689960,468940,464963,582358,591843,468868,463596,488172,569071"
     }
   ]
 }
