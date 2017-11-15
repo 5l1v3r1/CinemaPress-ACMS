@@ -166,7 +166,11 @@ function oneContent(url, page, sorting, options, callback) {
                         if (err) return callback(err);
 
                         if (contents && contents.length && contents[0].movies && contents[0].movies.length) {
-                            query = {"query_id": contents[0].movies.join('|')};
+                            var query_id = [];
+                            contents[0].movies.forEach(function (item, i, arr) {
+                                query_id.push(item + '^' + (parseInt(arr.length) - parseInt(i)))
+                            });
+                            query = {"query_id": query_id.join('|')};
                         }
 
                         return (contents && contents.length)

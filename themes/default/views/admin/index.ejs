@@ -607,7 +607,7 @@
                             <div class="example-box">
                                 <div class="example-box-header">
                                     <div class="example-label">
-                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.ids.order %>. <% if (config.index.ids.keys) { %>Фильмы с ID КиноПоиск<% } else { %>Блок с ID пустой<% } %>
+                                        <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;<%- config.index.ids.order %>. <% if (config.index.ids.count && config.index.ids.keys) { %>Фильмы с ID КиноПоиск<% } else { %>Блок с ID не активен<% } %>
                                     </div>
                                     <div class="example-label" style="float: right">
                                         <a href="https://CinemaPress.org/admin/index.html#ids" class="csstip" title="Блок на главной странице сайта в котором фильмы с определенными ID КиноПоиск." target="_blank">
@@ -615,7 +615,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="inner-padding" <% if (!config.index.ids.keys) { %>style="opacity:.5;"<% } %>>
+                                <div class="inner-padding" <% if (!config.index.ids.keys || !config.index.ids.count) { %>style="opacity:.5;"<% } %>>
                                     <div class="row">
                                         <div class="col-sm-2">
                                             <select name="config.index.ids.order" class="form-control without">
