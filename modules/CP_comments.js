@@ -398,6 +398,8 @@ function indexerComments(thread, pathname, callback) {
 
 /**
  * Valid JSON.
+ *
+ * @param {String} jsonString
  */
 
 function tryParseJSON(jsonString) {

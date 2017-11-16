@@ -162,7 +162,7 @@ function indexEpisode(options, callback) {
     /**
      * Valid JSON.
      *
-     * @param {string} jsonString
+     * @param {String} jsonString
      */
 
     function tryParseJSON(jsonString) {

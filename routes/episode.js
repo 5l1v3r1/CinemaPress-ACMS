@@ -117,7 +117,7 @@ router.get('/?', function(req, res) {
     /**
      * Valid JSON.
      *
-     * @param {string} jsonString
+     * @param {String} jsonString
      */
 
     function tryParseJSON(jsonString) {

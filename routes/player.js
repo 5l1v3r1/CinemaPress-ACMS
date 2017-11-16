@@ -416,6 +416,8 @@ router.get('/?', function(req, res) {
 
     /**
      * Valid JSON.
+     *
+     * @param {String} jsonString
      */
 
     function tryParseJSON(jsonString) {

@@ -27,6 +27,8 @@ catch(err) {
 
 /**
  * Valid JSON.
+ *
+ * @param {String} jsonString
  */
 
 function tryParseJSON(jsonString) {
