@@ -174,6 +174,12 @@ function codesComments(url, pathname) {
 
 function recentComments(service, callback) {
 
+    /**
+     * Route dependencies.
+     */
+
+    var movie = require('../routes/paths/movie');
+
     var result = [];
 
     async.parallel([
@@ -230,6 +236,7 @@ function recentComments(service, callback) {
                                                 : moment().subtract(num, 'minute');
                             r['date'] = date.fromNow();
                             r['time'] = date.valueOf();
+                            r['kp_id'] = movie.id(r['url']);
 
                             result.push(r);
                         });
@@ -278,6 +285,7 @@ function recentComments(service, callback) {
                             var date = moment(new Date(comment.time));
                             r['date'] = date.fromNow();
                             r['time'] = date.valueOf();
+                            r['kp_id'] = movie.id(r['url']);
                             result.push(r);
                         });
                     }

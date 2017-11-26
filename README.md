@@ -172,6 +172,13 @@
 
 ![Тема оформления «bran»](https://raw.githubusercontent.com/CinemaPress/Theme-Bran/master/screenshot.png)
 
+## Шаблон «arya»
+
+- Скачать с [GitHub](https://github.com/CinemaPress/Theme-Arya/) или [GitLab](https://gitlab.com/CinemaPress/Theme-Arya/) или [BitBucket](https://bitbucket.org/cinemapress/theme-arya/) или [Coding](https://coding.net/u/CinemaPress/p/Theme-Arya/)
+- DEMO: [Arya.CinemaPress.org](http://Arya.CinemaPress.org/)
+
+![Тема оформления «arya»](https://raw.githubusercontent.com/CinemaPress/Theme-Arya/master/screenshot.png)
+
 # Параметры и модули CinemaPress ACMS
 
 Подробную информацию о всех параметрах и модулях системы Вы найдете в [документации](https://cinemapress.org/admin/admin.html).
