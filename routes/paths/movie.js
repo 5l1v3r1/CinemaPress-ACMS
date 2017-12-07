@@ -150,6 +150,7 @@ function dataMovie(id, type, options, callback) {
                 return (service.length)
                     ? CP_comments.recent(
                     service,
+                    options,
                     function (err, comments) {
                         if (err) return callback(err);
 

@@ -361,6 +361,7 @@ function oneCategory(type, key, page, sorting, options, callback) {
                     return (service.length)
                         ? CP_comments.recent(
                         service,
+                        options,
                         function (err, comments) {
                             if (err) return callback(err);
 

@@ -169,10 +169,11 @@ function codesComments(url, pathname) {
  * Adding recent comments.
  *
  * @param {Object} service
+ * @param {Object} options
  * @param {Callback} callback
  */
 
-function recentComments(service, callback) {
+function recentComments(service, options, callback) {
 
     /**
      * Route dependencies.
@@ -208,9 +209,11 @@ function recentComments(service, callback) {
                         var $ = cheerio.load(body, {decodeEntities: false});
                         $('li').each(function(i, elem) {
                             var r = {};
-                            r['url'] = $(elem).find('.dsq-widget-meta a').first().attr('href');
+                            r['url'] = ($(elem).find('.dsq-widget-meta a').first().attr('href'))
+                                .replace(/(https?:\/\/[a-z0-9._\-]*)/i, options.protocol + options.domain);
                             r['user'] = $(elem).find('.dsq-widget-user').text();
-                            r['avatar'] = ($(elem).find('.dsq-widget-avatar').attr('src')).replace('/avatar92', '/avatar36');
+                            r['avatar'] = ($(elem).find('.dsq-widget-avatar').attr('src'))
+                                .replace('/avatar92', '/avatar36');
                             r['title'] = $(elem).find('.dsq-widget-meta a').first().text();
                             r['comment'] = $(elem).find('.dsq-widget-comment').text();
                             r['comment'] = (r['comment'])
@@ -277,11 +280,13 @@ function recentComments(service, callback) {
                                 : '';
                             var tri = (('' + comment.text).length >= modules.comments.data.hypercomments.recent.excerpt_length) ? '...' : '';
                             var r = {};
-                            r['url'] = comment.link;
+                            r['url'] = (comment.link)
+                                .replace(/(https?:\/\/[a-z0-9._\-]*)/i, options.protocol + options.domain);
                             r['user'] = comment.nick;
                             r['avatar'] = '';
                             r['title'] = comment.title;
-                            r['comment'] = comment.text.slice(0, modules.comments.data.hypercomments.recent.excerpt_length) + tri;
+                            r['comment'] = comment.text
+                                .slice(0, modules.comments.data.hypercomments.recent.excerpt_length) + tri;
                             var date = moment(new Date(comment.time));
                             r['date'] = date.fromNow();
                             r['time'] = date.valueOf();
