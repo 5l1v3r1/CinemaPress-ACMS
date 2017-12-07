@@ -210,7 +210,7 @@ function recentComments(service, options, callback) {
                         $('li').each(function(i, elem) {
                             var r = {};
                             r['url'] = ($(elem).find('.dsq-widget-meta a').first().attr('href'))
-                                .replace(/(https?:\/\/[a-z0-9._\-]*)/i, options.protocol + options.domain);
+                                .replace(/(https?:\/\/[a-z0-9._\-]*)/i, config.protocol + options.domain);
                             r['user'] = $(elem).find('.dsq-widget-user').text();
                             r['avatar'] = ($(elem).find('.dsq-widget-avatar').attr('src'))
                                 .replace('/avatar92', '/avatar36');
@@ -281,7 +281,7 @@ function recentComments(service, options, callback) {
                             var tri = (('' + comment.text).length >= modules.comments.data.hypercomments.recent.excerpt_length) ? '...' : '';
                             var r = {};
                             r['url'] = (comment.link)
-                                .replace(/(https?:\/\/[a-z0-9._\-]*)/i, options.protocol + options.domain);
+                                .replace(/(https?:\/\/[a-z0-9._\-]*)/i, config.protocol + options.domain);
                             r['user'] = comment.nick;
                             r['avatar'] = '';
                             r['title'] = comment.title;
