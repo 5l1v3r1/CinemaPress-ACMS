@@ -97,7 +97,7 @@ module.exports = {
             ],
             "types": {
                 "year": {
-                    "count": 5,
+                    "count": 6,
                     "name": "Фильмы [year] года",
                     "sorting": "kinopoisk-vote-up"
                 },
@@ -208,7 +208,7 @@ module.exports = {
             "default": "Оригинал",
             "index": {
                 "name": "Новые серии сериалов",
-                "count": 10,
+                "count": 12,
                 "order": 2
             }
         }
@@ -382,7 +382,7 @@ module.exports = {
                 "tags": "новость"
             },
             "index": {
-                "count": 10,
+                "count": 12,
                 "url": "poslednie-obnovleniya-filmov",
                 "order": 2
             },
@@ -391,27 +391,27 @@ module.exports = {
             },
             "auto": {
                 "moonwalk_movies": {
-                    "count": 10,
+                    "count": 12,
                     "url": "poslednie-obnovleniya-filmov"
                 },
                 "moonwalk_serials": {
-                    "count": 10,
+                    "count": 12,
                     "url": ""
                 },
                 "hdgo_movies": {
-                    "count": 10,
+                    "count": 12,
                     "url": "poslednie-obnovleniya-filmov"
                 },
                 "hdgo_serials": {
-                    "count": 10,
+                    "count": 12,
                     "url": ""
                 },
                 "kodik_movies": {
-                    "count": 10,
+                    "count": 12,
                     "url": "poslednie-obnovleniya-filmov"
                 },
                 "kodik_serials": {
-                    "count": 10,
+                    "count": 12,
                     "url": ""
                 }
             }
