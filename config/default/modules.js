@@ -194,7 +194,21 @@ module.exports = {
     "mobile": {
         "status": false,
         "data": {
-            "theme": "light"
+            "theme": "light",
+            "custom": {
+                "a": "#8eb4cf",
+                "hover": "#7bb7eb",
+                "body_color": "#ffffff",
+                "body_bg": "#333333",
+                "title_color": "#ffffff",
+                "title_bg": "#cccccc",
+                "description_color": "#ffffff",
+                "description_bg": "#999999",
+                "block": "#666666",
+                "form": "#666666",
+                "btn_color": "#666666",
+                "btn_bg": "#666666"
+            }
         }
     },
     "episode": {

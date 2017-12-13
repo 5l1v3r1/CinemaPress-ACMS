@@ -28,6 +28,21 @@ function mobileVersion(url) {
     if (url.indexOf('://m.')+1) {
         data += '<link rel="canonical" href="' + url.replace('://m.', '://') + '">';
         var css = fs.readFileSync(path.join(path.dirname(__dirname), 'themes', 'default', 'public', 'mobile', modules.mobile.data.theme, 'css', 'style.css'));
+        if (modules.mobile.data.theme === 'custom') {
+            css = css
+                .replace('custom_a', modules.mobile.data.custom.a)
+                .replace('custom_hover', modules.mobile.data.custom.hover)
+                .replace('custom_body_color', modules.mobile.data.custom.body_color)
+                .replace('custom_body_bg', modules.mobile.data.custom.body_bg)
+                .replace('custom_title_color', modules.mobile.data.custom.title_color)
+                .replace('custom_title_bg', modules.mobile.data.custom.title_bg)
+                .replace('custom_description_color', modules.mobile.data.custom.description_color)
+                .replace('custom_description_bg', modules.mobile.data.custom.description_bg)
+                .replace('custom_block', modules.mobile.data.custom.block)
+                .replace('custom_form', modules.mobile.data.custom.form)
+                .replace('custom_btn_color', modules.mobile.data.custom.btn_color)
+                .replace('custom_btn_bg', modules.mobile.data.custom.btn_bg);
+        }
         data += '<style>' + css + '</style>';
     }
     else {

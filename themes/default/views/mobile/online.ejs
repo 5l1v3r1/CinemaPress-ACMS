@@ -15,14 +15,10 @@
 
 <div class="clear"></div>
 
-<h2><%= movie.title %> (<%- movie.year %>) смотреть онлайн</h2>
-
-<div class="clear"></div>
-
 <div class="poster">
     <img src="<%- movie.poster_min %>" alt="<%= movie.title %> (<%- movie.year %>) смотреть онлайн" title="<%= movie.title %> (<%- movie.year %>)">
 </div>
-<h3><%= page.title %></h3>
+<h1><%= movie.title %> (<%- movie.year %>) смотреть онлайн</h1>
 
 <% if (movie.year_url) { %>
 
@@ -73,7 +69,7 @@
                 : '<div class="star-false"></div>';
     %>
     <%- star_kp %>
-    <% } %> - <span style="color:#F56504; font-weight: bold">КиноПоиск</span>
+    <% } %><span style="color:#F56504; font-weight: 800; font-size: 18px">&nbsp;&nbsp;&nbsp;КиноПоиск</span>
 </div>
 <div class="info">
     <%
@@ -83,19 +79,19 @@
                 : '<div class="star-false"></div>';
     %>
     <%- star_imdb %>
-    <% } %> - <span style="color:#E3B71E; font-weight: bold">IMDb</span>
+    <% } %><span style="color:#E3B71E; font-weight: 800; font-size: 18px">&nbsp;&nbsp;&nbsp;IMDb</span>
 </div>
 
 <% if (movie.quality) { %>
 
-<div class="info">
+<div class="info" style="line-height: 2;">
     Качество: <%- movie.quality %>
 </div>
 
 <% } %>
 <% if (movie.translate) { %>
 
-<div class="info">
+<div class="info" style="line-height: 2;">
     Перевод: <%- movie.translate %>
 </div>
 
@@ -134,7 +130,7 @@
 
 <div class="clear"></div>
 
-<div class="info" style="height: 420px;position: relative;">
+<div class="info" style="height: 420px; position: relative; border-radius: 10px; background: transparent; overflow: hidden;">
     <%- page.player %>
 </div>
 

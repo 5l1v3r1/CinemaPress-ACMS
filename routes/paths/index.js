@@ -248,6 +248,10 @@ function dataIndex(options, callback) {
                                                     ? CP_get.movies(
                                                         {"query_id": contents[0].movies.join('|')},
                                                         contents[0].movies.length,
+                                                        '',
+                                                        1,
+                                                        true,
+                                                        options,
                                                         function (err, movies) {
                                                             if (err) return callback(err);
 

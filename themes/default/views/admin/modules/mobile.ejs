@@ -9,6 +9,8 @@
 
     <% include ../includes/head.ejs %>
 
+    <script src="/themes/default/public/admin/js/jscolor.min.js"></script>
+
 </head>
 <body>
 <div id="container" class="clearfix">
@@ -178,6 +180,142 @@
                                                                     <img src="/themes/default/public/mobile/dark/dark3.jpg">
                                                                 </div>
                                                             </div>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-paint-brush"></i>&nbsp;&nbsp;&nbsp;Своя тема
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/mobile.html#custom" class="csstip" title="Своя тема оформления мобильной версии сайта" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-1 col-xs-1 text-center">
+                                            <div class="inline-labels">
+                                                <label style="margin: 5px;">
+                                                    <input name="modules.mobile.data.theme" value="custom" <% if (modules.mobile.data.theme == 'custom') { %> checked="" <% } %> type="radio"><span></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-11 col-lg-11">
+                                            <div class="faq">
+                                                <article class="faq-group">
+                                                    <header>
+                                                        <i class="fa fa-minus"></i>
+                                                        <h3>Настроить</h3>
+                                                    </header>
+                                                    <div class="faq-content clearfix">
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-xs-3">
+                                                                <label>Фон сайта</label>
+                                                            </div>
+                                                            <div class="col-lg-3 col-xs-3 text-center">
+                                                                <input name="modules.mobile.data.custom.body_bg" value="<%= modules.mobile.data.custom.body_bg %>" class="form-control jscolor {hash:true}" type="text" placeholder="Цвет фона">
+                                                            </div>
+
+                                                            <div class="col-lg-3 col-xs-3">
+                                                                <label>Цвет текста</label>
+                                                            </div>
+                                                            <div class="col-lg-3 col-xs-3 text-center">
+                                                                <input name="modules.mobile.data.custom.body_color" value="<%= modules.mobile.data.custom.body_color %>" class="form-control jscolor {hash:true}" type="text" placeholder="Цвет текста">
+                                                            </div>
+
+                                                            <div class="spacer-10"></div>
+
+                                                            <div class="col-lg-3 col-xs-3">
+                                                                <label>Фон заголовка</label>
+                                                            </div>
+                                                            <div class="col-lg-3 col-xs-3 text-center">
+                                                                <input name="modules.mobile.data.custom.title_bg" value="<%= modules.mobile.data.custom.title_bg %>" class="form-control jscolor {hash:true}" type="text" placeholder="Фон заголовка">
+                                                            </div>
+
+                                                            <div class="col-lg-3 col-xs-3">
+                                                                <label>Цвет заголовка</label>
+                                                            </div>
+                                                            <div class="col-lg-3 col-xs-3 text-center">
+                                                                <input name="modules.mobile.data.custom.title_color" value="<%= modules.mobile.data.custom.title_color %>" class="form-control jscolor {hash:true}" type="text" placeholder="Цвет заголовка">
+                                                            </div>
+
+                                                            <div class="spacer-10"></div>
+
+                                                            <div class="col-lg-3 col-xs-3">
+                                                                <label>Фон описания</label>
+                                                            </div>
+                                                            <div class="col-lg-3 col-xs-3 text-center">
+                                                                <input name="modules.mobile.data.custom.description_bg" value="<%= modules.mobile.data.custom.description_bg %>" class="form-control jscolor {hash:true}" type="text" placeholder="Фон описания">
+                                                            </div>
+
+                                                            <div class="col-lg-3 col-xs-3">
+                                                                <label>Цвет описания</label>
+                                                            </div>
+                                                            <div class="col-lg-3 col-xs-3 text-center">
+                                                                <input name="modules.mobile.data.custom.description_color" value="<%= modules.mobile.data.custom.description_color %>" class="form-control jscolor {hash:true}" type="text" placeholder="Цвет описания">
+                                                            </div>
+
+                                                            <div class="spacer-10"></div>
+
+                                                            <div class="col-lg-3 col-xs-3">
+                                                                <label>Фон кнопки</label>
+                                                            </div>
+                                                            <div class="col-lg-3 col-xs-3 text-center">
+                                                                <input name="modules.mobile.data.custom.btn_bg" value="<%= modules.mobile.data.custom.btn_bg %>" class="form-control jscolor {hash:true}" type="text" placeholder="Фон кнопки">
+                                                            </div>
+
+                                                            <div class="col-lg-3 col-xs-3">
+                                                                <label>Цвет кнопки</label>
+                                                            </div>
+                                                            <div class="col-lg-3 col-xs-3 text-center">
+                                                                <input name="modules.mobile.data.custom.btn_color" value="<%= modules.mobile.data.custom.btn_color %>" class="form-control jscolor {hash:true}" type="text" placeholder="Цвет кнопки">
+                                                            </div>
+
+                                                            <div class="spacer-10"></div>
+
+                                                            <div class="col-lg-3 col-xs-3">
+                                                                <label>Фон поиска</label>
+                                                            </div>
+                                                            <div class="col-lg-3 col-xs-3 text-center">
+                                                                <input name="modules.mobile.data.custom.form" value="<%= modules.mobile.data.custom.form %>" class="form-control jscolor {hash:true}" type="text" placeholder="Фон поиска">
+                                                            </div>
+
+                                                            <div class="col-lg-3 col-xs-3">
+                                                                <label>Фон блока</label>
+                                                            </div>
+                                                            <div class="col-lg-3 col-xs-3 text-center">
+                                                                <input name="modules.mobile.data.custom.block" value="<%= modules.mobile.data.custom.block %>" class="form-control jscolor {hash:true}" type="text" placeholder="Фон блока">
+                                                            </div>
+
+                                                            <div class="spacer-10"></div>
+
+                                                            <div class="col-lg-3 col-xs-3">
+                                                                <label>Цвет ссылок</label>
+                                                            </div>
+                                                            <div class="col-lg-3 col-xs-3 text-center">
+                                                                <input name="modules.mobile.data.custom.a" value="<%= modules.mobile.data.custom.a %>" class="form-control jscolor {hash:true}" type="text" placeholder="Цвет ссылок">
+                                                            </div>
+
+                                                            <div class="col-lg-3 col-xs-3">
+                                                                <label>При наведении</label>
+                                                            </div>
+                                                            <div class="col-lg-3 col-xs-3 text-center">
+                                                                <input name="modules.mobile.data.custom.hover" value="<%= modules.mobile.data.custom.hover %>" class="form-control jscolor {hash:true}" type="text" placeholder="При наведении">
+                                                            </div>
+
                                                         </div>
                                                     </div>
                                                 </article>
