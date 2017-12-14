@@ -28,8 +28,10 @@ function mobileVersion(url) {
     if (url.indexOf('://m.')+1) {
         data += '<link rel="canonical" href="' + url.replace('://m.', '://') + '">';
         var css = fs.readFileSync(path.join(path.dirname(__dirname), 'themes', 'default', 'public', 'mobile', modules.mobile.data.theme, 'css', 'style.css'));
+        data += '<style>' + css + '</style>';
+
         if (modules.mobile.data.theme === 'custom') {
-            css = css
+            data = data
                 .replace('custom_a', modules.mobile.data.custom.a)
                 .replace('custom_hover', modules.mobile.data.custom.hover)
                 .replace('custom_body_color', modules.mobile.data.custom.body_color)
@@ -43,7 +45,6 @@ function mobileVersion(url) {
                 .replace('custom_btn_color', modules.mobile.data.custom.btn_color)
                 .replace('custom_btn_bg', modules.mobile.data.custom.btn_bg);
         }
-        data += '<style>' + css + '</style>';
     }
     else {
         data += '<link rel="alternate" media="only screen and (max-width: 1000px)" href="' + url.replace('://', '://m.') + '">';
