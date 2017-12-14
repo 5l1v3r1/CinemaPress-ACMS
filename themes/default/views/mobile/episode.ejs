@@ -15,14 +15,10 @@
 
 <div class="clear"></div>
 
-<h2><%= movie.title %> (<%- movie.year %>) сериал онлайн</h2>
-
-<div class="clear"></div>
-
 <div class="poster">
-    <img src="<%- movie.poster_min %>" alt="<%= movie.title %> (<%- movie.year %>) сериал онлайн" title="<%= movie.title %> (<%- movie.year %>)">
+    <img src="<%- movie.poster_min %>" alt="<%= movie.title %> (<%- movie.year %>) серия" title="<%= movie.title %> (<%- movie.year %>) серия">
 </div>
-<h3><%= page.title %></h3>
+<h1><%= page.title %> серия</h1>
 
 <% if (movie.year_url) { %>
 

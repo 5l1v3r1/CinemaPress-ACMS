@@ -196,18 +196,18 @@ module.exports = {
         "data": {
             "theme": "light",
             "custom": {
-                "a": "#8eb4cf",
-                "hover": "#7bb7eb",
-                "body_color": "#ffffff",
-                "body_bg": "#333333",
-                "title_color": "#ffffff",
-                "title_bg": "#cccccc",
-                "description_color": "#ffffff",
-                "description_bg": "#999999",
-                "block": "#666666",
-                "form": "#666666",
-                "btn_color": "#666666",
-                "btn_bg": "#666666"
+                "a": "#99AABB",
+                "hover": "#FFFFFF",
+                "body_color": "#FFFFFF",
+                "body_bg": "#14181C",
+                "title_color": "#FFFFFF",
+                "title_bg": "#445566",
+                "description_color": "#FFFFFF",
+                "description_bg": "#242D35",
+                "block": "#2C3641",
+                "form": "#2C3641",
+                "btn_color": "#FFFFFF",
+                "btn_bg": "#14181C"
             }
         }
     },
