@@ -201,7 +201,7 @@
                                                 </a>
                                             </div>
                                             <select name="config.default.votes.imdb" class="form-control">
-                                                <% for (var i = 100; i <= 10000; i = i+100) { %>
+                                                <% for (var i = 0; i <= 10000; i = i+100) { %>
                                                 <% if (config.default.votes.imdb == i) { %>
                                                 <option value="<%= i %>" selected="selected">
                                                     <%- i %> голос(-ов)
@@ -222,7 +222,7 @@
                                                 </a>
                                             </div>
                                             <select name="config.default.votes.kp" class="form-control">
-                                                <% for (var i = 100; i <= 10000; i = i+100) { %>
+                                                <% for (var i = 0; i <= 10000; i = i+100) { %>
                                                 <% if (config.default.votes.kp == i) { %>
                                                 <option value="<%= i %>" selected="selected">
                                                     <%- i %> голос(-ов)
