@@ -102,7 +102,12 @@ router.get('/?', function(req, res, next) {
         var render = {};
         render.config = config;
         render.movies = [];
-        var collection = (req.query.collection) ? CP_regexp.str(req.query.collection) : '';
+        var collection = (req.query.collection)
+            ? CP_regexp.str(req.query.collection)
+            : '';
+        var tag = (req.query.tag)
+            ? {"content_tags": CP_regexp.str(req.query.tag)}
+            : '';
 
         if (modules.content.status && collection) {
             CP_get.contents(
@@ -134,6 +139,30 @@ router.get('/?', function(req, res, next) {
                     else {
                         return callback('Коллекция пустая!');
                     }
+                });
+        }
+        else if (modules.content.status && tag) {
+            var options = {};
+            options.protocol = config.protocol;
+            options.domain = config.domain;
+            options.content_image = config.default.image;
+            CP_get.contents(
+                tag,
+                100,
+                1,
+                true,
+                options,
+                function (err, contents) {
+                    if (err) return callback(err);
+
+                    if (contents && contents.length) {
+                        render.movies = contents;
+                        callback(null, render);
+                    }
+                    else {
+                        return callback('Тег не существует!');
+                    }
+
                 });
         }
         else {
