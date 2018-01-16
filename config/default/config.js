@@ -62,7 +62,7 @@ module.exports = {
     "codes": {
         "head": "",
         "footer": "",
-        "robots": "User-agent: *\nDisallow: /\nDisallow: /type/*/*\nDisallow: /movie/*/*\nDisallow: /year/*/*\nDisallow: /genre/*/*\nDisallow: /country/*/*\nDisallow: /director/*/*\nDisallow: /actor/*/*\nDisallow: /search\nDisallow: /*?sorting*\nDisallow: /*?tag*\nDisallow: /admin*"
+        "robots": "User-agent: *\nDisallow: /\nDisallow: /type/*/*\nDisallow: /movie/*/*\nDisallow: /year/*/*\nDisallow: /genre/*/*\nDisallow: /country/*/*\nDisallow: /director/*/*\nDisallow: /actor/*/*\nDisallow: /search\nDisallow: /*?sorting*\nDisallow: /*?tag*\nDisallow: /iframe\nDisallow: /admin*"
     },
     "index": {
         "type": {
