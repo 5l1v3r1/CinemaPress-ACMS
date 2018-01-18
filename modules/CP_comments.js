@@ -193,7 +193,7 @@ function recentComments(service, options, callback) {
                     '&excerpt_length=' + modules.comments.data.disqus.recent.excerpt_length +
                     '&random=' + Math.random();
 
-                request({url: url, timeout: 500}, function (error, response, body) {
+                request({url: url, timeout: 500, agent: false, pool: {maxSockets: 100}}, function (error, response, body) {
 
                     if (error) {
                         console.log(error);
@@ -256,7 +256,9 @@ function recentComments(service, options, callback) {
                     url: 'http://c1n1.hypercomments.com/api/mixstream',
                     method: 'POST',
                     form: {data: '{"widget_id":' + modules.comments.data.hypercomments.widget_id + ',"limit":' + modules.comments.data.hypercomments.recent.num_items + ',"filter":"last"}'},
-                    timeout: 500
+                    timeout: 500,
+                    agent: false,
+                    pool: {maxSockets: 100}
                 };
                 request(url, function (error, response, body) {
 
@@ -326,10 +328,10 @@ function indexerComments(thread, pathname, callback) {
 
                 var url = 'https://disqus.com/api/3.0/threads/listPosts.json?api_key=' + modules.comments.data.disqus.api_key.trim() + '&forum=' + modules.comments.data.disqus.shortname.trim() + '&limit=100&thread=ident:' + encodeURIComponent(pathname);
 
-                request({url: url, timeout: 500}, function (error, response, body) {
+                request({url: url, timeout: 500, agent: false, pool: {maxSockets: 100}}, function (error, response, body) {
 
                     if (error) {
-                        console.log(error);
+                        console.log('1,000 requests per hour limit!');
                         return callback(null, '');
                     }
 
@@ -364,7 +366,9 @@ function indexerComments(thread, pathname, callback) {
                     url: 'http://c1api.hypercomments.com/1.0/comments/list',
                     method: 'POST',
                     form: {body: body, signature: signature},
-                    timeout: 500
+                    timeout: 500,
+                    agent: false,
+                    pool: {maxSockets: 100}
                 };
                 request(url, function (error, response, body) {
 

@@ -100,7 +100,7 @@ router.get('/?', function(req, res) {
 
     function getReq(url, callback) {
 
-        request(url, function (error, response, body) {
+        request({timeout: 500, agent: false, pool: {maxSockets: 100}, url: url}, function (error, response, body) {
 
             var result = (body) ? tryParseJSON(body) : {};
 

@@ -403,12 +403,13 @@ router.get('/?', function(req, res) {
      */
 
     function api(url, callback) {
-        request({url: url, timeout: 1500}, function (error, response, body) {
+        request({url: url, timeout: 1500, agent: false, pool: {maxSockets: 100}}, function (error, response, body) {
             if (!error && response.statusCode === 200) {
                 var json = tryParseJSON(body);
                 callback(json, body);
             }
             else {
+                console.log(error);
                 callback(null, '');
             }
         });

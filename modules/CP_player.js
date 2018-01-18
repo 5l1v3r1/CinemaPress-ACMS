@@ -17,7 +17,6 @@ var modules = require('../config/production/modules');
  * Node dependencies.
  */
 
-var request = require('request');
 var async   = require('async');
 
 /**
