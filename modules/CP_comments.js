@@ -102,7 +102,7 @@ function codesComments(url, pathname) {
     }
 
     if (modules.comments.data.vk.app_id) {
-        data.vk = '<div id="vk_comments"></div><script type="text/javascript">if (typeof VK == "object") {VK.Widgets.Comments("vk_comments", {limit: 10, width: "auto", attach: "*"});}</script>';
+        data.vk = '<div id="vk_comments"></div><script type="text/javascript">if (typeof VK == "object") {VK.Widgets.Comments("vk_comments", {limit: 10, width: "auto", attach: "*", autoPublish: 1});}</script>';
     }
 
     if (modules.comments.data.facebook.admins) {
