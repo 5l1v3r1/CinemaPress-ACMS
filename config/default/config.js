@@ -26,7 +26,7 @@ module.exports = {
     },
     "publish": {
         "start": 400000,
-        "stop": 700000,
+        "stop": 900000,
         "every" : {
             "hours": 1,
             "movies": 2
