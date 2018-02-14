@@ -373,7 +373,7 @@ function indexerComments(thread, pathname, callback) {
                 request(url, function (error, response, body) {
 
                     if (error) {
-                        console.log(error);
+                        console.log('Stream with comments not found.');
                         return callback(null, '');
                     }
 
