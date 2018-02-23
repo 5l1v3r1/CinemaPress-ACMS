@@ -55,7 +55,7 @@ function objReplace(obj_new, obj_old) {
             }
             else {
                 if (typeof obj_new[key] === typeof obj_old[key]) {
-                    if (key === 'addr' || key === 'protocol' || key === 'domain' || key === 'date' || key === 'key') continue;
+                    if (key === 'addr' || key === 'domain' || key === 'date' || key === 'key') continue;
                     obj_new[key] = obj_old[key];
                 }
             }
