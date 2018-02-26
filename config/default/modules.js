@@ -138,7 +138,7 @@ module.exports = {
         "data": {
             "display": "yohoho",
             "yohoho": {
-                "player": "moonwalk,hdgo,kodik,allserials,iframe,trailer",
+                "player": "moonwalk,hdgo,iframe,newvideo,kodik,allserials,trailer",
                 "bg": "#14181C",
                 "button": ""
             },
