@@ -41,6 +41,7 @@ router.get('/:id?/:title?', function(req, res) {
             'data-language="' + (config.language || '') + '" ' +
             'data-moonwalk="' + (modules.player.data.moonwalk.token || '') + '" ' +
             'data-hdgo="' + (modules.player.data.hdgo.token || '') + '" ' +
+            'data-newvideo="' + (modules.player.data.newvideo.api_key || '') + '" ' +
             'data-youtube="' + (modules.player.data.youtube.token || '') + '" ' +
             '></div>' +
             '<script data-cfasync="false" src="//yohoho.cc/yo.js"></script>' +
@@ -67,6 +68,7 @@ router.get('/:id?/:title?', function(req, res) {
                         'data-language="' + (config.language || '') + '" ' +
                         'data-moonwalk="' + (modules.player.data.moonwalk.token || '') + '" ' +
                         'data-hdgo="' + (modules.player.data.hdgo.token || '') + '" ' +
+                        'data-newvideo="' + (modules.player.data.newvideo.api_key || '') + '" ' +
                         'data-youtube="' + (modules.player.data.youtube.token || '') + '" ' +
                         '></div>' +
                         '<script data-cfasync="false" src="//yohoho.cc/yo.js"></script>' +
