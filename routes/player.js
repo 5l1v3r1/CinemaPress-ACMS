@@ -88,7 +88,17 @@ router.get('/?', function(req, res) {
                     else {
                         callback(null, {});
                     }
-                }
+                },
+                "newvideo": function (callback) {
+                    if (modules.player.data.newvideo.api_key) {
+                        getNewvideo(function(result) {
+                            callback(null, result);
+                        });
+                    }
+                    else {
+                        callback(null, {});
+                    }
+                },
             },
             function(err, result) {
 
@@ -376,6 +386,33 @@ router.get('/?', function(req, res) {
                     "src": iframe_src,
                     "translate": "",
                     "quality": ""
+                });
+            });
+
+    }
+
+    /**
+     * Get Newvideo player.
+     */
+
+    function getNewvideo(callback) {
+
+        api('https://newvideo.tv/api/videos?' +
+            'api_key=' + modules.player.data.newvideo.api_key.trim() + '&' +
+            'kinopoisk_id=' + id,
+            function (json) {
+                var iframe_src = '';
+                var iframe_translate = '';
+                var iframe_quality = '';
+                if (json && json.status && json.status === 'ok' && json.data && json.data.length && json.data[0].iframe_url) {
+                    iframe_src = json.data[0].iframe_url;
+                    iframe_translate = json.data[0].sounds ? json.data[0].sounds : '';
+                    iframe_quality = json.data[0].quality ? json.data[0].quality : '';
+                }
+                callback({
+                    "src": iframe_src,
+                    "translate": iframe_translate,
+                    "quality": iframe_quality
                 });
             });
 

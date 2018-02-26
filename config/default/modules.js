@@ -159,6 +159,9 @@ module.exports = {
             },
             "youtube": {
                 "token": ""
+            },
+            "newvideo": {
+                "api_key": ""
             }
         }
     },
