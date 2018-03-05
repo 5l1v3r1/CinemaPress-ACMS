@@ -46,10 +46,20 @@ function allSitemap(callback) {
 
             var categories = CP_structure.categories('year', movies);
 
+            var y = (new Date()).getFullYear() + '';
+
             for (var year in categories) {
                 if (categories.hasOwnProperty(year)) {
-                    render.sitemaps[render.sitemaps.length] = categories[year].url.replace(config.domain, config.domain + '/' + config.urls.sitemap);
+                    if (categories[year].title === y) y = 0;
+                    render.sitemaps[render.sitemaps.length] =
+                        categories[year].url.replace(config.domain, config.domain + '/' + config.urls.sitemap);
                 }
+            }
+
+            if (y) {
+                render.sitemaps.unshift(
+                    config.protocol + config.domain + '/' + config.urls.sitemap + '/' + config.urls.year + '/' + y
+                );
             }
 
             var c = [
