@@ -40,6 +40,8 @@ catch(err) {
 var config_default  = require('../default/config');
 var modules_default = require('../default/modules');
 
+var cdn = true;
+
 function objReplace(obj_new, obj_old) {
 
     obj_new = JSON.stringify(obj_new);
@@ -51,12 +53,14 @@ function objReplace(obj_new, obj_old) {
     for (var key in obj_new) {
         if (obj_new.hasOwnProperty(key) && obj_old.hasOwnProperty(key)) {
             if (typeof obj_new[key] === 'object' && !Array.isArray(obj_new[key])) {
+                if (key === 'image') cdn = false;
                 obj_new[key] = objReplace(obj_new[key], obj_old[key]);
             }
             else {
                 if (typeof obj_new[key] === typeof obj_old[key]) {
-                    if (key === 'addr' || key === 'domain' || key === 'date' || key === 'key') continue;
+                    if ((key === 'addr' && cdn) || key === 'domain' || key === 'date' || key === 'key') continue;
                     obj_new[key] = obj_old[key];
+                    cdn = true;
                 }
             }
         }
