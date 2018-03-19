@@ -179,6 +179,13 @@
 
 ![Тема оформления «arya»](https://raw.githubusercontent.com/CinemaPress/Theme-Arya/master/screenshot.png)
 
+## Шаблон «mormont»
+
+- Скачать с [GitHub](https://github.com/CinemaPress/Theme-Mormont/) или [GitLab](https://gitlab.com/CinemaPress/Theme-Mormont/) или [BitBucket](https://bitbucket.org/cinemapress/theme-mormont/) или [Coding](https://coding.net/u/CinemaPress/p/Theme-Mormont/)
+- DEMO: [Mormont.CinemaPress.org](http://Mormont.CinemaPress.org/)
+
+![Тема оформления «mormont»](https://raw.githubusercontent.com/CinemaPress/Theme-Mormont/master/screenshot.png)
+
 # Параметры и модули CinemaPress ACMS
 
 Подробную информацию о всех параметрах и модулях системы Вы найдете в [документации](https://cinemapress.org/admin/admin.html).
@@ -187,4 +194,4 @@
 
 CinemaPress ACMS распространяется под [MIT лицензией](https://github.com/CinemaPress/CinemaPress-ACMS/blob/master/LICENSE.txt).
 
-© 2016-2017 CinemaPress ACMS
+© 2016-2018 CinemaPress ACMS
