@@ -41,6 +41,7 @@ var config_default  = require('../default/config');
 var modules_default = require('../default/modules');
 
 var cdn = true;
+var cnt = true;
 
 function objReplace(obj_new, obj_old) {
 
@@ -54,11 +55,17 @@ function objReplace(obj_new, obj_old) {
         if (obj_new.hasOwnProperty(key) && obj_old.hasOwnProperty(key)) {
             if (typeof obj_new[key] === 'object' && !Array.isArray(obj_new[key])) {
                 if (key === 'image') cdn = false;
+                if (key === 'count') cnt = false;
                 obj_new[key] = objReplace(obj_new[key], obj_old[key]);
             }
             else {
                 if (typeof obj_new[key] === typeof obj_old[key]) {
-                    if ((key === 'addr' && cdn) || key === 'domain' || key === 'date' || key === 'key') continue;
+                    if (
+                        (key === 'addr' && cdn) ||
+                        (key === 'key' && cnt) ||
+                        key === 'domain' ||
+                        key === 'date'
+                    ) continue;
                     obj_new[key] = obj_old[key];
                     cdn = true;
                 }
