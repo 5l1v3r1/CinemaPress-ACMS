@@ -453,6 +453,10 @@
             self.innerHTML = '<span class="fa fa-exclamation-triangle text-danger"></span>&nbsp;&nbsp;Желательно&nbsp;не&nbsp;больше&nbsp;100&nbsp;фильмов';
         }
 
+        if (data.movie && data.movie.id && data.movie.kp_id && data.movie.id !== data.movie.kp_id) {
+            data.movie.id = data.movie.kp_id;
+        }
+
         sendServer(data, function (err, result) {
             if (data.config && data.config.urls && data.config.urls.admin && data.config.urls.admin !== '<%- config.urls.admin %>' && data.config.urls.admin.indexOf('admin') !== -1) {
                 location.href = '<%- config.protocol + config.domain + '/' %>' + data.config.urls.admin;
