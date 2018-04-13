@@ -90,39 +90,42 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
     if (modules.adv.status || modules.blocking.status) {
         options.userinfo = {};
         options.userinfo.device = 'desktop';
-        if (parseInt(modules.adv.data.target) || (modules.blocking.data.display === 'legal' && modules.blocking.data.legal.countries)) {
-            var lookup = maxmind.openSync('/home/' + config.domain + '/files/GeoLite2-City.mmdb', {
+        if (parseInt(modules.adv.data.target) || parseInt(modules.abuse.data.country) || (modules.blocking.data.display === 'legal' && modules.blocking.data.legal.countries)) {
+            var lookup = maxmind.openSync('/home/' + config.domain + '/files/GeoLite2-Country.mmdb', {
                 cache: {
                     max: 1000,
-                    maxAge: 1000 * 60 * 60 * 60 * 24
+                    maxAge: 1000 * 60 * 60 * 24 * 7
                 }
             });
             var info = lookup.get(req.ip);
             var user = parser(req.headers['user-agent']);
-            options.userinfo.ip = (req.ip)
-                ? req.ip
-                : '';
-            options.userinfo.country = (info.country && info.country.names && info.country.names.en)
+            options.userinfo.country_en = (info.country && info.country.names && info.country.names.en)
                 ? info.country.names.en
                 : '';
-            options.userinfo.city = (info.city && info.city.names && info.city.names.en)
-                ? info.city.names.en
+            options.userinfo.country_ru = (info.country && info.country.names && info.country.names.ru)
+                ? info.country.names.ru
                 : '';
-            options.userinfo.browser = (user.browser && user.browser.name)
-                ? user.browser.name
-                : '';
-            options.userinfo.os = (user.os && user.os.name)
-                ? user.os.name
-                : '';
-            options.userinfo.type = (user.device && user.device.type)
-                ? user.device.type
-                : '';
-            options.userinfo.vendor = (user.device && user.device.vendor)
-                ? user.device.vendor
-                : '';
-            options.userinfo.model = (user.device && user.device.model)
-                ? user.device.model
-                : '';
+            //options.userinfo.ip = (req.ip)
+            //    ? req.ip
+            //    : '';
+            //options.userinfo.city_en = (info.city && info.city.names && info.city.names.en)
+            //    ? info.city.names.en
+            //    : '';
+            //options.userinfo.browser = (user.browser && user.browser.name)
+            //    ? user.browser.name
+            //    : '';
+            //options.userinfo.type = (user.device && user.device.type)
+            //    ? user.device.type
+            //    : '';
+            //options.userinfo.vendor = (user.device && user.device.vendor)
+            //    ? user.device.vendor
+            //    : '';
+            //options.userinfo.os = (user.os && user.os.name)
+            //    ? user.os.name
+            //    : '';
+            //options.userinfo.model = (user.device && user.device.model)
+            //    ? user.device.model
+            //    : '';
         }
     }
 

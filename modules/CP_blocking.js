@@ -67,7 +67,7 @@ function blockingPlayer(code, movie, options) {
         }
         else if (modules.blocking.data.display === 'legal') {
 
-            if (modules.blocking.data.legal.countries.indexOf(options.userinfo.country) === -1) {
+            if (modules.blocking.data.legal.countries.indexOf(options.userinfo.country_en) === -1) {
 
                 code.player = (block.time)
                     ? '<div id="blocking" style="position:absolute;background:#000 url(' + config.default.image + ') 100% 100% no-repeat;background-size:100% 100%;z-index:10000;top:0;left:0;width:100%;height:100%;color:#fff;text-align:center;text-shadow: 1px 1px #000;"><div id="blockingMessage" style="margin:80px auto 0;width:70%">' + message + '</div></div><script>window.addEventListener("load",function(){var e=document.getElementById("blockingTimer"),n=' + block.time + ';var si=setInterval(function(){if(e.innerHTML=""+n,n=parseInt(n),n--,0>n){var t=document.getElementById("blocking");t.parentElement.removeChild(t);clearInterval(si)}},1e3);});</script>' + code.player.replace(/data-player="[a-z0-9,\s%]*?"/i, 'data-player="trailer"')

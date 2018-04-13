@@ -184,6 +184,42 @@
                             <div class="example-box">
                                 <div class="example-box-header">
                                     <div class="example-label">
+                                        <i class="fa fa-copyright"></i>&nbsp;&nbsp;&nbsp;Блокировать фильмы в стране
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/abuse.html#country" class="csstip" title="Блокировать фильмы в стране, в которой они были выпущены в текущем году" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-8 col-xs-8">
+                                            <label>В стране производителя</label>
+                                        </div>
+                                        <div class="col-lg-4 col-xs-4 text-center">
+                                            <select name="modules.abuse.data.country" class="form-control">
+                                                <option value="1" <% if (modules.abuse.data.country) { %>selected="selected"<% } %>>
+                                                    Блокировать
+                                                </option>
+                                                <option value="0" <% if (!modules.abuse.data.country) { %>selected="selected"<% } %>>
+                                                    Показывать
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spacer-10"></div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
                                         <i class="fa fa-quote-right"></i>&nbsp;&nbsp;&nbsp;Сообщение для пользователей
                                     </div>
                                     <div class="example-label" style="float: right">

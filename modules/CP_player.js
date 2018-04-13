@@ -86,7 +86,7 @@ function codePlayer(type, movie, options) {
     }
     else {
 
-        if (modules.abuse.status && modules.abuse.data.movies.indexOf('' + movie.kp_id)+1) {
+        if (modules.abuse.status && (modules.abuse.data.movies.indexOf('' + movie.kp_id)+1 || (modules.abuse.data.country && (''+movie.year) === ((new Date()).getFullYear()+'') && movie.countries_arr.indexOf(options.userinfo.country_ru)+1))) {
 
             code.player = '' +
                 '<div style="position:absolute;background:#000 url(' + config.default.image + ') 100% 100% no-repeat;z-index:9999;top:0;left:0;width:100%;height:100%;color:#fff;text-align:center">' +
