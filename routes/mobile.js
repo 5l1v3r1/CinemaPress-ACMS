@@ -85,7 +85,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
         options.start_episode = req.query.start_episode.replace(/[^0-9a-z|]/ig, '');
     }
 
-    if (modules.adv.status || modules.blocking.status) {
+    if (modules.adv.status || modules.blocking.status || modules.abuse.status) {
         options.userinfo = {};
         options.userinfo.device = 'mobile';
         if (parseInt(modules.adv.data.target) || parseInt(modules.abuse.data.country) || (modules.blocking.data.display === 'legal' && modules.blocking.data.legal.countries)) {
