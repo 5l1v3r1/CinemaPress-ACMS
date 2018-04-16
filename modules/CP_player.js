@@ -89,7 +89,7 @@ function codePlayer(type, movie, options) {
         if (modules.abuse.status && (modules.abuse.data.movies.indexOf('' + movie.kp_id)+1 || (modules.abuse.data.country && (''+movie.year) === ((new Date()).getFullYear()+'') && movie.countries_arr.indexOf(options.userinfo.country_ru)+1))) {
 
             code.player = '' +
-                '<div style="position:absolute;background:#000 url(' + config.default.image + ') 100% 100% no-repeat;z-index:9999;top:0;left:0;width:100%;height:100%;color:#fff;text-align:center">' +
+                '<div style="position:absolute;background:#000 url(' + config.default.image + ') 100% 100% no-repeat;    background-size:100% 100%;z-index:9999;top:0;left:0;width:100%;height:100%;color:#fff;text-align:center">' +
                 '<div style="margin:80px auto 0;width:70%">' + modules.abuse.data.message + '</div>' +
                 '</div>';
 
