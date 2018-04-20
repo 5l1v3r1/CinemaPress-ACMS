@@ -376,13 +376,16 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
 
         if (parts[1]) {
             if (req.query.sorting && config.sorting[req.query.sorting]) {
-                url += '?sorting=' + req.query.sorting;
+                url += ((url.indexOf('?')+1) ? '&' : '?') + 'sorting=' + req.query.sorting;
             }
-            else if (req.query.q) {
-                url += '?q=' + CP_regexp.str(req.query.q);
+            if (req.query.q) {
+                url += ((url.indexOf('?')+1) ? '&' : '?') + 'q=' + CP_regexp.str(req.query.q);
             }
-            else if (req.query.tag) {
-                url += '?tag=' + CP_regexp.str(req.query.tag);
+            if (req.query.tag) {
+                url += ((url.indexOf('?')+1) ? '&' : '?') + 'tag=' + CP_regexp.str(req.query.tag);
+            }
+            if (req.query.json) {
+                url += ((url.indexOf('?')+1) ? '&' : '?') + 'json=1';
             }
         }
 
@@ -475,7 +478,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
 
         if (typeof render === 'object') {
 
-            if (config.theme === 'default') {
+            if (config.theme === 'default' || (req.query.q && req.query.json)) {
 
                 res.json(render);
 
