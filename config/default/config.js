@@ -57,7 +57,8 @@ module.exports = {
         "votes": {
             "kp": 5000,
             "imdb": 5000
-        }
+        },
+        "donotuse": ["actor","director","search"]
     },
     "codes": {
         "head": "",

@@ -193,52 +193,7 @@
 
                                         <div class="spacer-10"></div>
 
-                                        <div class="col-sm-6">
-                                            <div>
-                                                <a href="javascript:void(0)" class="csstip text-muted" title="Минимальное число голосов КиноПоиск у фильмов, которые будут показаны при сортировке по рейтингу КиноПоиск">
-                                                    <i class="fa fa-info-circle text-muted"></i>
-                                                    Число голосов КиноПоиск:
-                                                </a>
-                                            </div>
-                                            <select name="config.default.votes.imdb" class="form-control">
-                                                <% for (var i = 0; i <= 10000; i = i+100) { %>
-                                                <% if (config.default.votes.imdb == i) { %>
-                                                <option value="<%= i %>" selected="selected">
-                                                    <%- i %> голос(-ов)
-                                                </option>
-                                                <% } else { %>
-                                                <option value="<%= i %>">
-                                                    <%- i %> голос(-ов)
-                                                </option>
-                                                <% } %>
-                                                <% } %>
-                                            </select>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div>
-                                                <a href="javascript:void(0)" class="csstip text-muted" title="Минимальное число голосов IMDb у фильмов, которые будут показаны при сортировке по рейтингу IMDb">
-                                                    <i class="fa fa-info-circle text-muted"></i>
-                                                    Число голосов IMDb:
-                                                </a>
-                                            </div>
-                                            <select name="config.default.votes.kp" class="form-control">
-                                                <% for (var i = 0; i <= 10000; i = i+100) { %>
-                                                <% if (config.default.votes.kp == i) { %>
-                                                <option value="<%= i %>" selected="selected">
-                                                    <%- i %> голос(-ов)
-                                                </option>
-                                                <% } else { %>
-                                                <option value="<%= i %>">
-                                                    <%- i %> голос(-ов)
-                                                </option>
-                                                <% } %>
-                                                <% } %>
-                                            </select>
-                                        </div>
-
-                                        <div class="spacer-10"></div>
-
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-12">
                                             <div>
                                                 <a href="javascript:void(0)" class="csstip text-muted" title="Конечная дата премьер, которые будут показаны при сортировке по дате премьеры или году">
                                                     <i class="fa fa-info-circle text-muted"></i>
@@ -340,6 +295,107 @@
                                                 <% } %>
                                                 <% } %>
                                             </select>
+                                        </div>
+
+                                        <div class="spacer-10"></div>
+
+                                        <div class="col-xs-12">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="example-box">
+                                                        <div class="example-box-header">
+                                                            <div class="example-label">
+                                                                <i class="fa fa-newspaper-o"></i>&nbsp;&nbsp;&nbsp;Сортировка по рейтингу КиноПоиск/IMDb
+                                                            </div>
+                                                            <div class="example-label" style="float: right">
+                                                                <a href="https://CinemaPress.org/admin/display.html#vote" class="csstip" title="Параметры отображения списка фильмов при сортировке по рейтингу КиноПоиск/IMDb" target="_blank">
+                                                                    <i class="fa fa-info-circle"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="inner-padding">
+                                                            <div class="row">
+                                                                <div class="col-sm-6">
+                                                                    <div>
+                                                                        <a href="javascript:void(0)" class="csstip text-muted" title="Минимальное число голосов КиноПоиск у фильмов, которые будут показаны при сортировке по рейтингу КиноПоиск">
+                                                                            <i class="fa fa-info-circle text-muted"></i>
+                                                                            Число голосов КиноПоиск:
+                                                                        </a>
+                                                                    </div>
+                                                                    <select name="config.default.votes.imdb" class="form-control">
+                                                                        <% for (var i = 0; i <= 10000; i = i+100) { %>
+                                                                        <% if (config.default.votes.imdb == i) { %>
+                                                                        <option value="<%= i %>" selected="selected">
+                                                                            <%- i %> голос(-ов)
+                                                                        </option>
+                                                                        <% } else { %>
+                                                                        <option value="<%= i %>">
+                                                                            <%- i %> голос(-ов)
+                                                                        </option>
+                                                                        <% } %>
+                                                                        <% } %>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <div>
+                                                                        <a href="javascript:void(0)" class="csstip text-muted" title="Минимальное число голосов IMDb у фильмов, которые будут показаны при сортировке по рейтингу IMDb">
+                                                                            <i class="fa fa-info-circle text-muted"></i>
+                                                                            Число голосов IMDb:
+                                                                        </a>
+                                                                    </div>
+                                                                    <select name="config.default.votes.kp" class="form-control">
+                                                                        <% for (var i = 0; i <= 10000; i = i+100) { %>
+                                                                        <% if (config.default.votes.kp == i) { %>
+                                                                        <option value="<%= i %>" selected="selected">
+                                                                            <%- i %> голос(-ов)
+                                                                        </option>
+                                                                        <% } else { %>
+                                                                        <option value="<%= i %>">
+                                                                            <%- i %> голос(-ов)
+                                                                        </option>
+                                                                        <% } %>
+                                                                        <% } %>
+                                                                    </select>
+                                                                </div>
+
+                                                                <div class="spacer-10"></div>
+
+                                                                <div class="col-xs-12">
+                                                                    <div>
+                                                                        <a href="javascript:void(0)" class="csstip text-muted" title="В каких категориях не применять правило минимального числа голосов при сортировке по рейтингу">
+                                                                            <i class="fa fa-info-circle text-muted"></i>
+                                                                            Не применять условие в категориях:
+                                                                        </a>
+                                                                    </div>
+                                                                    <div class="inline-labels">
+                                                                        <label>
+                                                                            <input name="config.default.donotuse" value="year" type="checkbox" <% if (config.default.donotuse.indexOf('year')+1) { %> checked="" <% } %>><span></span> год
+                                                                        </label>
+                                                                        <label>
+                                                                            <input name="config.default.donotuse" value="genre" type="checkbox" <% if (config.default.donotuse.indexOf('genre')+1) { %> checked="" <% } %>><span></span> жанр
+                                                                        </label>
+                                                                        <label>
+                                                                            <input name="config.default.donotuse" value="country" type="checkbox" <% if (config.default.donotuse.indexOf('country')+1) { %> checked="" <% } %>><span></span> страна
+                                                                        </label>
+                                                                        <label>
+                                                                            <input name="config.default.donotuse" value="actor" type="checkbox" <% if (config.default.donotuse.indexOf('actor')+1) { %> checked="" <% } %>><span></span> актер
+                                                                        </label>
+                                                                        <label>
+                                                                            <input name="config.default.donotuse" value="director" type="checkbox" <% if (config.default.donotuse.indexOf('director')+1) { %> checked="" <% } %>><span></span> режиссер
+                                                                        </label>
+                                                                        <label>
+                                                                            <input name="config.default.donotuse" value="type" type="checkbox" <% if (config.default.donotuse.indexOf('type')+1) { %> checked="" <% } %>><span></span> тип
+                                                                        </label>
+                                                                        <label>
+                                                                            <input name="config.default.donotuse" value="search" type="checkbox" <% if (config.default.donotuse.indexOf('search')+1) { %> checked="" <% } %>><span></span> поиск
+                                                                        </label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
