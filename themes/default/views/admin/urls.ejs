@@ -197,18 +197,36 @@
                                                             </div>
                                                             <select name="config.urls.translit" class="form-control">
                                                                 <% if (config.urls.translit) { %>
-                                                                <option value="1" selected="selected">
-                                                                    Да
-                                                                </option>
+                                                                <% if (config.urls.translit === 1) { %>
                                                                 <option value="0">
                                                                     Нет
                                                                 </option>
-                                                                <% } else { %>
-                                                                <option value="1">
-                                                                    Да
+                                                                <option value="1" selected="selected">
+                                                                    ISO 9
                                                                 </option>
+                                                                <option value="2">
+                                                                    Кастомный
+                                                                </option>
+                                                                <% } else { %>
+                                                                <option value="0">
+                                                                    Нет
+                                                                </option>
+                                                                <option value="1">
+                                                                    ISO 9
+                                                                </option>
+                                                                <option value="2" selected="selected">
+                                                                    Кастомный
+                                                                </option>
+                                                                <% } %>
+                                                                <% } else { %>
                                                                 <option value="0" selected="selected">
                                                                     Нет
+                                                                </option>
+                                                                <option value="1">
+                                                                    ISO 9
+                                                                </option>
+                                                                <option value="2">
+                                                                    Кастомный
                                                                 </option>
                                                                 <% } %>
                                                             </select>
