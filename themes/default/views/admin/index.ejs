@@ -883,6 +883,15 @@
                                         </div>
                                         <div class="col-sm-4">
                                             <select name="config.index.count.sorting" class="form-control without">
+                                                <% if (config.index.count.sorting == '') { %>
+                                                <option value="" selected="selected">
+                                                    По умолчанию
+                                                </option>
+                                                <% } else { %>
+                                                <option value="">
+                                                    По умолчанию
+                                                </option>
+                                                <% } %>
                                                 <% for (var name in config.sorting) { %>
                                                 <% if (config.index.count.sorting == name) { %>
                                                 <option value="<%= name %>" selected="selected">
