@@ -11,7 +11,7 @@
                 <link><%- movie.url %></link>
                 <description><![CDATA[<img align="left" hspace="5" width="150" src="<%- movie.poster || image %>"/><%- movie.description_short %>...<br />]]></description>
                 <enclosure url="<%- movie.poster_big || image %>" type="image/jpeg" />
-                <pubDate><%- (movie.premiere) ? new Date(movie.premiere).toUTCString() : (movie.publish) ? new Date(movie.publish).toUTCString() : '' %></pubDate>
+                <pubDate><%- (new Date( (new Date())*1 - 1000*Math.round(1 - 0.5 + Math.random() * 3600) )).toUTCString() %></pubDate>
                 <turbo:content>
                     <![CDATA[
                     <header>
