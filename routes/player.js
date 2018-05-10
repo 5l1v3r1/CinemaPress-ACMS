@@ -456,7 +456,7 @@ router.get('/?', function(req, res) {
                 callback(json, body);
             }
             else {
-                console.log(error);
+                console.log(url, error.code);
                 callback(null, '');
             }
         });

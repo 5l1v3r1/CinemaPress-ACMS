@@ -196,7 +196,7 @@ function recentComments(service, options, callback) {
                 request({url: url, timeout: 500, agent: false, pool: {maxSockets: 100}}, function (error, response, body) {
 
                     if (error) {
-                        console.log(error);
+                        console.log('disqus', error.code);
                         return callback(null, null);
                     }
 
@@ -263,7 +263,7 @@ function recentComments(service, options, callback) {
                 request(url, function (error, response, body) {
 
                     if (error) {
-                        console.log(error);
+                        console.log('hypercomments', error.code);
                         return callback(null, null);
                     }
 
