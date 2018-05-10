@@ -520,7 +520,12 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                             html,
                             config.cache.time,
                             function (err) {
-                                if (err) console.log('[renderData] Cache Set Error:', err);
+                                if (err.indexOf('1048576')+1) {
+                                    console.log('[routes/mobile.js:renderData] Cache Length Error:', url);
+                                }
+                                else {
+                                    console.log('[routes/mobile.js:renderData] Cache Set Error:', err);
+                                }
                             }
                         );
                     }
