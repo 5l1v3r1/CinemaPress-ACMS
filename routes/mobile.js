@@ -521,7 +521,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                             config.cache.time,
                             function (err) {
                                 if (err) {
-                                    if (err.indexOf('1048576') + 1) {
+                                    if ((err+'').indexOf('1048576') + 1) {
                                         console.log('[routes/mobile.js:renderData] Cache Length Error:', url);
                                     }
                                     else {

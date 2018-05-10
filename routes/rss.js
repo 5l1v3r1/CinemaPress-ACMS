@@ -213,7 +213,7 @@ router.get('/?', function(req, res, next) {
                         config.cache.time,
                         function (err) {
                             if (err) {
-                                if (err.indexOf('1048576') + 1) {
+                                if ((err+'').indexOf('1048576') + 1) {
                                     console.log('[routes/rss.js:renderData] Cache Length Error');
                                 }
                                 else {
