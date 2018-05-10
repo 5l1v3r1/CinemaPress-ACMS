@@ -212,11 +212,13 @@ router.get('/?', function(req, res, next) {
                         html,
                         config.cache.time,
                         function (err) {
-                            if (err.indexOf('1048576')+1) {
-                                console.log('[routes/rss.js:renderData] Cache Length Error');
-                            }
-                            else {
-                                console.log('[routes/rss.js:renderData] Cache Set Error:', err);
+                            if (err) {
+                                if (err.indexOf('1048576') + 1) {
+                                    console.log('[routes/rss.js:renderData] Cache Length Error');
+                                }
+                                else {
+                                    console.log('[routes/rss.js:renderData] Cache Set Error:', err);
+                                }
                             }
                         }
                     );
