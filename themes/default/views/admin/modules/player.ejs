@@ -209,14 +209,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-xs-6 text-center">
-                                            <div class="inline-labels">
-                                                <label>
-                                                    <input name="modules.player.data.kodik.show" value="1" <% if (modules.player.data.kodik.show) { %> checked="" <% } %> type="radio"><span></span> Показывать
-                                                </label>
-                                                <label>
-                                                    <input name="modules.player.data.kodik.show" value="0" <% if (!modules.player.data.kodik.show) { %> checked="" <% } %> type="radio"><span></span> Не показывать
-                                                </label>
-                                            </div>
+                                            <input name="modules.player.data.kodik.token" value="<%= modules.player.data.kodik.token %>" class="form-control" type="text" placeholder="Токен-ключ kodik.cc">
                                         </div>
                                     </div>
                                 </div>

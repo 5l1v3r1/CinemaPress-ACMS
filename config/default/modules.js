@@ -139,7 +139,7 @@ module.exports = {
         "data": {
             "display": "yohoho",
             "yohoho": {
-                "player": "moonwalk,hdgo,newvideo,iframe,kodik,allserials,trailer",
+                "player": "moonwalk,hdgo,newvideo,kodik,iframe,allserials,trailer",
                 "bg": "#14181C",
                 "button": ""
             },
@@ -150,7 +150,7 @@ module.exports = {
                 "token": ""
             },
             "iframe": {
-                "show": 0
+                "token": ""
             },
             "kodik": {
                 "show": 0

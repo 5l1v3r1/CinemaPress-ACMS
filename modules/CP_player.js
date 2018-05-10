@@ -169,6 +169,9 @@ function codePlayer(type, movie, options) {
         data.youtube = (modules.player.data.youtube.token)
             ? modules.player.data.youtube.token
             : '';
+        data.kodik = (modules.player.data.kodik.token)
+            ? modules.player.data.kodik.token
+            : '';
         data.start_time = (options.start_time)
             ? options.start_time
             : '';

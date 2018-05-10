@@ -43,6 +43,7 @@ router.get('/:id?/:title?', function(req, res) {
             'data-hdgo="' + (modules.player.data.hdgo.token || '') + '" ' +
             'data-newvideo="' + (modules.player.data.newvideo.api_key || '') + '" ' +
             'data-youtube="' + (modules.player.data.youtube.token || '') + '" ' +
+            'data-kodik="' + (modules.player.data.kodik.token || '') + '" ' +
             '></div>' +
             '<script data-cfasync="false" src="//yohoho.cc/yo.js"></script>' +
             '</body></html>'
@@ -70,6 +71,7 @@ router.get('/:id?/:title?', function(req, res) {
                         'data-hdgo="' + (modules.player.data.hdgo.token || '') + '" ' +
                         'data-newvideo="' + (modules.player.data.newvideo.api_key || '') + '" ' +
                         'data-youtube="' + (modules.player.data.youtube.token || '') + '" ' +
+                        'data-kodik="' + (modules.player.data.kodik.token || '') + '" ' +
                         '></div>' +
                         '<script data-cfasync="false" src="//yohoho.cc/yo.js"></script>' +
                         '</body></html>'

@@ -374,18 +374,28 @@ router.get('/?', function(req, res) {
 
     function getKodik(callback) {
 
-        api('http://kodik.cc/api.js?' +
-            'kp_id=' + id,
-            function (json, body) {
+        api('https://kodikapi.com/search?' +
+            'token=' + modules.player.data.kodik.token.trim() + '&' +
+            'kinopoisk_id=' + id,
+            function (json) {
                 var iframe_src = '';
-                var matches = /(\/\/kodik\.cc\/[a-z]{1,10}\/[0-9]{1,7}\/[a-z0-9]{5,50}\/[a-z0-9]{1,10})/i.exec(body);
-                if (matches && matches[1]) {
-                    iframe_src = matches[1];
+                var iframe_translate = '';
+                var iframe_quality = '';
+                if (json && json.results && json.results.length) {
+                    iframe_src = (json.results[0].link && json.results[0].link.indexOf('/')+1)
+                        ? json.results[0].link.replace('http:', 'https:')
+                        : '';
+                    iframe_translate = (json.results[0].translation && json.results[0].translation.title)
+                        ? json.results[0].translation.title
+                        : '';
+                    iframe_quality = (json.results[0].quality)
+                        ? json.results[0].quality
+                        : '';
                 }
                 callback({
                     "src": iframe_src,
-                    "translate": "",
-                    "quality": ""
+                    "translate": iframe_translate,
+                    "quality": iframe_quality
                 });
             });
 
