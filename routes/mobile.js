@@ -468,7 +468,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
     function renderData(err, render) {
 
         if (err) {
-            console.log('[routes/mobile.js] 404:', url);
+            console.log('[routes/mobile.js]', url);
 
             return next({
                 "status": 404,
