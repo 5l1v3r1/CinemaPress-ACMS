@@ -11,6 +11,7 @@ var modules = require('../config/production/modules');
  * Node dependencies.
  */
 
+var md5     = require('md5');
 var async   = require('async');
 var crypto  = require('crypto');
 var request = require('request');
@@ -176,139 +177,195 @@ function codesComments(url, pathname) {
 function recentComments(service, options, callback) {
 
     /**
+     * Module dependencies.
+     */
+
+    var CP_cache = require('../lib/CP_cache');
+
+    /**
      * Route dependencies.
      */
 
     var movie = require('../routes/paths/movie');
 
-    var result = [];
+    var hash = md5(config.protocol + options.domain + 'comments');
 
-    async.parallel([
-            function(callback) {
-                if (!(service.indexOf('disqus')+1)) return callback(null, null);
-
-                var url = 'https://' + modules.comments.data.disqus.shortname + '.disqus.com/recent_comments_widget.js?' +
-                    '&num_items=' + modules.comments.data.disqus.recent.num_items +
-                    '&hide_avatars=' + modules.comments.data.disqus.recent.hide_avatars +
-                    '&excerpt_length=' + modules.comments.data.disqus.recent.excerpt_length +
-                    '&random=' + Math.random();
-
-                request({url: url, timeout: 500, agent: false, pool: {maxSockets: 100}}, function (error, response, body) {
-
-                    if (error) {
-                        console.log('disqus', error.code);
-                        return callback(null, null);
-                    }
-
-                    if (response.statusCode === 200 && body) {
-                        body = body
-                            .replace(/document\.write\('/, '')
-                            .replace(/'\);/, '')
-                            .replace(/\\\n/g, '')
-                            .replace(/\\'/g, '\'');
-                        var $ = cheerio.load(body, {decodeEntities: false});
-                        $('li').each(function(i, elem) {
-                            var r = {};
-                            r['url'] = ($(elem).find('.dsq-widget-meta a').first().attr('href'))
-                                .replace(/(https?:\/\/[a-z0-9._\-]*)/i, config.protocol + options.domain);
-                            r['user'] = $(elem).find('.dsq-widget-user').text();
-                            r['avatar'] = ($(elem).find('.dsq-widget-avatar').attr('src'))
-                                .replace('/avatar92', '/avatar36');
-                            r['title'] = $(elem).find('.dsq-widget-meta a').first().text().trim();
-                            r['comment'] = $(elem).find('.dsq-widget-comment').text();
-                            r['comment'] = (r['comment'])
-                                ? r['comment']
-                                    .replace(/\s+/g, ' ')
-                                    .replace(/(^\s*)|(\s*)$/g, '')
-                                    .replace(/['"]/g, '')
-                                    .replace(/(<([^>]+)>)/ig,'')
-                                : '';
-
-                            var date = ($(elem).find('.dsq-widget-meta a').last().text() + '');
-                            var num = date.replace(/[^0-9]/g, '') || 1;
-                            date = (date.indexOf('hour')+1)
-                                ? moment().subtract(num, 'hour')
-                                : (date.indexOf('day')+1)
-                                    ? moment().subtract(num, 'day')
-                                    : (date.indexOf('week')+1)
-                                        ? moment().subtract(num, 'week')
-                                        : (date.indexOf('month')+1)
-                                            ? moment().subtract(num, 'month')
-                                            : (date.indexOf('year')+1)
-                                                ? moment().subtract(num, 'year')
-                                                : moment().subtract(num, 'minute');
-                            r['date'] = date.fromNow();
-                            r['time'] = date.valueOf();
-                            r['kp_id'] = movie.id(r['url']);
-
-                            result.push(r);
+    return (config.cache.time)
+        ? CP_cache.get(
+            hash,
+            function (err, render) {
+                return (render)
+                    ? (typeof render === 'object')
+                        ? callback(null, render)
+                        : callback(null, JSON.parse(render))
+                    : getComments(
+                        function (err, render) {
+                            callback(null, render)
                         });
-                    }
+            })
+        : getComments(
+            function (err, render) {
+                callback(null, render)
+            });
 
-                    callback(null, null);
+    /**
+     * Comments.
+     *
+     * @param {Callback} callback
+     */
 
-                });
-            },
-            function(callback) {
-                if (!(service.indexOf('hypercomments')+1)) return callback(null, null);
+    function getComments(callback) {
 
-                var url = {
-                    url: 'http://c1n1.hypercomments.com/api/mixstream',
-                    method: 'POST',
-                    form: {data: '{"widget_id":' + modules.comments.data.hypercomments.widget_id + ',"limit":' + modules.comments.data.hypercomments.recent.num_items + ',"filter":"last"}'},
-                    timeout: 500,
-                    agent: false,
-                    pool: {maxSockets: 100}
-                };
-                request(url, function (error, response, body) {
+        var result = [];
 
-                    if (error) {
-                        console.log('hypercomments', error.code);
-                        return callback(null, null);
-                    }
+        async.parallel([
+                function(callback) {
+                    if (!(service.indexOf('disqus')+1)) return callback(null, null);
 
-                    if (response.statusCode === 200 && body) {
-                        var json = tryParseJSON(body);
-                        if (!json || !json.result || json.result !== 'success' || !json.data) {
+                    var url = 'https://' + modules.comments.data.disqus.shortname + '.disqus.com/recent_comments_widget.js?' +
+                        '&num_items=' + modules.comments.data.disqus.recent.num_items +
+                        '&hide_avatars=' + modules.comments.data.disqus.recent.hide_avatars +
+                        '&excerpt_length=' + modules.comments.data.disqus.recent.excerpt_length +
+                        '&random=' + Math.random();
+
+                    request({url: url, timeout: 500, agent: false, pool: {maxSockets: 100}}, function (error, response, body) {
+
+                        if (error) {
+                            console.log('disqus', error.code);
                             return callback(null, null);
                         }
-                        json.data.forEach(function(comment){
-                            comment.text = (comment.text)
-                                ? comment.text
-                                    .replace(/\s+/g, ' ')
-                                    .replace(/(^\s*)|(\s*)$/g, '')
-                                    .replace(/['"]/g, '')
-                                    .replace(/(<([^>]+)>)/ig,'')
-                                : '';
-                            var tri = (('' + comment.text).length >= modules.comments.data.hypercomments.recent.excerpt_length) ? '...' : '';
-                            var r = {};
-                            r['url'] = (comment.link)
-                                .replace(/(https?:\/\/[a-z0-9._\-]*)/i, config.protocol + options.domain);
-                            r['user'] = comment.nick;
-                            r['avatar'] = '';
-                            r['title'] = comment.title;
-                            r['comment'] = comment.text
-                                .slice(0, modules.comments.data.hypercomments.recent.excerpt_length) + tri;
-                            var date = moment(new Date(comment.time));
-                            r['date'] = date.fromNow();
-                            r['time'] = date.valueOf();
-                            r['kp_id'] = movie.id(r['url']);
-                            result.push(r);
-                        });
-                    }
 
-                    callback(null, null);
+                        if (response.statusCode === 200 && body) {
+                            body = body
+                                .replace(/document\.write\('/, '')
+                                .replace(/'\);/, '')
+                                .replace(/\\\n/g, '')
+                                .replace(/\\'/g, '\'');
+                            var $ = cheerio.load(body, {decodeEntities: false});
+                            $('li').each(function(i, elem) {
+                                var r = {};
+                                r['url'] = ($(elem).find('.dsq-widget-meta a').first().attr('href'))
+                                    .replace(/(https?:\/\/[a-z0-9._\-]*)/i, config.protocol + options.domain);
+                                r['user'] = $(elem).find('.dsq-widget-user').text();
+                                r['avatar'] = ($(elem).find('.dsq-widget-avatar').attr('src'))
+                                    .replace('/avatar92', '/avatar36');
+                                r['title'] = $(elem).find('.dsq-widget-meta a').first().text().trim();
+                                r['comment'] = $(elem).find('.dsq-widget-comment').text();
+                                r['comment'] = (r['comment'])
+                                    ? r['comment']
+                                        .replace(/\s+/g, ' ')
+                                        .replace(/(^\s*)|(\s*)$/g, '')
+                                        .replace(/['"]/g, '')
+                                        .replace(/(<([^>]+)>)/ig,'')
+                                    : '';
 
-                });
-            }
-        ],
-        function(err, results) {
+                                var date = ($(elem).find('.dsq-widget-meta a').last().text() + '');
+                                var num = date.replace(/[^0-9]/g, '') || 1;
+                                date = (date.indexOf('hour')+1)
+                                    ? moment().subtract(num, 'hour')
+                                    : (date.indexOf('day')+1)
+                                        ? moment().subtract(num, 'day')
+                                        : (date.indexOf('week')+1)
+                                            ? moment().subtract(num, 'week')
+                                            : (date.indexOf('month')+1)
+                                                ? moment().subtract(num, 'month')
+                                                : (date.indexOf('year')+1)
+                                                    ? moment().subtract(num, 'year')
+                                                    : moment().subtract(num, 'minute');
+                                r['date'] = date.fromNow();
+                                r['time'] = date.valueOf();
+                                r['kp_id'] = movie.id(r['url']);
 
-            result.sort(function(x, y) {return parseInt(y.time) - parseInt(x.time);});
+                                result.push(r);
+                            });
+                        }
 
-            callback(err, result);
+                        callback(null, null);
 
-        });
+                    });
+                },
+                function(callback) {
+                    if (!(service.indexOf('hypercomments')+1)) return callback(null, null);
+
+                    var url = {
+                        url: 'http://c1n1.hypercomments.com/api/mixstream',
+                        method: 'POST',
+                        form: {data: '{"widget_id":' + modules.comments.data.hypercomments.widget_id + ',"limit":' + modules.comments.data.hypercomments.recent.num_items + ',"filter":"last"}'},
+                        timeout: 500,
+                        agent: false,
+                        pool: {maxSockets: 100}
+                    };
+                    request(url, function (error, response, body) {
+
+                        if (error) {
+                            console.log('hypercomments', error.code);
+                            return callback(null, null);
+                        }
+
+                        if (response.statusCode === 200 && body) {
+                            var json = tryParseJSON(body);
+                            if (!json || !json.result || json.result !== 'success' || !json.data) {
+                                return callback(null, null);
+                            }
+                            json.data.forEach(function(comment){
+                                comment.text = (comment.text)
+                                    ? comment.text
+                                        .replace(/\s+/g, ' ')
+                                        .replace(/(^\s*)|(\s*)$/g, '')
+                                        .replace(/['"]/g, '')
+                                        .replace(/(<([^>]+)>)/ig,'')
+                                    : '';
+                                var tri = (('' + comment.text).length >= modules.comments.data.hypercomments.recent.excerpt_length) ? '...' : '';
+                                var r = {};
+                                r['url'] = (comment.link)
+                                    .replace(/(https?:\/\/[a-z0-9._\-]*)/i, config.protocol + options.domain);
+                                r['user'] = comment.nick;
+                                r['avatar'] = '';
+                                r['title'] = comment.title;
+                                r['comment'] = comment.text
+                                    .slice(0, modules.comments.data.hypercomments.recent.excerpt_length) + tri;
+                                var date = moment(new Date(comment.time));
+                                r['date'] = date.fromNow();
+                                r['time'] = date.valueOf();
+                                r['kp_id'] = movie.id(r['url']);
+                                result.push(r);
+                            });
+                        }
+
+                        callback(null, null);
+
+                    });
+                }
+            ],
+            function(err) {
+
+                result.sort(function(x, y) {return parseInt(y.time) - parseInt(x.time);});
+
+                callback(err, result);
+
+                if (config.cache.time && result) {
+
+                    CP_cache.set(
+                        hash,
+                        result,
+                        config.cache.time,
+                        function (err) {
+                            if (err) {
+                                if ((err+'').indexOf('1048576') + 1) {
+                                    console.log('[modules/CP_comments.js:recentComments] Cache Length Error');
+                                }
+                                else {
+                                    console.log('[modules/CP_comments.js:recentComments] Cache Set Error:', err);
+                                }
+                            }
+                        }
+                    );
+
+                }
+
+            });
+
+    }
 
 }
 
