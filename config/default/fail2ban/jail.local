@@ -9,7 +9,7 @@ enabled = true
 [nginxrepeatoffender]
 enabled   = true
 port      = http,https
-logpath   = /var/log/nginx/access.log
+logpath   = /var/log/nginx/access*.log
 filter    = nginxrepeatoffender
 banaction = nginxrepeatoffender
 bantime   = 86400
@@ -19,7 +19,7 @@ maxretry  = 10
 enabled  = true
 port     = http,https
 filter   = nginx-x00
-logpath  = /var/log/nginx/access.log
+logpath  = /var/log/nginx/access*.log
 bantime  = 86400
 findtime = 86400
 maxretry = 2
