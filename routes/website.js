@@ -72,6 +72,9 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
     var options = {};
     options.domain = '' + config.domain;
     options.sub = req.cookies.CP_sub || '';
+    options.debug = process.env.NODE_ENV !== 'production' && (parseUrl()).indexOf('tv')+1
+        ? {"url": parseUrl(), "duration": {"current": new Date(), "all": new Date()}, "detail": []}
+        : null;
 
     req.query.start_time = req.query.start_time || '';
     options.start_time = '';
@@ -137,12 +140,6 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
     var level3  = CP_regexp.str(req.params.level3) || null;
     var sorting = CP_regexp.str(req.query.sorting) || ((level1 === modules.content.data.url) ? '' : config.default.sorting);
     var tag     = CP_regexp.str(req.query.tag)     || null;
-
-    var development = process.env.NODE_ENV !== 'production';
-
-    if (development) {
-        console.time(url);
-    }
 
     var template = setTemplate();
 
@@ -509,11 +506,16 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
 
                 res.render(template, render, function(err, html) {
 
+                    if (options.debug) {
+                        options.debug.detail.push({"type": "render", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                        options.debug.duration.current = new Date();
+                    }
+
                     if (err) console.log('[renderData] Render Error:', err);
 
                     var h = '';
 
-                    if (template !== 'desktop/sitemap' && (config.cache.time || config.cache.p2p)) {
+                    if (template !== 'desktop/sitemap' && (config.cache.time || config.cache.p2p) && config.cache.minify) {
                         try {
                             h = minify(html, {
                                 removeComments: true,
@@ -532,6 +534,11 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                             console.log('[minifyData] Minify Error:', err);
                         }
                         html = h;
+
+                        if (options.debug) {
+                            options.debug.detail.push({"type": "minify", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                            options.debug.duration.current = new Date();
+                        }
                     }
 
                     res.send(html);
@@ -561,18 +568,29 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                         );
                     }
 
+                    if (options.debug) {
+                        options.debug.duration = (new Date() - options.debug.duration.all) + 'ms';
+                        console.log(options.debug);
+                    }
+
                 });
 
             }
         }
         else {
 
+            if (options.debug) {
+                options.debug.detail.push({"type": "cache", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                options.debug.duration.current = new Date();
+            }
+
             res.send(render);
 
-        }
+            if (options.debug) {
+                options.debug.duration = (new Date() - options.debug.duration.all) + 'ms';
+                console.log(options.debug);
+            }
 
-        if (development) {
-            console.timeEnd(url);
         }
 
     }

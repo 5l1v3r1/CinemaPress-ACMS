@@ -142,6 +142,48 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-code"></i>&nbsp;&nbsp;&nbsp;Минификация
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/cache.html#minify" class="csstip" title="Минификация CSS, JS и HTML файлов перед отправкой в браузер." target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-xs-4 text-center">
+                                            <select name="config.cache.minify" class="form-control">
+                                                <% if (config.cache.minify) { %>
+                                                <option value="1" selected="selected">
+                                                    Включена
+                                                </option>
+                                                <option value="0">
+                                                    Отключить
+                                                </option>
+                                                <% } else { %>
+                                                <option value="0" selected="selected">
+                                                    Отключена
+                                                </option>
+                                                <option value="1">
+                                                    Включить
+                                                </option>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <div class="col-xs-8">
+                                            <input value="Может замедлить сайт на слабом сервере!" class="form-control" disabled="disabled" style="background-color: #334049; border: 0;" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

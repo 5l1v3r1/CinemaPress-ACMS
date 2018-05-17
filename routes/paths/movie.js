@@ -60,6 +60,10 @@ function dataMovie(id, type, options, callback) {
                     true,
                     options,
                     function (err, movies) {
+                        if (options.debug) {
+                            options.debug.detail.push({"type": "movie", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                            options.debug.duration.current = new Date();
+                        }
                         if (err) return callback(err);
 
                         if (movies && movies.length) {
@@ -78,6 +82,10 @@ function dataMovie(id, type, options, callback) {
                     'ids',
                     options,
                     function (err, movies) {
+                        if (options.debug) {
+                            options.debug.detail.push({"type": "slider", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                            options.debug.duration.current = new Date();
+                        }
                         if (err) return callback(err);
 
                         return (movies && movies.length)
@@ -93,6 +101,10 @@ function dataMovie(id, type, options, callback) {
                     'soon',
                     options,
                     function (err, movies) {
+                        if (options.debug) {
+                            options.debug.detail.push({"type": "soon", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                            options.debug.duration.current = new Date();
+                        }
                         if (err) return callback(err);
 
                         return (movies && movies.length)
@@ -110,6 +122,10 @@ function dataMovie(id, type, options, callback) {
                     true,
                     options,
                     function (err, contents) {
+                        if (options.debug) {
+                            options.debug.detail.push({"type": "news", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                            options.debug.duration.current = new Date();
+                        }
                         if (err) return callback(err);
 
                         return (contents && contents.length)
@@ -127,6 +143,10 @@ function dataMovie(id, type, options, callback) {
                     true,
                     options,
                     function (err, contents) {
+                        if (options.debug) {
+                            options.debug.detail.push({"type": "contents", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                            options.debug.duration.current = new Date();
+                        }
                         if (err) return callback(err);
 
                         return (contents && contents.length)
@@ -152,6 +172,10 @@ function dataMovie(id, type, options, callback) {
                     service,
                     options,
                     function (err, comments) {
+                        if (options.debug) {
+                            options.debug.detail.push({"type": "recent", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                            options.debug.duration.current = new Date();
+                        }
                         if (err) return callback(err);
 
                         return (comments)
@@ -166,6 +190,10 @@ function dataMovie(id, type, options, callback) {
                         related.url,
                         related.pathname,
                         function (err, comments) {
+                            if (options.debug) {
+                                options.debug.detail.push({"type": "comments", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                                options.debug.duration.current = new Date();
+                            }
                             if (err) return callback(err);
 
                             return (comments)
@@ -314,6 +342,11 @@ function dataMovie(id, type, options, callback) {
                         }
                     },
                     function(err, result) {
+
+                        if (options.debug) {
+                            options.debug.detail.push({"type": "related", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                            options.debug.duration.current = new Date();
+                        }
 
                         return (err)
                             ? callback(err)

@@ -16,7 +16,8 @@ module.exports = {
     "cache": {
         "time": 0,
         "addr": "127.0.0.1:11211",
-        "p2p": 0
+        "p2p": 0,
+        "minify": 0
     },
     "sphinx": {
         "addr": "127.0.0.1:9306"

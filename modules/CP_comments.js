@@ -383,9 +383,18 @@ function indexerComments(thread, pathname, callback) {
             function(callback) {
                 if (!modules.comments.data.disqus.api_key || !modules.comments.data.disqus.shortname) return callback(null, '');
 
-                var url = 'https://disqus.com/api/3.0/threads/listPosts.json?api_key=' + modules.comments.data.disqus.api_key.trim() + '&forum=' + modules.comments.data.disqus.shortname.trim() + '&limit=100&thread=ident:' + encodeURIComponent(pathname);
+                var url = {
+                    url: 'https://disqus.com/api/3.0/threads/listPosts.json?' +
+                    'api_key=' + modules.comments.data.disqus.api_key.trim() + '&' +
+                    'forum=' + modules.comments.data.disqus.shortname.trim() + '&' +
+                    'limit=10&' +
+                    'thread=ident:' + encodeURIComponent(pathname),
+                    timeout: 200,
+                    agent: false,
+                    pool: {maxSockets: 100}
+                };
 
-                request({url: url, timeout: 500, agent: false, pool: {maxSockets: 100}}, function (error, response, body) {
+                request(url, function (error, response, body) {
 
                     if (error) {
                         console.log('1,000 requests per hour limit!');
@@ -423,7 +432,7 @@ function indexerComments(thread, pathname, callback) {
                     url: 'http://c1api.hypercomments.com/1.0/comments/list',
                     method: 'POST',
                     form: {body: body, signature: signature},
-                    timeout: 500,
+                    timeout: 200,
                     agent: false,
                     pool: {maxSockets: 100}
                 };
