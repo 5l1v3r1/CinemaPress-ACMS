@@ -25,10 +25,11 @@ var modules = require('../../config/production/modules');
 /**
  * Getting the data to render all sitemaps page.
  *
+ * @param {Object} options
  * @param {Callback} callback
  */
 
-function allSitemap(callback) {
+function allSitemap(options, callback) {
 
     var query = {};
     query['year'] = '!_empty';
@@ -78,6 +79,11 @@ function allSitemap(callback) {
                 }
             }
 
+            if (options.debug) {
+                options.debug.detail.push({"type": "sitemaps", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                options.debug.duration.current = new Date();
+            }
+
             return callback(null, render);
 
         });
@@ -89,10 +95,11 @@ function allSitemap(callback) {
  *
  * @param {String} type
  * @param {String} year
+ * @param {Object} options
  * @param {Callback} callback
  */
 
-function oneSitemap(type, year, callback) {
+function oneSitemap(type, year, options, callback) {
 
     year = (year) ? parseInt(year) : 0;
 
@@ -234,6 +241,11 @@ function oneSitemap(type, year, callback) {
                     }
                 }
 
+                if (options.debug) {
+                    options.debug.detail.push({"type": "sitemapCategory", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                    options.debug.duration.current = new Date();
+                }
+
                 return callback(null, render);
 
             });
@@ -266,6 +278,11 @@ function oneSitemap(type, year, callback) {
                     }
                 }
 
+                if (options.debug) {
+                    options.debug.detail.push({"type": "sitemapContent", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                    options.debug.duration.current = new Date();
+                }
+
                 return callback(null, render);
 
             });
@@ -282,6 +299,11 @@ function oneSitemap(type, year, callback) {
     function getMovies(year, callback) {
 
         CP_get.movies({"year": year}, 2525, function (err, movies) {
+
+            if (options.debug) {
+                options.debug.detail.push({"type": "sitemapMovies", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                options.debug.duration.current = new Date();
+            }
 
             if (err) return callback(err);
 

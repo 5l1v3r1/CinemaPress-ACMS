@@ -60,6 +60,10 @@ function allContents(tag, options, callback) {
                     true,
                     options,
                     function (err, contents) {
+                        if (options.debug) {
+                            options.debug.detail.push({"type": "contents", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                            options.debug.duration.current = new Date();
+                        }
                         if (err) return callback(err);
 
                         return (contents && contents.length)
@@ -74,6 +78,10 @@ function allContents(tag, options, callback) {
                     'ids',
                     options,
                     function (err, movies) {
+                        if (options.debug) {
+                            options.debug.detail.push({"type": "slider", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                            options.debug.duration.current = new Date();
+                        }
                         if (err) return callback(err);
 
                         return (movies && movies.length)
@@ -89,6 +97,10 @@ function allContents(tag, options, callback) {
                     'soon',
                     options,
                     function (err, movies) {
+                        if (options.debug) {
+                            options.debug.detail.push({"type": "soon", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                            options.debug.duration.current = new Date();
+                        }
                         if (err) return callback(err);
 
                         return (movies && movies.length)
@@ -106,6 +118,10 @@ function allContents(tag, options, callback) {
                         true,
                         options,
                         function (err, contents) {
+                            if (options.debug) {
+                                options.debug.detail.push({"type": "news", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                                options.debug.duration.current = new Date();
+                            }
                             if (err) return callback(err);
 
                             return (contents && contents.length)
@@ -126,6 +142,10 @@ function allContents(tag, options, callback) {
             }
 
             CP_page.contents(query, result, options, function (err, result) {
+                if (options.debug) {
+                    options.debug.detail.push({"type": "page", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                    options.debug.duration.current = new Date();
+                }
                 callback(err, result);
             });
 
@@ -163,6 +183,10 @@ function oneContent(url, page, sorting, options, callback) {
                     true,
                     options,
                     function (err, contents) {
+                        if (options.debug) {
+                            options.debug.detail.push({"type": "content", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                            options.debug.duration.current = new Date();
+                        }
                         if (err) return callback(err);
 
                         if (contents && contents.length && contents[0].movies && contents[0].movies.length) {
@@ -188,6 +212,10 @@ function oneContent(url, page, sorting, options, callback) {
                     true,
                     options,
                     function (err, movies) {
+                        if (options.debug) {
+                            options.debug.detail.push({"type": "movies", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                            options.debug.duration.current = new Date();
+                        }
                         if (err) return callback(err);
 
                         return (movies && movies.length)
@@ -202,6 +230,10 @@ function oneContent(url, page, sorting, options, callback) {
                     'ids',
                     options,
                     function (err, movies) {
+                        if (options.debug) {
+                            options.debug.detail.push({"type": "slider", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                            options.debug.duration.current = new Date();
+                        }
                         if (err) return callback(err);
 
                         return (movies && movies.length)
@@ -217,6 +249,10 @@ function oneContent(url, page, sorting, options, callback) {
                     'soon',
                     options,
                     function (err, movies) {
+                        if (options.debug) {
+                            options.debug.detail.push({"type": "soon", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                            options.debug.duration.current = new Date();
+                        }
                         if (err) return callback(err);
 
                         return (movies && movies.length)
@@ -234,6 +270,10 @@ function oneContent(url, page, sorting, options, callback) {
                         true,
                         options,
                         function (err, contents) {
+                            if (options.debug) {
+                                options.debug.detail.push({"type": "news", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                                options.debug.duration.current = new Date();
+                            }
                             if (err) return callback(err);
 
                             return (contents && contents.length)
@@ -259,6 +299,10 @@ function oneContent(url, page, sorting, options, callback) {
                     service,
                     options,
                     function (err, comments) {
+                        if (options.debug) {
+                            options.debug.detail.push({"type": "recent", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                            options.debug.duration.current = new Date();
+                        }
                         if (err) return callback(err);
 
                         return (comments)
@@ -273,6 +317,10 @@ function oneContent(url, page, sorting, options, callback) {
                         config.protocol + options.domain + '/' + modules.content.data.url + '/' + url,
                         '/' + modules.content.data.url + '/' + url,
                         function (err, comments) {
+                            if (options.debug) {
+                                options.debug.detail.push({"type": "comments", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                                options.debug.duration.current = new Date();
+                            }
                             if (err) return callback(err);
 
                             return (comments)
@@ -286,6 +334,10 @@ function oneContent(url, page, sorting, options, callback) {
                 return CP_get.count(
                     query,
                     function (err, num) {
+                        if (options.debug) {
+                            options.debug.detail.push({"type": "count", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                            options.debug.duration.current = new Date();
+                        }
                         if (err) return callback(err);
 
                         num = Math.ceil(parseInt(num)/config.default.count);
@@ -309,6 +361,10 @@ function oneContent(url, page, sorting, options, callback) {
             var indexer = (result.indexer) ? result.indexer : '';
 
             CP_page.content(result, url, page, sorting, options, function (err, result) {
+                if (options.debug) {
+                    options.debug.detail.push({"type": "page", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                    options.debug.duration.current = new Date();
+                }
                 if (result.page.comments) {
                     result.page.comments = indexer + result.page.comments
                 }

@@ -54,6 +54,10 @@ function dataIndex(options, callback) {
                     'ids',
                     options,
                     function (err, movies) {
+                        if (options.debug) {
+                            options.debug.detail.push({"type": "slider", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                            options.debug.duration.current = new Date();
+                        }
                         if (err) return callback(err);
 
                         return (movies && movies.length)
@@ -69,6 +73,10 @@ function dataIndex(options, callback) {
                     'soon',
                     options,
                     function (err, movies) {
+                        if (options.debug) {
+                            options.debug.detail.push({"type": "soon", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                            options.debug.duration.current = new Date();
+                        }
                         if (err) return callback(err);
 
                         return (movies && movies.length)
@@ -86,6 +94,10 @@ function dataIndex(options, callback) {
                     true,
                     options,
                     function (err, contents) {
+                        if (options.debug) {
+                            options.debug.detail.push({"type": "news", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                            options.debug.duration.current = new Date();
+                        }
                         if (err) return callback(err);
 
                         return (contents && contents.length)
@@ -111,6 +123,10 @@ function dataIndex(options, callback) {
                     service,
                     options,
                     function (err, comments) {
+                        if (options.debug) {
+                            options.debug.detail.push({"type": "recent", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                            options.debug.duration.current = new Date();
+                        }
                         if (err) return callback(err);
 
                         return (comments)
@@ -128,6 +144,10 @@ function dataIndex(options, callback) {
                                 'index',
                                 options,
                                 function (err, movies) {
+                                    if (options.debug) {
+                                        options.debug.detail.push({"type": "type", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                                        options.debug.duration.current = new Date();
+                                    }
                                     if (err) return callback(err);
 
                                     return (movies && movies.length)
@@ -143,6 +163,10 @@ function dataIndex(options, callback) {
                                 'index',
                                 options,
                                 function (err, movies) {
+                                    if (options.debug) {
+                                        options.debug.detail.push({"type": "country", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                                        options.debug.duration.current = new Date();
+                                    }
                                     if (err) return callback(err);
 
                                     return (movies && movies.length)
@@ -158,6 +182,10 @@ function dataIndex(options, callback) {
                                 'index',
                                 options,
                                 function (err, movies) {
+                                    if (options.debug) {
+                                        options.debug.detail.push({"type": "genre", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                                        options.debug.duration.current = new Date();
+                                    }
                                     if (err) return callback(err);
 
                                     return (movies && movies.length)
@@ -173,6 +201,10 @@ function dataIndex(options, callback) {
                                 'index',
                                 options,
                                 function (err, movies) {
+                                    if (options.debug) {
+                                        options.debug.detail.push({"type": "director", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                                        options.debug.duration.current = new Date();
+                                    }
                                     if (err) return callback(err);
 
                                     return (movies && movies.length)
@@ -188,6 +220,10 @@ function dataIndex(options, callback) {
                                 'index',
                                 options,
                                 function (err, movies) {
+                                    if (options.debug) {
+                                        options.debug.detail.push({"type": "actor", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                                        options.debug.duration.current = new Date();
+                                    }
                                     if (err) return callback(err);
 
                                     return (movies && movies.length)
@@ -203,6 +239,10 @@ function dataIndex(options, callback) {
                                 'index',
                                 options,
                                 function (err, movies) {
+                                    if (options.debug) {
+                                        options.debug.detail.push({"type": "year", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                                        options.debug.duration.current = new Date();
+                                    }
                                     if (err) return callback(err);
 
                                     return (movies && movies.length)
@@ -218,6 +258,10 @@ function dataIndex(options, callback) {
                                 'index_ids',
                                 options,
                                 function (err, index_ids) {
+                                    if (options.debug) {
+                                        options.debug.detail.push({"type": "ids", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                                        options.debug.duration.current = new Date();
+                                    }
                                     if (err) return callback(err);
 
                                     var movies = [];
@@ -276,6 +320,10 @@ function dataIndex(options, callback) {
                                             })
                                         : callback();
                                 }, function (err) {
+                                    if (options.debug) {
+                                        options.debug.detail.push({"type": "content", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                                        options.debug.duration.current = new Date();
+                                    }
                                     if (err) console.log(err);
                                     callback(null, r);
                                 });
@@ -289,6 +337,10 @@ function dataIndex(options, callback) {
                                 ? CP_episode.index(
                                 options,
                                 function (err, movies) {
+                                    if (options.debug) {
+                                        options.debug.detail.push({"type": "episode", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                                        options.debug.duration.current = new Date();
+                                    }
                                     if (err) return callback(err);
 
                                     config.index.episode = {};
@@ -352,6 +404,10 @@ function dataIndex(options, callback) {
                                     ? CP_get.count(
                                         qwry2,
                                         function (err, num) {
+                                            if (options.debug) {
+                                                options.debug.detail.push({"type": "count", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                                                options.debug.duration.current = new Date();
+                                            }
                                             if (err) return callback(err);
 
                                             num = Math.ceil(parseInt(num)/config.default.count);
@@ -366,6 +422,10 @@ function dataIndex(options, callback) {
                             qwry,
                             config.index.count.sorting,
                             function (err, num) {
+                                if (options.debug) {
+                                    options.debug.detail.push({"type": "count", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                                    options.debug.duration.current = new Date();
+                                }
                                 if (err) return callback(err);
 
                                 num = Math.ceil(parseInt(num)/config.default.count);
@@ -388,6 +448,10 @@ function dataIndex(options, callback) {
             }
 
             CP_page.index(result, options, function (err, result) {
+                if (options.debug) {
+                    options.debug.detail.push({"type": "page", "duration": (new Date() - options.debug.duration.current) + 'ms'});
+                    options.debug.duration.current = new Date();
+                }
                 callback(err, result);
             });
 

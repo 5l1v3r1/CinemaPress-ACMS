@@ -72,7 +72,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
     var options = {};
     options.domain = '' + config.domain;
     options.sub = req.cookies.CP_sub || '';
-    options.debug = process.env.NODE_ENV !== 'production' && (parseUrl()).indexOf('tv')+1
+    options.debug = process.env.NODE_ENV !== 'production'
         ? {"url": parseUrl(), "duration": {"current": new Date(), "all": new Date()}, "detail": []}
         : null;
 
@@ -353,10 +353,12 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                     ? sitemap.one(
                     level2,
                     level3,
+                    options,
                     function (err, render) {
                         callback(err, render);
                     })
                     : sitemap.all(
+                    options,
                     function (err, render) {
                         callback(err, render);
                     });
@@ -496,6 +498,11 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
             if (config.theme === 'default' || (req.query.q && req.query.json)) {
 
                 res.json(render);
+
+                if (options.debug) {
+                    options.debug.duration = (new Date() - options.debug.duration.all) + 'ms';
+                    console.log(options.debug);
+                }
 
             }
             else {

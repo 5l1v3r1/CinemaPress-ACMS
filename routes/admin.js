@@ -535,9 +535,12 @@ router.post('/change', function(req, res) {
             "flush": function (callback) {
                 if (!form.flush) return callback(null, 'Null');
                 CP_cache.flush(function(err) {
-                    return (err)
-                        ? callback(err)
-                        : callback(null, 'Flush');
+                    if (err) return callback(err);
+                    exec('rm -rf /var/cinemacache/* /var/ngx_pagespeed_cache/*; service nginx restart', function (err) {
+                        return (err)
+                            ? callback(err)
+                            : callback(null, 'Flush');
+                    });
                 });
             },
             "image": function (callback) {
