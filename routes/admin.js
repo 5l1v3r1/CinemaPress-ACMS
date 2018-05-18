@@ -536,7 +536,7 @@ router.post('/change', function(req, res) {
                 if (!form.flush) return callback(null, 'Null');
                 CP_cache.flush(function(err) {
                     if (err) return callback(err);
-                    exec('rm -rf /var/cinemacache/* /var/ngx_pagespeed_cache/*; service nginx restart', function (err) {
+                    exec('rm -rf /var/cinemacache/* /var/ngx_pagespeed_cache/*', function (err) {
                         return (err)
                             ? callback(err)
                             : callback(null, 'Flush');
