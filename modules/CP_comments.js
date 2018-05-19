@@ -385,7 +385,14 @@ function indexerComments(thread, pathname, callback) {
 
     async.parallel([
             function(callback) {
-                if (!modules.comments.data.disqus.api_key || !modules.comments.data.disqus.shortname) return callback(null, '');
+                if (
+                    !modules.comments.data.disqus.api_key ||
+                    !modules.comments.data.disqus.shortname ||
+                    (
+                        modules.comments.data.disqus.time &&
+                        modules.comments.data.disqus.time === (new Date()).getHours()+1
+                    )
+                ) return callback(null, '');
 
                 var url = {
                     url: 'https://disqus.com/api/3.0/threads/listPosts.json?' +
@@ -402,6 +409,7 @@ function indexerComments(thread, pathname, callback) {
 
                     if (error) {
                         console.log('1,000 requests per hour limit!');
+                        modules.comments.data.disqus.time = (new Date()).getHours()+1;
                         return callback(null, '');
                     }
 
