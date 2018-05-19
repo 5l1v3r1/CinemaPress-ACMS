@@ -408,7 +408,7 @@ function indexerComments(thread, pathname, callback) {
                 request(url, function (error, response, body) {
 
                     if (error) {
-                        console.log('1,000 requests per hour limit!');
+                        console.log('1,000 requests per hour limit!', new Date());
                         modules.comments.data.disqus.time = (new Date()).getHours()+1;
                         return callback(null, '');
                     }

@@ -143,7 +143,7 @@ function indexEpisode(options, callback) {
             try {
 
                 if (error || response.statusCode !== 200 || result.error) {
-                    console.log('[modules/CP_episode.js:indexEpisode:getReq] Error:', error, result.error);
+                    console.log(url, error.code || '', result.error || '');
                     return callback('Moonwalk request error.');
                 }
 
