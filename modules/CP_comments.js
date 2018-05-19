@@ -243,6 +243,10 @@ function recentComments(service, options, callback) {
                                 .replace(/\\'/g, '\'');
                             var $ = cheerio.load(body, {decodeEntities: false});
                             $('li').each(function(i, elem) {
+                                var href = $(elem).find('.dsq-widget-meta a').first().attr('href');
+                                if (href && href.indexOf(options.domain) === -1) {
+                                    return;
+                                }
                                 var r = {};
                                 r['url'] = ($(elem).find('.dsq-widget-meta a').first().attr('href'))
                                     .replace(/(https?:\/\/[a-z0-9._\-]*)/i, config.protocol + options.domain);
