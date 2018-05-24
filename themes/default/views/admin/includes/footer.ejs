@@ -134,13 +134,17 @@
             }
         });
 
+        setTimeout(function() {
+            location.reload();
+        }, 1000*10);
+
     }
 
     function imageData() {
 
         var self = this;
         self.removeEventListener('click', imageData);
-        self.innerHTML = '<span class="fa fa-spinner fa-spin"></span>&nbsp;&nbsp;Загружаются&nbsp;(около&nbsp;60&nbsp;минут)';
+        self.innerHTML = '<span class="fa fa-spinner fa-spin"></span>&nbsp;&nbsp;Загружаются&nbsp;(около&nbsp;5&nbsp;часов)';
 
         var data = {
             "image": true
@@ -157,7 +161,7 @@
 
         setTimeout(function() {
             window.location.href = "<%- config.protocol %><%- config.domain %>/<%- config.urls.admin %>";
-        }, 1000*60*60);
+        }, 1000*20);
 
     }
 
