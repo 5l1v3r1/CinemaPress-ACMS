@@ -155,7 +155,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
 
     function getRender(callback) {
 
-        return (config.cache.time)
+        return (config.cache.time && 0)
             ? getCache(
             function (err, render) {
                 return (err)
@@ -526,7 +526,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
 
                     res.send(html);
 
-                    if (config.cache.time && html) {
+                    if (config.cache.time && html && 0) {
                         CP_cache.set(
                             urlHash,
                             html,
@@ -543,7 +543,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                             }
                         );
                     }
-                    if (config.cache.p2p && html) {
+                    if (config.cache.p2p && html && 0) {
                         var $ = cheerio.load(html);
                         CP_cachep2p.set(
                             url,
