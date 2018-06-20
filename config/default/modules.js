@@ -153,7 +153,7 @@ module.exports = {
                 "token": ""
             },
             "kodik": {
-                "show": 0
+                "token": ""
             },
             "moonlight": {
                 "domain": ""
