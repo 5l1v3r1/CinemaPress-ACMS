@@ -186,6 +186,13 @@
 
 ![Тема оформления «mormont»](https://raw.githubusercontent.com/CinemaPress/Theme-Mormont/master/screenshot.png)
 
+## Шаблон «tarly»
+
+- Скачать с [GitHub](https://github.com/CinemaPress/Theme-Tarly/) или [GitLab](https://gitlab.com/CinemaPress/Theme-Tarly/) или [BitBucket](https://bitbucket.org/cinemapress/theme-tarly/) или [Coding](https://coding.net/u/CinemaPress/p/Theme-Tarly/)
+- DEMO: [Tarly.CinemaPress.org](http://Tarly.CinemaPress.org/)
+
+![Тема оформления «tarly»](https://raw.githubusercontent.com/CinemaPress/Theme-Tarly/master/screenshot.png)
+
 # Параметры и модули CinemaPress ACMS
 
 Подробную информацию о всех параметрах и модулях системы Вы найдете в [документации](https://cinemapress.org/admin/admin.html).
