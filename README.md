@@ -193,6 +193,13 @@
 
 ![Тема оформления «tarly»](https://raw.githubusercontent.com/CinemaPress/Theme-Tarly/master/screenshot.png)
 
+## Шаблон «daenerys»
+
+- Скачать с [GitHub](https://github.com/CinemaPress/Theme-Daenerys/) или [GitLab](https://gitlab.com/CinemaPress/Theme-Daenerys/) или [BitBucket](https://bitbucket.org/cinemapress/theme-daenerys/) или [Coding](https://coding.net/u/CinemaPress/p/Theme-Daenerys/)
+- DEMO: [Daenerys.CinemaPress.org](http://Daenerys.CinemaPress.org/)
+
+![Тема оформления «daenerys»](https://raw.githubusercontent.com/CinemaPress/Theme-Daenerys/master/screenshot.png)
+
 # Параметры и модули CinemaPress ACMS
 
 Подробную информацию о всех параметрах и модулях системы Вы найдете в [документации](https://cinemapress.org/admin/admin.html).
