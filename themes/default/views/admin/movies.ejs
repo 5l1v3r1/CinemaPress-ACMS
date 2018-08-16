@@ -343,6 +343,7 @@
 
                                     var id = document.querySelector('#id');
                                     var kp_id = parseInt(id.value);
+                                    var id_kp = 0;
 
                                     if (id.value.indexOf('<%- config.domain %>')+1) {
 
@@ -354,8 +355,8 @@
                                         kp_id = parseInt(id) - parseInt(<%- config.urls.unique_id %>);
                                     }
                                     else if (id.value.indexOf('kinopoisk.ru')+1) {
-                                        id = /(film\/|movie\/)([0-9]{1,7})/gi.exec(id.value);
-                                        kp_id = (id) ? parseInt(id[2]) : 0;
+                                        id_kp = /(film\/|movie\/).*?([0-9]{3,7})\//gi.exec(id.value);
+                                        kp_id = (id_kp) ? parseInt(id_kp[2]) : 0;
                                     }
 
                                     if (kp_id) {
