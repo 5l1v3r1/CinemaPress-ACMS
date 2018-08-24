@@ -25,7 +25,7 @@
                     <% d.splice(Math.round(d.length/2), 0, '</p><p>'); %>
                     <p><%- (d.join('. ')).replace(' </p><p>. ', '</p> <p>') %>...</p>
                     <% } else { %>
-                    <p><%- movie.description %></p>
+                    <% if (movie.description) { %><p><%- movie.description %></p><% } else { %><p><%- movie.title %></p><% } %>
                     <% } %>
                     ]]>
                 </turbo:content>
