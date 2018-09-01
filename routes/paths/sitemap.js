@@ -313,7 +313,9 @@ function oneSitemap(type, year, options, callback) {
                 render.links = [];
 
                 for (var i = 0; i < movies.length; i++) {
-                    render.links[render.links.length] = movies[i].url;
+                    if (!config.urls.noindex || !(movies[i].url.indexOf('/' + config.urls.noindex + '/')+1)) {
+                        render.links[render.links.length] = movies[i].url;
+                    }
                 }
 
                 callback(null, render);
@@ -321,7 +323,7 @@ function oneSitemap(type, year, options, callback) {
             }
             else {
 
-                callback(null, '');
+                callback(null, {links: []});
 
             }
 

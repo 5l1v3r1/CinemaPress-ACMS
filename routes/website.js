@@ -416,6 +416,13 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
     function setTemplate() {
 
         switch (level1) {
+            case config.urls.noindex:
+                if (!config.urls.noindex)
+                    return 'error';
+                return (movie.id(level2))
+                    ? movie.type(level3)
+                    : 'error';
+                break;
             case config.urls.movie:
                 return (movie.id(level2))
                     ? movie.type(level3)

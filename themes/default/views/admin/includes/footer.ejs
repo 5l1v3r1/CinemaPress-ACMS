@@ -69,6 +69,8 @@
 
         uploadImage();
 
+        uploadPicture();
+
         translit();
 
     });
@@ -338,6 +340,7 @@
                         configs[i].name === 'config.index.ids.keys' ||
                         configs[i].name === 'config.index.count.key' ||
                         configs[i].name === 'config.urls.prefix_id' ||
+                        configs[i].name === 'config.urls.noindex' ||
                         configs[i].name === 'config.urls.movies.online' ||
                         configs[i].name === 'config.urls.movies.download' ||
                         configs[i].name === 'config.urls.movies.trailer' ||
@@ -460,6 +463,14 @@
 
         if (data.movie && data.movie.id && data.movie.kp_id && data.movie.id !== data.movie.kp_id) {
             data.movie.id = data.movie.kp_id;
+        }
+
+        if (data.movie && data.movie.description) {
+            data.movie.description = data.movie.description.replace(/\n/ig, '<br>');
+        }
+
+        if (data.content && data.content.content_description) {
+            data.content.content_description = data.content.content_description.replace(/\n/ig, '<br>');
         }
 
         sendServer(data, function (err, result) {
@@ -693,6 +704,37 @@
                 var mySpan = document.createElement('span');
                 mySpan.innerHTML = '<div style="float: left;" id="nameUploadImage"><a href="javascript:void(0)" class="btn btn-default"><span class="fa fa-spinner fa-spin"></span></a></div>';
                 image.parentNode.replaceChild(mySpan, image);
+            });
+        }
+    }
+
+    function uploadPicture() {
+        var formUploadPicture = document.forms.namedItem('formUploadPicture');
+        var nameUploadPicture = document.querySelector('#nameUploadPicture');
+        if (formUploadPicture && nameUploadPicture) {
+            nameUploadPicture.addEventListener('change', function () {
+                var formData = new FormData(formUploadPicture);
+                var req = new XMLHttpRequest();
+                req.open('POST', '/<%- config.urls.admin %>/upload', true);
+                req.onload = function () {
+                    if (req.readyState === 4 && req.status === 200) {
+                        var uploadMessage = JSON.parse(req.responseText);
+                        var textPathPicture = document.querySelector('#textPathPicture');
+                        var page_picture = document.querySelector('input[name="' + textPathPicture.getAttribute('name') + '"]');
+                        if (uploadMessage.error) {
+                            console.log(uploadMessage.error);
+                            return;
+                        }
+                        page_picture.value = (page_picture.value.indexOf('/')+1)
+                            ? uploadMessage.file + ',' + page_picture.value
+                            : uploadMessage.file;
+                        var loadingPicture = document.querySelector('#loadingPicture');
+                        loadingPicture.innerHTML = ' URL кадров: ';
+                    }
+                }
+                req.send(formData);
+                var loadingPicture = document.querySelector('#loadingPicture');
+                loadingPicture.innerHTML = '<span class="fa fa-spinner fa-spin"></span>';
             });
         }
     }

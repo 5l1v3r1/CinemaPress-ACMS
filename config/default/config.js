@@ -64,7 +64,7 @@ module.exports = {
     "codes": {
         "head": "",
         "footer": "",
-        "robots": "User-agent: *\nDisallow: /\nDisallow: /type/*/*\nDisallow: /movie/*/*\nDisallow: /year/*/*\nDisallow: /genre/*/*\nDisallow: /country/*/*\nDisallow: /director/*/*\nDisallow: /actor/*/*\nDisallow: /search\nDisallow: /*?sorting*\nDisallow: /*?tag*\nDisallow: /*?q*\nDisallow: /iframe\nDisallow: /admin*"
+        "robots": "User-agent: *\nDisallow: /\nDisallow: /type/*/*\nDisallow: /movie/*/*\nDisallow: /year/*/*\nDisallow: /genre/*/*\nDisallow: /country/*/*\nDisallow: /director/*/*\nDisallow: /actor/*/*\nDisallow: /search\nDisallow: /*?sorting*\nDisallow: /*?tag*\nDisallow: /*?q*\nDisallow: /iframe\nDisallow: /noindex\nDisallow: /admin*"
     },
     "index": {
         "type": {
@@ -222,6 +222,7 @@ module.exports = {
             "download": "",
             "trailer": "",
             "picture": ""
-        }
+        },
+        "noindex": ""
     }
 };

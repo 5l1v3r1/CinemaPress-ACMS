@@ -657,7 +657,9 @@ router.post('/upload', function(req, res) {
     var storage = multer.diskStorage({
         destination: function(req, file, cb) {
             fieldname = file.fieldname;
-            cb(null, path.join(filepath, fieldname));
+            exec('mkdir -p ' + path.join(filepath, fieldname), function (err) {
+                cb(null, path.join(filepath, fieldname));
+            });
         },
         filename: function(req, file, cb) {
             filename = Date.now() + '-' + file.originalname;

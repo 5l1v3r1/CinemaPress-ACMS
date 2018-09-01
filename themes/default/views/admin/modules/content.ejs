@@ -97,7 +97,7 @@
 
                                 <div class="spacer-10"></div>
 
-                                <textarea class="form-control descriptions" name="content.content_description" placeholder="Описание страницы"><% if (content.content_description) { %><%- content.content_description %><% } %></textarea>
+                                <textarea class="form-control descriptions" name="content.content_description" placeholder="Описание страницы"><% if (content.content_description) { %><%- content.content_description.trim().replace(/<br>/ig, '\n') %><% } %></textarea>
 
                                 <div class="advanced-textarea-footer">
                                     <div class="pull-left">
