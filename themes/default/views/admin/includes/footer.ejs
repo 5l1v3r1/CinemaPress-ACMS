@@ -467,6 +467,20 @@
 
         if (data.movie && data.movie.description) {
             data.movie.description = data.movie.description.replace(/\n/ig, '<br>');
+            if (!data.movie.description_short) {
+                data.movie.description_short = data.movie.description
+                    .replace(/<\/?[^>]+>/g, '')
+                    .replace(/\s+/g, ' ')
+                    .replace(/(^\s*)|(\s*)$/g, '')
+                    .substr(0, 200)
+                    .replace(/"([^"]*?)"/gi, '«$1»')
+                    .replace('"', '&quot;');
+            }
+        }
+
+        if (data.movie && data.movie.player) {
+            data.movie.player = data.movie.player.replace(/.*src="(.*?)".*/i, '$1');
+            data.movie.player = data.movie.player.replace(/.*youtube.com\/watch\?v=(.*?).*?/i, 'https://www.youtube.com/embed/$1');
         }
 
         if (data.content && data.content.content_description) {
