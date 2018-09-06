@@ -237,7 +237,7 @@ router.get('/:type?', function(req, res) {
             CP_get.movies(
                 {"from": process.env.CP_RT, "certainly": true},
                 config.default.count,
-                '',
+                'kinopoisk-id-up',
                 num,
                 function (err, movies) {
                     if (err) console.log(err);

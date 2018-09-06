@@ -307,7 +307,7 @@
                                                 <span class="fa fa fa-pencil"></span> Своё поле:
                                             </div>
                                             <div class="spacer-10"></div>
-                                            <textarea class="form-control custom" name="movie.custom" placeholder='{"name": "Текст к этому полю", "name2": "Текст к этому полю"}'><% if (movie.custom) { %><%- movie.custom %><% } %></textarea>
+                                            <textarea class="form-control custom" name="movie.custom" placeholder='{"name": "Текст к этому полю", "name2": "Текст к этому полю"}'><% if (movie.custom) { %><%- movie.custom %><% } else { %>{"unique": true}<% } %></textarea>
                                             <script>
                                                 document.addEventListener('DOMContentLoaded', function () {
                                                     var json = document.querySelector('.custom');
