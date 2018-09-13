@@ -242,56 +242,58 @@ function recentComments(service, options, callback) {
                                 .replace(/\\\n/g, '')
                                 .replace(/\\'/g, '\'');
                             var $ = cheerio.load(body, {decodeEntities: false});
-                            $('li').each(function(i, elem) {
-                                var href = $(elem).find('.dsq-widget-meta a').first().attr('href');
-                                if (href && href.indexOf(options.domain) === -1) {
-                                    return;
-                                }
-                                var r = {};
-                                r['url'] = ($(elem).find('.dsq-widget-meta a').first().attr('href'))
-                                    .replace(/(https?:\/\/[a-z0-9._\-]*)/i, config.protocol + options.domain);
-                                r['user'] = ($(elem).find('.dsq-widget-user').text())
-                                    ? $(elem).find('.dsq-widget-user').text()
-                                    : '';
-                                r['avatar'] = ($(elem).find('.dsq-widget-avatar').attr('src'))
-                                    ? ($(elem).find('.dsq-widget-avatar').attr('src'))
-                                        .replace('/avatar92', '/avatar36')
-                                    : '';
-                                r['title'] = ($(elem).find('.dsq-widget-meta a').first().text())
-                                    ? $(elem).find('.dsq-widget-meta a').first().text().trim()
-                                    : '';
-                                r['comment'] = ($(elem).find('.dsq-widget-comment').text())
-                                    ? $(elem).find('.dsq-widget-comment').text()
-                                    : '';
-                                r['comment'] = (r['comment'])
-                                    ? r['comment']
-                                        .replace(/\s+/g, ' ')
-                                        .replace(/(^\s*)|(\s*)$/g, '')
-                                        .replace(/['"]/g, '')
-                                        .replace(/(<([^>]+)>)/ig,'')
-                                    : '';
+                            if ($) {
+                                $('li').each(function(i, elem) {
+                                    var href = $(elem).find('.dsq-widget-meta a').first().attr('href');
+                                    if (href && href.indexOf(options.domain) === -1) {
+                                        return;
+                                    }
+                                    var r = {};
+                                    r['url'] = ($(elem).find('.dsq-widget-meta a').first().attr('href'))
+                                        .replace(/(https?:\/\/[a-z0-9._\-]*)/i, config.protocol + options.domain);
+                                    r['user'] = ($(elem).find('.dsq-widget-user').text())
+                                        ? $(elem).find('.dsq-widget-user').text()
+                                        : '';
+                                    r['avatar'] = ($(elem).find('.dsq-widget-avatar').attr('src'))
+                                        ? ($(elem).find('.dsq-widget-avatar').attr('src'))
+                                            .replace('/avatar92', '/avatar36')
+                                        : '';
+                                    r['title'] = ($(elem).find('.dsq-widget-meta a').first().text())
+                                        ? $(elem).find('.dsq-widget-meta a').first().text().trim()
+                                        : '';
+                                    r['comment'] = ($(elem).find('.dsq-widget-comment').text())
+                                        ? $(elem).find('.dsq-widget-comment').text()
+                                        : '';
+                                    r['comment'] = (r['comment'])
+                                        ? r['comment']
+                                            .replace(/\s+/g, ' ')
+                                            .replace(/(^\s*)|(\s*)$/g, '')
+                                            .replace(/['"]/g, '')
+                                            .replace(/(<([^>]+)>)/ig,'')
+                                        : '';
 
-                                var date = ($(elem).find('.dsq-widget-meta a').last().text())
-                                    ? ($(elem).find('.dsq-widget-meta a').last().text() + '')
-                                    : '';
-                                var num = date.replace(/[^0-9]/g, '') || 1;
-                                date = (date.indexOf('hour')+1)
-                                    ? moment().subtract(num, 'hour')
-                                    : (date.indexOf('day')+1)
-                                        ? moment().subtract(num, 'day')
-                                        : (date.indexOf('week')+1)
-                                            ? moment().subtract(num, 'week')
-                                            : (date.indexOf('month')+1)
-                                                ? moment().subtract(num, 'month')
-                                                : (date.indexOf('year')+1)
-                                                    ? moment().subtract(num, 'year')
-                                                    : moment().subtract(num, 'minute');
-                                r['date'] = date.fromNow();
-                                r['time'] = date.valueOf();
-                                r['kp_id'] = movie.id(r['url']);
+                                    var date = ($(elem).find('.dsq-widget-meta a').last().text())
+                                        ? ($(elem).find('.dsq-widget-meta a').last().text() + '')
+                                        : '';
+                                    var num = date.replace(/[^0-9]/g, '') || 1;
+                                    date = (date.indexOf('hour')+1)
+                                        ? moment().subtract(num, 'hour')
+                                        : (date.indexOf('day')+1)
+                                            ? moment().subtract(num, 'day')
+                                            : (date.indexOf('week')+1)
+                                                ? moment().subtract(num, 'week')
+                                                : (date.indexOf('month')+1)
+                                                    ? moment().subtract(num, 'month')
+                                                    : (date.indexOf('year')+1)
+                                                        ? moment().subtract(num, 'year')
+                                                        : moment().subtract(num, 'minute');
+                                    r['date'] = date.fromNow();
+                                    r['time'] = date.valueOf();
+                                    r['kp_id'] = movie.id(r['url']);
 
-                                result.push(r);
-                            });
+                                    result.push(r);
+                                });
+                            }
                         }
 
                         callback(null, null);
@@ -331,18 +333,30 @@ function recentComments(service, options, callback) {
                                     : '';
                                 var tri = (('' + comment.text).length >= modules.comments.data.hypercomments.recent.excerpt_length) ? '...' : '';
                                 var r = {};
-                                r['url'] = (comment.link)
-                                    .replace(/(https?:\/\/[a-z0-9._\-]*)/i, config.protocol + options.domain);
-                                r['user'] = comment.nick;
+                                r['url'] = (comment.link) ?
+                                    (comment.link)
+                                        .replace(/(https?:\/\/[a-z0-9._\-]*)/i, config.protocol + options.domain)
+                                    : '';
+                                r['user'] = (comment.nick)
+                                    ? comment.nick
+                                    : '';
                                 r['avatar'] = '';
-                                r['title'] = comment.title;
-                                r['comment'] = comment.text
-                                    .slice(0, modules.comments.data.hypercomments.recent.excerpt_length) + tri;
-                                var date = moment(new Date(comment.time));
-                                r['date'] = date.fromNow();
-                                r['time'] = date.valueOf();
-                                r['kp_id'] = movie.id(r['url']);
-                                result.push(r);
+                                r['title'] = (comment.title)
+                                    ? comment.title
+                                    : '';
+                                r['comment'] = (comment.text) ?
+                                    comment.text
+                                        .slice(0, modules.comments.data.hypercomments.recent.excerpt_length) + tri
+                                    : '';
+                                var date = (comment.time)
+                                    ? moment(new Date(comment.time))
+                                    : '';
+                                r['date'] = (date) ? date.fromNow() : '';
+                                r['time'] = (date) ? date.valueOf() : '';
+                                r['kp_id'] = (r['url']) ? movie.id(r['url']) : '';
+                                if (r['comment']) {
+                                    result.push(r);
+                                }
                             });
                         }
 

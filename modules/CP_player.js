@@ -163,9 +163,6 @@ function codePlayer(type, movie, options) {
         data.hdgo = (modules.player.data.hdgo.token)
             ? modules.player.data.hdgo.token
             : '';
-        data.newvideo = (modules.player.data.newvideo.api_key)
-            ? modules.player.data.newvideo.api_key
-            : '';
         data.youtube = (modules.player.data.youtube.token)
             ? modules.player.data.youtube.token
             : '';
