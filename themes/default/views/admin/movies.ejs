@@ -78,13 +78,13 @@
                             <div class="advanced-textarea">
 
                                 <div style="color: #4B5B6C">
-                                    <span class="fa fa fa-pencil"></span> &lt;title&gt; страницы с фильмом:
+                                    &lt;title&gt; страницы с фильмом:
                                 </div>
                                 <div class="spacer-10"></div>
                                 <input type="text" class="form-control" name="movie.title_page" value="<% if (movie.title_page) { %><%= movie.title_page %><% } %>" placeholder="Название страницы фильма (до 70 символов)" style="font-weight: normal; font-size: 14px;">
 
                                 <div style="color: #4B5B6C">
-                                    <span class="fa fa fa-pencil"></span> &lt;meta name="description"&gt; страницы:
+                                    &lt;meta name="description"&gt; страницы:
                                 </div>
                                 <div class="spacer-10"></div>
                                 <input type="text" class="form-control" name="movie.description_short" value="<% if (movie.description_short) { %><%= movie.description_short %><% } %>" placeholder="Короткое описание фильма (до 200 символов)" style="font-weight: normal; font-size: 14px;">
@@ -170,7 +170,7 @@
                                         <div class="advanced-textarea">
 
                                             <div style="color: #4B5B6C">
-                                                <span class="fa fa fa-pencil"></span> URL постера:
+                                                URL постера:
                                             </div>
                                             <div class="spacer-10"></div>
                                             <div class="row">
@@ -268,7 +268,7 @@
                                             <input type="text" class="form-control" name="movie.imdb_vote" value="<% if (movie.imdb_vote) {  %><%- movie.imdb_vote %><% } else { %>0<% } %>" placeholder="Число голосов IMDb" style="font-weight: normal; font-size: 14px;">
 
                                             <div style="color: #4B5B6C" id="loadingPicture">
-                                                <span class="fa fa fa-pencil"></span> URL кадров:
+                                                URL кадров:
                                             </div>
                                             <div class="spacer-10"></div>
                                             <div class="col-lg-9 col-xs-9 text-center" id="blockPathPicture" style="padding: 0;">
@@ -286,25 +286,25 @@
                                             <div class="spacer-10"></div>
 
                                             <div style="color: #4B5B6C">
-                                                <span class="fa fa fa-pencil"></span> URL плеера:
+                                                URL плеера:
                                             </div>
                                             <div class="spacer-10"></div>
                                             <input type="text" class="form-control" name="movie.player" value="<% if (movie.player) { %><%- movie.player %><% } %>" placeholder="URL плеера для вставки в iframe" style="font-weight: normal; font-size: 14px;">
 
                                             <div style="color: #4B5B6C">
-                                                <span class="fa fa fa-pencil"></span> Качество:
+                                                Качество:
                                             </div>
                                             <div class="spacer-10"></div>
                                             <input type="text" class="form-control" name="movie.quality" value="<% if (movie.quality) { %><%- movie.quality %><% } %>" placeholder="Текущее качество фильма" style="font-weight: normal; font-size: 14px;">
 
                                             <div style="color: #4B5B6C">
-                                                <span class="fa fa fa-pencil"></span> Перевод:
+                                                Перевод:
                                             </div>
                                             <div class="spacer-10"></div>
                                             <input type="text" class="form-control" name="movie.translate" value="<% if (movie.translate) { %><%- movie.translate %><% } %>" placeholder="Текущий перевод фильма" style="font-weight: normal; font-size: 14px;">
 
                                             <div style="color: #4B5B6C">
-                                                <span class="fa fa fa-pencil"></span> Своё поле:
+                                                Своё поле:
                                             </div>
                                             <div class="spacer-10"></div>
                                             <textarea class="form-control custom" name="movie.custom" placeholder='{"name": "Текст к этому полю", "name2": "Текст к этому полю"}'><% if (movie.custom) { %><%- movie.custom %><% } else { %>{"unique": true}<% } %></textarea>
@@ -326,16 +326,6 @@
                                                     }
                                                 });
                                             </script>
-                                            <div class="spacer-10"></div>
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <div class="helper-text-box text-left">
-                                                        <p>
-                                                            <code><span class="fa fa fa-pencil" style="color: #4B5B6C"></span></code> - заполнение поля с карандашом, говорит системе, что фильм с уникальным описанием.<br>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </article>

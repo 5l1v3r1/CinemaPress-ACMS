@@ -213,6 +213,9 @@ function codePlayer(type, movie, options) {
         param.player = (movie.player)
             ? movie.player
             : '';
+        param.cdn = (movie.player && /\.(mp4|mkv|avi|mov|flv)$/.test(movie.player))
+            ? movie.player
+            : '';
 
         var script = '';
         for (var param_key in param) {
@@ -228,6 +231,14 @@ function codePlayer(type, movie, options) {
         if (player) {
             code.footer = '' +
                 '<script data-cfasync="false" src="//yohoho.cc/yo.js"></script>';
+        }
+        else if (param.cdn) {
+            code.player = '' +
+                '<link rel="stylesheet" href="https://cdn.fluidplayer.com/v2/current/fluidplayer.min.css" type="text/css"/>' +
+                '<script src="https://cdn.fluidplayer.com/v2/current/fluidplayer.min.js"></script>' +
+                '<video id="cinemapress-cdn"><source src="' + param.cdn + '" type="video/mp4"/></video>';
+            code.footer = '' +
+                '<script>fluidPlayer("cinemapress-cdn");</script>';
         }
         else {
             code.footer = '' +

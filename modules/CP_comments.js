@@ -250,11 +250,19 @@ function recentComments(service, options, callback) {
                                 var r = {};
                                 r['url'] = ($(elem).find('.dsq-widget-meta a').first().attr('href'))
                                     .replace(/(https?:\/\/[a-z0-9._\-]*)/i, config.protocol + options.domain);
-                                r['user'] = $(elem).find('.dsq-widget-user').text();
+                                r['user'] = ($(elem).find('.dsq-widget-user').text())
+                                    ? $(elem).find('.dsq-widget-user').text()
+                                    : '';
                                 r['avatar'] = ($(elem).find('.dsq-widget-avatar').attr('src'))
-                                    .replace('/avatar92', '/avatar36');
-                                r['title'] = $(elem).find('.dsq-widget-meta a').first().text().trim();
-                                r['comment'] = $(elem).find('.dsq-widget-comment').text();
+                                    ? ($(elem).find('.dsq-widget-avatar').attr('src'))
+                                        .replace('/avatar92', '/avatar36')
+                                    : '';
+                                r['title'] = ($(elem).find('.dsq-widget-meta a').first().text())
+                                    ? $(elem).find('.dsq-widget-meta a').first().text().trim()
+                                    : '';
+                                r['comment'] = ($(elem).find('.dsq-widget-comment').text())
+                                    ? $(elem).find('.dsq-widget-comment').text()
+                                    : '';
                                 r['comment'] = (r['comment'])
                                     ? r['comment']
                                         .replace(/\s+/g, ' ')
@@ -263,7 +271,9 @@ function recentComments(service, options, callback) {
                                         .replace(/(<([^>]+)>)/ig,'')
                                     : '';
 
-                                var date = ($(elem).find('.dsq-widget-meta a').last().text() + '');
+                                var date = ($(elem).find('.dsq-widget-meta a').last().text())
+                                    ? ($(elem).find('.dsq-widget-meta a').last().text() + '')
+                                    : '';
                                 var num = date.replace(/[^0-9]/g, '') || 1;
                                 date = (date.indexOf('hour')+1)
                                     ? moment().subtract(num, 'hour')

@@ -161,8 +161,8 @@ module.exports = {
             "youtube": {
                 "token": ""
             },
-            "newvideo": {
-                "api_key": ""
+            "hdbaza": {
+                "user_hash": ""
             }
         }
     },

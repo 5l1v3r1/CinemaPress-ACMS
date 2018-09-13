@@ -150,8 +150,10 @@
 
 <div class="clear"></div>
 
-<div class="info" style="height: 420px; position: relative; border-radius: 10px; background: transparent; overflow: hidden;">
+<div class="info" style="height: 370px; position: relative; border-radius: 10px; background: transparent; overflow: hidden;">
+    <% if (page.player) { %>
     <%- page.player %>
+    <% } %>
 </div>
 
 <div class="clear"></div>

@@ -40,7 +40,7 @@ router.get('/?', function(req, res) {
 
         async.parallel({
                 "moonwalk": function (callback) {
-                    if (modules.player.data.moonwalk.token) {
+                    if (modules.player.data.moonwalk && modules.player.data.moonwalk.token) {
                         getMoonwalk(function(result) {
                             callback(null, result);
                         });
@@ -50,7 +50,7 @@ router.get('/?', function(req, res) {
                     }
                 },
                 "hdgo": function (callback) {
-                    if (modules.player.data.hdgo.token) {
+                    if (modules.player.data.hdgo && modules.player.data.hdgo.token) {
                         getHdgo(function(result) {
                             callback(null, result);
                         });
@@ -60,7 +60,7 @@ router.get('/?', function(req, res) {
                     }
                 },
                 "iframe": function (callback) {
-                    if (modules.player.data.iframe.show) {
+                    if (modules.player.data.iframe && modules.player.data.iframe.show) {
                         getIframe(function(result) {
                             callback(null, result);
                         });
@@ -70,7 +70,7 @@ router.get('/?', function(req, res) {
                     }
                 },
                 "kodik": function (callback) {
-                    if (modules.player.data.kodik.show) {
+                    if (modules.player.data.kodik && modules.player.data.kodik.show) {
                         getKodik(function(result) {
                             callback(null, result);
                         });
@@ -89,9 +89,9 @@ router.get('/?', function(req, res) {
                         callback(null, {});
                     }
                 },
-                "newvideo": function (callback) {
-                    if (modules.player.data.newvideo.api_key) {
-                        getNewvideo(function(result) {
+                "hdbaza": function (callback) {
+                    if (modules.player.data.hdbaza && modules.player.data.hdbaza.user_hash) {
+                        getHdbaza(function(result) {
                             callback(null, result);
                         });
                     }
@@ -402,22 +402,24 @@ router.get('/?', function(req, res) {
     }
 
     /**
-     * Get Newvideo player.
+     * Get Hdbaza player.
      */
 
-    function getNewvideo(callback) {
+    function getHdbaza(callback) {
 
-        api('https://newvideo.tv/api/videos?' +
-            'api_key=' + modules.player.data.newvideo.api_key.trim() + '&' +
+        api('https://hdbaza.com/api/movies?' +
+            'user_hash=' + modules.player.data.hdbaza.user_hash.trim() + '&' +
             'kinopoisk_id=' + id,
             function (json) {
                 var iframe_src = '';
                 var iframe_translate = '';
                 var iframe_quality = '';
-                if (json && json.status && json.status === 'ok' && json.data && json.data.length && json.data[0].iframe_url) {
-                    iframe_src = json.data[0].iframe_url;
-                    iframe_translate = json.data[0].sounds ? json.data[0].sounds : '';
-                    iframe_quality = json.data[0].quality ? json.data[0].quality : '';
+                if (json && json.data && json.data.iframe_url) {
+                    iframe_src = json.data.iframe_url;
+                    iframe_translate = (json.data.sounds && json.data.sounds[0] && json.data.sounds[0].name)
+                        ? json.data.sounds[0].name
+                        : '';
+                    iframe_quality = json.data.quality ? json.data.quality : '';
                 }
                 callback({
                     "src": iframe_src,
