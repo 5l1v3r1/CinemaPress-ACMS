@@ -157,17 +157,20 @@ function codePlayer(type, movie, options) {
         data.language = (config.language)
             ? config.language
             : '';
-        data.moonwalk = (modules.player.data.moonwalk.token)
+        data.moonwalk = (modules.player && modules.player.data && modules.player.data.moonwalk && modules.player.data.moonwalk.token)
             ? modules.player.data.moonwalk.token
             : '';
-        data.hdgo = (modules.player.data.hdgo.token)
+        data.hdgo = (modules.player && modules.player.data && modules.player.data.hdgo && modules.player.data.hdgo.token)
             ? modules.player.data.hdgo.token
             : '';
-        data.youtube = (modules.player.data.youtube.token)
+        data.youtube = (modules.player && modules.player.data && modules.player.data.youtube && modules.player.data.youtube.token)
             ? modules.player.data.youtube.token
             : '';
-        data.kodik = (modules.player.data.kodik.token)
+        data.kodik = (modules.player && modules.player.data && modules.player.data.kodik && modules.player.data.kodik.token)
             ? modules.player.data.kodik.token
+            : '';
+        data.hdbaza = (modules.player && modules.player.data && modules.player.data.hdbaza && modules.player.data.hdbaza.user_hash)
+            ? modules.player.data.hdbaza.user_hash
             : '';
         data.start_time = (options.start_time)
             ? options.start_time
@@ -175,7 +178,7 @@ function codePlayer(type, movie, options) {
         data.start_episode = (options.start_episode)
             ? options.start_episode
             : '';
-        data.moonlight = (modules.player.data.moonlight.domain)
+        data.moonlight = (modules.player && modules.player.data && modules.player.data.moonlight && modules.player.data.moonlight.domain)
             ? modules.player.data.moonlight.domain
             : '';
 

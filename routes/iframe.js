@@ -41,7 +41,7 @@ router.get('/:id?/:title?', function(req, res) {
             'data-language="' + (config.language || '') + '" ' +
             'data-moonwalk="' + (modules.player.data.moonwalk.token || '') + '" ' +
             'data-hdgo="' + (modules.player.data.hdgo.token || '') + '" ' +
-            'data-newvideo="' + (modules.player.data.newvideo.api_key || '') + '" ' +
+            'data-hdbaza="' + (modules.player.data.hdbaza.user_hash || '') + '" ' +
             'data-youtube="' + (modules.player.data.youtube.token || '') + '" ' +
             'data-kodik="' + (modules.player.data.kodik.token || '') + '" ' +
             '></div>' +
@@ -69,7 +69,7 @@ router.get('/:id?/:title?', function(req, res) {
                         'data-language="' + (config.language || '') + '" ' +
                         'data-moonwalk="' + (modules.player.data.moonwalk.token || '') + '" ' +
                         'data-hdgo="' + (modules.player.data.hdgo.token || '') + '" ' +
-                        'data-newvideo="' + (modules.player.data.newvideo.api_key || '') + '" ' +
+                        'data-hdbaza="' + (modules.player.data.hdbaza.user_hash || '') + '" ' +
                         'data-youtube="' + (modules.player.data.youtube.token || '') + '" ' +
                         'data-kodik="' + (modules.player.data.kodik.token || '') + '" ' +
                         '></div>' +
