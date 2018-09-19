@@ -414,12 +414,12 @@ router.get('/?', function(req, res) {
                 var iframe_src = '';
                 var iframe_translate = '';
                 var iframe_quality = '';
-                if (json && json.data && json.data.iframe_url) {
-                    iframe_src = json.data.iframe_url;
-                    iframe_translate = (json.data.sounds && json.data.sounds[0] && json.data.sounds[0].name)
-                        ? json.data.sounds[0].name
+                if (json && json.data && json.data.length && json.data[0].iframe_url) {
+                    iframe_src = json.data[0].iframe_url;
+                    iframe_translate = (json.data[0].sounds && json.data[0].sounds[0] && json.data[0].sounds[0].name)
+                        ? json.data[0].sounds[0].name
                         : '';
-                    iframe_quality = json.data.quality ? json.data.quality : '';
+                    iframe_quality = json.data[0].quality ? json.data[0].quality : '';
                 }
                 callback({
                     "src": iframe_src,
