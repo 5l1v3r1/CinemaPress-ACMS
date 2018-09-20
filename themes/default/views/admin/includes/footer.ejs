@@ -169,6 +169,12 @@
 
     function databaseData() {
 
+        <% if (config.database.key == 'FREE') { %>
+            if (!confirm('База закрепится на сервере за доменом ' + '<%- config.domain %>'.toUpperCase() + '\nИмпорт делается только один раз, дальнейшие импорты - это обновления.')) {
+                return;
+            }
+        <% } %>
+
         var key = document.querySelector('#key');
 
         if (!key || !key.value) return;
