@@ -221,6 +221,12 @@ router.get('/?', function(req, res) {
                             iframe_url = iframe_url + '?start_time=' + start_time
                         }
                     }
+                    if (iframe_url.indexOf('?')+1) {
+                        iframe_url = iframe_url + '&show_translations=1'
+                    }
+                    else {
+                        iframe_url = iframe_url + '?show_translations=1'
+                    }
                     iframe_src = iframe_url;
                 }
                 callback({
