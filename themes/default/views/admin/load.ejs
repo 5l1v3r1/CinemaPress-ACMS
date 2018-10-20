@@ -30,6 +30,12 @@
                             <%- title %>
                         </h2>
                     </div>
+                    <div class="pull-right">
+                        <div class="btn-count btn-group">
+                            <span class="hidden-xs">Очистить&nbsp;кэш:</span>
+                            <a href="javascript:void(0)" id="flush_static" class="btn btn-default" style="margin: 0;"><i class="fa fa-picture-o" title="Очистка кэша файлов"></i></a><a href="javascript:void(0)" id="flush_memcached" class="btn btn-default" style="margin: 0;"><i class="fa fa-tachometer" title="Очистка кэша памяти"></i></a>
+                        </div>
+                    </div>
                 </div>
             </header>
 
@@ -136,6 +142,8 @@
                             </div>
                         </div>
 
+                        <% if (config.language === 'ru') { %>
+
                         <div class="spacer-10"></div>
 
                         <div class="col-sm-12">
@@ -174,6 +182,9 @@
                                 </div>
                             </div>
                         </div>
+
+                        <% } %>
+
                     </div>
                 </div>
             </div>

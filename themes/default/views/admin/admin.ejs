@@ -30,6 +30,12 @@
                             <%- title %>
                         </h2>
                     </div>
+                    <div class="pull-right">
+                        <div class="btn-count btn-group">
+                            <span class="hidden-xs">Очистить&nbsp;кэш:</span>
+                            <a href="javascript:void(0)" id="flush_static" class="btn btn-default" style="margin: 0;"><i class="fa fa-picture-o" title="Очистка кэша файлов"></i></a><a href="javascript:void(0)" id="flush_memcached" class="btn btn-default" style="margin: 0;"><i class="fa fa-tachometer" title="Очистка кэша памяти"></i></a>
+                        </div>
+                    </div>
                 </div>
             </header>
 
@@ -55,21 +61,27 @@
 
                 <div class="inner-padding">
 
-                    <% if (typeof counts == 'object') { %>
+                    <% if (typeof line == 'object') { %>
 
                     <div class="progress-project-header">
-                        <h5>Опубликовано фильмов</h5><span><%- counts.percent %>%</span>
+                        <h5>Опубликовано фильмов</h5><span><%- line.percent.pub %>%</span>
                     </div>
                     <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="<%- counts.percent %>" aria-valuemin="0" aria-valuemax="100" style="width: <%- counts.percent %>%;">
-                            <span class="sr-only"><%- counts.percent %>%</span>
+                        <div class="progress-bar" role="progressbar" aria-valuenow="<%- line.percent.pub %>" aria-valuemin="0" aria-valuemax="100" style="width: <%- line.percent.pub %>%;" title="Опубликовано: <%- line.counts.pub %> шт.">
+                            <span class="sr-only"><%- line.percent.pub %>%</span>
+                        </div>
+                        <div class="progress-bar progress-bar-warning" style="width: <%- (line.percent.fil - line.percent.pub) %>%; background-color: #272f38" title="Осталось: <%- (line.counts.fil - line.counts.pub) %> шт.">
+                            <span class="sr-only"><%- line.percent.fil %></span>
+                        </div>
+                        <div class="progress-bar progress-bar-warning" style="width: <%- (line.percent.all - line.percent.fil) %>%; background-color: #334049" title="Отфильтрованы: <%- (line.counts.all - line.counts.fil) %> шт.">
+                            <span class="sr-only"><%- line.percent.all %></span>
                         </div>
                     </div>
                     <div class="progress-project-footer">
-                        <% if (counts.days) { %>
-                        <p>Автопубликация на <%- counts.days %> дня(-ей)</p>
+                        <% if (line.days) { %>
+                        <p>Автопубликация на <%- line.days %> дня(-ей)</p>
                         <% } %>
-                        <span><strong><%- counts.publish %></strong>/<%- counts.all %></span>
+                        <span><strong><%- line.counts.pub %></strong>&nbsp;/&nbsp;<%- line.counts.fil %>&nbsp;/&nbsp;<%- line.counts.all %></span>
                     </div>
 
                     <% } %>
@@ -365,16 +377,6 @@
                                 <div class="inner-padding">
                                     <div class="row">
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <a href="/<%- config.urls.admin %>/admin">
-                                                <div class="button-settings">
-                                                    <i class="fa fa-home"></i>
-                                                    <p>
-                                                        Админ
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                             <a href="/<%- config.urls.admin %>/main">
                                                 <div class="button-settings">
                                                     <i class="fa fa-cog"></i>
@@ -405,21 +407,11 @@
                                             </a>
                                         </div>
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <a href="/<%- config.urls.admin %>/urls">
-                                                <div class="button-settings">
-                                                    <i class="fa fa-sitemap"></i>
-                                                    <p>
-                                                        URL
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                             <a href="/<%- config.urls.admin %>/display">
                                                 <div class="button-settings">
                                                     <i class="fa fa-list"></i>
                                                     <p>
-                                                        Отображение
+                                                        Страницы
                                                     </p>
                                                 </div>
                                             </a>
@@ -445,6 +437,16 @@
                                             </a>
                                         </div>
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                            <a href="/<%- config.urls.admin %>/h1">
+                                                <div class="button-settings">
+                                                    <i class="fa fa-pencil"></i>
+                                                    <p>
+                                                        &lt;H1&gt;
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                             <a href="/<%- config.urls.admin %>/descriptions">
                                                 <div class="button-settings">
                                                     <i class="fa fa-pencil-square-o"></i>
@@ -455,31 +457,23 @@
                                             </a>
                                         </div>
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                            <a href="/<%- config.urls.admin %>/urls">
+                                                <div class="button-settings">
+                                                    <i class="fa fa-sitemap"></i>
+                                                    <p>
+                                                        URL
+                                                    </p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                                             <a href="/<%- config.urls.admin %>/codes">
                                                 <div class="button-settings">
                                                     <i class="fa fa-code"></i>
                                                     <p>
                                                         Коды
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <a href="/<%- config.urls.admin %>/load">
-                                                <div class="button-settings">
-                                                    <i class="fa fa-bar-chart-o"></i>
-                                                    <p>
-                                                        Нагрузка
-                                                    </p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-                                            <a href="/<%- config.urls.admin %>/cache">
-                                                <div class="button-settings">
-                                                    <i class="fa fa-rocket"></i>
-                                                    <p>
-                                                        Кэш
                                                     </p>
                                                 </div>
                                             </a>

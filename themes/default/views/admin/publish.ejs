@@ -30,6 +30,12 @@
                             <%- title %>
                         </h2>
                     </div>
+                    <div class="pull-right">
+                        <div class="btn-count btn-group">
+                            <span class="hidden-xs">Очистить&nbsp;кэш:</span>
+                            <a href="javascript:void(0)" id="flush_static" class="btn btn-default" style="margin: 0;"><i class="fa fa-picture-o" title="Очистка кэша файлов"></i></a><a href="javascript:void(0)" id="flush_memcached" class="btn btn-default" style="margin: 0;"><i class="fa fa-tachometer" title="Очистка кэша памяти"></i></a>
+                        </div>
+                    </div>
                 </div>
             </header>
 
@@ -55,24 +61,32 @@
 
                 <div class="inner-padding">
 
-                    <% if (typeof counts == 'object') { %>
+                    <% if (typeof line == 'object') { %>
 
                     <div class="progress-project-header">
-                        <h5>Опубликовано фильмов</h5><span><%- counts.percent %>%</span>
+                        <h5>Опубликовано фильмов</h5><span><%- line.percent.pub %>%</span>
                     </div>
                     <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="<%- counts.percent %>" aria-valuemin="0" aria-valuemax="100" style="width: <%- counts.percent %>%;">
-                            <span class="sr-only"><%- counts.percent %>%</span>
+                        <div class="progress-bar" role="progressbar" aria-valuenow="<%- line.percent.pub %>" aria-valuemin="0" aria-valuemax="100" style="width: <%- line.percent.pub %>%;" title="Опубликовано: <%- line.counts.pub %> шт.">
+                            <span class="sr-only"><%- line.percent.pub %>%</span>
+                        </div>
+                        <div class="progress-bar progress-bar-warning" style="width: <%- (line.percent.fil - line.percent.pub) %>%; background-color: #272f38" title="Осталось: <%- (line.counts.fil - line.counts.pub) %> шт.">
+                            <span class="sr-only"><%- line.percent.fil %></span>
+                        </div>
+                        <div class="progress-bar progress-bar-warning" style="width: <%- (line.percent.all - line.percent.fil) %>%; background-color: #334049" title="Отфильтрованы: <%- (line.counts.all - line.counts.fil) %> шт.">
+                            <span class="sr-only"><%- line.percent.all %></span>
                         </div>
                     </div>
                     <div class="progress-project-footer">
-                        <% if (counts.days) { %>
-                        <p>Автопубликация на <%- counts.days %> дня(-ей)</p>
+                        <% if (line.days) { %>
+                        <p>Автопубликация на <%- line.days %> дня(-ей)</p>
                         <% } %>
-                        <span><strong><%- counts.publish %></strong>/<%- counts.all %></span>
+                        <span><strong><%- line.counts.pub %></strong>&nbsp;/&nbsp;<%- line.counts.fil %>&nbsp;/&nbsp;<%- line.counts.all %></span>
                     </div>
 
                     <% } %>
+
+                    <% if (config.language == 'ru') { %>
 
                     <% if (config.database.key == 'FREE') { %>
 
@@ -116,7 +130,7 @@
                                                             Фильмов:
                                                         </div>
                                                         <div class="col-md-7 col-sm-12 col-xs-12">
-                                                            136 799
+                                                            138 420
                                                         </div>
                                                         <div class="col-md-5 col-sm-12 col-xs-12">
                                                             Тема:
@@ -155,7 +169,7 @@
                                                             Фильмов:
                                                         </div>
                                                         <div class="col-md-7 col-sm-12 col-xs-12">
-                                                            632 670
+                                                            635 588
                                                         </div>
                                                         <div class="col-md-5 col-sm-12 col-xs-12">
                                                             Тема:
@@ -220,6 +234,159 @@
                             </div>
                         </div>
                     </div>
+
+                    <% } %>
+
+                    <% } else { %>
+
+                    <% if (config.database.key == 'FREE') { %>
+
+                    <div class="spacer-10"></div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label"><i class="fa fa-database"></i>&nbsp;&nbsp;&nbsp;Import all movies in the world</div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/article/kak-dobavit-vse-filmy-v-mire.html#import" class="csstip" title="Add all the movies in the world to the site" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="input-group">
+                                                <input class="form-control" type="text" placeholder="Enter the movie base key" id="key">
+                                                <span class="input-group-btn">
+                                                    <a href="javascript:void(0)" class="btn btn-default" id="database">
+                                                        <span class="fa fa-plus"></span> Add movies
+                                                    </a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="spacer-10"></div>
+                                        <div class="col-sm-6">
+                                            <div class="example-box">
+                                                <div class="example-box-header">
+                                                    <div class="example-label"><i class="fa fa-film"></i>&nbsp;&nbsp;&nbsp;Start <%- config.language.toUpperCase() %></div>
+                                                    <div class="example-label" style="float: right; background:#459E45; color: #fff; margin: 5px 5px -10px 0; border-radius: 3px; padding-top: 2px; font-size: 18px;">
+                                                        <strong>149$</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="inner-padding" style="font-size: 12px;">
+                                                    <div class="row">
+                                                        <div class="col-md-5 col-sm-12 col-xs-12">
+                                                            Movies:
+                                                        </div>
+                                                        <div class="col-md-7 col-sm-12 col-xs-12">
+                                                            139 857
+                                                        </div>
+                                                        <div class="col-md-5 col-sm-12 col-xs-12">
+                                                            Theme:
+                                                        </div>
+                                                        <div class="col-md-7 col-sm-12 col-xs-12">
+                                                            common <a href="https://cinemapress.org/article/chto-takoe-individualnaya-tema.html" target="_blank" title="What is a common and individual theme for CinemaPress ACMS?"><span class="fa fa-question-circle text-muted"></span></a>
+                                                        </div>
+                                                        <div class="col-md-5 col-sm-12 col-xs-12">
+                                                            Update:
+                                                        </div>
+                                                        <div class="col-md-7 col-sm-12 col-xs-12">
+                                                            every 99$ <a href="https://cinemapress.org/article/chto-takoe-obnovlenie-bd.html" target="_blank" title="Why do I need to update the database?"><span class="fa fa-question-circle text-muted"></span></a>
+                                                        </div>
+                                                        <div class="spacer-10"></div>
+                                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                                            <a href="https://cinemapress.org/buy/<%- config.language %>/start.html" target="_blank" class="btn btn-block btn-default">
+                                                                <span class="fa fa-money"></span>&nbsp;&nbsp;149$ Pay key
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="example-box">
+                                                <div class="example-box-header">
+                                                    <div class="example-label"><i class="fa fa-film"></i>&nbsp;&nbsp;&nbsp;Expanded <%- config.language.toUpperCase() %></div>
+                                                    <div class="example-label" style="float: right; background:#459E45; color: #fff; margin: 5px 5px -10px 0; border-radius: 3px; padding-top: 2px; font-size: 18px;">
+                                                        <s style="color: #ccc; font-size: 14px; font-weight:bold;">446$</s>
+                                                        <strong>199$</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="inner-padding" style="font-size: 12px;">
+                                                    <div class="row">
+                                                        <div class="col-md-5 col-sm-12 col-xs-12">
+                                                            Movies:
+                                                        </div>
+                                                        <div class="col-md-7 col-sm-12 col-xs-12">
+                                                            202 557
+                                                        </div>
+                                                        <div class="col-md-5 col-sm-12 col-xs-12">
+                                                            Theme:
+                                                        </div>
+                                                        <div class="col-md-7 col-sm-12 col-xs-12">
+                                                            common <a href="https://cinemapress.org/article/chto-takoe-individualnaya-tema.html" target="_blank" title="What is a common and individual theme for CinemaPress ACMS?"><span class="fa fa-question-circle text-muted"></span></a>
+                                                        </div>
+                                                        <div class="col-md-5 col-sm-12 col-xs-12">
+                                                            Update:
+                                                        </div>
+                                                        <div class="col-md-7 col-sm-12 col-xs-12">
+                                                            free (up to 3 times) <a href="https://cinemapress.org/article/chto-takoe-obnovlenie-bd.html" target="_blank" title="Why do I need to update the database?"><span class="fa fa-question-circle text-muted"></span></a>
+                                                        </div>
+                                                        <div class="spacer-10"></div>
+                                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                                            <a href="https://cinemapress.org/buy/<%- config.language %>/expanded.html" target="_blank" class="btn btn-block btn-default">
+                                                                <span class="fa fa-money"></span>&nbsp;&nbsp;199$ Pay key
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% } else { %>
+
+                    <div class="spacer-10"></div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label"><i class="fa fa-database"></i>&nbsp;&nbsp;&nbsp;Update movie database <%- config.language.toUpperCase() %></div>
+                                    <div class="example-label" style="float: right">
+                                        <%- config.database.date %>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <a href="https://cinemapress.org/buy/<%- config.language %>/update.html" target="_blank" class="btn btn-block btn-default">
+                                                <span class="fa fa-money"></span>&nbsp;&nbsp;99$
+                                            </a>
+                                        </div>
+                                        <div class="col-xs-9">
+                                            <div class="input-group">
+                                                <input class="form-control" type="text" placeholder="Update key" id="key">
+                                                <span class="input-group-btn">
+                                                    <a href="javascript:void(0)" class="btn btn-default" id="database">
+                                                        <span class="fa fa-repeat"></span> Update movies
+                                                    </a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% } %>
 
                     <% } %>
 
@@ -375,11 +542,13 @@
                                                     <span></span>
                                                     Только фильмы с постерами
                                                 </label>
+                                                <% if (config.language == 'ru') { %>
                                                 <label>
                                                     <input name="config.publish.required" value="title_ru" type="checkbox" <% if (config.publish.required.indexOf('title_ru')+1) { %> checked="" <% } %>>
                                                     <span></span>
                                                     Только имеющие русское название
                                                 </label>
+                                                <% } %>
                                                 <label>
                                                     <input name="config.publish.required" value="description" type="checkbox" <% if (config.publish.required.indexOf('description')+1) { %> checked="" <% } %>>
                                                     <span></span>

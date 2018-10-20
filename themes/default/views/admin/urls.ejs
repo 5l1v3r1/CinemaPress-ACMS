@@ -30,6 +30,12 @@
                             <%- title %>
                         </h2>
                     </div>
+                    <div class="pull-right">
+                        <div class="btn-count btn-group">
+                            <span class="hidden-xs">Очистить&nbsp;кэш:</span>
+                            <a href="javascript:void(0)" id="flush_static" class="btn btn-default" style="margin: 0;"><i class="fa fa-picture-o" title="Очистка кэша файлов"></i></a><a href="javascript:void(0)" id="flush_memcached" class="btn btn-default" style="margin: 0;"><i class="fa fa-tachometer" title="Очистка кэша памяти"></i></a>
+                        </div>
+                    </div>
                 </div>
             </header>
 
@@ -101,13 +107,15 @@
                                                                     <p>
                                                                         <code>[prefix_id]</code> - обязательный праметр, отображает ID фильма, например «<%- config.urls.prefix_id %>299»;<br>
                                                                         <code>[separator]</code> - разделитель между параметрами, например «-»;<br>
+                                                                        <code>[title]</code> - русское или оригинальное название, например «matrica»;<br>
                                                                         <code>[title_ru]</code> - русское название в транслите, например «matrica»;<br>
                                                                         <code>[title_en]</code> - оригинальное название, например «the-matrix»;<br>
                                                                         <code>[genre]</code> - жанр фильма в транслите, например «komediya»;<br>
                                                                         <code>[country]</code> - страна фильма в транслите, например «rossiya»;<br>
-                                                                        <code>[year]</code> - год фильма, например «2016»;<br>
+                                                                        <code>[year]</code> - год фильма, например «2019»;<br>
                                                                         <code>[actor]</code> - главный актер в транслите, например «tom-kruz»;<br>
-                                                                        <code>[director]</code> - режиссер в транслите, например «tim-berton».<br>
+                                                                        <code>[director]</code> - режиссер в транслите, например «tim-berton»;<br>
+                                                                        <code>[random]</code> - каждый день случайные 4 буквы, например «delo».<br>
                                                                     </p>
                                                                 </div>
                                                             </div>

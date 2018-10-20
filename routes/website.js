@@ -331,7 +331,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
             case 'content':
                 template = 'category';
                 content.one(
-                    level2,
+                    req.params.level2,
                     parseInt(level3),
                     sorting,
                     options,

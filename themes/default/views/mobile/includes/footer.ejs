@@ -32,7 +32,7 @@
                         <span>
                             <%- comment.user %>
                         </span><span>
-                            сказал(а)
+                            <%- page.l.said %>
                         </span><span>
                             <%- comment.date %>
                         </span>
@@ -55,7 +55,7 @@
 <% } %>
 
 <div class="info recentlyViewedBlock" style="display: none;">
-    <div>Вы надавно смотрели:</div>
+    <div><%- page.l.watched %>:</div>
     <div id="recentlyViewed"></div>
 </div>
 
@@ -63,18 +63,18 @@
 
 <% if (page.social) { %>
 <div class="info">
-    <% if (page.social.vk) { %><a href="<%- page.social.vk %>" target="_blank">ВК</a><% } %>
-    <% if (page.social.facebook) { %><span> | </span><a href="<%- page.social.facebook %>" target="_blank">facebook</a><% } %>
-    <% if (page.social.twitter) { %><span> | </span><a href="<%- page.social.twitter %>" target="_blank">twitter</a><% } %>
-    <% if (page.social.gplus) { %><span> | </span><a href="<%- page.social.gplus %>" target="_blank">G+</a><% } %>
-    <% if (page.social.instagram) { %><span> | </span><a href="<%- page.social.instagram %>" target="_blank">Instagram</a><% } %>
-    <% if (page.social.youtube) { %><span> | </span><a href="<%- page.social.youtube %>" target="_blank">YouTube</a><% } %>
+    <% if (page.social.vk) { %><a href="<%- page.social.vk %>" target="_blank"><%- page.l.vk %></a><% } %>
+    <% if (page.social.facebook) { %><span> | </span><a href="<%- page.social.facebook %>" target="_blank"><%- page.l.facebook %></a><% } %>
+    <% if (page.social.twitter) { %><span> | </span><a href="<%- page.social.twitter %>" target="_blank"><%- page.l.twitter %></a><% } %>
+    <% if (page.social.gplus) { %><span> | </span><a href="<%- page.social.gplus %>" target="_blank"><%- page.l.google %></a><% } %>
+    <% if (page.social.instagram) { %><span> | </span><a href="<%- page.social.instagram %>" target="_blank"><%- page.l.instagram %></a><% } %>
+    <% if (page.social.youtube) { %><span> | </span><a href="<%- page.social.youtube %>" target="_blank"><%- page.l.youtube %></a><% } %>
 </div>
 <% } %>
 
 <div class="info">
     <a href="<%- page.url.replace('://m.', '://') %>" onclick="document.cookie = 'CP_desktop=1; domain=<%- page.domain.replace(/^m\./, '') %>; path=/;';">
-        Полная версия сайта
+        <%- page.l.full %>
     </a>
 </div>
 

@@ -23,7 +23,7 @@ var async = require('async');
     }
 
     CP_get.movies(
-        {"certainly": true},
+        {"from": process.env.CP_RT, "certainly": true, "full": true},
         10000,
         '',
         i,
@@ -37,6 +37,10 @@ var async = require('async');
             if (movies && movies.length) {
                 async.eachOfLimit(movies, 1, function (movie, key, callback) {
                     delete movie.year;
+                    delete movie.actor;
+                    delete movie.genre;
+                    delete movie.country;
+                    delete movie.director;
                     delete movie.premiere;
                     delete movie.kp_rating;
                     delete movie.kp_vote;
@@ -47,12 +51,16 @@ var async = require('async');
                         movie,
                         'rt',
                         function (err, result) {
+                            console.log(result);
                             return callback(err);
                         });
                 }, function (err) {
                     console.log(err);
                     upd(ii);
                 });
+            }
+            else {
+                upd(ii);
             }
         });
 

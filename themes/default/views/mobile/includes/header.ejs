@@ -1,27 +1,28 @@
 <a href="/">
-    <img src="/themes/default/public/mobile/logo.png" class="logo" alt="Логотип">
+    <img src="/themes/default/public/mobile/logo.png?v=<%- page.ver %>" class="logo" alt="Logo">
 </a>
 
 <div class="info continueViewingBlock" style="float: right; display: none">
-    <a href="javascript:void(0)" id="continueViewing">Продолжить&nbsp;►</a>
+    <a href="javascript:void(0)" id="continueViewing"><%- page.l.continue %>&nbsp;►</a>
 </div>
 
 <div class="clear"></div>
 
 <form action="/<%- page.urls.search %>/title" method="get">
-    <input class="submit" value="Меню" type="button" style="left: 10px; right: auto" onclick="openNav()">
-    <input type="text" class="text" name="q" value="" placeholder="Название фильма ...">
-    <input type="submit" class="submit" value="Найти">
+    <input class="submit" value="<%- page.l.menu %>" type="button" style="left: 10px; right: auto" onclick="openNav()">
+    <input type="text" class="text" name="q" value="" placeholder="<%- page.l.movieTitle %> ...">
+    <input type="submit" class="submit" value="<%- page.l.search %>">
 </form>
 
 <div id="menuSidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="/<%- page.urls.genre %>">Жанры</a>
-    <a href="/<%- page.urls.year %>">Годы</a>
-    <a href="/<%- page.urls.country %>">Страны</a>
-    <a href="/<%- page.urls.actor %>">Актеры</a>
-    <a href="/<%- page.urls.director %>">Режиссеры</a>
-    <a href="/<%- page.urls.content %>">Контент</a>
+    <a href="/<%- page.urls.genre %>"><%- page.l.genres %></a>
+    <a href="/<%- page.urls.year %>"><%- page.l.years %></a>
+    <a href="/<%- page.urls.country %>"><%- page.l.countries %></a>
+    <a href="/<%- page.urls.actor %>"><%- page.l.actors %></a>
+    <a href="/<%- page.urls.director %>"><%- page.l.directors %></a>
+    <a href="/<%- page.urls.content %>?tag=<%- page.l.collections %>"><%- page.l.collections %></a>
+    <a href="/<%- page.urls.content %>?tag=<%- page.l.news %>"><%- page.l.news %></a>
 </div>
 
 <script>

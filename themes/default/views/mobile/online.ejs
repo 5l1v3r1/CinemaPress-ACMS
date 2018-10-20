@@ -10,34 +10,34 @@
 <% include includes/header.ejs %>
 
 <div class="info">
-    <a href="/">Главная</a> » <%- movie.genre_url %> » <%= movie.title %>
+    <a href="/"><%- page.l.home %></a> » <%- movie.genre_url %> » <%= movie.title %>
 </div>
 
 <div class="clear"></div>
 
 <div class="poster">
-    <img src="<%- movie.poster_min %>" alt="<%= movie.title %> (<%- movie.year %>) смотреть онлайн" title="<%= movie.title %> (<%- movie.year %>) смотреть онлайн">
+    <img src="<%- movie.poster_min %>" alt="<%= page.title %>" title="<%= page.title %>" id="cinemapress-poster">
 </div>
-<h1><%= movie.title %> (<%- movie.year %>) смотреть онлайн</h1>
+<h1><%- page.h1 %></h1>
 
 <% if (movie.year_url) { %>
 
 <div class="info">
-    Год: <%- movie.year_url %>
+    <%- page.l.year %>: <%- movie.year_url %>
 </div>
 
 <% } %>
 <% if (movie.countries_url) { %>
 
 <div class="info">
-    Страна: <%- movie.countries_url %>
+    <%- page.l.countries %>: <%- movie.countries_url %>
 </div>
 
 <% } %>
 <% if (movie.genres_url) { %>
 
 <div class="info">
-    Жанры: <%- movie.genres_url %>
+    <%- page.l.genres %>: <%- movie.genres_url %>
 </div>
 
 <% } %>
@@ -47,14 +47,14 @@
 <% if (movie.directors_url) { %>
 
 <div class="info">
-    Режиссер: <%- movie.directors_url %>
+    <%- page.l.director %>: <%- movie.directors_url %>
 </div>
 
 <% } %>
 <% if (movie.actors_url) { %>
 
 <div class="info">
-    В ролях: <%- movie.actors_url %>
+    <%- page.l.actors %>: <%- movie.actors_url %>
 </div>
 
 <% } %>
@@ -69,7 +69,7 @@
                 : '<div class="star-false"></div>';
     %>
     <%- star_kp %>
-    <% } %><span style="color:#F56504; font-weight: 800; font-size: 18px; opacity: .4;">&nbsp;&nbsp;&nbsp;КиноПоиск</span>
+    <% } %><span style="color:#F56504; font-weight: 800; font-size: 18px; opacity: .4;">&nbsp;&nbsp;&nbsp;<%- page.l.kp %></span>
 </div>
 <div class="info">
     <%
@@ -79,20 +79,20 @@
                 : '<div class="star-false"></div>';
     %>
     <%- star_imdb %>
-    <% } %><span style="color:#E3B71E; font-weight: 800; font-size: 18px; opacity: .4;">&nbsp;&nbsp;&nbsp;IMDb</span>
+    <% } %><span style="color:#E3B71E; font-weight: 800; font-size: 18px; opacity: .4;">&nbsp;&nbsp;&nbsp;<%- page.l.imdb %></span>
 </div>
 
 <% if (movie.quality) { %>
 
 <div class="info" style="line-height: 2;">
-    Качество: <%- movie.quality %>
+    <%- page.l.quality %>: <%- movie.quality %>
 </div>
 
 <% } %>
 <% if (movie.translate) { %>
 
 <div class="info" style="line-height: 2;">
-    Перевод: <%- movie.translate %>
+    <%- page.l.translate %>: <%- movie.translate %>
 </div>
 
 <% } %>
@@ -113,18 +113,18 @@
 <% } %>
 
 <div class="info block" style="text-align: center">
-    <a href="<%- movie.url %>">О фильме</a>
+    <a href="<%- movie.url %>"><%- page.l.information %></a>
     <% if (page.urls.movies.download) { %>
     <span> | </span>
-    <a href="<%- movie.url %>/<%- page.urls.movies.download %>">Скачать</a>
+    <a href="<%- movie.url %>/<%- page.urls.movies.download %>"><%- page.l.download %></a>
     <% } %>
     <% if (page.urls.movies.trailer) { %>
     <span> | </span>
-    <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>">Трейлер</a>
+    <a href="<%- movie.url %>/<%- page.urls.movies.trailer %>"><%- page.l.trailer %></a>
     <% } %>
     <% if (page.urls.movies.picture) { %>
     <span> | </span>
-    <a href="<%- movie.url %>/<%- page.urls.movies.picture %>">Кадры</a>
+    <a href="<%- movie.url %>/<%- page.urls.movies.picture %>"><%- page.l.picture %></a>
     <% } %>
 </div>
 
@@ -150,7 +150,7 @@
                 </div>
             </div>
         </a>
-        <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=<%- encodeURIComponent('Смотреть онлайн ' + movie.title) %>&url=<%- movie.url %>" target="_blank" aria-label="">
+        <a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=<%- encodeURIComponent(page.l.online + ' ' + movie.title) %>&url=<%- movie.url %>" target="_blank" aria-label="">
             <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
                     <svg version="1.1" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
                         <g>
@@ -173,7 +173,7 @@
         </a>
     </div>
     <div class="watchLaterBlock" style="float: right; display: none">
-        <a href="javascript:void(0)" id="watchLater">Досмотреть&nbsp;►&nbsp;позже</a>
+        <a href="javascript:void(0)" id="watchLater"><%- page.l.later %></a>
     </div>
 </div>
 

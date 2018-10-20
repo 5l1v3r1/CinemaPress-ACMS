@@ -15,14 +15,16 @@
                 <li><a href="/<%- config.urls.admin %>/main"><i class="fa fa-shield"></i> Протокол</a></li>
                 <li><a href="/<%- config.urls.admin %>/main"><i class="fa fa-bookmark"></i> Домен</a></li>
                 <li><a href="/<%- config.urls.admin %>/main"><i class="fa fa-envelope"></i> Почта</a></li>
+                <li><a href="/<%- config.urls.admin %>/main"><i class="fa fa-commenting"></i> Язык</a></li>
                 <li><a href="/<%- config.urls.admin %>/main"><i class="fa fa-picture-o"></i> Тема</a></li>
+                <li><a href="/<%- config.urls.admin %>/main"><i class="fa fa-server"></i> Сервер</a></li>
             </ul>
         </div>
     </div>
 
     <div class="sidebar-line"></div>
 
-    <% var navigation = ['admin','main','publish','index','urls','display','movies','titles','descriptions','codes','load','cache'].indexOf(type)+1; %>
+    <% var navigation = ['admin','main','publish','index','urls','display','movies','titles','h1','descriptions','codes','load'].indexOf(type)+1; %>
 
     <ul class="ext-tabs-sidebar">
         <li class="<% if (navigation) { %>active<% } %>">
@@ -41,39 +43,36 @@
                             <a href="/<%- config.urls.admin %>/admin"><i class="fa fa-home"></i> Админ-панель</a>
                         </li>
                         <li<% if (type == 'publish') { %> class="page-arrow active-page"<% } %>>
-                            <a href="/<%- config.urls.admin %>/publish"><i class="fa fa-clock-o"></i> Публикация</a>
+                            <a href="/<%- config.urls.admin %>/publish"><i class="fa fa-clock-o"></i> Автопубликация</a>
                         </li>
                         <li<% if (type == 'index') { %> class="page-arrow active-page"<% } %>>
-                            <a href="/<%- config.urls.admin %>/index"><i class="fa fa-bars"></i> Главная сайта</a>
-                        </li>
-                        <li<% if (type == 'urls') { %> class="page-arrow active-page"<% } %>>
-                            <a href="/<%- config.urls.admin %>/urls"><i class="fa fa-sitemap"></i> Параметры URL</a>
+                            <a href="/<%- config.urls.admin %>/index"><i class="fa fa-bars"></i> Настройка главной</a>
                         </li>
                         <li<% if (type == 'display') { %> class="page-arrow active-page"<% } %>>
-                            <a href="/<%- config.urls.admin %>/display"><i class="fa fa-list"></i> Отображение</a>
+                            <a href="/<%- config.urls.admin %>/display"><i class="fa fa-list"></i> Настройка страниц</a>
+                        </li>
+                        <li<% if (type == 'urls') { %> class="page-arrow active-page"<% } %>>
+                            <a href="/<%- config.urls.admin %>/urls"><i class="fa fa-sitemap"></i> Настройка URL</a>
                         </li>
                         <li class="menu-open">
-                            <a href="#[seo]" style="cursor: default; color: #fff;">SEO тексты <i class="fa fa-pencil" style="cursor: default; color: #fff;"></i> </a>
+                            <a href="javascript:void(0)" style="cursor: default; color: #fff;">SEO <i class="fa fa-pencil" style="cursor: default; color: #fff;"></i> </a>
                             <ul style="display: block;">
                                 <li<% if (type == 'movies') { %> class="page-arrow active-page"<% } %>>
-                                    <a href="/<%- config.urls.admin %>/movies">Описания фильмам</a>
+                                    <a href="/<%- config.urls.admin %>/movies">Добавить фильм</a>
                                 </li>
                                 <li<% if (type == 'titles') { %> class="page-arrow active-page"<% } %>>
-                                    <a href="/<%- config.urls.admin %>/titles">Названия категорий</a>
+                                    <a href="/<%- config.urls.admin %>/titles">Названия страниц</a>
+                                </li>
+                                <li<% if (type == 'h1') { %> class="page-arrow active-page"<% } %>>
+                                    <a href="/<%- config.urls.admin %>/h1">&lt;H1&gt; страниц</a>
                                 </li>
                                 <li<% if (type == 'descriptions') { %> class="page-arrow active-page"<% } %>>
-                                    <a href="/<%- config.urls.admin %>/descriptions">Описания категорий</a>
+                                    <a href="/<%- config.urls.admin %>/descriptions">Описания страниц</a>
                                 </li>
                             </ul>
                         </li>
                         <li<% if (type == 'codes') { %> class="page-arrow active-page"<% } %>>
                             <a href="/<%- config.urls.admin %>/codes"><i class="fa fa-code"></i> Вставить код</a>
-                        </li>
-                        <li<% if (type == 'load') { %> class="page-arrow active-page"<% } %>>
-                            <a href="/<%- config.urls.admin %>/load"><i class="fa fa-bar-chart-o"></i> Распределение нагрузки</a>
-                        </li>
-                        <li<% if (type == 'cache') { %> class="page-arrow active-page"<% } %>>
-                            <a href="/<%- config.urls.admin %>/cache"><i class="fa fa-rocket"></i> Кэширование</a>
                         </li>
                     </ul>
                 </nav>

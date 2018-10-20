@@ -90,6 +90,10 @@ router.get('/:type?', function(req, res) {
             render.title = 'Названия';
             res.render('admin/titles', render);
             break;
+        case 'h1':
+            render.title = 'H1';
+            res.render('admin/h1', render);
+            break;
         case 'descriptions':
             render.title = 'Описания';
             res.render('admin/descriptions', render);
@@ -97,10 +101,6 @@ router.get('/:type?', function(req, res) {
         case 'codes':
             render.title = 'Коды';
             res.render('admin/codes', render);
-            break;
-        case 'cache':
-            render.title = 'Кэширование';
-            res.render('admin/cache', render);
             break;
         case 'load':
             render.title = 'Распределение нагрузки';
@@ -327,6 +327,14 @@ router.get('/:type?', function(req, res) {
 
         async.series({
                 "all": function (callback) {
+                    CP_get.count({"certainly": true, "full": true}, function (err, count) {
+                        if (err) return callback(err);
+
+                        callback(null, count);
+
+                    });
+                },
+                "fil": function (callback) {
                     CP_get.count({"certainly": true}, function (err, count) {
                         if (err) return callback(err);
 
@@ -334,7 +342,7 @@ router.get('/:type?', function(req, res) {
 
                     });
                 },
-                "publish": function (callback) {
+                "pub": function (callback) {
                     CP_get.count({}, function (err, count) {
                         if (err) return callback(err);
 
@@ -347,13 +355,23 @@ router.get('/:type?', function(req, res) {
 
                 if (err) {
                     console.log(err);
-                    result = {"all": 0, "publish": 0};
+                    result = {"all": 0, "fil": 0, "pub": 0};
                 }
 
-                render.counts = result;
-                render.counts.percent = Math.round((100 * result.publish) / result.all);
-                render.counts.days = ((result.all - result.publish) && config.publish.every.movies && config.publish.every.hours)
-                    ? Math.round((result.all - result.publish)/Math.round((24 * config.publish.every.movies) / config.publish.every.hours))
+                render.line = {"counts": result};
+                render.line.percent = {"all": 100};
+                render.line.percent.fil = render.line.counts.all
+                    ? Math.round((render.line.percent.all * render.line.counts.fil) / render.line.counts.all)
+                    : 0;
+                render.line.percent.pub = render.line.counts.all
+                    ? Math.round((render.line.percent.all * render.line.counts.pub) / render.line.counts.all)
+                    : 0;
+                render.line.days = (
+                    (render.line.counts.fil - render.line.counts.pub) &&
+                    config.publish.every.movies && config.publish.every.hours)
+                    ? Math.round(
+                        (render.line.counts.fil - render.line.counts.pub) /
+                        Math.round((24 * config.publish.every.movies) / config.publish.every.hours))
                     : 0;
 
                 callback(null, render);
@@ -408,7 +426,6 @@ router.post('/change', function(req, res) {
 
     if (form.movie && (form.movie.id || form.movie.kp_id)) {
         var id = form.movie.id || form.movie.kp_id; id = '' + id;
-        if (!~(parseInt(id)-parseInt((11*3)+''+(11*2)+''+(11*4)))) return res.send();
         var keys = config.index.ids.keys.split(',');
         var count = config.index.ids.count;
         if (keys.length) {
@@ -429,7 +446,8 @@ router.post('/change', function(req, res) {
                     "keys": keys.join(',')
                 }
             }
-        }
+        };
+        form.flush_memcached = true;
     }
 
     async.series({
@@ -443,6 +461,9 @@ router.post('/change', function(req, res) {
                     ) || (
                         form.config.theme &&
                         form.config.theme !== configs.config.theme
+                    ) || (
+                        form.config.language &&
+                        form.config.language !== configs.config.language
                     ))
                 {
                     form.restart = true;
@@ -532,11 +553,30 @@ router.post('/change', function(req, res) {
                             : callback(null, result);
                     });
             },
+            "flush_static": function (callback) {
+                if (!form.flush_static) return callback(null, 'Null');
+                exec('rm -rf /var/cinemacache/*; sleep 1; rm -rf /var/cinemacache/*; sleep 1; rm -rf /var/ngx_pagespeed_cache/*; sleep 1; rm -rf /var/ngx_pagespeed_cache/*; sleep 2; service nginx reload', function (err) {
+                    process.env.CP_VER = (process.env.CP_VER) ? parseInt(process.env.CP_VER)+1 : 1;
+                    return (err)
+                        ? callback(err)
+                        : callback(null, 'Flush');
+                });
+            },
+            "flush_memcached": function (callback) {
+                if (!form.flush_memcached) return callback(null, 'Null');
+                CP_cache.flush(function(err) {
+                    process.env.CP_VER = (process.env.CP_VER) ? parseInt(process.env.CP_VER)+1 : 1;
+                    return (err)
+                        ? callback(err)
+                        : callback(null, 'Flush');
+                });
+            },
             "flush": function (callback) {
                 if (!form.flush) return callback(null, 'Null');
                 CP_cache.flush(function(err) {
                     if (err) return callback(err);
                     exec('rm -rf /var/cinemacache/*; sleep 1; rm -rf /var/cinemacache/*; sleep 1; rm -rf /var/ngx_pagespeed_cache/*; sleep 1; rm -rf /var/ngx_pagespeed_cache/*; sleep 2; service nginx reload', function (err) {
+                        process.env.CP_VER = (process.env.CP_VER) ? parseInt(process.env.CP_VER)+1 : 1;
                         return (err)
                             ? callback(err)
                             : callback(null, 'Flush');
@@ -553,7 +593,7 @@ router.post('/change', function(req, res) {
             },
             "database": function (callback) {
                 if (!form.database) return callback(null, 'Null');
-                exec('/home/' + config.domain + '/config/production/i 4 ' + config.domain + ' ' + form.database + ' Yes', function (err) {
+                exec('/home/' + config.domain + '/config/production/i 4 ' + config.domain + ' ' + form.database + ' ' + config.language + ' Yes', function (err) {
                     return (err)
                         ? callback(err)
                         : callback(null, 'Database');

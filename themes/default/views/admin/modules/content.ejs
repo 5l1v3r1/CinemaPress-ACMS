@@ -181,7 +181,17 @@
                                 <div class="inner-padding">
                                     <div class="row">
                                         <div class="col-lg-12 col-xs-12 text-center">
-                                            <input type="text" class="form-control" name="content.content_tags" value="<% if (content.content_tags) { %><%- content.content_tags %><% } %>" placeholder="Теги через запятую">
+                                            <input type="text" name="content.content_tags" <% if (content.content_tags) { %>value="<%= content.content_tags %>"<% } %> placeholder="Введите несколько тегов..." pattern="^[A-Za-zА-Яа-яЁё0-9_ -]{1,30}$">
+                                            <script>
+                                                document.addEventListener('DOMContentLoaded', function() {
+                                                    var content_tags = document
+                                                            .querySelector('input[name="content.content_tags"]'),
+                                                        tagify = new Tagify(content_tags, {
+                                                            whitelist : ['Коллекции','Новости','Страницы','Фильмы','Сериалы','Мультфильмы','ТВ','Аниме','Collections','News','Pages','Movies','Series','Cartoons','TV','Anime'],
+                                                        });
+                                                    tagify.DOM.input.classList.add('form-control');
+                                                });
+                                            </script>
                                         </div>
                                     </div>
                                 </div>

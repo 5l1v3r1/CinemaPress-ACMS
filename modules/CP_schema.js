@@ -75,7 +75,7 @@ function fullMovieSchema(page, movie, movies, options) {
         "position": 1,
         "item": {
             "@id": "/",
-            "name": "Главная",
+            "name": config.l.home,
             "url":  config.protocol + options.domain
         }
     });

@@ -208,7 +208,7 @@ function dataMovie(id, type, options, callback) {
                         "countries": function(callback) {
                             return (related.countries_arr.length && modules.related.data.display.indexOf('countries') + 1)
                                 ? CP_get.additional(
-                                {"country": related.countries_arr},
+                                {"country": related.countries_arr, "type": related.type},
                                 'related',
                                 options,
                                 function (err, movies) {
@@ -223,7 +223,7 @@ function dataMovie(id, type, options, callback) {
                         "genres": function(callback) {
                             return (related.genres_arr.length && modules.related.data.display.indexOf('genres') + 1)
                                 ? CP_get.additional(
-                                {"genre": related.genres_arr},
+                                {"genre": related.genres_arr, "type": related.type},
                                 'related',
                                 options,
                                 function (err, movies) {
@@ -238,7 +238,7 @@ function dataMovie(id, type, options, callback) {
                         "directors": function(callback) {
                             return (related.directors_arr.length && modules.related.data.display.indexOf('directors') + 1)
                                 ? CP_get.additional(
-                                {"director": related.directors_arr},
+                                {"director": related.directors_arr, "type": related.type},
                                 'related',
                                 options,
                                 function (err, movies) {
@@ -253,7 +253,7 @@ function dataMovie(id, type, options, callback) {
                         "actors": function(callback) {
                             return (related.actors_arr.length && modules.related.data.display.indexOf('actors') + 1)
                                 ? CP_get.additional(
-                                {"actor": related.actors_arr},
+                                {"actor": related.actors_arr, "type": related.type},
                                 'related',
                                 options,
                                 function (err, movies) {
@@ -268,7 +268,7 @@ function dataMovie(id, type, options, callback) {
                         "country": function(callback) {
                             return (related.country && modules.related.data.display.indexOf('country') + 1)
                                 ? CP_get.additional(
-                                {"country": related.country},
+                                {"country": related.country, "type": related.type},
                                 'related',
                                 options,
                                 function (err, movies) {
@@ -283,7 +283,7 @@ function dataMovie(id, type, options, callback) {
                         "genre": function(callback) {
                             return (related.genre && modules.related.data.display.indexOf('genre') + 1)
                                 ? CP_get.additional(
-                                {"genre": related.genre},
+                                {"genre": related.genre, "type": related.type},
                                 'related',
                                 options,
                                 function (err, movies) {
@@ -298,7 +298,7 @@ function dataMovie(id, type, options, callback) {
                         "director": function(callback) {
                             return (related.director && modules.related.data.display.indexOf('director') + 1)
                                 ? CP_get.additional(
-                                {"director": related.director},
+                                {"director": related.director, "type": related.type},
                                 'related',
                                 options,
                                 function (err, movies) {
@@ -313,7 +313,7 @@ function dataMovie(id, type, options, callback) {
                         "actor": function(callback) {
                             return (related.actor && modules.related.data.display.indexOf('actor') + 1)
                                 ? CP_get.additional(
-                                {"actor": related.actor},
+                                {"actor": related.actor, "type": related.type},
                                 'related',
                                 options,
                                 function (err, movies) {
@@ -328,7 +328,7 @@ function dataMovie(id, type, options, callback) {
                         "year": function(callback) {
                             return (related.year && modules.related.data.display.indexOf('year') + 1)
                                 ? CP_get.additional(
-                                {"year": related.year},
+                                {"year": related.year, "type": related.type},
                                 'related',
                                 options,
                                 function (err, movies) {

@@ -26,26 +26,26 @@
         <img src="<%- movie.poster_min %>" alt="<%= movie.title %> (<%- movie.year %>)" title="<%= movie.title %> (<%- movie.year %>)">
     </a>
 </div>
-<h3><a href="<%- movie.url %>"><%= movie.title %> (<%- movie.year %>) <% if (movie.season) { %> <%- movie.season %> сезон <% } %> <% if (movie.episode) { %> <%- movie.episode %> серия<% } %></a></h3>
+<h3><a href="<%- movie.url %>"><%= movie.title %> (<%- movie.year %>) <% if (movie.season) { %> <%- movie.season %> <%- page.l.season %> <% } %> <% if (movie.episode) { %> <%- movie.episode %> <%- page.l.episode %><% } %></a></h3>
 
 <% if (movie.year_url) { %>
 
 <div class="info">
-    Год: <%- movie.year_url %>
+    <%- page.l.year %>: <%- movie.year_url %>
 </div>
 
 <% } %>
 <% if (movie.countries_url) { %>
 
 <div class="info">
-    Страна: <%- movie.countries_url %>
+    <%- page.l.countries %>: <%- movie.countries_url %>
 </div>
 
 <% } %>
 <% if (movie.genres_url) { %>
 
 <div class="info">
-    Жанры: <%- movie.genres_url %>
+    <%- page.l.genres %>: <%- movie.genres_url %>
 </div>
 
 <% } %>
@@ -60,7 +60,7 @@
                 : '<div class="star-false"></div>';
     %>
     <%- star_kp %>
-    <% } %><span style="color:#F56504; font-weight: 800; font-size: 18px; opacity: .4;">&nbsp;&nbsp;&nbsp;КиноПоиск</span>
+    <% } %><span style="color:#F56504; font-weight: 800; font-size: 18px; opacity: .4;">&nbsp;&nbsp;&nbsp;<%- page.l.kp %></span>
 </div>
 <div class="info">
     <%
@@ -70,20 +70,20 @@
                 : '<div class="star-false"></div>';
     %>
     <%- star_imdb %>
-    <% } %><span style="color:#E3B71E; font-weight: 800; font-size: 18px; opacity: .4;">&nbsp;&nbsp;&nbsp;IMDb</span>
+    <% } %><span style="color:#E3B71E; font-weight: 800; font-size: 18px; opacity: .4;">&nbsp;&nbsp;&nbsp;<%- page.l.imdb %></span>
 </div>
 
 <% if (movie.quality) { %>
 
 <div class="info" style="line-height: 2;">
-    Качество: <%- movie.quality %>
+    <%- page.l.quality %>: <%- movie.quality %>
 </div>
 
 <% } %>
 <% if (movie.translate) { %>
 
 <div class="info" style="line-height: 2;">
-    Перевод: <%- movie.translate %>
+    <%- page.l.translate %>: <%- movie.translate %>
 </div>
 
 <% } %>

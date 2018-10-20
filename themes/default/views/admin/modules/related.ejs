@@ -405,6 +405,37 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="spacer-10"></div>
+
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-crosshairs"></i>&nbsp;&nbsp;&nbsp;Показывать по типу
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/related.html#sameType" class="csstip" title="На странице сериала, будут показаны сериалы, на странице фильма - фильмы и т.п." target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-xs-12 text-center">
+                                            <div class="inline-labels">
+                                                <label>
+                                                    <input name="modules.related.data.same" value="1" <% if (modules.related.data.same) { %> checked="" <% } %> type="radio"><span></span> <span>Тип к типу</span>
+                                                </label>
+                                                <label>
+                                                    <input name="modules.related.data.same" value="0" <% if (!modules.related.data.same) { %> checked="" <% } %> type="radio"><span></span> <span>Не важно</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <% } else { %>

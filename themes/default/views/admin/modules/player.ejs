@@ -240,14 +240,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-xs-6 text-center">
-                                            <div class="inline-labels">
-                                                <label>
-                                                    <input name="modules.player.data.iframe.show" value="1" <% if (modules.player.data.iframe.show) { %> checked="" <% } %> type="radio"><span></span> Показывать
-                                                </label>
-                                                <label>
-                                                    <input name="modules.player.data.iframe.show" value="0" <% if (!modules.player.data.iframe.show) { %> checked="" <% } %> type="radio"><span></span> Не показывать
-                                                </label>
-                                            </div>
+                                            <input name="modules.player.data.iframe.token" value="<%= modules.player.data.iframe.token %>" class="form-control" type="text" placeholder="Токен-ключ iframe.video">
                                         </div>
                                     </div>
                                 </div>

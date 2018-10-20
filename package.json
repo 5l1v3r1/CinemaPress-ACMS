@@ -1,6 +1,6 @@
 {
   "name": "cinemapress-acms",
-  "version": "0.8.1",
+  "version": "0.9.6",
   "description": "CinamePress Automated Content Management System.",
   "license": "MIT",
   "author": "Surinam <extensionsapp@gmail.com>",
@@ -18,7 +18,7 @@
   "dependencies": {
     "body-parser": "1.18.3",
     "cookie-parser": "1.4.3",
-    "express": "4.16.3",
+    "express": "4.16.4",
     "ejs": "2.6.1",
     "path": "0.12.7",
     "request": "2.88.0",
@@ -33,7 +33,7 @@
     "base64-stream": "0.1.3",
     "maxmind": "2.7.0",
     "ua-parser-js": "0.7.18",
-    "multer": "1.3.1",
+    "multer": "1.4.1",
     "html-minifier": "3.5.20",
     "cheerio": "1.0.0-rc.2",
     "moment": "2.22.2"

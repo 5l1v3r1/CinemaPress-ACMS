@@ -113,7 +113,17 @@ function indexEpisode(options, callback) {
 
                 var sort_result = [];
 
-                for (var k = 0, num = result.movies.length; k < num; k++) {
+                unique:
+                for (var k = 0, num3 = result.movies.length; k < num3; k++) {
+                    if (modules.episode.data.index.latest) {
+                        for (var l = 0, num4 = sort_result.length; l < num4; l++) {
+                            if (parseInt(sort_result[l].kp_id) === parseInt(result.movies[k].kp_id) &&
+                                modules.episode.data.index.count > k) {
+                                sort_result[l] = result.movies[k];
+                                continue unique;
+                            }
+                        }
+                    }
                     if (modules.episode.data.index.count > k) {
                         sort_result.push(result.movies[k]);
                     }
@@ -221,7 +231,7 @@ function parseEpisode(type, options) {
     serial.season = (execEpisode && execEpisode[1]) ? ('' + parseInt(execEpisode[1])) : '';
     serial.episode = (execEpisode && execEpisode[2]) ? ('' + parseInt(execEpisode[2])) : '';
     serial.translate_id = (execEpisode && execEpisode[4]) ? ('' + parseInt(execEpisode[4])) : '';
-    serial.translate = 'Оригинал';
+    serial.translate = modules.episode.data.default;
 
     var translators = require('../files/translators.json');
     if (translators && translators.length) {

@@ -61,11 +61,11 @@ function codePlayer(type, movie, options) {
 
         if (movie.pictures.length) {
             movie.pictures.forEach(function (picture) {
-                pictures += '<img src="' + picture.picture_big + '" alt="Кадр ' + movie.title + '">';
+                pictures += '<img src="' + picture.picture + '" alt="' + movie.title + '" style="width:100%;height:100%;">';
             });
         }
         else {
-            pictures += '<img src="' + config.default.image + '" alt="Кадр ' + movie.title + '">';
+            pictures += '<img src="' + config.default.image + '" alt="' + movie.title + '" style="width:100%;height:100%;">';
         }
 
         code.head = '' +
@@ -104,7 +104,12 @@ function codePlayer(type, movie, options) {
             yohohoPlayer();
         }
         else if (movie.player) {
-            yohohoPlayer();
+            if (/\/\/[^,]*,/.test(movie.player)) {
+                yohohoPlayer(movie.player);
+            }
+            else {
+                yohohoPlayer();
+            }
         }
         else if (modules.player.data.display === 'yohoho') {
             yohohoPlayer(modules.player.data.yohoho.player);
@@ -226,7 +231,9 @@ function codePlayer(type, movie, options) {
         }
 
         code.player = '' +
-            '<div id="yohoho" ' + div + '></div>';
+            '<video id="yohoho" controls  ' + div + '>' +
+            '  <source src="/balancer/' + movie.kp_id + '.mp4" type="video/mp4">' +
+            '</video>';
 
         if (player) {
             code.footer = '' +

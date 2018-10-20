@@ -123,37 +123,37 @@ function codesComments(url, pathname) {
     var single = 0;
 
     if (data.cackle) {
-        buttons += '<a href="javascript:void(0)" class="CP_button cack" data-id="cack_comment" style="background: #4FA3DA !important; color: #fff !important; border-radius: 2px !important; padding: 10px !important; text-decoration: none !important; margin: 0 5px 0 0 !important; float: none !important;">Комментарии</a>';
+        buttons += '<a href="javascript:void(0)" class="CP_button cack" data-id="cack_comment" style="background: #4FA3DA !important; color: #fff !important; border-radius: 2px !important; padding: 10px !important; text-decoration: none !important; margin: 0 5px 0 0 !important; float: none !important;">' + config.l.comments + '</a>';
         blocks += '<div class="CP_comment" id="cack_comment" style="display: none;">' + data.cackle + '</div>';
         single++;
     }
     if (data.hypercomments) {
-        buttons += '<a href="javascript:void(0)" class="CP_button hycm" data-id="hycm_comment" style="background: #E4C755 !important; color: #fff !important; border-radius: 2px !important; padding: 10px !important; text-decoration: none !important; margin: 0 5px 0 0 !important; float: none !important;">Комментарии</a>';
+        buttons += '<a href="javascript:void(0)" class="CP_button hycm" data-id="hycm_comment" style="background: #E4C755 !important; color: #fff !important; border-radius: 2px !important; padding: 10px !important; text-decoration: none !important; margin: 0 5px 0 0 !important; float: none !important;">' + config.l.comments + '</a>';
         blocks += '<div class="CP_comment" id="hycm_comment" style="display: none;">' + data.hypercomments + '</div>';
         single++;
     }
     if (data.disqus) {
-        buttons += '<a href="javascript:void(0)" class="CP_button dsqs" data-id="dsqs_comment" style="background: #2E9FFF !important; color: #fff !important; border-radius: 2px !important; padding: 10px !important; text-decoration: none !important; margin: 0 5px 0 0 !important; float: none !important;">Комментарии</a>';
+        buttons += '<a href="javascript:void(0)" class="CP_button dsqs" data-id="dsqs_comment" style="background: #2E9FFF !important; color: #fff !important; border-radius: 2px !important; padding: 10px !important; text-decoration: none !important; margin: 0 5px 0 0 !important; float: none !important;">' + config.l.comments + '</a>';
         blocks += '<div class="CP_comment" id="dsqs_comment" style="display: none;">' + data.disqus + '</div>';
         single++;
     }
     if (data.vk) {
-        buttons += '<a href="javascript:void(0)" class="CP_button veka" data-id="veka_comment" style="background: #507299 !important; color: #fff !important; border-radius: 2px !important; padding: 10px !important; text-decoration: none !important; margin: 5px !important; float: none !important;">ВКонтакте</a>';
+        buttons += '<a href="javascript:void(0)" class="CP_button veka" data-id="veka_comment" style="background: #507299 !important; color: #fff !important; border-radius: 2px !important; padding: 10px !important; text-decoration: none !important; margin: 5px !important; float: none !important;">' + config.l.vk + '</a>';
         blocks += '<div class="CP_comment" id="veka_comment" style="display: none;">' + data.vk + '</div>';
         single++;
     }
     if (data.facebook) {
-        buttons += '<a href="javascript:void(0)" class="CP_button fsbk" data-id="fcbk_comment" style="background: #3B5998 !important; color: #fff !important; border-radius: 2px !important; padding: 10px !important; text-decoration: none !important; margin: 5px !important; float: none !important;">Facebook</a>';
+        buttons += '<a href="javascript:void(0)" class="CP_button fsbk" data-id="fcbk_comment" style="background: #3B5998 !important; color: #fff !important; border-radius: 2px !important; padding: 10px !important; text-decoration: none !important; margin: 5px !important; float: none !important;">' + config.l.facebook + '</a>';
         blocks += '<div class="CP_comment" id="fcbk_comment" style="display: none;">' + data.facebook + '</div>';
         single++;
     }
     if (data.gplus) {
-        buttons += '<a href="javascript:void(0)" class="CP_button gpls" data-id="gpls_comment" style="background: #dc4a38 !important; color: #fff !important; border-radius: 2px !important; padding: 10px !important; text-decoration: none !important; margin: 5px !important; float: none !important;">Google+</a>';
+        buttons += '<a href="javascript:void(0)" class="CP_button gpls" data-id="gpls_comment" style="background: #dc4a38 !important; color: #fff !important; border-radius: 2px !important; padding: 10px !important; text-decoration: none !important; margin: 5px !important; float: none !important;">' + config.l.google + '</a>';
         blocks += '<div class="CP_comment" id="gpls_comment">' + data.gplus + '</div>';
         single++;
     }
     if (data.sigcomments) {
-        buttons += '<a href="javascript:void(0)" class="CP_button sigc" data-id="sigc_comment" style="background: #2996cc !important; color: #fff !important; border-radius: 2px !important; padding: 10px !important; text-decoration: none !important; margin: 5px !important; float: none !important;">Комментарии</a>';
+        buttons += '<a href="javascript:void(0)" class="CP_button sigc" data-id="sigc_comment" style="background: #2996cc !important; color: #fff !important; border-radius: 2px !important; padding: 10px !important; text-decoration: none !important; margin: 5px !important; float: none !important;">' + config.l.comments + '</a>';
         blocks += '<div class="CP_comment" id="sigc_comment" style="display: none;">' + data.sigcomments + '</div>';
         single++;
     }

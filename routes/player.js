@@ -60,7 +60,7 @@ router.get('/?', function(req, res) {
                     }
                 },
                 "iframe": function (callback) {
-                    if (modules.player.data.iframe && modules.player.data.iframe.show) {
+                    if (modules.player.data.iframe && modules.player.data.iframe.token) {
                         getIframe(function(result) {
                             callback(null, result);
                         });
@@ -70,7 +70,7 @@ router.get('/?', function(req, res) {
                     }
                 },
                 "kodik": function (callback) {
-                    if (modules.player.data.kodik && modules.player.data.kodik.show) {
+                    if (modules.player.data.kodik && modules.player.data.kodik.token) {
                         getKodik(function(result) {
                             callback(null, result);
                         });
@@ -292,85 +292,34 @@ router.get('/?', function(req, res) {
 
     function getIframe(callback) {
 
-        var iframe_src = '';
-        var iframe_translate = '';
-        var iframe_quality = '';
-        async.waterfall([
-            function(callback) {
-                api('http://iframe.video/api/v1/movies/&' +
-                    'kp_id=' + id,
-                    function (json) {
-                        if (json && json.total && parseInt(json.total) && json.results) {
-                            var key = Object.keys(json.results)[0];
-                            if (parseInt(json.results[key].kp_id) === id) {
-                                iframe_src = json.results[key].path;
-                                var media = (json.results[key].media)
-                                    ? json.results[key].media[Object.keys(json.results[key].media)[Object.keys(json.results[key].media).length-1]]
-                                    : {};
-                                iframe_translate = media.translation ? media.translation : '';
-                                iframe_quality = media.source ? media.source : '';
-                            }
+        api('https://iframe.video/api/videos.json' +
+            'api_token=' + modules.player.data.iframe.token.trim() + '&' +
+            'kinopoisk_id=' + id,
+            function (json) {
+                var iframe_src = '';
+                var iframe_translate = '';
+                var iframe_quality = '';
+                if (json && !json.error && json.length) {
+                    var iframe_url = '';
+                    var added = 0;
+                    for (var i = 0; i < json.length; i++) {
+                        var d = json[i].added_at || json[i].last_episode_time || 0;
+                        var publish = (new Date(d).getTime()/1000);
+                        if (publish >= added) {
+                            iframe_url = json[i].iframe_url;
+                            iframe_translate = json[i].translator ? json[i].translator : '';
+                            iframe_quality = json[i].source_type ? json[i].source_type : '';
+                            added = publish;
                         }
-                        callback(null, {
-                            "src": iframe_src,
-                            "translate": iframe_translate,
-                            "quality": iframe_quality
-                        });
-                    });
-            },
-            function(iframe, callback) {
-                if (iframe.src) {
-                    return callback(null, iframe);
+                    }
+                    iframe_src = iframe_url;
                 }
-                api('http://iframe.video/api/v1/tv-series/&' +
-                    'kp_id=' + id,
-                    function (json) {
-                        if (json && json.total && parseInt(json.total) && json.results) {
-                            var key = Object.keys(json.results)[0];
-                            if (parseInt(json.results[key].kp_id) === id) {
-                                iframe_src = json.results[key].path;
-                                var media = (json.results[key].media)
-                                    ? json.results[key].media[Object.keys(json.results[key].media)[Object.keys(json.results[key].media).length-1]]
-                                    : {};
-                                iframe_translate = media.translation ? media.translation : '';
-                                iframe_quality = media.source ? media.source : '';
-                            }
-                        }
-                        callback(null, {
-                            "src": iframe_src,
-                            "translate": iframe_translate,
-                            "quality": iframe_quality
-                        });
-                    });
-            },
-            function(iframe, callback) {
-                if (iframe.src) {
-                    return callback(null, iframe);
-                }
-                api('http://iframe.video/api/v1/tv/&' +
-                    'kp_id=' + id,
-                    function (json) {
-                        if (json && json.total && parseInt(json.total) && json.results) {
-                            var key = Object.keys(json.results)[0];
-                            if (parseInt(json.results[key].kp_id) === id) {
-                                iframe_src = json.results[key].path;
-                                var media = (json.results[key].media)
-                                    ? json.results[key].media[Object.keys(json.results[key].media)[Object.keys(json.results[key].media).length-1]]
-                                    : {};
-                                iframe_translate = media.translation ? media.translation : '';
-                                iframe_quality = media.source ? media.source : '';
-                            }
-                        }
-                        callback(null, {
-                            "src": iframe_src,
-                            "translate": iframe_translate,
-                            "quality": iframe_quality
-                        });
-                    });
-            }
-        ], function (err, result) {
-            callback(result);
-        });
+                callback({
+                    "src": iframe_src,
+                    "translate": iframe_translate,
+                    "quality": iframe_quality
+                });
+            });
 
     }
 

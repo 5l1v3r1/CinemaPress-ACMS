@@ -30,6 +30,12 @@
                             <%- title %>
                         </h2>
                     </div>
+                    <div class="pull-right">
+                        <div class="btn-count btn-group">
+                            <span class="hidden-xs">Очистить&nbsp;кэш:</span>
+                            <a href="javascript:void(0)" id="flush_static" class="btn btn-default" style="margin: 0;"><i class="fa fa-picture-o" title="Очистка кэша файлов"></i></a><a href="javascript:void(0)" id="flush_memcached" class="btn btn-default" style="margin: 0;"><i class="fa fa-tachometer" title="Очистка кэша памяти"></i></a>
+                        </div>
+                    </div>
                 </div>
             </header>
 
@@ -67,7 +73,7 @@
                             <input type="text" class="form-control input_number" name="movie.kp_id" value="<% if (movie.kp_id) { %><%- movie.kp_id %><% } %>" placeholder="Укажите ID фильма">
                         </div>
                         <div class="col-sm-5 text-right">
-                            <label><% if (movie.kp_id && movie.kp_id < 2000000) { var kp_id = parseInt(movie.kp_id) - parseInt(config.urls.unique_id); %><%- config.domain + '/' + config.urls.movie + '/' + config.urls.prefix_id + '' + kp_id %> <a href="<%- config.protocol + config.domain + '/' + config.urls.movie + '/' + config.urls.prefix_id + '' + kp_id %>" class="visible-xs-inline" style="text-decoration:none;" target="_blank"><span class="fa fa-external-link-square"></span></a><% } %></label>
+                            <label><% if (movie.kp_id && movie.kp_id < 2000000) { var id = parseInt(movie.kp_id) + parseInt(config.urls.unique_id); %><%- config.domain + '/' + config.urls.movie + '/' + config.urls.prefix_id + '' + id %> <a href="<%- config.protocol + config.domain + '/' + config.urls.movie + '/' + config.urls.prefix_id + '' + id %>" class="visible-xs-inline" style="text-decoration:none;" target="_blank"><span class="fa fa-external-link-square"></span></a><% } %></label>
                         </div>
                     </div>
 
@@ -90,10 +96,10 @@
                                 <input type="text" class="form-control" name="movie.description_short" value="<% if (movie.description_short) { %><%= movie.description_short %><% } %>" placeholder="Короткое описание фильма (до 200 символов)" style="font-weight: normal; font-size: 14px;">
 
                                 <div style="color: #4B5B6C">
-                                    Русское название:
+                                    Переведенное название:
                                 </div>
                                 <div class="spacer-10"></div>
-                                <input type="text" class="form-control" name="movie.title_ru" value="<% if (movie.title_ru) { %><%= movie.title_ru %><% } %>" placeholder="Название на русском языке" style="font-weight: normal; font-size: 14px;">
+                                <input type="text" class="form-control" name="movie.title_ru" value="<% if (movie.title_ru) { %><%= movie.title_ru %><% } %>" placeholder="Название на переведенном языке" style="font-weight: normal; font-size: 14px;">
 
                                 <div style="color: #4B5B6C">
                                     Оригинальное название:
@@ -102,16 +108,16 @@
                                 <input type="text" class="form-control" name="movie.title_en" value="<% if (movie.title_en) { %><%= movie.title_en %><% } %>" placeholder="Название на оригинальном языке" style="font-weight: normal; font-size: 14px;">
 
                                 <div style="color: #4B5B6C">
-                                    Описание фильма:
+                                    Описание:
                                 </div>
                                 <div class="spacer-10"></div>
-                                <textarea class="form-control descriptions" name="movie.description" placeholder="Уникальное описание фильма"><% if (movie.description) { %><%- movie.description.trim().replace(/<br>/ig, '\n') %><% } %></textarea>
+                                <textarea class="form-control descriptions" name="movie.description" placeholder="Уникальное описание ..."><% if (movie.description) { %><%- movie.description.trim().replace(/<br>/ig, '\n') %><% } %></textarea>
                                 <div class="advanced-textarea-footer">
                                     <div class="pull-left">
                                         <div class="text text-muted" style="float: none;"><span id="movie.description">0</span> символа(-ов)</div>
-                                        <% if (movie.title_ru) { %>
-                                        <a href="javascript:void(0)" data-name="movie.description" data-code="<%- movie.title_ru %>" class="btn btn-default codes">
-                                            <%- movie.title_ru %>
+                                        <% if (movie.title) { %>
+                                        <a href="javascript:void(0)" data-name="movie.description" data-code="<%- movie.title %>" class="btn btn-default codes">
+                                            <%- movie.title %>
                                         </a>
                                         <% } %>
                                         <% if (movie.title_en) { %>
@@ -346,45 +352,47 @@
                     <% } else { %>
 
                     <div class="row">
-                        <!--<div class="col-sm-4">
-                            <a href="/<%- config.urls.admin %>/movies?movies=add" class="btn btn-default btn-block">Массовое добавление</a>
-                        </div>-->
                         <div class="col-sm-12">
                             <div class="input-group">
                                 <input class="form-control" type="text" id="id" placeholder="ID КиноПоиск фильма или ссылка на фильм">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button" id="add"><span class="fa fa-plus"></span> Добавить описание</button>
+                                    <button class="btn btn-default" type="button" id="add"><span class="fa fa-plus"></span> Добавить/изменить фильм</button>
                                 </span>
                             </div>
                             <script>
+                                var enter = document.querySelector('#id');
+                                enter.addEventListener('keyup', function (event) {
+                                    event.preventDefault();
+                                    if (event.keyCode === 13) {
+                                        editMovie();
+                                    }
+                                });
                                 var add = document.querySelector('#add');
                                 add.addEventListener('click', function () {
-
+                                    editMovie();
+                                });
+                                function editMovie () {
                                     var id = document.querySelector('#id');
                                     var kp_id = parseInt(id.value);
                                     var id_kp = 0;
-
                                     if (id.value.indexOf('<%- config.domain %>')+1) {
-
                                         var prefix_id = '<%- config.urls.prefix_id %>' || '/';
                                         var regexpId  = new RegExp(prefix_id + '([0-9]{1,7})', 'ig');
                                         var execId    = regexpId.exec(id.value);
                                         id            = (execId) ? parseInt(execId[1]) : 0;
-
-                                        kp_id = parseInt(id) - parseInt(<%- config.urls.unique_id %>);
+                                        kp_id         = id - parseInt(<%- config.urls.unique_id %>);
                                     }
                                     else if (id.value.indexOf('kinopoisk.ru')+1) {
                                         id_kp = /(film\/|movie\/).*?([0-9]{3,7})\//gi.exec(id.value);
                                         kp_id = (id_kp) ? parseInt(id_kp[2]) : 0;
                                     }
-
                                     if (kp_id) {
                                         location.href = '/<%- config.urls.admin %>/movies?kp_id=' + kp_id;
                                     }
                                     else {
                                         location.href = '/<%- config.urls.admin %>/movies?kp_id=_add_';
                                     }
-                                });
+                                }
                             </script>
                         </div>
                     </div>

@@ -14,7 +14,7 @@ module.exports = {
         "size": 180
     },
     "cache": {
-        "time": 0,
+        "time": 3600,
         "addr": "127.0.0.1:11211",
         "p2p": 0,
         "minify": 0
@@ -27,7 +27,7 @@ module.exports = {
     },
     "publish": {
         "start": 400000,
-        "stop": 900000,
+        "stop": 1000000,
         "every" : {
             "hours": 1,
             "movies": 2
@@ -59,7 +59,12 @@ module.exports = {
             "kp": 5000,
             "imdb": 5000
         },
-        "donotuse": ["actor","director","search"]
+        "donotuse": ["actor","director","search"],
+        "categories": {
+            "countries": ["США","Россия","СССР","Индия","Франция","Япония","Великобритания","Испания","Италия","Канада"],
+            "genres": ["аниме","биография","боевик","вестерн","военный","детектив","детский","документальный","драма","игра","история","комедия","концерт","короткометражка","криминал","мелодрама","музыка","мультфильм","мюзикл","новости","приключения","реальное ТВ","семейный","спорт","ток-шоу","триллер","ужасы","фантастика","фильм-нуар","фэнтези","церемония"],
+            "years": ["2018","2017","2016","2015","2014","2013","2012","2011","2010","2009"]
+        }
     },
     "codes": {
         "head": "",
@@ -76,8 +81,8 @@ module.exports = {
         },
         "year": {
             "name": "Фильмы [year] года",
-            "keys": "2017",
-            "sorting": "kinopoisk-vote-up",
+            "keys": "2018",
+            "sorting": "kinopoisk-premiere-up",
             "count": 15,
             "order": 3
         },
@@ -117,8 +122,8 @@ module.exports = {
         },
         "count": {
             "type": "year",
-            "key": "2017",
-            "sorting": "kinopoisk-vote-up"
+            "key": "2018",
+            "sorting": "kinopoisk-premiere-up"
         }
     },
     "titles": {
@@ -142,6 +147,43 @@ module.exports = {
             "download": "[title] скачать",
             "trailer": "[title] трейлер",
             "picture": "[title] кадры"
+        },
+        "sorting": {
+            "kinopoisk-rating-up": "отсортировано по рейтингу КиноПоиска",
+            "kinopoisk-rating-down": "отсортировано по рейтингу КиноПоиска",
+            "imdb-rating-up": "отсортировано по рейтингу IMDb",
+            "imdb-rating-down": "отсортировано по рейтингу IMDb",
+            "kinopoisk-vote-up": "отсортировано по популярности на КиноПоиске",
+            "kinopoisk-vote-down": "отсортировано по популярности на КиноПоиске",
+            "imdb-vote-up": "отсортировано по популярности на IMDb",
+            "imdb-vote-down": "отсортировано по популярности на IMDb",
+            "year-up": "отсортировано по году",
+            "year-down": "отсортировано по году",
+            "premiere-up": "отсортировано по дате премьеры",
+            "premiere-down": "отсортировано по дате премьеры"
+        }
+    },
+    "h1": {
+        "index": "Все фильмы в мире",
+        "year" : "Фильмы [year] года [sorting] [page]",
+        "years" : "Фильмы по годам",
+        "genre": "Фильмы в жанре [genre] [sorting] [page]",
+        "genres" : "Фильмы по жанрам",
+        "country": "Фильмы из страны [country] [sorting] [page]",
+        "countries": "Фильмы по странам",
+        "actor": "Фильмы с участием [actor] [sorting] [page]",
+        "actors": "Самые популярные актеры",
+        "director": "Фильмы которые срежиссировал [director] [sorting] [page]",
+        "directors": "Самые популярные режиссеры",
+        "type": "[type] [sorting] [page]",
+        "search": "Поиск фильма «[search]» [sorting] [page]",
+        "num": "на странице [num]",
+        "movie": {
+            "movie": "[title]",
+            "online": "[title] [year] онлайн",
+            "download": "[title] [year] скачать",
+            "trailer": "[title] [year] трейлер",
+            "picture": "[title] [year] кадры"
         },
         "sorting": {
             "kinopoisk-rating-up": "отсортировано по рейтингу КиноПоиска",
@@ -199,7 +241,7 @@ module.exports = {
         "unique_id": 0,
         "separator": "-",
         "translit": 0,
-        "movie_url": "[prefix_id][separator][title_ru][separator][title_en]",
+        "movie_url": "[prefix_id][separator][title]",
         "movie": "movie",
         "year" : "year",
         "genre": "genre",
@@ -224,5 +266,80 @@ module.exports = {
             "picture": ""
         },
         "noindex": ""
+    },
+    "l": {
+        "more": "Подробнее",
+        "home": "Главная",
+        "information": "Информация",
+        "online": "Онлайн",
+        "download": "Скачать",
+        "trailer": "Трейлер",
+        "picture": "Кадры",
+        "episode": "Серия",
+        "movies": "Фильмы",
+        "series": "Сериалы",
+        "cartoons": "Мультфильмы",
+        "tv": "ТВ",
+        "anime": "Аниме",
+        "collection": "Коллекция",
+        "collections": "Коллекции",
+        "season": "Сезон",
+        "year": "Год",
+        "years": "Годы",
+        "genre": "Жанр",
+        "genres": "Жанры",
+        "actor": "Актер",
+        "actors": "Актеры",
+        "director": "Режиссер",
+        "directors": "Режиссеры",
+        "country": "Страна",
+        "countries": "Страны",
+        "quality": "Качество",
+        "translate": "Перевод",
+        "premiere": "Премьера",
+        "rating": "Рейтинг",
+        "kp": "КиноПоиск",
+        "imdb": "IMDb",
+        "episodes": "серии",
+        "storyline": "Описание",
+        "later": "Досмотреть позже",
+        "continue": "Продолжить",
+        "saved": "Сохранено",
+        "allCategories": "Все категории",
+        "allYears": "Все годы",
+        "allGenres": "Все жанры",
+        "allCountries": "Все страны",
+        "allActors": "Все актеры",
+        "allDirectors": "Все режиссеры",
+        "watched": "Вы недавно смотрели",
+        "search": "Поиск",
+        "share": "Поделиться",
+        "subscribe": "Подписаться",
+        "vk": "ВКонтакте",
+        "facebook": "facebook",
+        "twitter": "Twitter",
+        "google": "Google",
+        "youtube": "YouTube",
+        "instagram": "Instagram",
+        "up": "Вверх",
+        "soon": "Скоро выйдут",
+        "contacts": "Контакты",
+        "news": "Новости",
+        "menu": "Меню",
+        "comments": "Комментарии",
+        "movieTitle": "Название фильма",
+        "votes": "голосов",
+        "hide": "Скрыть",
+        "navigation": "Навигация",
+        "and": "и",
+        "overall": "Общий",
+        "premieres": "Премьеры",
+        "popular": "Популярные",
+        "top": "Топ",
+        "sorting": "Сортировка",
+        "tags": "Теги",
+        "mentions": "Упоминания",
+        "said": "сказал(а)",
+        "full": "Полная версия"
     }
 };

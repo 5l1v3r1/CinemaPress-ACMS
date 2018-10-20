@@ -47,7 +47,7 @@ module.exports = {
     "slider": {
         "status": true,
         "data": {
-            "movies": ["623250","493271","679486","538225","839650","470178","462849","497011","669089","818144","822709","589290","453397","841263","690593","677638","102383","575180","468940","484628","462682","420923"]
+            "movies": ["843649","961715","737859","924311","762500","935940","841277","983177","939785","926540","839650","840829","950968","968043","737644","843479","843790","933182","952241","806983","993176","972200"]
         }
     },
     "abuse": {
@@ -61,7 +61,7 @@ module.exports = {
                 "tls": 1
             },
             "country": 0,
-            "message": "Просмотр запрещен, сайт соблюдает<br>закон об авторском праве в цифровую эпоху!<br><br><img src=\"/themes/default/public/desktop/img/dmca.png\" alt=\"DMCA\">",
+            "message": "Viewing is prohibited, the site is subject<br>to copyright law in the digital age!<br><br><img src=\"/themes/default/public/desktop/img/dmca.png\" alt=\"DMCA\">",
             "movies": ["957762","927771","893880","893520","861616","838952","882285","948999","840818","932512","843821","908406","840234","839818"]
         }
     },
@@ -99,30 +99,31 @@ module.exports = {
             "types": {
                 "year": {
                     "count": 6,
-                    "name": "Фильмы [year] года",
+                    "name": "[year] Movies",
                     "sorting": "kinopoisk-vote-up"
                 },
                 "genre": {
                     "count": 5,
-                    "name": "Фильмы в жанре - [genre]",
+                    "name": "Movies in the genre of [genre]",
                     "sorting": "kinopoisk-vote-up"
                 },
                 "country": {
                     "count": 10,
-                    "name": "Фильмы из страны - [country]",
+                    "name": "Films from [country]",
                     "sorting": "kinopoisk-vote-up"
                 },
                 "actor": {
                     "count": 15,
-                    "name": "Лучшие фильмы актера - [actor]",
+                    "name": "Best actor movies - [actor]",
                     "sorting": "kinopoisk-vote-up"
                 },
                 "director": {
                     "count": 5,
-                    "name": "Лучшие фильмы режиссера - [director]",
+                    "name": "Best director movies - [director]",
                     "sorting": "kinopoisk-vote-up"
                 }
-            }
+            },
+            "same": 1
         }
     },
     "schema": {
@@ -139,7 +140,7 @@ module.exports = {
         "data": {
             "display": "yohoho",
             "yohoho": {
-                "player": "moonwalk,hdgo,kodik,iframe,hdbaza,trailer",
+                "player": "trailer",
                 "bg": "#14181C",
                 "button": ""
             },
@@ -172,26 +173,26 @@ module.exports = {
             "display": "legal",
             "share": {
                 "time": 60,
-                "message": "Поделитесь фильмом в одну из социальных сетей чтобы начать просмотр или подождите [timer] секунд и данное сообщение исчезнет."
+                "message": "Share the movie with one of the social networks to start watching or wait [timer] seconds and the message disappears."
             },
             "sub": {
                 "keys": ["CP06368342850052267","CP10020891099182505","CP46955642915431706"],
-                "message": "Просмотр доступен только по подписке. Приобретите подписку и активируйте ключ. <p><a href=\"https://digiseller.ru/\" target=\"_blank\" style=\"color:white;\">Купить подписку</a></p>"
+                "message": "Viewing is available only by subscription. Get a subscription and activate the key. <p><a href=\"https://digiseller.ru/\" target=\"_blank\" style=\"color:white;\">Buy subscription</a></p>"
             },
             "adv": {
                 "time": 10,
-                "code": "<div class=\"rklma\">Блок с Вашей рекламой в плеере</div>",
-                "message": "Реклама позволяет Вам смотреть фильмы бесплатно. Пожалуйста отнеситесь к этому с пониманием. Вы сможете начать просмотр через [timer] секунд.",
+                "code": "<div class=\"rklma\">Block with your advertisement in the player</div>",
+                "message": "Advertising allows you to watch movies for free. Please treat this with understanding. You can start viewing in [timer] seconds.",
                 "skip": ""
             },
             "adblock": {
                 "time": 60,
-                "message": "Вы используете AdBlock или другие блокировщики рекламы. Пожалуйста отключите их на Нашем сайте чтобы не ждать. Вы сможете начать просмотр через [timer] секунд."
+                "message": "You use AdBlock or other ad blockers. Please disable them on our website in order not to wait. You can start viewing in [timer] seconds."
             },
             "legal": {
                 "time": 20,
                 "countries": "",
-                "message": "Трейлер появится, через [timer] секунд. Чтобы отображать на этом месте плеер фильма, отключите <a href=\"/admin/blocking\" target=\"_blank\" style=\"color:white;\">в админ-панели модуль «Блокировка»</a>.\n\n<br><br>\n\n<div class=search-ggl onclick=\"window.open('https://href.li/?https://google.com/search?&tbm=vid&q=[title] [year] смотреть онлайн','_blank')\">Смотреть онлайн в <span class=g>G</span><span class=o>o</span><span class=o>o</span><span class=g>g</span><span class=l>l</span><span class=e>e</span></div>\n\n<div class=search-ynd  onclick=\"window.open('https://href.li/?https://yandex.ru/video/search?text=[title] [year] смотреть онлайн','_blank')\">Смотреть онлайн в <span class=y>Я</span>ндекс</div>"
+                "message": "The trailer will appear after [timer] seconds. To display the movie player on this location, turn off the <a href=\"/admin/blocking\" target=\"_blank\" style=\"color:white;\">in the admin panel, the «Lock» module</a>.\n\n<br><br>\n\n<div class=search-ggl onclick=\"window.open('https://href.li/?https://google.com/search?&tbm=vid&q=[title] [year] watch online','_blank')\">Watch online in <span class=g>G</span><span class=o>o</span><span class=o>o</span><span class=g>g</span><span class=l>l</span><span class=e>e</span></div>\n\n<div class=search-ynd  onclick=\"window.open('https://href.li/?https://yandex.ru/video/search?text=[title] [year] watch online','_blank')\">Watch online in <span class=y>Я</span>ндекс</div>"
             }
         }
     },
@@ -218,16 +219,18 @@ module.exports = {
     "episode": {
         "status": false,
         "data": {
-            "title": "[title] [season] сезон [episode] серия в озвучке [translate]",
-            "description": "[title] [season] сезон [episode] серия в озвучке [translate]",
-            "season": "сезон",
-            "episode": "серия",
-            "translate": "Перевод:",
-            "default": "Оригинал",
+            "title": "[title] [season] season [episode] episode in voice [translate]",
+            "h1": "[title] [season] season [episode] episode in voice [translate]",
+            "description": "[title] [season] season [episode] episode in voice [translate]",
+            "season": "season",
+            "episode": "episode",
+            "translate": "Translate:",
+            "default": "Original",
             "index": {
-                "name": "Новые серии сериалов",
+                "name": "New series of serials",
                 "count": 12,
-                "order": 2
+                "order": 2,
+                "latest": 0
             }
         }
     },
@@ -237,12 +240,12 @@ module.exports = {
             "target": 0,
             "desktop": {
                 "all": {
-                    "over": "<div class=\"rklma\">Блок с Вашей рекламой над плеером</div>",
-                    "under": "<div class=\"rklma\">Блок с Вашей рекламой под плеером</div>",
-                    "top": "<div class=\"rklma\">Блок с Вашей рекламой вверху страницы</div>",
-                    "bottom": "<div class=\"rklma\">Блок с Вашей рекламой внизу страницы</div>",
-                    "left": "<div class=\"rklma\">Блок с Вашей рекламой слева страницы</div>",
-                    "right": "<div class=\"rklma\">Блок с Вашей рекламой справа страницы</div>"
+                    "over": "<div class=\"rklma\">Block with your advertisement above the player</div>",
+                    "under": "<div class=\"rklma\">Block with your advertisement under the player</div>",
+                    "top": "<div class=\"rklma\">Block with your advertisement at the top of the page</div>",
+                    "bottom": "<div class=\"rklma\">Block with your advertisement at the bottom of the page</div>",
+                    "left": "<div class=\"rklma\">Block with your advertisement on the left of the page</div>",
+                    "right": "<div class=\"rklma\">Block with your advertisement on the right of the page</div>"
                 },
                 "index": {
                     "top": "",
@@ -313,12 +316,12 @@ module.exports = {
             },
             "mobile": {
                 "all": {
-                    "over": "<div class=\"rklma\">Блок с Вашей рекламой над плеером</div>",
-                    "under": "<div class=\"rklma\">Блок с Вашей рекламой под плеером</div>",
-                    "top": "<div class=\"rklma\">Блок с Вашей рекламой вверху страницы</div>",
-                    "bottom": "<div class=\"rklma\">Блок с Вашей рекламой внизу страницы</div>",
-                    "left": "<div class=\"rklma\">Блок с Вашей рекламой слева страницы</div>",
-                    "right": "<div class=\"rklma\">Блок с Вашей рекламой справа страницы</div>"
+                    "over": "<div class=\"rklma\">Block with your advertisement above the player</div>",
+                    "under": "<div class=\"rklma\">Block with your advertisement under the player</div>",
+                    "top": "<div class=\"rklma\">Block with your advertisement at the top of the page</div>",
+                    "bottom": "<div class=\"rklma\">Block with your advertisement at the bottom of the page</div>",
+                    "left": "<div class=\"rklma\">Block with your advertisement on the left of the page</div>",
+                    "right": "<div class=\"rklma\">Block with your advertisement on the right of the page</div>"
                 },
                 "index": {
                     "top": "",
@@ -392,16 +395,17 @@ module.exports = {
     "content": {
         "status": true,
         "data": {
-            "title": "Страницы сайта",
-            "description": "Страницы сайта",
+            "title": "Site pages",
+            "h1": "Site pages",
+            "description": "Site pages",
             "url": "content",
             "news": {
                 "count": 2,
-                "tags": "новость"
+                "tags": "News"
             },
             "index": {
                 "count": 12,
-                "url": "poslednie-obnovleniya-filmov",
+                "url": "latest-movie-updates",
                 "order": 2
             },
             "movie": {
@@ -410,7 +414,7 @@ module.exports = {
             "auto": {
                 "moonwalk_movies": {
                     "count": 12,
-                    "url": "poslednie-obnovleniya-filmov"
+                    "url": "latest-movie-updates"
                 },
                 "moonwalk_serials": {
                     "count": 12,
@@ -418,7 +422,7 @@ module.exports = {
                 },
                 "hdgo_movies": {
                     "count": 12,
-                    "url": "poslednie-obnovleniya-filmov"
+                    "url": "latest-movie-updates"
                 },
                 "hdgo_serials": {
                     "count": 12,
@@ -426,9 +430,17 @@ module.exports = {
                 },
                 "kodik_movies": {
                     "count": 12,
-                    "url": "poslednie-obnovleniya-filmov"
+                    "url": "latest-movie-updates"
                 },
                 "kodik_serials": {
+                    "count": 12,
+                    "url": ""
+                },
+                "iframe_movies": {
+                    "count": 12,
+                    "url": "latest-movie-updates"
+                },
+                "iframe_serials": {
                     "count": 12,
                     "url": ""
                 }

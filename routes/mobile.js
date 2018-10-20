@@ -329,7 +329,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
             case 'mobile/content':
                 template = 'mobile/category';
                 content.one(
-                    level2,
+                    req.params.level2,
                     parseInt(level3),
                     sorting,
                     options,
@@ -403,7 +403,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                 if (!config.urls.noindex)
                     return 'error';
                 return (movie.id(level2))
-                    ? movie.type(level3)
+                    ? 'mobile/' + movie.type(level3)
                     : 'error';
                 break;
             case config.urls.movie:
