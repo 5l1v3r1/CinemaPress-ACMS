@@ -187,11 +187,11 @@ function codePlayer(type, movie, options) {
             ? modules.player.data.moonlight.domain
             : '';
 
-        var div = '';
+        var video = '';
         for (var data_key in data) {
             if (data.hasOwnProperty(data_key) && data[data_key]) {
                 data[data_key] = (''+data[data_key]).trim();
-                div += ' data-' + data_key + '="' + encodeURIComponent(data[data_key]) + '"';
+                video += ' data-' + data_key + '="' + encodeURIComponent(data[data_key]) + '"';
             }
         }
 
@@ -231,7 +231,7 @@ function codePlayer(type, movie, options) {
         }
 
         code.player = '' +
-            '<video id="yohoho" controls  ' + div + '>' +
+            '<video id="yohoho" controls  ' + video + ' style="display:none">' +
             '  <source src="/balancer/' + movie.kp_id + '.mp4" type="video/mp4">' +
             '</video>';
 

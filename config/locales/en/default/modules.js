@@ -133,7 +133,10 @@ module.exports = {
         "status": false
     },
     "viewed": {
-        "status": true
+        "status": true,
+        "data": {
+            "count": 20
+        }
     },
     "player": {
         "status": true,

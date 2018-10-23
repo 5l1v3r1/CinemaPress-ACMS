@@ -6,7 +6,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[75]]></kp_rating>
-        <kp_vote><![CDATA[216547]]></kp_vote>
+        <kp_vote><![CDATA[217160]]></kp_vote>
         <imdb_rating><![CDATA[80]]></imdb_rating>
         <imdb_vote><![CDATA[755468]]></imdb_vote>
         <premiere><![CDATA[736348.875]]></premiere>
@@ -36,9 +36,9 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[70]]></kp_rating>
-        <kp_vote><![CDATA[47250]]></kp_vote>
-        <imdb_rating><![CDATA[71]]></imdb_rating>
-        <imdb_vote><![CDATA[79814]]></imdb_vote>
+        <kp_vote><![CDATA[54945]]></kp_vote>
+        <imdb_rating><![CDATA[70]]></imdb_rating>
+        <imdb_vote><![CDATA[90496]]></imdb_vote>
         <premiere><![CDATA[737332.875]]></premiere>
         <type><![CDATA[0]]></type>
         <title_ru><![CDATA[]]></title_ru>
@@ -60,43 +60,13 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="463803">
-        <kp_id><![CDATA[463803]]></kp_id>
-        <query_id><![CDATA[463803]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[73]]></kp_rating>
-        <kp_vote><![CDATA[6248]]></kp_vote>
-        <imdb_rating><![CDATA[77]]></imdb_rating>
-        <imdb_vote><![CDATA[18398]]></imdb_vote>
-        <premiere><![CDATA[737299.875]]></premiere>
-        <type><![CDATA[0]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[First Man]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[A look at the life of the astronaut, Neil Armstrong, and the legendary space mission that led him to become the first man to walk on the Moon on July 20, 1969.]]></description>
-        <pictures><![CDATA[/z1FkoHO7bz40S4JiptWHSYoPpxq.jpg]]></pictures>
-        <poster><![CDATA[/i91mfvFcPPlaegcbOyjGgiWfZzh.jpg]]></poster>
-        <search><![CDATA[First Man]]></search>
-        <year><![CDATA[2018]]></year>
-        <country><![CDATA[USA]]></country>
-        <director><![CDATA[Damien Chasell]]></director>
-        <genre><![CDATA[drama,biography,history]]></genre>
-        <actor><![CDATA[Claire Foy,Ryan Gosling,Pablo Schreiber,Kyle Chandler,Christopher Abbott]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
     <sphinx:document id="468940">
         <kp_id><![CDATA[468940]]></kp_id>
         <query_id><![CDATA[468940]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[57]]></kp_rating>
-        <kp_vote><![CDATA[34330]]></kp_vote>
+        <kp_vote><![CDATA[34469]]></kp_vote>
         <imdb_rating><![CDATA[56]]></imdb_rating>
         <imdb_vote><![CDATA[116879]]></imdb_vote>
         <premiere><![CDATA[736825.875]]></premiere>
@@ -156,9 +126,9 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[74]]></kp_rating>
-        <kp_vote><![CDATA[88621]]></kp_vote>
+        <kp_vote><![CDATA[90062]]></kp_vote>
         <imdb_rating><![CDATA[76]]></imdb_rating>
-        <imdb_vote><![CDATA[226067]]></imdb_vote>
+        <imdb_vote><![CDATA[228931]]></imdb_vote>
         <premiere><![CDATA[737128.875]]></premiere>
         <type><![CDATA[0]]></type>
         <title_ru><![CDATA[]]></title_ru>
@@ -186,7 +156,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[65]]></kp_rating>
-        <kp_vote><![CDATA[76768]]></kp_vote>
+        <kp_vote><![CDATA[77547]]></kp_vote>
         <imdb_rating><![CDATA[74]]></imdb_rating>
         <imdb_vote><![CDATA[394195]]></imdb_vote>
         <premiere><![CDATA[737087.875]]></premiere>
@@ -276,9 +246,9 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[75]]></kp_rating>
-        <kp_vote><![CDATA[20497]]></kp_vote>
-        <imdb_rating><![CDATA[81]]></imdb_rating>
-        <imdb_vote><![CDATA[103917]]></imdb_vote>
+        <kp_vote><![CDATA[20887]]></kp_vote>
+        <imdb_rating><![CDATA[80]]></imdb_rating>
+        <imdb_vote><![CDATA[105952]]></imdb_vote>
         <premiere><![CDATA[737214.875]]></premiere>
         <type><![CDATA[4]]></type>
         <title_ru><![CDATA[]]></title_ru>
@@ -305,10 +275,10 @@
         <query_id><![CDATA[840829]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[60]]></kp_rating>
-        <kp_vote><![CDATA[15761]]></kp_vote>
+        <kp_rating><![CDATA[59]]></kp_rating>
+        <kp_vote><![CDATA[16170]]></kp_vote>
         <imdb_rating><![CDATA[59]]></imdb_rating>
-        <imdb_vote><![CDATA[32108]]></imdb_vote>
+        <imdb_vote><![CDATA[34492]]></imdb_vote>
         <premiere><![CDATA[737308.875]]></premiere>
         <type><![CDATA[0]]></type>
         <title_ru><![CDATA[]]></title_ru>
@@ -366,7 +336,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[79]]></kp_rating>
-        <kp_vote><![CDATA[122012]]></kp_vote>
+        <kp_vote><![CDATA[123803]]></kp_vote>
         <imdb_rating><![CDATA[86]]></imdb_rating>
         <imdb_vote><![CDATA[494137]]></imdb_vote>
         <premiere><![CDATA[737171.875]]></premiere>
@@ -384,36 +354,6 @@
         <director><![CDATA[Anthony Russo,Joe Rousseau]]></director>
         <genre><![CDATA[fantastic,fantasy,action,adventure]]></genre>
         <actor><![CDATA[Robert Downey Jr.,Chris Hemsworth,Mark Ruffalo,Chris Evans,Scarlett Johansson]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
-    <sphinx:document id="843790">
-        <kp_id><![CDATA[843790]]></kp_id>
-        <query_id><![CDATA[843790]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[0]]></kp_rating>
-        <kp_vote><![CDATA[0]]></kp_vote>
-        <imdb_rating><![CDATA[0]]></imdb_rating>
-        <imdb_vote><![CDATA[0]]></imdb_vote>
-        <premiere><![CDATA[737357.875]]></premiere>
-        <type><![CDATA[0]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Replicas]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[A scientist becomes obsessed with bringing back his family members who died in a traffic accident.]]></description>
-        <pictures><![CDATA[/aBHNvR6OT0WljqWLHpdzu7hCf6V.jpg]]></pictures>
-        <poster><![CDATA[/vUG8gxJTcXXdDrbdlmDAIJMFghO.jpg]]></poster>
-        <search><![CDATA[Replicas]]></search>
-        <year><![CDATA[2018]]></year>
-        <country><![CDATA[USA]]></country>
-        <director><![CDATA[Jeffrey Nachmanoff]]></director>
-        <genre><![CDATA[fantastic,thriller]]></genre>
-        <actor><![CDATA[Keanu Reeves,Alice Eve,Emily Elin Lind,Thomas Middleditch,John Ortiz]]></actor>
         <player><![CDATA[]]></player>
         <translate><![CDATA[]]></translate>
         <quality><![CDATA[]]></quality>
@@ -516,9 +456,9 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[61]]></kp_rating>
-        <kp_vote><![CDATA[35648]]></kp_vote>
+        <kp_vote><![CDATA[37016]]></kp_vote>
         <imdb_rating><![CDATA[63]]></imdb_rating>
-        <imdb_vote><![CDATA[154512]]></imdb_vote>
+        <imdb_vote><![CDATA[162222]]></imdb_vote>
         <premiere><![CDATA[737199.875]]></premiere>
         <type><![CDATA[0]]></type>
         <title_ru><![CDATA[]]></title_ru>
@@ -546,7 +486,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[73]]></kp_rating>
-        <kp_vote><![CDATA[25589]]></kp_vote>
+        <kp_vote><![CDATA[26142]]></kp_vote>
         <imdb_rating><![CDATA[80]]></imdb_rating>
         <imdb_vote><![CDATA[140002]]></imdb_vote>
         <premiere><![CDATA[737251.875]]></premiere>
@@ -576,9 +516,9 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[70]]></kp_rating>
-        <kp_vote><![CDATA[38861]]></kp_vote>
-        <imdb_rating><![CDATA[73]]></imdb_rating>
-        <imdb_vote><![CDATA[115733]]></imdb_vote>
+        <kp_vote><![CDATA[44342]]></kp_vote>
+        <imdb_rating><![CDATA[72]]></imdb_rating>
+        <imdb_vote><![CDATA[126332]]></imdb_vote>
         <premiere><![CDATA[737234.875]]></premiere>
         <type><![CDATA[0]]></type>
         <title_ru><![CDATA[]]></title_ru>
@@ -606,9 +546,9 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[74]]></kp_rating>
-        <kp_vote><![CDATA[92594]]></kp_vote>
+        <kp_vote><![CDATA[94872]]></kp_vote>
         <imdb_rating><![CDATA[79]]></imdb_rating>
-        <imdb_vote><![CDATA[272853]]></imdb_vote>
+        <imdb_vote><![CDATA[278985]]></imdb_vote>
         <premiere><![CDATA[737179.875]]></premiere>
         <type><![CDATA[0]]></type>
         <title_ru><![CDATA[]]></title_ru>
@@ -666,9 +606,9 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[64]]></kp_rating>
-        <kp_vote><![CDATA[4066]]></kp_vote>
+        <kp_vote><![CDATA[4188]]></kp_vote>
         <imdb_rating><![CDATA[66]]></imdb_rating>
-        <imdb_vote><![CDATA[9266]]></imdb_vote>
+        <imdb_vote><![CDATA[10897]]></imdb_vote>
         <premiere><![CDATA[737314.875]]></premiere>
         <type><![CDATA[0]]></type>
         <title_ru><![CDATA[]]></title_ru>
@@ -930,36 +870,6 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="1012431">
-        <kp_id><![CDATA[1012431]]></kp_id>
-        <query_id><![CDATA[1012431]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[0]]></kp_rating>
-        <kp_vote><![CDATA[0]]></kp_vote>
-        <imdb_rating><![CDATA[0]]></imdb_rating>
-        <imdb_vote><![CDATA[0]]></imdb_vote>
-        <premiere><![CDATA[737580.875]]></premiere>
-        <type><![CDATA[0]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Dark Phoenix]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[During a rescue mission in space, Jean is nearly killed when she is hit by a mysterious cosmic force. Once she returns home, this force not only makes her infinitely more powerful, but far more unstable. Wrestling with this entity inside her, Jean unleashes her powers in ways she can neither comprehend nor contain. With Jean spiraling our of control, and hurting the ones she loves most, she begins to unravel the very fabric that holds the X-Men together. Now, with this family falling apart, they must find a way to unite - not only to save Jean's soul, but to save our very planet from aliens who wish to weaponize this force and rule the galaxy.]]></description>
-        <pictures><![CDATA[/6H0CfLRcgq0Pcq34wNypC2V3W41.jpg]]></pictures>
-        <poster><![CDATA[/b8PZgPqbsIJrz9FlPKHvYQWmGMt.jpg]]></poster>
-        <search><![CDATA[Dark Phoenix]]></search>
-        <year><![CDATA[2019]]></year>
-        <country><![CDATA[USA]]></country>
-        <director><![CDATA[Simon Kinberg]]></director>
-        <genre><![CDATA[fantastic,action,adventure]]></genre>
-        <actor><![CDATA[Evan Peters,Jennifer Lawrence,Jessica Chastain,James McAvoy,Sophie Turner]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
     <sphinx:document id="830249">
         <kp_id><![CDATA[830249]]></kp_id>
         <query_id><![CDATA[830249]]></query_id>
@@ -1014,6 +924,66 @@
         <director><![CDATA[Anthony Russo,Joe Rousseau]]></director>
         <genre><![CDATA[fantastic,fantasy,action,adventure]]></genre>
         <actor><![CDATA[Brie Larson,Scarlett Johansson,Josh Brolin,Karen Gillan,Chris Hemsworth]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
+    <sphinx:document id="1084329">
+        <kp_id><![CDATA[1084329]]></kp_id>
+        <query_id><![CDATA[1084329]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[0]]></kp_rating>
+        <kp_vote><![CDATA[0]]></kp_vote>
+        <imdb_rating><![CDATA[0]]></imdb_rating>
+        <imdb_vote><![CDATA[0]]></imdb_vote>
+        <premiere><![CDATA[737531.875]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[The Curse of La Llorona]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[A social worker dealing with the disappearance of two children fears for her own family after beginning the investigation.]]></description>
+        <pictures><![CDATA[]]></pictures>
+        <poster><![CDATA[/97E7RKy7cEC41tTDdG7aGtU3pwX.jpg]]></poster>
+        <search><![CDATA[The Curse of La Llorona]]></search>
+        <year><![CDATA[2019]]></year>
+        <country><![CDATA[USA]]></country>
+        <director><![CDATA[Michael Chavez]]></director>
+        <genre><![CDATA[horrors,thriller,detective]]></genre>
+        <actor><![CDATA[Linda Cardellini,Patricia Velasquez,Raymond Cruz,Sean Patrick Thomas,Madeleine McGraw]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
+    <sphinx:document id="920082">
+        <kp_id><![CDATA[920082]]></kp_id>
+        <query_id><![CDATA[920082]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[0]]></kp_rating>
+        <kp_vote><![CDATA[0]]></kp_vote>
+        <imdb_rating><![CDATA[0]]></imdb_rating>
+        <imdb_vote><![CDATA[0]]></imdb_vote>
+        <premiere><![CDATA[737518.875]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[The Best of Enemies]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[THE BEST OF ENEMIES is based on the real-life unlikely relationship between an outspoken civil rights activist and a local Ku Klux Klan leader in 1971 North Carolina.]]></description>
+        <pictures><![CDATA[/gAthUxWAl7fW5iD6XY0i9Uv08pH.jpg]]></pictures>
+        <poster><![CDATA[/gpNuSFaJDPiJMD4ZjbMGVbXPx8F.jpg]]></poster>
+        <search><![CDATA[The Best of Enemies]]></search>
+        <year><![CDATA[2019]]></year>
+        <country><![CDATA[USA]]></country>
+        <director><![CDATA[Robin Bissell]]></director>
+        <genre><![CDATA[drama,biography,history]]></genre>
+        <actor><![CDATA[Sam Rockwell,Anne Heche,Wes Bentley,Taraji P. Henson,Nick Searcy]]></actor>
         <player><![CDATA[]]></player>
         <translate><![CDATA[]]></translate>
         <quality><![CDATA[]]></quality>
@@ -1230,30 +1200,30 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="1000125">
-        <kp_id><![CDATA[1000125]]></kp_id>
-        <query_id><![CDATA[1000125]]></query_id>
+    <sphinx:document id="1121425">
+        <kp_id><![CDATA[1121425]]></kp_id>
+        <query_id><![CDATA[1121425]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[0]]></kp_rating>
         <kp_vote><![CDATA[0]]></kp_vote>
         <imdb_rating><![CDATA[0]]></imdb_rating>
         <imdb_vote><![CDATA[0]]></imdb_vote>
-        <premiere><![CDATA[737483.875]]></premiere>
+        <premiere><![CDATA[737468.875]]></premiere>
         <type><![CDATA[0]]></type>
         <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[The Aftermath]]></title_en>
+        <title_en><![CDATA[Happy Death Day 2U]]></title_en>
         <title_page><![CDATA[]]></title_page>
         <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[In the aftermath of World War II, a British colonel and his wife are assigned to live in Hamburg during the post-war reconstruction, but tensions arise with the German widower who lives with them.]]></description>
-        <pictures><![CDATA[/nqJe2wnYddmYn2cUkMfnULd8QRj.jpg]]></pictures>
-        <poster><![CDATA[/3tJC8JqNUjXhU8NDYJuAkMM4jFZ.jpg]]></poster>
-        <search><![CDATA[The Aftermath]]></search>
+        <description><![CDATA[A sequel to the 2017 film, 'Happy Death Day'.]]></description>
+        <pictures><![CDATA[]]></pictures>
+        <poster><![CDATA[/l6jFjNScOE3pU2xHVBFJkkjRcG7.jpg]]></poster>
+        <search><![CDATA[Happy Death Day 2U]]></search>
         <year><![CDATA[2019]]></year>
-        <country><![CDATA[United Kingdom,USA,Germany]]></country>
-        <director><![CDATA[James Kent]]></director>
-        <genre><![CDATA[drama,melodrama,military]]></genre>
-        <actor><![CDATA[Keira Knightley,Alexander Skarsgard,Jason Clarke,Kate Phillips,Fionn O'Shea]]></actor>
+        <country><![CDATA[_empty]]></country>
+        <director><![CDATA[Christopher Landon]]></director>
+        <genre><![CDATA[horrors,thriller,detective]]></genre>
+        <actor><![CDATA[Jessica Roth,Israel Broussard,Ruby Modin,Suraj Sharma,Rachel Matthews]]></actor>
         <player><![CDATA[]]></player>
         <translate><![CDATA[]]></translate>
         <quality><![CDATA[]]></quality>
@@ -1290,30 +1260,30 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="1008408">
-        <kp_id><![CDATA[1008408]]></kp_id>
-        <query_id><![CDATA[1008408]]></query_id>
+    <sphinx:document id="88173">
+        <kp_id><![CDATA[88173]]></kp_id>
+        <query_id><![CDATA[88173]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[0]]></kp_rating>
         <kp_vote><![CDATA[0]]></kp_vote>
         <imdb_rating><![CDATA[0]]></imdb_rating>
         <imdb_vote><![CDATA[0]]></imdb_vote>
-        <premiere><![CDATA[737447.875]]></premiere>
-        <type><![CDATA[4]]></type>
+        <premiere><![CDATA[737459.875]]></premiere>
+        <type><![CDATA[0]]></type>
         <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Spies in Disguise]]></title_en>
+        <title_en><![CDATA[Alita: Battle Angel]]></title_en>
         <title_page><![CDATA[]]></title_page>
         <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[Lance and Walter. One is a super cool and charming spy, and the other invents the super cool gadgets Lance uses. When an event happens, they must learn to rely on each other like never before in order to save the world.]]></description>
-        <pictures><![CDATA[/4e6GMVM6PlFYCIf3mJJXWGZwMB1.jpg]]></pictures>
-        <poster><![CDATA[/jqLueua8IVhXEcgJvMQG6lIvWPn.jpg]]></poster>
-        <search><![CDATA[Spies in Disguise]]></search>
+        <description><![CDATA[An action-packed story of one young woman's journey to discover the truth of who she is and her fight to change the world.]]></description>
+        <pictures><![CDATA[/wYPRxLzlDwv1nTqfY2xAjkTUZiU.jpg]]></pictures>
+        <poster><![CDATA[/8LyWVwDbU4vsOwns8RxOB9aX73l.jpg]]></poster>
+        <search><![CDATA[Alita: Battle Angel]]></search>
         <year><![CDATA[2019]]></year>
-        <country><![CDATA[USA]]></country>
-        <director><![CDATA[Nick Bruno,Troy Kwon]]></director>
-        <genre><![CDATA[cartoon,fantastic,action,comedy,adventure,family]]></genre>
-        <actor><![CDATA[Tom Holland,Will Smith]]></actor>
+        <country><![CDATA[USA,Canada,Argentina]]></country>
+        <director><![CDATA[Robert Rodriguez]]></director>
+        <genre><![CDATA[fantastic,action,thriller,melodrama,adventure]]></genre>
+        <actor><![CDATA[Jennifer Connelly,Lana Condor,Asa Gonzalez,Rosa Salazar,Christoph Waltz]]></actor>
         <player><![CDATA[]]></player>
         <translate><![CDATA[]]></translate>
         <quality><![CDATA[]]></quality>
@@ -1380,30 +1350,30 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="572653">
-        <kp_id><![CDATA[572653]]></kp_id>
-        <query_id><![CDATA[572653]]></query_id>
+    <sphinx:document id="1142566">
+        <kp_id><![CDATA[1142566]]></kp_id>
+        <query_id><![CDATA[1142566]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[0]]></kp_rating>
         <kp_vote><![CDATA[0]]></kp_vote>
         <imdb_rating><![CDATA[0]]></imdb_rating>
         <imdb_vote><![CDATA[0]]></imdb_vote>
-        <premiere><![CDATA[737417.875]]></premiere>
-        <type><![CDATA[0]]></type>
+        <premiere><![CDATA[737425.875]]></premiere>
+        <type><![CDATA[4]]></type>
         <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[The Prototype]]></title_en>
+        <title_en><![CDATA[Spycies]]></title_en>
         <title_page><![CDATA[]]></title_page>
         <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[A government agent stumbles upon an alien conspiracy to conquer Earth. Using a blue liquid created by the aliens to make soldiers stronger, he becomes The Prototype-the only hope for mankind.]]></description>
-        <pictures><![CDATA[]]></pictures>
-        <poster><![CDATA[/28hz22JXNFV9Livh76bk0THOAm0.jpg]]></poster>
-        <search><![CDATA[The Prototype]]></search>
+        <description><![CDATA[]]></description>
+        <pictures><![CDATA[/dc1qkzfFyjrxvu6LJfpgbSWV5pm.jpg]]></pictures>
+        <poster><![CDATA[/baLUyGQs992Rk4ZtHI4stKnsSAj.jpg]]></poster>
+        <search><![CDATA[Spycies]]></search>
         <year><![CDATA[2018]]></year>
-        <country><![CDATA[Italy,USA,Argentina]]></country>
-        <director><![CDATA[Marcelo Grion]]></director>
-        <genre><![CDATA[fantastic,action,thriller]]></genre>
-        <actor><![CDATA[Victoria DeMare,Teresa Tilly,Mark Vasconsellos,Todd Stroyk,Brian Kent]]></actor>
+        <country><![CDATA[China,France]]></country>
+        <director><![CDATA[Guillaume Ivernel]]></director>
+        <genre><![CDATA[cartoon]]></genre>
+        <actor><![CDATA[Monsieur Pup,Davi Murrier]]></actor>
         <player><![CDATA[]]></player>
         <translate><![CDATA[]]></translate>
         <quality><![CDATA[]]></quality>
@@ -1516,8 +1486,8 @@
         <title_page><![CDATA[]]></title_page>
         <description_short><![CDATA[]]></description_short>
         <description><![CDATA[In Depression-era London, a now-grown Jane and Michael Banks, along with Michael's three children, are visited by the enigmatic Mary Poppins following a personal loss. Through her unique magical skills, and with the aid of her friend Jack, she helps the family rediscover the joy and wonder missing in their lives.]]></description>
-        <pictures><![CDATA[/pPROua55e8TTC5H1i1avvIMAbcc.jpg]]></pictures>
-        <poster><![CDATA[/cwmjWAmJGWrJuZTKkrJ8v4CrniP.jpg]]></poster>
+        <pictures><![CDATA[/n1e9uTkRTshY9M6du3OJiwioRiD.jpg]]></pictures>
+        <poster><![CDATA[/fS7u5uvwnHwWD6PmfRxGIAA06j0.jpg]]></poster>
         <search><![CDATA[Mary Poppins Returns]]></search>
         <year><![CDATA[2018]]></year>
         <country><![CDATA[USA]]></country>
@@ -1590,36 +1560,6 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="462450">
-        <kp_id><![CDATA[462450]]></kp_id>
-        <query_id><![CDATA[462450]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[0]]></kp_rating>
-        <kp_vote><![CDATA[0]]></kp_vote>
-        <imdb_rating><![CDATA[0]]></imdb_rating>
-        <imdb_vote><![CDATA[0]]></imdb_vote>
-        <premiere><![CDATA[737391.875]]></premiere>
-        <type><![CDATA[0]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Holmes & Watson]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[Adventures of master detective Sherlock Holmes and Watson, his crime-solving partner.]]></description>
-        <pictures><![CDATA[/5jFDzNWyYJvQIvvoqs3N3RlL3NV.jpg]]></pictures>
-        <poster><![CDATA[/3O2LkmY9Mswux2MjJx7ARloF7ex.jpg]]></poster>
-        <search><![CDATA[Holmes & Watson]]></search>
-        <year><![CDATA[2018]]></year>
-        <country><![CDATA[USA]]></country>
-        <director><![CDATA[Ethan Cohen]]></director>
-        <genre><![CDATA[comedy,crime,detective,adventure]]></genre>
-        <actor><![CDATA[Will Ferrell,John See Riley,Rebecca Hall,Kelly McDonald,Rafe Fiennes]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
     <sphinx:document id="939684">
         <kp_id><![CDATA[939684]]></kp_id>
         <query_id><![CDATA[939684]]></query_id>
@@ -1674,36 +1614,6 @@
         <director><![CDATA[Peter Seagal]]></director>
         <genre><![CDATA[melodrama,comedy]]></genre>
         <actor><![CDATA[Charlene Yee,Milo Ventimiglia,Jennifer Lopez,Vanessa Ann Hudgens,Lea Remini]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
-    <sphinx:document id="927495">
-        <kp_id><![CDATA[927495]]></kp_id>
-        <query_id><![CDATA[927495]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[0]]></kp_rating>
-        <kp_vote><![CDATA[0]]></kp_vote>
-        <imdb_rating><![CDATA[0]]></imdb_rating>
-        <imdb_vote><![CDATA[0]]></imdb_vote>
-        <premiere><![CDATA[737383.875]]></premiere>
-        <type><![CDATA[0]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Robin Hood]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[A war-hardened Crusader and his Moorish commander mount an audacious revolt against the corrupt English crown.]]></description>
-        <pictures><![CDATA[/AuA50D7T7S7OEVcGo0ZKaMhERn0.jpg]]></pictures>
-        <poster><![CDATA[/AiRfixFcfTkNbn2A73qVJPlpkUo.jpg]]></poster>
-        <search><![CDATA[Robin Hood]]></search>
-        <year><![CDATA[2018]]></year>
-        <country><![CDATA[USA]]></country>
-        <director><![CDATA[Otto Bathhurst]]></director>
-        <genre><![CDATA[action,adventure]]></genre>
-        <actor><![CDATA[Teron Edgerton,Ben Mendelsohn,Jamie Dornan,Paul Anderson,Jamie Foxx]]></actor>
         <player><![CDATA[]]></player>
         <translate><![CDATA[]]></translate>
         <quality><![CDATA[]]></quality>
@@ -1800,15 +1710,45 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
+    <sphinx:document id="696247">
+        <kp_id><![CDATA[696247]]></kp_id>
+        <query_id><![CDATA[696247]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[0]]></kp_rating>
+        <kp_vote><![CDATA[0]]></kp_vote>
+        <imdb_rating><![CDATA[0]]></imdb_rating>
+        <imdb_vote><![CDATA[0]]></imdb_vote>
+        <premiere><![CDATA[737377.875]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[Mary Queen of Scots]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[Mary Stuart attempts to overthrow her cousin Elizabeth I, Queen of England, only to find herself condemned to years of imprisonment before facing execution.]]></description>
+        <pictures><![CDATA[/vTRNPsgi8vNfuJ75QxTZdHF6oH9.jpg]]></pictures>
+        <poster><![CDATA[/wUI2giWnlMUKyRllt8ZefBFqd7T.jpg]]></poster>
+        <search><![CDATA[Mary Queen of Scots]]></search>
+        <year><![CDATA[2018]]></year>
+        <country><![CDATA[United Kingdom]]></country>
+        <director><![CDATA[Josie Rourke]]></director>
+        <genre><![CDATA[drama,biography,history]]></genre>
+        <actor><![CDATA[Gemma Chan,Margot Robbie,Saoirse Ronan,David Tennant,Guy Pearce]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
     <sphinx:document id="737859">
         <kp_id><![CDATA[737859]]></kp_id>
         <query_id><![CDATA[737859]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[70]]></kp_rating>
-        <kp_vote><![CDATA[39526]]></kp_vote>
+        <kp_vote><![CDATA[40219]]></kp_vote>
         <imdb_rating><![CDATA[70]]></imdb_rating>
-        <imdb_vote><![CDATA[118798]]></imdb_vote>
+        <imdb_vote><![CDATA[119756]]></imdb_vote>
         <premiere><![CDATA[737104.875]]></premiere>
         <type><![CDATA[0]]></type>
         <title_ru><![CDATA[]]></title_ru>
@@ -1836,7 +1776,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[69]]></kp_rating>
-        <kp_vote><![CDATA[35038]]></kp_vote>
+        <kp_vote><![CDATA[36765]]></kp_vote>
         <imdb_rating><![CDATA[70]]></imdb_rating>
         <imdb_vote><![CDATA[154494]]></imdb_vote>
         <premiere><![CDATA[737188.875]]></premiere>
@@ -1860,13 +1800,43 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
+    <sphinx:document id="983177">
+        <kp_id><![CDATA[983177]]></kp_id>
+        <query_id><![CDATA[983177]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[65]]></kp_rating>
+        <kp_vote><![CDATA[33502]]></kp_vote>
+        <imdb_rating><![CDATA[63]]></imdb_rating>
+        <imdb_vote><![CDATA[94908]]></imdb_vote>
+        <premiere><![CDATA[737214.875]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[Ocean's Eight]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[Debbie Ocean, a criminal mastermind, gathers a crew of female thieves to pull off the heist of the century at New York's annual Met Gala.]]></description>
+        <pictures><![CDATA[/scQf03Fm3jeyv4FH04qvi4fp4wh.jpg]]></pictures>
+        <poster><![CDATA[/MvYpKlpFukTivnlBhizGbkAe3v.jpg]]></poster>
+        <search><![CDATA[Ocean's Eight]]></search>
+        <year><![CDATA[2018]]></year>
+        <country><![CDATA[USA]]></country>
+        <director><![CDATA[Gary Ross]]></director>
+        <genre><![CDATA[action,thriller,comedy,crime]]></genre>
+        <actor><![CDATA[Sandra Bullock,Cate Blanchett,Ann Hataway,Helena Bonham Carter,Rihanna]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
     <sphinx:document id="762500">
         <kp_id><![CDATA[762500]]></kp_id>
         <query_id><![CDATA[762500]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[54]]></kp_rating>
-        <kp_vote><![CDATA[32720]]></kp_vote>
+        <kp_vote><![CDATA[33171]]></kp_vote>
         <imdb_rating><![CDATA[66]]></imdb_rating>
         <imdb_vote><![CDATA[105828]]></imdb_vote>
         <premiere><![CDATA[737108.875]]></premiere>
@@ -1890,43 +1860,13 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="983177">
-        <kp_id><![CDATA[983177]]></kp_id>
-        <query_id><![CDATA[983177]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[65]]></kp_rating>
-        <kp_vote><![CDATA[32014]]></kp_vote>
-        <imdb_rating><![CDATA[63]]></imdb_rating>
-        <imdb_vote><![CDATA[90451]]></imdb_vote>
-        <premiere><![CDATA[737214.875]]></premiere>
-        <type><![CDATA[0]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Ocean's Eight]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[Debbie Ocean, a criminal mastermind, gathers a crew of female thieves to pull off the heist of the century at New York's annual Met Gala.]]></description>
-        <pictures><![CDATA[/scQf03Fm3jeyv4FH04qvi4fp4wh.jpg]]></pictures>
-        <poster><![CDATA[/MvYpKlpFukTivnlBhizGbkAe3v.jpg]]></poster>
-        <search><![CDATA[Ocean's Eight]]></search>
-        <year><![CDATA[2018]]></year>
-        <country><![CDATA[USA]]></country>
-        <director><![CDATA[Gary Ross]]></director>
-        <genre><![CDATA[action,thriller,comedy,crime]]></genre>
-        <actor><![CDATA[Sandra Bullock,Cate Blanchett,Ann Hataway,Helena Bonham Carter,Rihanna]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
     <sphinx:document id="721154">
         <kp_id><![CDATA[721154]]></kp_id>
         <query_id><![CDATA[721154]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[57]]></kp_rating>
-        <kp_vote><![CDATA[27640]]></kp_vote>
+        <kp_vote><![CDATA[27959]]></kp_vote>
         <imdb_rating><![CDATA[57]]></imdb_rating>
         <imdb_vote><![CDATA[71787]]></imdb_vote>
         <premiere><![CDATA[737138.875]]></premiere>
@@ -1967,7 +1907,7 @@
         <description_short><![CDATA[]]></description_short>
         <description><![CDATA[Thomas leads his group of escaped Gladers on their final and most dangerous mission yet. To save their friends, they must break into the legendary Last City, a WCKD-controlled labyrinth that may turn out to be the deadliest maze of all. Anyone who makes it out alive will get answers to the questions the Gladers have been asking since they first arrived in the maze.]]></description>
         <pictures><![CDATA[/bvbyidkMaBls1LTaIWYY6UmYTaL.jpg]]></pictures>
-        <poster><![CDATA[/7GgZ6DGezkh3szFdvskH5XD4V0t.jpg]]></poster>
+        <poster><![CDATA[/2zYfzA3TBwrMC8tfFbpiTLODde0.jpg]]></poster>
         <search><![CDATA[Maze Runner: The Death Cure]]></search>
         <year><![CDATA[2018]]></year>
         <country><![CDATA[USA]]></country>
@@ -1986,7 +1926,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[67]]></kp_rating>
-        <kp_vote><![CDATA[56947]]></kp_vote>
+        <kp_vote><![CDATA[57553]]></kp_vote>
         <imdb_rating><![CDATA[77]]></imdb_rating>
         <imdb_vote><![CDATA[212620]]></imdb_vote>
         <premiere><![CDATA[737126.875]]></premiere>
@@ -2016,7 +1956,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[61]]></kp_rating>
-        <kp_vote><![CDATA[38640]]></kp_vote>
+        <kp_vote><![CDATA[39137]]></kp_vote>
         <imdb_rating><![CDATA[64]]></imdb_rating>
         <imdb_vote><![CDATA[130581]]></imdb_vote>
         <premiere><![CDATA[737119.875]]></premiere>
@@ -2046,7 +1986,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[65]]></kp_rating>
-        <kp_vote><![CDATA[24663]]></kp_vote>
+        <kp_vote><![CDATA[25196]]></kp_vote>
         <imdb_rating><![CDATA[63]]></imdb_rating>
         <imdb_vote><![CDATA[63300]]></imdb_vote>
         <premiere><![CDATA[737066.875]]></premiere>
@@ -2076,7 +2016,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[61]]></kp_rating>
-        <kp_vote><![CDATA[23575]]></kp_vote>
+        <kp_vote><![CDATA[24020]]></kp_vote>
         <imdb_rating><![CDATA[62]]></imdb_rating>
         <imdb_vote><![CDATA[84413]]></imdb_vote>
         <premiere><![CDATA[737159.875]]></premiere>
@@ -2100,45 +2040,15 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="1009784">
-        <kp_id><![CDATA[1009784]]></kp_id>
-        <query_id><![CDATA[1009784]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[75]]></kp_rating>
-        <kp_vote><![CDATA[21960]]></kp_vote>
-        <imdb_rating><![CDATA[76]]></imdb_rating>
-        <imdb_vote><![CDATA[61808]]></imdb_vote>
-        <premiere><![CDATA[737127.875]]></premiere>
-        <type><![CDATA[0]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Upgrade]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[A brutal mugging leaves Grey Trace paralyzed in the hospital and his beloved wife dead. A billionaire inventor soon offers Trace a cure — an artificial intelligence implant called STEM that will enhance his body. Now able to walk, Grey finds that he also has superhuman strength and agility — skills he uses to seek revenge against the thugs who destroyed his life.]]></description>
-        <pictures><![CDATA[/22cUd4Yg5euCxIwWzXrL4m4otkU.jpg]]></pictures>
-        <poster><![CDATA[/8fDtXi6gVw8WUMWGT9XFz7YwkuE.jpg]]></poster>
-        <search><![CDATA[Upgrade]]></search>
-        <year><![CDATA[2018]]></year>
-        <country><![CDATA[Australia]]></country>
-        <director><![CDATA[Lee Wonnell]]></director>
-        <genre><![CDATA[fantastic,action,thriller,detective,crime]]></genre>
-        <actor><![CDATA[Logan Marshall Green,Melanie Vallejo,Steve Danielsen,Abby Craden,Harrison Gilbertson]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
     <sphinx:document id="1041734">
         <kp_id><![CDATA[1041734]]></kp_id>
         <query_id><![CDATA[1041734]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[60]]></kp_rating>
-        <kp_vote><![CDATA[17554]]></kp_vote>
+        <kp_vote><![CDATA[18880]]></kp_vote>
         <imdb_rating><![CDATA[59]]></imdb_rating>
-        <imdb_vote><![CDATA[44396]]></imdb_vote>
+        <imdb_vote><![CDATA[45041]]></imdb_vote>
         <premiere><![CDATA[737250.875]]></premiere>
         <type><![CDATA[0]]></type>
         <title_ru><![CDATA[]]></title_ru>
@@ -2166,7 +2076,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[63]]></kp_rating>
-        <kp_vote><![CDATA[16389]]></kp_vote>
+        <kp_vote><![CDATA[16988]]></kp_vote>
         <imdb_rating><![CDATA[53]]></imdb_rating>
         <imdb_vote><![CDATA[26810]]></imdb_vote>
         <premiere><![CDATA[737167.875]]></premiere>
@@ -2190,30 +2100,30 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="535341">
-        <kp_id><![CDATA[535341]]></kp_id>
-        <query_id><![CDATA[535341]]></query_id>
+    <sphinx:document id="1045590">
+        <kp_id><![CDATA[1045590]]></kp_id>
+        <query_id><![CDATA[1045590]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[88]]></kp_rating>
-        <kp_vote><![CDATA[466247]]></kp_vote>
-        <imdb_rating><![CDATA[85]]></imdb_rating>
-        <imdb_vote><![CDATA[628487]]></imdb_vote>
-        <premiere><![CDATA[734767.875]]></premiere>
+        <kp_rating><![CDATA[57]]></kp_rating>
+        <kp_vote><![CDATA[14909]]></kp_vote>
+        <imdb_rating><![CDATA[51]]></imdb_rating>
+        <imdb_vote><![CDATA[23689]]></imdb_vote>
+        <premiere><![CDATA[737160.875]]></premiere>
         <type><![CDATA[0]]></type>
         <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Intouchables]]></title_en>
+        <title_en><![CDATA[Truth or Dare]]></title_en>
         <title_page><![CDATA[]]></title_page>
         <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[A true story of two men who should never have met – a quadriplegic aristocrat who was injured in a paragliding accident and a young man from the projects.]]></description>
-        <pictures><![CDATA[/ihWaJZCUIon2dXcosjQG2JHJAPN.jpg]]></pictures>
-        <poster><![CDATA[/4mFsNQwbD0F237Tx7gAPotd0nbJ.jpg]]></poster>
-        <search><![CDATA[Intouchables]]></search>
-        <year><![CDATA[2011]]></year>
-        <country><![CDATA[France]]></country>
-        <director><![CDATA[Olivier Nakash,Eric Toledano]]></director>
-        <genre><![CDATA[drama,comedy,biography]]></genre>
-        <actor><![CDATA[Francois Cluse,Omar Si,Anne Le Nie,Audrey Flero,Josephine De Moe]]></actor>
+        <description><![CDATA[A harmless game of «Truth or Dare» among friends turns deadly when someone—or something—begins to punish those who tell a lie—or refuse the dare.]]></description>
+        <pictures><![CDATA[/jrZTNZmcjUVh7DPy6txp93Aczpa.jpg]]></pictures>
+        <poster><![CDATA[/zbvziwnZa91AJD78Si0hUb5JP5X.jpg]]></poster>
+        <search><![CDATA[Truth or Dare]]></search>
+        <year><![CDATA[2018]]></year>
+        <country><![CDATA[USA]]></country>
+        <director><![CDATA[Jeff Wadlow]]></director>
+        <genre><![CDATA[horrors,thriller]]></genre>
+        <actor><![CDATA[Lucy Hail,Tyler Posy,Violet Bean,Hayden Szeto,Sofia Taylor Ali]]></actor>
         <player><![CDATA[]]></player>
         <translate><![CDATA[]]></translate>
         <quality><![CDATA[]]></quality>
@@ -2226,7 +2136,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[86]]></kp_rating>
-        <kp_vote><![CDATA[344165]]></kp_vote>
+        <kp_vote><![CDATA[344780]]></kp_vote>
         <imdb_rating><![CDATA[80]]></imdb_rating>
         <imdb_vote><![CDATA[23810]]></imdb_vote>
         <premiere><![CDATA[729439.875]]></premiere>
@@ -2256,7 +2166,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[86]]></kp_rating>
-        <kp_vote><![CDATA[317828]]></kp_vote>
+        <kp_vote><![CDATA[318554]]></kp_vote>
         <imdb_rating><![CDATA[85]]></imdb_rating>
         <imdb_vote><![CDATA[844274]]></imdb_vote>
         <premiere><![CDATA[725189.8333333334]]></premiere>
@@ -2280,43 +2190,13 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="342">
-        <kp_id><![CDATA[342]]></kp_id>
-        <query_id><![CDATA[342]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[86]]></kp_rating>
-        <kp_vote><![CDATA[315393]]></kp_vote>
-        <imdb_rating><![CDATA[89]]></imdb_rating>
-        <imdb_vote><![CDATA[1560739]]></imdb_vote>
-        <premiere><![CDATA[728433.8333333334]]></premiere>
-        <type><![CDATA[0]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Pulp Fiction]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[A burger-loving hit man, his philosophical partner, a drug-addled gangster's moll and a washed-up boxer converge in this sprawling, comedic crime caper. Their adventures unfurl in three stories that ingeniously trip back and forth in time.]]></description>
-        <pictures><![CDATA[/4cDFJr4HnXN5AdPw4AKrmLlMWdO.jpg]]></pictures>
-        <poster><![CDATA[/dM2w364MScsjFf8pfMbaWUcWrR.jpg]]></poster>
-        <search><![CDATA[Pulp Fiction]]></search>
-        <year><![CDATA[1994]]></year>
-        <country><![CDATA[USA]]></country>
-        <director><![CDATA[Quentin Tarantino]]></director>
-        <genre><![CDATA[thriller,comedy,crime]]></genre>
-        <actor><![CDATA[John Travolta,Samuel L. Jackson,Bruce Willis,Uma Thurman,Wing Reims]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
     <sphinx:document id="586397">
         <kp_id><![CDATA[586397]]></kp_id>
         <query_id><![CDATA[586397]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[81]]></kp_rating>
-        <kp_vote><![CDATA[313344]]></kp_vote>
+        <kp_vote><![CDATA[314016]]></kp_vote>
         <imdb_rating><![CDATA[84]]></imdb_rating>
         <imdb_vote><![CDATA[1111244]]></imdb_vote>
         <premiere><![CDATA[735212.875]]></premiere>
@@ -2346,7 +2226,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[80]]></kp_rating>
-        <kp_vote><![CDATA[293007]]></kp_vote>
+        <kp_vote><![CDATA[293432]]></kp_vote>
         <imdb_rating><![CDATA[76]]></imdb_rating>
         <imdb_vote><![CDATA[524490]]></imdb_vote>
         <premiere><![CDATA[734119.875]]></premiere>
@@ -2376,7 +2256,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[80]]></kp_rating>
-        <kp_vote><![CDATA[290781]]></kp_vote>
+        <kp_vote><![CDATA[291358]]></kp_vote>
         <imdb_rating><![CDATA[77]]></imdb_rating>
         <imdb_vote><![CDATA[383991]]></imdb_vote>
         <premiere><![CDATA[729515.8333333334]]></premiere>
@@ -2406,7 +2286,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[82]]></kp_rating>
-        <kp_vote><![CDATA[282042]]></kp_vote>
+        <kp_vote><![CDATA[282550]]></kp_vote>
         <imdb_rating><![CDATA[75]]></imdb_rating>
         <imdb_vote><![CDATA[373966]]></imdb_vote>
         <premiere><![CDATA[727145.875]]></premiere>
@@ -2430,43 +2310,13 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="522">
-        <kp_id><![CDATA[522]]></kp_id>
-        <query_id><![CDATA[522]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[85]]></kp_rating>
-        <kp_vote><![CDATA[271869]]></kp_vote>
-        <imdb_rating><![CDATA[82]]></imdb_rating>
-        <imdb_vote><![CDATA[475446]]></imdb_vote>
-        <premiere><![CDATA[729988.8333333334]]></premiere>
-        <type><![CDATA[0]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Lock, Stock and Two Smoking Barrels]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[A card shark and his unwillingly-enlisted friends need to make a lot of cash quick after losing a sketchy poker match. To do this they decide to pull a heist on a small-time gang who happen to be operating out of the flat next door.]]></description>
-        <pictures><![CDATA[/kzeR7BA0htJ7BeI6QEUX3PVp39s.jpg]]></pictures>
-        <poster><![CDATA[/qV7QaSf7f7yC2lc985zfyOJIAIN.jpg]]></poster>
-        <search><![CDATA[Lock, Stock and Two Smoking Barrels]]></search>
-        <year><![CDATA[1998]]></year>
-        <country><![CDATA[United Kingdom]]></country>
-        <director><![CDATA[Guy Ritchie]]></director>
-        <genre><![CDATA[comedy,crime]]></genre>
-        <actor><![CDATA[Jason Fleming,Dexter Fletcher,Nick Moran,Jason Statham,Stephen McIntosh]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
     <sphinx:document id="4541">
         <kp_id><![CDATA[4541]]></kp_id>
         <query_id><![CDATA[4541]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[82]]></kp_rating>
-        <kp_vote><![CDATA[265229]]></kp_vote>
+        <kp_vote><![CDATA[265920]]></kp_vote>
         <imdb_rating><![CDATA[81]]></imdb_rating>
         <imdb_vote><![CDATA[798763]]></imdb_vote>
         <premiere><![CDATA[729905.8333333334]]></premiere>
@@ -2490,30 +2340,90 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="1073229">
-        <kp_id><![CDATA[1073229]]></kp_id>
-        <query_id><![CDATA[1073229]]></query_id>
+    <sphinx:document id="526">
+        <kp_id><![CDATA[526]]></kp_id>
+        <query_id><![CDATA[526]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[56]]></kp_rating>
-        <kp_vote><![CDATA[1118]]></kp_vote>
-        <imdb_rating><![CDATA[57]]></imdb_rating>
-        <imdb_vote><![CDATA[8973]]></imdb_vote>
-        <premiere><![CDATA[737141.875]]></premiere>
-        <type><![CDATA[4]]></type>
+        <kp_rating><![CDATA[85]]></kp_rating>
+        <kp_vote><![CDATA[265411]]></kp_vote>
+        <imdb_rating><![CDATA[83]]></imdb_rating>
+        <imdb_vote><![CDATA[688677]]></imdb_vote>
+        <premiere><![CDATA[730719.8333333334]]></premiere>
+        <type><![CDATA[0]]></type>
         <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Batman Ninja]]></title_en>
+        <title_en><![CDATA[Snatch.]]></title_en>
         <title_page><![CDATA[]]></title_page>
         <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[Gorilla Grodd's time displacement machine transports many of Batman's worst enemies to feudal Japan, along with the Dark Knight and a few of his allies.]]></description>
-        <pictures><![CDATA[/cDbJAqGIsnpJfiNiYNBQYQs0ZWY.jpg]]></pictures>
-        <poster><![CDATA[/5xSB0Npkc9Fd9kahKBsq9P4Cdzp.jpg]]></poster>
-        <search><![CDATA[Batman Ninja]]></search>
-        <year><![CDATA[2018]]></year>
-        <country><![CDATA[Japan,USA]]></country>
-        <director><![CDATA[Junipei Mizusaky]]></director>
-        <genre><![CDATA[anime,cartoon,action,fantastic,fantasy]]></genre>
-        <actor><![CDATA[Koichi Yamadera,Wataru Takagi,Rie Kugimiya,Ai Kakuma,I Want Otsuka]]></actor>
+        <description><![CDATA[The second film from British director Guy Ritchie. Snatch tells an obscure story similar to his first fast-paced crazy character-colliding filled film «Lock, Stock and Two Smoking Barrels.» There are two overlapping stories here – one is the search for a stolen diamond, and the other about a boxing promoter who's having trouble with a psychotic gangster.]]></description>
+        <pictures><![CDATA[/cNLZ7YGRikb4IsLblrzu86ndZPw.jpg]]></pictures>
+        <poster><![CDATA[/on9JlbGEccLsYkjeEph2Whm1DIp.jpg]]></poster>
+        <search><![CDATA[Snatch.]]></search>
+        <year><![CDATA[2000]]></year>
+        <country><![CDATA[United Kingdom,USA]]></country>
+        <director><![CDATA[Guy Ritchie]]></director>
+        <genre><![CDATA[crime,comedy,action]]></genre>
+        <actor><![CDATA[Benicio Del Toro,Dennis Farina,Winnie Jones,Brad Pitt,Rade Sherbegia]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
+    <sphinx:document id="462682">
+        <kp_id><![CDATA[462682]]></kp_id>
+        <query_id><![CDATA[462682]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[78]]></kp_rating>
+        <kp_vote><![CDATA[246959]]></kp_vote>
+        <imdb_rating><![CDATA[82]]></imdb_rating>
+        <imdb_vote><![CDATA[948982]]></imdb_vote>
+        <premiere><![CDATA[735583.875]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[The Wolf of Wall Street]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[A New York stockbroker refuses to cooperate in a large securities fraud case involving corruption on Wall Street, corporate banking world and mob infiltration. Based on Jordan Belfort's autobiography.]]></description>
+        <pictures><![CDATA[/rP36Rx5RQh0rmH2ynEIaG8DxbV2.jpg]]></pictures>
+        <poster><![CDATA[/vK1o5rZGqxyovfIhZyMELhk03wO.jpg]]></poster>
+        <search><![CDATA[The Wolf of Wall Street]]></search>
+        <year><![CDATA[2013]]></year>
+        <country><![CDATA[USA]]></country>
+        <director><![CDATA[Martin Scorsese]]></director>
+        <genre><![CDATA[drama,comedy,crime,biography]]></genre>
+        <actor><![CDATA[Leonardo DiCaprio,Jonah Hill,Margot Robbie,Kyle Chandler,Rob Reiner]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
+    <sphinx:document id="527">
+        <kp_id><![CDATA[527]]></kp_id>
+        <query_id><![CDATA[527]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[81]]></kp_rating>
+        <kp_vote><![CDATA[243282]]></kp_vote>
+        <imdb_rating><![CDATA[80]]></imdb_rating>
+        <imdb_vote><![CDATA[500028]]></imdb_vote>
+        <premiere><![CDATA[727962.875]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[Groundhog Day]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[A narcissistic TV weatherman, along with his attractive-but-distant producer and mawkish cameraman, is sent to report on Groundhog Day in the small town of Punxsutawney, where he finds himself repeating the same day over and over.]]></description>
+        <pictures><![CDATA[/8mX6FV59T2dSeln4Vc3KLM133aZ.jpg]]></pictures>
+        <poster><![CDATA[/vXjVd0Vu0MXRZnga7wEnHIIhO5B.jpg]]></poster>
+        <search><![CDATA[Groundhog Day]]></search>
+        <year><![CDATA[1993]]></year>
+        <country><![CDATA[USA]]></country>
+        <director><![CDATA[Harold Ramis]]></director>
+        <genre><![CDATA[fantasy,melodrama,comedy]]></genre>
+        <actor><![CDATA[Bill Murray,Andy McDowell,Chris Elliot,Stephen Tobolovski,Brian Doyle-Murray]]></actor>
         <player><![CDATA[]]></player>
         <translate><![CDATA[]]></translate>
         <quality><![CDATA[]]></quality>
@@ -2526,9 +2436,9 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[72]]></kp_rating>
-        <kp_vote><![CDATA[715]]></kp_vote>
-        <imdb_rating><![CDATA[68]]></imdb_rating>
-        <imdb_vote><![CDATA[94]]></imdb_vote>
+        <kp_vote><![CDATA[732]]></kp_vote>
+        <imdb_rating><![CDATA[63]]></imdb_rating>
+        <imdb_vote><![CDATA[115]]></imdb_vote>
         <premiere><![CDATA[737287.875]]></premiere>
         <type><![CDATA[4]]></type>
         <title_ru><![CDATA[]]></title_ru>
@@ -2544,36 +2454,6 @@
         <director><![CDATA[Ishida Hiroyasu]]></director>
         <genre><![CDATA[anime,cartoon,fantasy,adventure]]></genre>
         <actor><![CDATA[Cana China,Yu Aoi]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
-    <sphinx:document id="1112565">
-        <kp_id><![CDATA[1112565]]></kp_id>
-        <query_id><![CDATA[1112565]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[65]]></kp_rating>
-        <kp_vote><![CDATA[216]]></kp_vote>
-        <imdb_rating><![CDATA[64]]></imdb_rating>
-        <imdb_vote><![CDATA[496]]></imdb_vote>
-        <premiere><![CDATA[737064.875]]></premiere>
-        <type><![CDATA[1]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Citrus]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[Every window, every door hides an infinity of possibilities. There is no choice but to continue to roam.]]></description>
-        <pictures><![CDATA[]]></pictures>
-        <poster><![CDATA[/cZS6USo7wnDopc6qYYsHH0GC3Xr.jpg]]></poster>
-        <search><![CDATA[Citrus]]></search>
-        <year><![CDATA[2018]]></year>
-        <country><![CDATA[Japan]]></country>
-        <director><![CDATA[Kristen McGuire,Takeo Takahashi]]></director>
-        <genre><![CDATA[cartoon,drama,melodrama,anime]]></genre>
-        <actor><![CDATA[Yukiyo Fujii,Ikumi Hayama,Shiori Izawa,Hisako Kanamoto,Eureka Kubo]]></actor>
         <player><![CDATA[]]></player>
         <translate><![CDATA[]]></translate>
         <quality><![CDATA[]]></quality>
@@ -2616,7 +2496,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[83]]></kp_rating>
-        <kp_vote><![CDATA[824]]></kp_vote>
+        <kp_vote><![CDATA[837]]></kp_vote>
         <imdb_rating><![CDATA[84]]></imdb_rating>
         <imdb_vote><![CDATA[4091]]></imdb_vote>
         <premiere><![CDATA[736482.875]]></premiere>
@@ -2670,126 +2550,6 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="789795">
-        <kp_id><![CDATA[789795]]></kp_id>
-        <query_id><![CDATA[789795]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[0]]></kp_rating>
-        <kp_vote><![CDATA[0]]></kp_vote>
-        <imdb_rating><![CDATA[79]]></imdb_rating>
-        <imdb_vote><![CDATA[120]]></imdb_vote>
-        <premiere><![CDATA[732167.8333333334]]></premiere>
-        <type><![CDATA[0]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[The Best of 'So Graham Norton']]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[Part talk-show host, part comedian, and all-out extrovert, the very Irish and very gay Graham Norton is one of the few people who deserves all the adjectives that are thrown at him: «bawdy,» 'saucy,' «outrageous,» and «hilarious» are a few of them. His BBC talk show, So Graham Norton, is something that you just couldn't find in America: a rampant exercise in audience titillation that wallows gloriously in bizarre human behavior. It's like an audience-interactive NC-17 Saturday Night Live, with occasional breaks for celebrity chit-chat. If you ever wanted to see Gillian Anderson, Cher, Sophia Loren, or Dolly Parton break the talk-show mold with bawdy sex talk, then your dreams have come true. And Norton's cringe-inducing yet compulsively watchable audience polls, which ask common folk to relate embarrassing, adult-oriented tales, reveal a European openness (and sense of humor) that just wouldn't fly in the U.S.]]></description>
-        <pictures><![CDATA[/ty62a12j09rlE4ERRJCpCuE5TIN.jpg]]></pictures>
-        <poster><![CDATA[/cO78uHnESVke71Xssj4DtjCzZGR.jpg]]></poster>
-        <search><![CDATA[The Best of 'So Graham Norton']]></search>
-        <year><![CDATA[2004]]></year>
-        <country><![CDATA[USA,United Kingdom]]></country>
-        <director><![CDATA[Steve Smith]]></director>
-        <genre><![CDATA[comedy,talk show]]></genre>
-        <actor><![CDATA[Raquel Welch,Pamela Anderson]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
-    <sphinx:document id="629293">
-        <kp_id><![CDATA[629293]]></kp_id>
-        <query_id><![CDATA[629293]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[0]]></kp_rating>
-        <kp_vote><![CDATA[0]]></kp_vote>
-        <imdb_rating><![CDATA[87]]></imdb_rating>
-        <imdb_vote><![CDATA[86]]></imdb_vote>
-        <premiere><![CDATA[728598.875]]></premiere>
-        <type><![CDATA[2]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Bruce Lee: The Lost Interview]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[A priceless gem from the fine folks at The Internet Archive: Bruce Lee's only existing television interview, from 1971. Martial arts expert Bruce Lee became world-renowned for his performances in such Kung-fu classics as ENTER THE DRAGON. Now his only interview in English is available. Just after the release of his first film THE BIG BOSS, he spoke in Hong Kong with Canada's premier journalist Pierre Berton. This is the closest one can get to this extraordinary master.]]></description>
-        <pictures><![CDATA[/zh5E2Lot5Sq3tp5vY5ZShc9njMX.jpg]]></pictures>
-        <poster><![CDATA[/kSLGg7ttA5GxHwJVvk76280IxtF.jpg]]></poster>
-        <search><![CDATA[Bruce Lee: The Lost Interview]]></search>
-        <year><![CDATA[1994]]></year>
-        <country><![CDATA[Canada]]></country>
-        <director><![CDATA[Michael Roteri]]></director>
-        <genre><![CDATA[talk show,short film]]></genre>
-        <actor><![CDATA[Pierre Burton,Bruce Lee]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
-    <sphinx:document id="932328">
-        <kp_id><![CDATA[932328]]></kp_id>
-        <query_id><![CDATA[932328]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[0]]></kp_rating>
-        <kp_vote><![CDATA[0]]></kp_vote>
-        <imdb_rating><![CDATA[79]]></imdb_rating>
-        <imdb_vote><![CDATA[141]]></imdb_vote>
-        <premiere><![CDATA[NaN]]></premiere>
-        <type><![CDATA[2]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[God, the Universe and Everything Else]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[In a studio setting, Stephen Hawking, Arthur C. Clarke and Carl Sagan (who joins them via satellite) discuss the Big Bang theory, God, our existence as well as the possibility of extraterrestrial life.]]></description>
-        <pictures><![CDATA[/pbVVUvTFnacTvtXsiqeER2ZQTDQ.jpg]]></pictures>
-        <poster><![CDATA[/nsi9LpAWXpSlLRcOqA7rfuRSr4A.jpg]]></poster>
-        <search><![CDATA[God, the Universe and Everything Else]]></search>
-        <year><![CDATA[1988]]></year>
-        <country><![CDATA[United Kingdom]]></country>
-        <director><![CDATA[Hector Stewart]]></director>
-        <genre><![CDATA[talk show]]></genre>
-        <actor><![CDATA[Magnus Magnusson,Stephen Hawking,Arthur C. Clark,Carl Sagan]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
-    <sphinx:document id="939785">
-        <kp_id><![CDATA[939785]]></kp_id>
-        <query_id><![CDATA[939785]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[81]]></kp_rating>
-        <kp_vote><![CDATA[26921]]></kp_vote>
-        <imdb_rating><![CDATA[80]]></imdb_rating>
-        <imdb_vote><![CDATA[73876]]></imdb_vote>
-        <premiere><![CDATA[737104.875]]></premiere>
-        <type><![CDATA[4]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Isle of Dogs]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[In the future, an outbreak of canine flu leads the mayor of a Japanese city to banish all dogs to an island that's a garbage dump. The outcasts must soon embark on an epic journey when a 12-year-old boy arrives on the island to find his beloved pet.]]></description>
-        <pictures><![CDATA[/5YtXsLG9ncjjFyGZjoeV31CGf01.jpg]]></pictures>
-        <poster><![CDATA[/rSluCePdXXtNiQeE6Na5yRGamhL.jpg]]></poster>
-        <search><![CDATA[Isle of Dogs]]></search>
-        <year><![CDATA[2018]]></year>
-        <country><![CDATA[Germany,USA]]></country>
-        <director><![CDATA[Wes Anderson]]></director>
-        <genre><![CDATA[cartoon,fantastic,fantasy,drama,comedy,adventure]]></genre>
-        <actor><![CDATA[Brian Cranston,Koyu Rankin,Edward Norton,Bob Belaban,Bill Murray]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
     <sphinx:document id="950968">
         <kp_id><![CDATA[950968]]></kp_id>
         <query_id><![CDATA[950968]]></query_id>
@@ -2826,7 +2586,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[68]]></kp_rating>
-        <kp_vote><![CDATA[10671]]></kp_vote>
+        <kp_vote><![CDATA[10827]]></kp_vote>
         <imdb_rating><![CDATA[66]]></imdb_rating>
         <imdb_vote><![CDATA[21153]]></imdb_vote>
         <premiere><![CDATA[737092.875]]></premiere>
@@ -2856,9 +2616,9 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[75]]></kp_rating>
-        <kp_vote><![CDATA[9690]]></kp_vote>
+        <kp_vote><![CDATA[9835]]></kp_vote>
         <imdb_rating><![CDATA[77]]></imdb_rating>
-        <imdb_vote><![CDATA[19352]]></imdb_vote>
+        <imdb_vote><![CDATA[20056]]></imdb_vote>
         <premiere><![CDATA[737271.875]]></premiere>
         <type><![CDATA[4]]></type>
         <title_ru><![CDATA[]]></title_ru>
@@ -2886,7 +2646,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[64]]></kp_rating>
-        <kp_vote><![CDATA[2445]]></kp_vote>
+        <kp_vote><![CDATA[2496]]></kp_vote>
         <imdb_rating><![CDATA[61]]></imdb_rating>
         <imdb_vote><![CDATA[11660]]></imdb_vote>
         <premiere><![CDATA[737078.875]]></premiere>
@@ -2916,7 +2676,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[62]]></kp_rating>
-        <kp_vote><![CDATA[1860]]></kp_vote>
+        <kp_vote><![CDATA[1885]]></kp_vote>
         <imdb_rating><![CDATA[56]]></imdb_rating>
         <imdb_vote><![CDATA[1596]]></imdb_vote>
         <premiere><![CDATA[737126.875]]></premiere>
@@ -2946,7 +2706,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[57]]></kp_rating>
-        <kp_vote><![CDATA[1570]]></kp_vote>
+        <kp_vote><![CDATA[1616]]></kp_vote>
         <imdb_rating><![CDATA[50]]></imdb_rating>
         <imdb_vote><![CDATA[5649]]></imdb_vote>
         <premiere><![CDATA[737132.875]]></premiere>
@@ -2976,7 +2736,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[64]]></kp_rating>
-        <kp_vote><![CDATA[1480]]></kp_vote>
+        <kp_vote><![CDATA[1499]]></kp_vote>
         <imdb_rating><![CDATA[68]]></imdb_rating>
         <imdb_vote><![CDATA[8518]]></imdb_vote>
         <premiere><![CDATA[737070.875]]></premiere>
@@ -3006,9 +2766,9 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[57]]></kp_rating>
-        <kp_vote><![CDATA[1081]]></kp_vote>
+        <kp_vote><![CDATA[1151]]></kp_vote>
         <imdb_rating><![CDATA[60]]></imdb_rating>
-        <imdb_vote><![CDATA[332]]></imdb_vote>
+        <imdb_vote><![CDATA[344]]></imdb_vote>
         <premiere><![CDATA[737168.875]]></premiere>
         <type><![CDATA[4]]></type>
         <title_ru><![CDATA[]]></title_ru>
@@ -3036,7 +2796,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[68]]></kp_rating>
-        <kp_vote><![CDATA[1007]]></kp_vote>
+        <kp_vote><![CDATA[1050]]></kp_vote>
         <imdb_rating><![CDATA[70]]></imdb_rating>
         <imdb_vote><![CDATA[5503]]></imdb_vote>
         <premiere><![CDATA[737140.875]]></premiere>
@@ -3060,45 +2820,15 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="1115649">
-        <kp_id><![CDATA[1115649]]></kp_id>
-        <query_id><![CDATA[1115649]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[73]]></kp_rating>
-        <kp_vote><![CDATA[878]]></kp_vote>
-        <imdb_rating><![CDATA[75]]></imdb_rating>
-        <imdb_vote><![CDATA[12067]]></imdb_vote>
-        <premiere><![CDATA[737169.875]]></premiere>
-        <type><![CDATA[4]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Bao]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[An empty-nesting Chinese mom gets another chance at motherhood when one of her dumplings springs to life, but she must come to terms with the bittersweet revelation that nothing stays cute and small forever.]]></description>
-        <pictures><![CDATA[/fHwOKUkDXK5GfEeAZEmf5b2BQ0h.jpg]]></pictures>
-        <poster><![CDATA[/eAAbMGSydnRk5p092p0xhr17nZr.jpg]]></poster>
-        <search><![CDATA[Bao]]></search>
-        <year><![CDATA[2018]]></year>
-        <country><![CDATA[USA]]></country>
-        <director><![CDATA[Dom Shi]]></director>
-        <genre><![CDATA[cartoon,short film,fantasy,family]]></genre>
-        <actor><![CDATA[Daniel Keilin,Cindy Lau]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
     <sphinx:document id="1072038">
         <kp_id><![CDATA[1072038]]></kp_id>
         <query_id><![CDATA[1072038]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[66]]></kp_rating>
-        <kp_vote><![CDATA[634]]></kp_vote>
+        <kp_vote><![CDATA[782]]></kp_vote>
         <imdb_rating><![CDATA[67]]></imdb_rating>
-        <imdb_vote><![CDATA[6794]]></imdb_vote>
+        <imdb_vote><![CDATA[7368]]></imdb_vote>
         <premiere><![CDATA[737308.875]]></premiere>
         <type><![CDATA[4]]></type>
         <title_ru><![CDATA[]]></title_ru>
@@ -3120,210 +2850,120 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="1010737">
-        <kp_id><![CDATA[1010737]]></kp_id>
-        <query_id><![CDATA[1010737]]></query_id>
+    <sphinx:document id="1047166">
+        <kp_id><![CDATA[1047166]]></kp_id>
+        <query_id><![CDATA[1047166]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[64]]></kp_rating>
-        <kp_vote><![CDATA[878]]></kp_vote>
-        <imdb_rating><![CDATA[73]]></imdb_rating>
-        <imdb_vote><![CDATA[6397]]></imdb_vote>
-        <premiere><![CDATA[737136.875]]></premiere>
-        <type><![CDATA[1]]></type>
+        <kp_rating><![CDATA[67]]></kp_rating>
+        <kp_vote><![CDATA[605]]></kp_vote>
+        <imdb_rating><![CDATA[74]]></imdb_rating>
+        <imdb_vote><![CDATA[4185]]></imdb_vote>
+        <premiere><![CDATA[737263.875]]></premiere>
+        <type><![CDATA[2]]></type>
         <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[The Crossing]]></title_en>
+        <title_en><![CDATA[The Death of Superman]]></title_en>
         <title_page><![CDATA[]]></title_page>
         <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[Studying in Hong Kong but living in Shenzhen (the port city of Mainland China), Peipei has spent 16 years in her life travelling between these two cities. To realize the dream of seeing snow in Japan with her bestie, Peipei joins a smuggling gang and uses her student identity to smuggle iPhones from Hong Kong to Mainland. Her family life and friendships begin to fall apart. The daily life of Peipei starts to get out of control.]]></description>
-        <pictures><![CDATA[3194504]]></pictures>
-        <poster><![CDATA[/r3XIqTXt2QocRA7CincessqSq2d.jpg]]></poster>
-        <search><![CDATA[The Crossing]]></search>
+        <description><![CDATA[When a hulking monster arrives on Earth and begins a mindless rampage, the Justice League is quickly called in to stop it. But it soon becomes apparent that only Superman can stand against the monstrosity.]]></description>
+        <pictures><![CDATA[/9FdCHAV2YzndUR7tYWIq8O9uvVv.jpg]]></pictures>
+        <poster><![CDATA[/7WfP5tdFPkkORuy92fBz7IuqsmT.jpg]]></poster>
+        <search><![CDATA[The Death of Superman]]></search>
         <year><![CDATA[2018]]></year>
         <country><![CDATA[USA]]></country>
-        <director><![CDATA[David Von Enken,Rob Bowman,David Boyd]]></director>
-        <genre><![CDATA[fantastic,drama,adventure]]></genre>
-        <actor><![CDATA[Steve Zahn,Natalie Martinez,Tommy Bastow,Rob Campbell,Rick Gomez]]></actor>
+        <director><![CDATA[Jake Castorena,Sam Lew]]></director>
+        <genre><![CDATA[cartoon,fantastic,action]]></genre>
+        <actor><![CDATA[Jerry O'Connell,Rebecca Romain,Raine Wilson,Rosario Dawson,Nathan Fillion]]></actor>
         <player><![CDATA[]]></player>
         <translate><![CDATA[]]></translate>
         <quality><![CDATA[]]></quality>
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="1040732">
-        <kp_id><![CDATA[1040732]]></kp_id>
-        <query_id><![CDATA[1040732]]></query_id>
+    <sphinx:document id="1035311">
+        <kp_id><![CDATA[1035311]]></kp_id>
+        <query_id><![CDATA[1035311]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[68]]></kp_rating>
-        <kp_vote><![CDATA[702]]></kp_vote>
-        <imdb_rating><![CDATA[76]]></imdb_rating>
-        <imdb_vote><![CDATA[5850]]></imdb_vote>
-        <premiere><![CDATA[737128.875]]></premiere>
-        <type><![CDATA[1]]></type>
+        <kp_rating><![CDATA[73]]></kp_rating>
+        <kp_vote><![CDATA[409]]></kp_vote>
+        <imdb_rating><![CDATA[68]]></imdb_rating>
+        <imdb_vote><![CDATA[4009]]></imdb_vote>
+        <premiere><![CDATA[737321.875]]></premiere>
+        <type><![CDATA[4]]></type>
         <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Deception]]></title_en>
+        <title_en><![CDATA[Smallfoot]]></title_en>
         <title_page><![CDATA[]]></title_page>
         <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[Min Htet possesses a perfect life which will be envied by a lot. He is rich; owns a gallery and in addition to all that, has a beautiful wife called Zin Mar. He is the epitome of happiness and success. But at one point in his life, he committed a unforgettable sin which destroyed both his marriage and business. After a series of events that nearly destructed his life, he started to realize his perfect life may not be as what he thinks it is.]]></description>
-        <pictures><![CDATA[3108792,3108791,3108789]]></pictures>
-        <poster><![CDATA[/gn8O3niMLv1LHFt14laXRU5ZSgt.jpg]]></poster>
-        <search><![CDATA[Deception]]></search>
+        <description><![CDATA[A bright young yeti finds something he thought didn't exist—a human. News of this «smallfoot» throws the simple yeti community into an uproar over what else might be out there in the big world beyond their snowy village.]]></description>
+        <pictures><![CDATA[/7t88SoT3Dd8DhGnQuVoSbMNUl3W.jpg]]></pictures>
+        <poster><![CDATA[/4nKoB6wMVXfsYgRZK5lHZ5VMQ6J.jpg]]></poster>
+        <search><![CDATA[Smallfoot]]></search>
         <year><![CDATA[2018]]></year>
         <country><![CDATA[USA]]></country>
-        <director><![CDATA[Michael Lehmann,Carol Benker,Dermott Downs]]></director>
-        <genre><![CDATA[drama]]></genre>
-        <actor><![CDATA[Jack Catmore-Scott,Ilfenesh Hadera,Lenora Crichlow,Justin Jong,Lyla Robins]]></actor>
+        <director><![CDATA[Carey Kirkpatrick,Jason Rasig]]></director>
+        <genre><![CDATA[cartoon,musical,fantasy,comedy,adventure,family]]></genre>
+        <actor><![CDATA[Zendeya,Channing Tatum,Gina Rodriguez,Danny DeVito,James Corden]]></actor>
         <player><![CDATA[]]></player>
         <translate><![CDATA[]]></translate>
         <quality><![CDATA[]]></quality>
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="1177463">
-        <kp_id><![CDATA[1177463]]></kp_id>
-        <query_id><![CDATA[1177463]]></query_id>
+    <sphinx:document id="1082597">
+        <kp_id><![CDATA[1082597]]></kp_id>
+        <query_id><![CDATA[1082597]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[63]]></kp_rating>
-        <kp_vote><![CDATA[311]]></kp_vote>
-        <imdb_rating><![CDATA[66]]></imdb_rating>
-        <imdb_vote><![CDATA[2907]]></imdb_vote>
-        <premiere><![CDATA[737315.875]]></premiere>
-        <type><![CDATA[1]]></type>
+        <kp_rating><![CDATA[54]]></kp_rating>
+        <kp_vote><![CDATA[386]]></kp_vote>
+        <imdb_rating><![CDATA[49]]></imdb_rating>
+        <imdb_vote><![CDATA[193]]></imdb_vote>
+        <premiere><![CDATA[737069.875]]></premiere>
+        <type><![CDATA[4]]></type>
         <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[The First]]></title_en>
+        <title_en><![CDATA[Leo Da Vinci: Mission Mona Lisa]]></title_en>
         <title_page><![CDATA[]]></title_page>
         <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[Vasily Pronchishchev and Vasily Chelyuskin were young lieutenants of the Russia fleet, who set out from Yakutsk along the Lena River to the Arctic Ocean on a sailing ship under the leadership of the commander Vitus Bering in the summer of 1735. Contrary to the imperial prohibition, incredible trials and deadly danger lying ahead of all the members of this expedition, a young girl enamored with one of the characters got onto this ship. However, neither storms or severe northern frosts and hunger were able to stop them, since fulfilling of their duty, reaching of the most northeastern point of Eurasia and putting of the vast Arctic territories on the world maps were their main purpose in life.]]></description>
-        <pictures><![CDATA[/ecHD0rmx8l4eZVSISLJVAgAaODU.jpg]]></pictures>
-        <poster><![CDATA[/scSLVsmQdD6kVFYskp84gYLpX5M.jpg]]></poster>
-        <search><![CDATA[The First]]></search>
+        <description><![CDATA[Life flows peacefully in Vinci: Leonardo is struggling with his incredible inventions, Lorenzo helps him and Gioconda observes them mockingly. When A mysterious storyteller comes to town and speaks of a hidden treasure, an adventure begins.]]></description>
+        <pictures><![CDATA[/2WRw3L92LC02AZaEQnQ0M8j4U7Z.jpg]]></pictures>
+        <poster><![CDATA[/2W21rhFdreRrgUIaCvzTbZ1gJ9a.jpg]]></poster>
+        <search><![CDATA[Leo Da Vinci: Mission Mona Lisa]]></search>
         <year><![CDATA[2018]]></year>
-        <country><![CDATA[USA]]></country>
-        <director><![CDATA[Denise Gamze Ergüven,Agnieszka Holland,Ariel Kleiman]]></director>
-        <genre><![CDATA[fantastic,drama]]></genre>
-        <actor><![CDATA[Sean Penn,Natasha McElhoun,Lisa Gay Hamilton,Hannah Ware,Keiko Agena]]></actor>
+        <country><![CDATA[Italy]]></country>
+        <director><![CDATA[Sergio Manfio]]></director>
+        <genre><![CDATA[cartoon,adventure,family]]></genre>
+        <actor><![CDATA[Alex Polidori,Emanuela Ionika,Gabriel Patriarch,Arianna Vignoli,Giulio Bartolomei]]></actor>
         <player><![CDATA[]]></player>
         <translate><![CDATA[]]></translate>
         <quality><![CDATA[]]></quality>
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="996225">
-        <kp_id><![CDATA[996225]]></kp_id>
-        <query_id><![CDATA[996225]]></query_id>
+    <sphinx:document id="1114060">
+        <kp_id><![CDATA[1114060]]></kp_id>
+        <query_id><![CDATA[1114060]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[62]]></kp_rating>
-        <kp_vote><![CDATA[269]]></kp_vote>
+        <kp_rating><![CDATA[70]]></kp_rating>
+        <kp_vote><![CDATA[220]]></kp_vote>
         <imdb_rating><![CDATA[72]]></imdb_rating>
-        <imdb_vote><![CDATA[7958]]></imdb_vote>
-        <premiere><![CDATA[737294.875]]></premiere>
+        <imdb_vote><![CDATA[393]]></imdb_vote>
+        <premiere><![CDATA[737319.875]]></premiere>
         <type><![CDATA[1]]></type>
         <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Ghoul]]></title_en>
+        <title_en><![CDATA[Sorry for Your Loss]]></title_en>
         <title_page><![CDATA[]]></title_page>
         <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[In the tradition of Stephen King's Stand by Me, Chiller's original film Ghoul – based on the celebrated novel by author Brian Keene — tells the story of three damaged children who set out to find who, or what, is behind a rash of local disapperances. Staring Modern Family‘s Nolan Gould, the film explores the darkness that hides behind small town life. It is the summer of 1984 when a teenage couple goes missing among the gravestones of the local cemetery. Twelve-year-old Timmy and his best friends, Barry and Doug, have grown up hearing stories about a sinister Ghoul that haunts the cemetery. Eventually, they begin to wonder if the horrific legend might actually be real. Timmy and his friends are forced to put their friendship to the ultimate test when they dig up long-buried secrets, facing their personal demons and the one hiding underground.]]></description>
-        <pictures><![CDATA[/9NuX6k2y4iAIxtggIlU4xlnyiFg.jpg]]></pictures>
-        <poster><![CDATA[/zB339nGmT5AJPITB14qlgXEK4UR.jpg]]></poster>
-        <search><![CDATA[Ghoul]]></search>
-        <year><![CDATA[2018]]></year>
-        <country><![CDATA[India]]></country>
-        <director><![CDATA[Patrick Graham]]></director>
-        <genre><![CDATA[horrors,thriller]]></genre>
-        <actor><![CDATA[Manav Kaul,Radhika Apte,Rohit Pathak,Ratnabali Bhattacharjee,Sunil Sony]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
-    <sphinx:document id="1047399">
-        <kp_id><![CDATA[1047399]]></kp_id>
-        <query_id><![CDATA[1047399]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[61]]></kp_rating>
-        <kp_vote><![CDATA[160]]></kp_vote>
-        <imdb_rating><![CDATA[65]]></imdb_rating>
-        <imdb_vote><![CDATA[877]]></imdb_vote>
-        <premiere><![CDATA[737125.875]]></premiere>
-        <type><![CDATA[1]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[The Oath]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[In a politically divided America, a man struggles to make it through the Thanksgiving holiday without destroying his family.]]></description>
-        <pictures><![CDATA[/ibNQu25Rz1fZuw6WHm4StII2TkR.jpg]]></pictures>
-        <poster><![CDATA[/vUjHH1jzl1WLhaet3SNgtw2IsAN.jpg]]></poster>
-        <search><![CDATA[The Oath]]></search>
+        <description><![CDATA[When a new dad (Justin Bartha) has to return home to bury his estranged father, things take a turn for the complicated when the dead man's final wish is to have his ashes scattered on the field of his favorite professional sports team.]]></description>
+        <pictures><![CDATA[/ceLl5Cf8DOPcT8J9PNsICvHo1P2.jpg]]></pictures>
+        <poster><![CDATA[/qnzov4Gn2YU97GxwOtk2Qk7LFa4.jpg]]></poster>
+        <search><![CDATA[Sorry for Your Loss]]></search>
         <year><![CDATA[2018]]></year>
         <country><![CDATA[USA]]></country>
-        <director><![CDATA[Jeff T. Thomas,Luis Prieto]]></director>
-        <genre><![CDATA[drama,crime]]></genre>
-        <actor><![CDATA[Ryan Kwanten,Corey Hardrict,Katrina Loh,Sean Bean,Arlene Escarpeta]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
-    <sphinx:document id="1111817">
-        <kp_id><![CDATA[1111817]]></kp_id>
-        <query_id><![CDATA[1111817]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[0]]></kp_rating>
-        <kp_vote><![CDATA[0]]></kp_vote>
-        <imdb_rating><![CDATA[86]]></imdb_rating>
-        <imdb_vote><![CDATA[6545]]></imdb_vote>
-        <premiere><![CDATA[737084.875]]></premiere>
-        <type><![CDATA[1]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Breathe]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[Based on the true story of Robin, a handsome, brilliant and adventurous man whose life takes a dramatic turn when polio leaves him paralyzed.]]></description>
-        <pictures><![CDATA[/wwJxTdsnOgyxGQxeRpGH5SeXqzC.jpg]]></pictures>
-        <poster><![CDATA[/wLu2N0QVfSpk10RJ17HLHyRUmww.jpg]]></poster>
-        <search><![CDATA[Breathe]]></search>
-        <year><![CDATA[2018]]></year>
-        <country><![CDATA[India]]></country>
-        <director><![CDATA[Mayank Sharma]]></director>
-        <genre><![CDATA[drama,thriller]]></genre>
-        <actor><![CDATA[Madhavan,Amit Sadh,Sapna Pabbi,Shriswara,Atharva Vishwakarma]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
-    <sphinx:document id="395052">
-        <kp_id><![CDATA[395052]]></kp_id>
-        <query_id><![CDATA[395052]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[0]]></kp_rating>
-        <kp_vote><![CDATA[0]]></kp_vote>
-        <imdb_rating><![CDATA[0]]></imdb_rating>
-        <imdb_vote><![CDATA[0]]></imdb_vote>
-        <premiere><![CDATA[NaN]]></premiere>
-        <type><![CDATA[1]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[The Passage]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[A man escapes again and again as he's pursued by pagan cultists in this sprawling episode of sublime and humanist surrealism produced as a pilot for Adult Swim.]]></description>
-        <pictures><![CDATA[3232513,3232512,3232511]]></pictures>
-        <poster><![CDATA[/hkw2B1WDxr6Vqu5sWml1d4d4e4j.jpg]]></poster>
-        <search><![CDATA[The Passage]]></search>
-        <year><![CDATA[2018]]></year>
-        <country><![CDATA[USA]]></country>
-        <director><![CDATA[Jason Ensler,Marcos Shiga]]></director>
-        <genre><![CDATA[horrors,fantasy,action,drama,adventure]]></genre>
-        <actor><![CDATA[Brianna Howie,Karen Valero,Zack Appelman,Tyler Barnhardt,McKinley Belcher III]]></actor>
+        <director><![CDATA[James Ponsoldt,Allison Anders,Jamie Babbitt]]></director>
+        <genre><![CDATA[drama]]></genre>
+        <actor><![CDATA[Elizabeth Olsen,Kelly Marie Tran,Jovan Adepo,Mamoudu Ati,Janet Mctir]]></actor>
         <player><![CDATA[]]></player>
         <translate><![CDATA[]]></translate>
         <quality><![CDATA[]]></quality>
@@ -3338,7 +2978,7 @@
         <kp_rating><![CDATA[0]]></kp_rating>
         <kp_vote><![CDATA[0]]></kp_vote>
         <imdb_rating><![CDATA[53]]></imdb_rating>
-        <imdb_vote><![CDATA[223]]></imdb_vote>
+        <imdb_vote><![CDATA[226]]></imdb_vote>
         <premiere><![CDATA[737182.875]]></premiere>
         <type><![CDATA[1]]></type>
         <title_ru><![CDATA[]]></title_ru>
@@ -3360,193 +3000,13 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="1021242">
-        <kp_id><![CDATA[1021242]]></kp_id>
-        <query_id><![CDATA[1021242]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[0]]></kp_rating>
-        <kp_vote><![CDATA[0]]></kp_vote>
-        <imdb_rating><![CDATA[61]]></imdb_rating>
-        <imdb_vote><![CDATA[1970]]></imdb_vote>
-        <premiere><![CDATA[737125.875]]></premiere>
-        <type><![CDATA[1]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Champions]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[A disgraced basketball coach is given the chance to coach Los Amigos, a team of players who are intellectually disabled, and soon realizes they just might have what it takes to make it to the national championships.]]></description>
-        <pictures><![CDATA[/5y2OhuVJFtWXAuTetMCEw9LUR2e.jpg]]></pictures>
-        <poster><![CDATA[/m5z4Ud6Ya5EY3Eg3OBbVBaDKWK.jpg]]></poster>
-        <search><![CDATA[Champions]]></search>
-        <year><![CDATA[2018]]></year>
-        <country><![CDATA[USA]]></country>
-        <director><![CDATA[Michael Alan Spiller,Gita Patel,Maggie Carey]]></director>
-        <genre><![CDATA[comedy]]></genre>
-        <actor><![CDATA[Anders Holm,Fortune Feymster,Andy Favreau,Josie Tota,Muzam McCar]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
-    <sphinx:document id="1112899">
-        <kp_id><![CDATA[1112899]]></kp_id>
-        <query_id><![CDATA[1112899]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[0]]></kp_rating>
-        <kp_vote><![CDATA[0]]></kp_vote>
-        <imdb_rating><![CDATA[63]]></imdb_rating>
-        <imdb_vote><![CDATA[385]]></imdb_vote>
-        <premiere><![CDATA[737115.875]]></premiere>
-        <type><![CDATA[1]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Caught]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[While on an afternoon walk with their children, two small town reporters notice the military camped on a hilltop. Debating the possible significance of this activity, they answer their door when two unusual strangers come knocking and find themselves held hostage in their own home.]]></description>
-        <pictures><![CDATA[/8UVYvYj1REUzsq3RPuxZgtCDWQw.jpg]]></pictures>
-        <poster><![CDATA[/zuYZgiuiy4JUdOX1jyrtqE4guIR.jpg]]></poster>
-        <search><![CDATA[Caught]]></search>
-        <year><![CDATA[2018]]></year>
-        <country><![CDATA[Canada]]></country>
-        <director><![CDATA[T.J. Scott,John Watcher]]></director>
-        <genre><![CDATA[drama]]></genre>
-        <actor><![CDATA[Allan Hawke,Paul Gross,Eric Johnson,Victoria Anderson,Enuka Okuma]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
-    <sphinx:document id="1112417">
-        <kp_id><![CDATA[1112417]]></kp_id>
-        <query_id><![CDATA[1112417]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[0]]></kp_rating>
-        <kp_vote><![CDATA[0]]></kp_vote>
-        <imdb_rating><![CDATA[82]]></imdb_rating>
-        <imdb_vote><![CDATA[3642]]></imdb_vote>
-        <premiere><![CDATA[737084.875]]></premiere>
-        <type><![CDATA[1]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Dirty Money]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[As addictions and murky loyalties swirl around them, three women desperate to escape their surroundings rob a group of drug dealers and find themselves fighting through a night that will change their lives forever.]]></description>
-        <pictures><![CDATA[]]></pictures>
-        <poster><![CDATA[/erEvymC3QN93gAMrz2OeEEcp7I3.jpg]]></poster>
-        <search><![CDATA[Dirty Money]]></search>
-        <year><![CDATA[2018]]></year>
-        <country><![CDATA[USA]]></country>
-        <director><![CDATA[Erin Lee Carr,Alex Gibney,Christie Jacobson]]></director>
-        <genre><![CDATA[documentary]]></genre>
-        <actor><![CDATA[Alberto Ayala,A.J. Benza,Roddy Boyd,Jonathan Brown,Hillary Clinton]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
-    <sphinx:document id="1117576">
-        <kp_id><![CDATA[1117576]]></kp_id>
-        <query_id><![CDATA[1117576]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[0]]></kp_rating>
-        <kp_vote><![CDATA[0]]></kp_vote>
-        <imdb_rating><![CDATA[69]]></imdb_rating>
-        <imdb_vote><![CDATA[154]]></imdb_vote>
-        <premiere><![CDATA[737347.875]]></premiere>
-        <type><![CDATA[1]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[The Kids Are Alright]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[short film directed by Cara Stricker for Chloe x Halle]]></description>
-        <pictures><![CDATA[]]></pictures>
-        <poster><![CDATA[/f6iAGQgDXWHgC0KNBNYXVPW3DkK.jpg]]></poster>
-        <search><![CDATA[The Kids Are Alright]]></search>
-        <year><![CDATA[2018]]></year>
-        <country><![CDATA[USA]]></country>
-        <director><![CDATA[Randall Einhorn,Matthew Son]]></director>
-        <genre><![CDATA[comedy]]></genre>
-        <actor><![CDATA[Kennedy Lia Slokam,Thomas Barbaska,Santino Barnard,Sawyer Barth,Michael Kudlitz]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
-    <sphinx:document id="1112802">
-        <kp_id><![CDATA[1112802]]></kp_id>
-        <query_id><![CDATA[1112802]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[0]]></kp_rating>
-        <kp_vote><![CDATA[0]]></kp_vote>
-        <imdb_rating><![CDATA[45]]></imdb_rating>
-        <imdb_vote><![CDATA[148]]></imdb_vote>
-        <premiere><![CDATA[NaN]]></premiere>
-        <type><![CDATA[1]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Marvel Rising: Secret Warriors]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[When a threat no one could have expected bears down on the Marvel Universe, this ragtag, untrained band of teens have no choice but to rise together and prove to the world that sometimes the difference between a «hero» and «misfit» is just in the name.]]></description>
-        <pictures><![CDATA[/95AKEQdhAF7YlH6XJSOFaqNTW0J.jpg]]></pictures>
-        <poster><![CDATA[/rXmc4jvDBU04Wp8r5JMWy3HbhB3.jpg]]></poster>
-        <search><![CDATA[Marvel Rising: Secret Warriors]]></search>
-        <year><![CDATA[2018]]></year>
-        <country><![CDATA[USA]]></country>
-        <director><![CDATA[Alfred Gimeno]]></director>
-        <genre><![CDATA[cartoon,fantastic,fantasy,action,comedy]]></genre>
-        <actor><![CDATA[Dee Bradley Baker,Chloe Bennett,Dove Cameron,Sky Jackson,Catherine Hawary]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
-    <sphinx:document id="1112035">
-        <kp_id><![CDATA[1112035]]></kp_id>
-        <query_id><![CDATA[1112035]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[0]]></kp_rating>
-        <kp_vote><![CDATA[0]]></kp_vote>
-        <imdb_rating><![CDATA[57]]></imdb_rating>
-        <imdb_vote><![CDATA[1085]]></imdb_vote>
-        <premiere><![CDATA[737101.875]]></premiere>
-        <type><![CDATA[1]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Trauma]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[After saving lives on the battlefields of Afghanistan, the members of a medevac unit return home to their families, each wounded in different ways.]]></description>
-        <pictures><![CDATA[]]></pictures>
-        <poster><![CDATA[/94NDB3J8ZvGermES0VwVAvU2WUM.jpg]]></poster>
-        <search><![CDATA[Trauma]]></search>
-        <year><![CDATA[2018]]></year>
-        <country><![CDATA[United Kingdom]]></country>
-        <director><![CDATA[Mark Evans]]></director>
-        <genre><![CDATA[thriller,drama,detective]]></genre>
-        <actor><![CDATA[Adrian Leicester,John Simm,Lindsay Marshall,Jemima Ruper,Jade Anouka]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
     <sphinx:document id="447301">
         <kp_id><![CDATA[447301]]></kp_id>
         <query_id><![CDATA[447301]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[86]]></kp_rating>
-        <kp_vote><![CDATA[503183]]></kp_vote>
+        <kp_vote><![CDATA[504045]]></kp_vote>
         <imdb_rating><![CDATA[88]]></imdb_rating>
         <imdb_vote><![CDATA[1705324]]></imdb_vote>
         <premiere><![CDATA[734325.8333333334]]></premiere>
@@ -3576,7 +3036,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[91]]></kp_rating>
-        <kp_vote><![CDATA[479176]]></kp_vote>
+        <kp_vote><![CDATA[480107]]></kp_vote>
         <imdb_rating><![CDATA[93]]></imdb_rating>
         <imdb_vote><![CDATA[1983399]]></imdb_vote>
         <premiere><![CDATA[728545.8333333334]]></premiere>
@@ -3606,7 +3066,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[90]]></kp_rating>
-        <kp_vote><![CDATA[448709]]></kp_vote>
+        <kp_vote><![CDATA[449675]]></kp_vote>
         <imdb_rating><![CDATA[85]]></imdb_rating>
         <imdb_vote><![CDATA[933982]]></imdb_vote>
         <premiere><![CDATA[730458.875]]></premiere>
@@ -3660,43 +3120,13 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="361">
-        <kp_id><![CDATA[361]]></kp_id>
-        <query_id><![CDATA[361]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[86]]></kp_rating>
-        <kp_vote><![CDATA[428191]]></kp_vote>
-        <imdb_rating><![CDATA[88]]></imdb_rating>
-        <imdb_vote><![CDATA[1599499]]></imdb_vote>
-        <premiere><![CDATA[730371.8333333334]]></premiere>
-        <type><![CDATA[0]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Fight Club]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground «fight clubs» forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.]]></description>
-        <pictures><![CDATA[/87hTDiay2N2qWyX4Ds7ybXi9h8I.jpg]]></pictures>
-        <poster><![CDATA[/adw6Lq9FiC9zjYEpOqfq03ituwp.jpg]]></poster>
-        <search><![CDATA[Fight Club]]></search>
-        <year><![CDATA[1999]]></year>
-        <country><![CDATA[USA,Germany]]></country>
-        <director><![CDATA[David Fincher]]></director>
-        <genre><![CDATA[thriller,drama,crime]]></genre>
-        <actor><![CDATA[Edward Norton,Brad Pitt,Helena Bonham Carter,Mit Loaf,Zack Grenier]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
     <sphinx:document id="258687">
         <kp_id><![CDATA[258687]]></kp_id>
         <query_id><![CDATA[258687]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[85]]></kp_rating>
-        <kp_vote><![CDATA[391819]]></kp_vote>
+        <kp_vote><![CDATA[392726]]></kp_vote>
         <imdb_rating><![CDATA[86]]></imdb_rating>
         <imdb_vote><![CDATA[1164791]]></imdb_vote>
         <premiere><![CDATA[735896.875]]></premiere>
@@ -3726,7 +3156,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[85]]></kp_rating>
-        <kp_vote><![CDATA[385070]]></kp_vote>
+        <kp_vote><![CDATA[385767]]></kp_vote>
         <imdb_rating><![CDATA[85]]></imdb_rating>
         <imdb_vote><![CDATA[958724]]></imdb_vote>
         <premiere><![CDATA[732965.8333333334]]></premiere>
@@ -3756,7 +3186,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[83]]></kp_rating>
-        <kp_vote><![CDATA[379249]]></kp_vote>
+        <kp_vote><![CDATA[379988]]></kp_vote>
         <imdb_rating><![CDATA[78]]></imdb_rating>
         <imdb_vote><![CDATA[890074]]></imdb_vote>
         <premiere><![CDATA[729693.875]]></premiere>
@@ -3780,30 +3210,30 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="389">
-        <kp_id><![CDATA[389]]></kp_id>
-        <query_id><![CDATA[389]]></query_id>
+    <sphinx:document id="397667">
+        <kp_id><![CDATA[397667]]></kp_id>
+        <query_id><![CDATA[397667]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[86]]></kp_rating>
-        <kp_vote><![CDATA[367537]]></kp_vote>
-        <imdb_rating><![CDATA[86]]></imdb_rating>
-        <imdb_vote><![CDATA[873748]]></imdb_vote>
-        <premiere><![CDATA[728549.8333333334]]></premiere>
+        <kp_rating><![CDATA[84]]></kp_rating>
+        <kp_vote><![CDATA[379740]]></kp_vote>
+        <imdb_rating><![CDATA[81]]></imdb_rating>
+        <imdb_vote><![CDATA[956451]]></imdb_vote>
+        <premiere><![CDATA[734180.875]]></premiere>
         <type><![CDATA[0]]></type>
         <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Léon]]></title_en>
+        <title_en><![CDATA[Shutter Island]]></title_en>
         <title_page><![CDATA[]]></title_page>
         <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[Leon, the top hit man in New York, has earned a rep as an effective 'cleaner'. But when his next-door neighbors are wiped out by a loose-cannon DEA agent, he becomes the unwilling custodian of 12-year-old Mathilda. Before long, Mathilda's thoughts turn to revenge, and she considers following in Leon's footsteps.]]></description>
-        <pictures><![CDATA[/mGN0lH2phYfesyEVqP2xvGUaxAQ.jpg]]></pictures>
-        <poster><![CDATA[/gE8S02QUOhVnAmYu4tcrBlMTujz.jpg]]></poster>
-        <search><![CDATA[Léon]]></search>
-        <year><![CDATA[1994]]></year>
-        <country><![CDATA[France]]></country>
-        <director><![CDATA[Luc Besson]]></director>
-        <genre><![CDATA[thriller,drama,crime]]></genre>
-        <actor><![CDATA[Jean Reno,Gary Oldman,Natalie Portman,Danny Ayello,Peter Epel]]></actor>
+        <description><![CDATA[World War II soldier-turned-U.S. Marshal Teddy Daniels investigates the disappearance of a patient from a hospital for the criminally insane, but his efforts are compromised by his troubling visions and also by a mysterious doctor.]]></description>
+        <pictures><![CDATA[/bcb3FYtLbuPgNYO4M1IY7rfeMal.jpg]]></pictures>
+        <poster><![CDATA[/aZqKsvpJDFy2UzUMsdskNFbfkOd.jpg]]></poster>
+        <search><![CDATA[Shutter Island]]></search>
+        <year><![CDATA[2009]]></year>
+        <country><![CDATA[USA]]></country>
+        <director><![CDATA[Martin Scorsese]]></director>
+        <genre><![CDATA[thriller,detective,drama]]></genre>
+        <actor><![CDATA[Leonardo DiCaprio,Mark Ruffalo,Ben Kingsley,Max Von Sydow,Michelle Williams]]></actor>
         <player><![CDATA[]]></player>
         <translate><![CDATA[]]></translate>
         <quality><![CDATA[]]></quality>
@@ -3816,7 +3246,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[79]]></kp_rating>
-        <kp_vote><![CDATA[355868]]></kp_vote>
+        <kp_vote><![CDATA[356534]]></kp_vote>
         <imdb_rating><![CDATA[78]]></imdb_rating>
         <imdb_vote><![CDATA[985107]]></imdb_vote>
         <premiere><![CDATA[734115.875]]></premiere>
@@ -3846,9 +3276,9 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[85]]></kp_rating>
-        <kp_vote><![CDATA[349337]]></kp_vote>
+        <kp_vote><![CDATA[350018]]></kp_vote>
         <imdb_rating><![CDATA[90]]></imdb_rating>
-        <imdb_vote><![CDATA[1913359]]></imdb_vote>
+        <imdb_vote><![CDATA[1972112]]></imdb_vote>
         <premiere><![CDATA[733601.8333333334]]></premiere>
         <type><![CDATA[0]]></type>
         <title_ru><![CDATA[]]></title_ru>
@@ -3876,7 +3306,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[83]]></kp_rating>
-        <kp_vote><![CDATA[342368]]></kp_vote>
+        <kp_vote><![CDATA[343021]]></kp_vote>
         <imdb_rating><![CDATA[80]]></imdb_rating>
         <imdb_vote><![CDATA[918601]]></imdb_vote>
         <premiere><![CDATA[731758.8333333334]]></premiere>
@@ -3906,7 +3336,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[84]]></kp_rating>
-        <kp_vote><![CDATA[338642]]></kp_vote>
+        <kp_vote><![CDATA[339382]]></kp_vote>
         <imdb_rating><![CDATA[87]]></imdb_rating>
         <imdb_vote><![CDATA[1408026]]></imdb_vote>
         <premiere><![CDATA[730201.875]]></premiere>
@@ -3936,7 +3366,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[86]]></kp_rating>
-        <kp_vote><![CDATA[320027]]></kp_vote>
+        <kp_vote><![CDATA[320704]]></kp_vote>
         <imdb_rating><![CDATA[89]]></imdb_rating>
         <imdb_vote><![CDATA[1390570]]></imdb_vote>
         <premiere><![CDATA[731914.875]]></premiere>
@@ -3966,7 +3396,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[85]]></kp_rating>
-        <kp_vote><![CDATA[318528]]></kp_vote>
+        <kp_vote><![CDATA[319117]]></kp_vote>
         <imdb_rating><![CDATA[82]]></imdb_rating>
         <imdb_vote><![CDATA[737508]]></imdb_vote>
         <premiere><![CDATA[731196.875]]></premiere>
@@ -3990,30 +3420,30 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="2360">
-        <kp_id><![CDATA[2360]]></kp_id>
-        <query_id><![CDATA[2360]]></query_id>
+    <sphinx:document id="324">
+        <kp_id><![CDATA[324]]></kp_id>
+        <query_id><![CDATA[324]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[87]]></kp_rating>
-        <kp_vote><![CDATA[312557]]></kp_vote>
-        <imdb_rating><![CDATA[85]]></imdb_rating>
-        <imdb_vote><![CDATA[771968]]></imdb_vote>
-        <premiere><![CDATA[728325.875]]></premiere>
-        <type><![CDATA[4]]></type>
+        <kp_rating><![CDATA[85]]></kp_rating>
+        <kp_vote><![CDATA[311408]]></kp_vote>
+        <imdb_rating><![CDATA[81]]></imdb_rating>
+        <imdb_vote><![CDATA[667943]]></imdb_vote>
+        <premiere><![CDATA[731564.875]]></premiere>
+        <type><![CDATA[0]]></type>
         <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[The Lion King]]></title_en>
+        <title_en><![CDATA[Catch Me If You Can]]></title_en>
         <title_page><![CDATA[]]></title_page>
         <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[A young lion cub named Simba can't wait to be king. But his uncle craves the title for himself and will stop at nothing to get it.]]></description>
-        <pictures><![CDATA[/6lL49SOgBtqiXMs7Y5HWBYH3X9Z.jpg]]></pictures>
-        <poster><![CDATA[/bKPtXn9n4M4s8vvZrbw40mYsefB.jpg]]></poster>
-        <search><![CDATA[The Lion King]]></search>
-        <year><![CDATA[1994]]></year>
-        <country><![CDATA[USA]]></country>
-        <director><![CDATA[Roger Allers,Rob Minkoff]]></director>
-        <genre><![CDATA[cartoon,musical,drama,adventure,family]]></genre>
-        <actor><![CDATA[Matthew Broderick,Jeremy Irons,Nathan Lane,Ernie Sabella,James Earl Jones]]></actor>
+        <description><![CDATA[A true story about Frank Abagnale Jr. who, before his 19th birthday, successfully conned millions of dollars worth of checks as a Pan Am pilot, doctor, and legal prosecutor. An FBI agent makes it his mission to put him behind bars. But Frank not only eludes capture, he revels in the pursuit.]]></description>
+        <pictures><![CDATA[/ei0BdAPDALPp21OEZqknG43WOmO.jpg]]></pictures>
+        <poster><![CDATA[/MywWCQGJNUr5kivAQ7eseCG7rm.jpg]]></poster>
+        <search><![CDATA[Catch Me If You Can]]></search>
+        <year><![CDATA[2002]]></year>
+        <country><![CDATA[USA,Canada]]></country>
+        <director><![CDATA[Steven Spielberg]]></director>
+        <genre><![CDATA[drama,crime,biography]]></genre>
+        <actor><![CDATA[Leonardo DiCaprio,Tom Hanks,Christopher Walken,Martin Sheen,Natalie Bai]]></actor>
         <player><![CDATA[]]></player>
         <translate><![CDATA[]]></translate>
         <quality><![CDATA[]]></quality>
@@ -4050,30 +3480,30 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="324">
-        <kp_id><![CDATA[324]]></kp_id>
-        <query_id><![CDATA[324]]></query_id>
+    <sphinx:document id="5167">
+        <kp_id><![CDATA[5167]]></kp_id>
+        <query_id><![CDATA[5167]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[85]]></kp_rating>
-        <kp_vote><![CDATA[310663]]></kp_vote>
-        <imdb_rating><![CDATA[81]]></imdb_rating>
-        <imdb_vote><![CDATA[667943]]></imdb_vote>
-        <premiere><![CDATA[731564.875]]></premiere>
+        <kp_rating><![CDATA[81]]></kp_rating>
+        <kp_vote><![CDATA[306768]]></kp_vote>
+        <imdb_rating><![CDATA[77]]></imdb_rating>
+        <imdb_vote><![CDATA[399205]]></imdb_vote>
+        <premiere><![CDATA[731961.875]]></premiere>
         <type><![CDATA[0]]></type>
         <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Catch Me If You Can]]></title_en>
+        <title_en><![CDATA[The Butterfly Effect]]></title_en>
         <title_page><![CDATA[]]></title_page>
         <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[A true story about Frank Abagnale Jr. who, before his 19th birthday, successfully conned millions of dollars worth of checks as a Pan Am pilot, doctor, and legal prosecutor. An FBI agent makes it his mission to put him behind bars. But Frank not only eludes capture, he revels in the pursuit.]]></description>
-        <pictures><![CDATA[/ei0BdAPDALPp21OEZqknG43WOmO.jpg]]></pictures>
-        <poster><![CDATA[/MywWCQGJNUr5kivAQ7eseCG7rm.jpg]]></poster>
-        <search><![CDATA[Catch Me If You Can]]></search>
-        <year><![CDATA[2002]]></year>
+        <description><![CDATA[A young man struggles to access sublimated childhood memories. He finds a technique that allows him to travel back into the past, to occupy his childhood body and change history. However, he soon finds that every change he makes has unexpected consequences.]]></description>
+        <pictures><![CDATA[/zXTUrm0BIrrZn3nEhybg0hlY275.jpg]]></pictures>
+        <poster><![CDATA[/3PAQy3CyNNJPES772OFMx47lFEE.jpg]]></poster>
+        <search><![CDATA[The Butterfly Effect]]></search>
+        <year><![CDATA[2003]]></year>
         <country><![CDATA[USA,Canada]]></country>
-        <director><![CDATA[Steven Spielberg]]></director>
-        <genre><![CDATA[drama,crime,biography]]></genre>
-        <actor><![CDATA[Leonardo DiCaprio,Tom Hanks,Christopher Walken,Martin Sheen,Natalie Bai]]></actor>
+        <director><![CDATA[Eric Bresse,J. McKee Gruber]]></director>
+        <genre><![CDATA[fantastic,thriller]]></genre>
+        <actor><![CDATA[Ashton Kutcher,Amy Smart,Elden Henson,William Lee Scott,John Patrick Amedori]]></actor>
         <player><![CDATA[]]></player>
         <translate><![CDATA[]]></translate>
         <quality><![CDATA[]]></quality>
@@ -4086,7 +3516,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[83]]></kp_rating>
-        <kp_vote><![CDATA[297500]]></kp_vote>
+        <kp_vote><![CDATA[298042]]></kp_vote>
         <imdb_rating><![CDATA[84]]></imdb_rating>
         <imdb_vote><![CDATA[846430]]></imdb_vote>
         <premiere><![CDATA[733578.8333333334]]></premiere>
@@ -4116,7 +3546,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[85]]></kp_rating>
-        <kp_vote><![CDATA[295053]]></kp_vote>
+        <kp_vote><![CDATA[295682]]></kp_vote>
         <imdb_rating><![CDATA[87]]></imdb_rating>
         <imdb_vote><![CDATA[1258012]]></imdb_vote>
         <premiere><![CDATA[731553.875]]></premiere>
@@ -4146,7 +3576,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[85]]></kp_rating>
-        <kp_vote><![CDATA[294698]]></kp_vote>
+        <kp_vote><![CDATA[295315]]></kp_vote>
         <imdb_rating><![CDATA[85]]></imdb_rating>
         <imdb_vote><![CDATA[1138526]]></imdb_vote>
         <premiere><![CDATA[730605.8333333334]]></premiere>
@@ -4176,7 +3606,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[84]]></kp_rating>
-        <kp_vote><![CDATA[290595]]></kp_vote>
+        <kp_vote><![CDATA[291165]]></kp_vote>
         <imdb_rating><![CDATA[85]]></imdb_rating>
         <imdb_vote><![CDATA[1008976]]></imdb_vote>
         <premiere><![CDATA[732944.8333333334]]></premiere>
@@ -4206,7 +3636,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[80]]></kp_rating>
-        <kp_vote><![CDATA[284354]]></kp_vote>
+        <kp_vote><![CDATA[284866]]></kp_vote>
         <imdb_rating><![CDATA[78]]></imdb_rating>
         <imdb_vote><![CDATA[513707]]></imdb_vote>
         <premiere><![CDATA[733750.875]]></premiere>
@@ -4230,13 +3660,43 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
+    <sphinx:document id="387556">
+        <kp_id><![CDATA[387556]]></kp_id>
+        <query_id><![CDATA[387556]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[83]]></kp_rating>
+        <kp_vote><![CDATA[276375]]></kp_vote>
+        <imdb_rating><![CDATA[81]]></imdb_rating>
+        <imdb_vote><![CDATA[206353]]></imdb_vote>
+        <premiere><![CDATA[733935.8333333334]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[Hachi: A Dog's Tale]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[A drama based on the true story of a college professor's bond with the abandoned dog he takes into his home.]]></description>
+        <pictures><![CDATA[/m87xptCZD6J15HcioOOX4kfEdeD.jpg]]></pictures>
+        <poster><![CDATA[/3MpVmIg6CgOCUrZ2TZ2P0yitCbM.jpg]]></poster>
+        <search><![CDATA[Hachi: A Dog's Tale]]></search>
+        <year><![CDATA[2008]]></year>
+        <country><![CDATA[United Kingdom,USA]]></country>
+        <director><![CDATA[Lasse Hallstrom]]></director>
+        <genre><![CDATA[drama,family]]></genre>
+        <actor><![CDATA[Richard Gere,Joanne Allen,Carey-Hiroyuki Tagawa,Sarah Roemer,Jason Alexander]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
     <sphinx:document id="377">
         <kp_id><![CDATA[377]]></kp_id>
         <query_id><![CDATA[377]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[82]]></kp_rating>
-        <kp_vote><![CDATA[272761]]></kp_vote>
+        <kp_vote><![CDATA[273368]]></kp_vote>
         <imdb_rating><![CDATA[86]]></imdb_rating>
         <imdb_vote><![CDATA[1210554]]></imdb_vote>
         <premiere><![CDATA[728915.8333333334]]></premiere>
@@ -4266,7 +3726,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[80]]></kp_rating>
-        <kp_vote><![CDATA[270834]]></kp_vote>
+        <kp_vote><![CDATA[271338]]></kp_vote>
         <imdb_rating><![CDATA[73]]></imdb_rating>
         <imdb_vote><![CDATA[585499]]></imdb_vote>
         <premiere><![CDATA[732850.8333333334]]></premiere>
@@ -4296,7 +3756,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[81]]></kp_rating>
-        <kp_vote><![CDATA[267616]]></kp_vote>
+        <kp_vote><![CDATA[268203]]></kp_vote>
         <imdb_rating><![CDATA[84]]></imdb_rating>
         <imdb_vote><![CDATA[1291830]]></imdb_vote>
         <premiere><![CDATA[735064.875]]></premiere>
@@ -4320,43 +3780,13 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="526">
-        <kp_id><![CDATA[526]]></kp_id>
-        <query_id><![CDATA[526]]></query_id>
-        <rating><![CDATA[0]]></rating>
-        <vote><![CDATA[0]]></vote>
-        <kp_rating><![CDATA[85]]></kp_rating>
-        <kp_vote><![CDATA[264798]]></kp_vote>
-        <imdb_rating><![CDATA[83]]></imdb_rating>
-        <imdb_vote><![CDATA[688677]]></imdb_vote>
-        <premiere><![CDATA[730719.8333333334]]></premiere>
-        <type><![CDATA[0]]></type>
-        <title_ru><![CDATA[]]></title_ru>
-        <title_en><![CDATA[Snatch.]]></title_en>
-        <title_page><![CDATA[]]></title_page>
-        <description_short><![CDATA[]]></description_short>
-        <description><![CDATA[The second film from British director Guy Ritchie. Snatch tells an obscure story similar to his first fast-paced crazy character-colliding filled film “Lock, Stock and Two Smoking Barrels.” There are two overlapping stories here – one is the search for a stolen diamond, and the other about a boxing promoter who's having trouble with a psychotic gangster.]]></description>
-        <pictures><![CDATA[/cNLZ7YGRikb4IsLblrzu86ndZPw.jpg]]></pictures>
-        <poster><![CDATA[/on9JlbGEccLsYkjeEph2Whm1DIp.jpg]]></poster>
-        <search><![CDATA[Snatch.]]></search>
-        <year><![CDATA[2000]]></year>
-        <country><![CDATA[United Kingdom,USA]]></country>
-        <director><![CDATA[Guy Ritchie]]></director>
-        <genre><![CDATA[crime,comedy,action]]></genre>
-        <actor><![CDATA[Benicio Del Toro,Dennis Farina,Winnie Jones,Brad Pitt,Rade Sherbegia]]></actor>
-        <player><![CDATA[]]></player>
-        <translate><![CDATA[]]></translate>
-        <quality><![CDATA[]]></quality>
-        <custom><![CDATA[]]></custom>
-        <all_movies><![CDATA[_example_com_]]></all_movies>
-    </sphinx:document>
     <sphinx:document id="263531">
         <kp_id><![CDATA[263531]]></kp_id>
         <query_id><![CDATA[263531]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[78]]></kp_rating>
-        <kp_vote><![CDATA[258645]]></kp_vote>
+        <kp_vote><![CDATA[259067]]></kp_vote>
         <imdb_rating><![CDATA[81]]></imdb_rating>
         <imdb_vote><![CDATA[1107757]]></imdb_vote>
         <premiere><![CDATA[734968.875]]></premiere>
@@ -4386,7 +3816,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[83]]></kp_rating>
-        <kp_vote><![CDATA[257962]]></kp_vote>
+        <kp_vote><![CDATA[258452]]></kp_vote>
         <imdb_rating><![CDATA[85]]></imdb_rating>
         <imdb_vote><![CDATA[848394]]></imdb_vote>
         <premiere><![CDATA[727378.8333333334]]></premiere>
@@ -4416,7 +3846,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[80]]></kp_rating>
-        <kp_vote><![CDATA[257182]]></kp_vote>
+        <kp_vote><![CDATA[257604]]></kp_vote>
         <imdb_rating><![CDATA[79]]></imdb_rating>
         <imdb_vote><![CDATA[696099]]></imdb_vote>
         <premiere><![CDATA[735199.875]]></premiere>
@@ -4446,7 +3876,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[79]]></kp_rating>
-        <kp_vote><![CDATA[254176]]></kp_vote>
+        <kp_vote><![CDATA[254771]]></kp_vote>
         <imdb_rating><![CDATA[81]]></imdb_rating>
         <imdb_vote><![CDATA[708390]]></imdb_vote>
         <premiere><![CDATA[735866.875]]></premiere>
@@ -4476,7 +3906,7 @@
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[80]]></kp_rating>
-        <kp_vote><![CDATA[249579]]></kp_vote>
+        <kp_vote><![CDATA[250114]]></kp_vote>
         <imdb_rating><![CDATA[81]]></imdb_rating>
         <imdb_vote><![CDATA[645194]]></imdb_vote>
         <premiere><![CDATA[734689.875]]></premiere>
@@ -4494,6 +3924,576 @@
         <director><![CDATA[David Yeats]]></director>
         <genre><![CDATA[fantasy,drama,detective,adventure]]></genre>
         <actor><![CDATA[Daniel Radcliffe,Rupert Grint,Emma Watson,Helena Bonham Carter,Robbie Coltrane]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
+    <sphinx:document id="5492">
+        <kp_id><![CDATA[5492]]></kp_id>
+        <query_id><![CDATA[5492]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[80]]></kp_rating>
+        <kp_vote><![CDATA[249308]]></kp_vote>
+        <imdb_rating><![CDATA[83]]></imdb_rating>
+        <imdb_vote><![CDATA[791071]]></imdb_vote>
+        <premiere><![CDATA[732013.875]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[Eternal Sunshine of the Spotless Mind]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[Joel Barish, heartbroken that his girlfriend underwent a procedure to erase him from her memory, decides to do the same. However, as he watches his memories of her fade away, he realises that he still loves her, and may be too late to correct his mistake.]]></description>
+        <pictures><![CDATA[/kxRyIObPlSVIdpC5ZOa9aPhwDDh.jpg]]></pictures>
+        <poster><![CDATA[/7y3eYvTsGjxPYDtSnumCLIMDkrV.jpg]]></poster>
+        <search><![CDATA[Eternal Sunshine of the Spotless Mind]]></search>
+        <year><![CDATA[2004]]></year>
+        <country><![CDATA[USA]]></country>
+        <director><![CDATA[Michel Gondry]]></director>
+        <genre><![CDATA[melodrama,fantastic,drama]]></genre>
+        <actor><![CDATA[Jim Carrey,Kate Winslet,Jerry Robert Byrne,Elijah Wood,Thomas Jay Ryan]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
+    <sphinx:document id="345">
+        <kp_id><![CDATA[345]]></kp_id>
+        <query_id><![CDATA[345]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[83]]></kp_rating>
+        <kp_vote><![CDATA[246707]]></kp_vote>
+        <imdb_rating><![CDATA[86]]></imdb_rating>
+        <imdb_vote><![CDATA[1048168]]></imdb_vote>
+        <premiere><![CDATA[727226.875]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[The Silence of the Lambs]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[Clarice Starling is a top student at the FBI's training academy. Jack Crawford wants Clarice to interview Dr. Hannibal Lecter, a brilliant psychiatrist who is also a violent psychopath, serving life behind bars for various acts of murder and cannibalism. Crawford believes that Lecter may have insight into a case and that Starling, as an attractive young woman, may be just the bait to draw him out.]]></description>
+        <pictures><![CDATA[/pzmrKXQgL7GEZvigD6W1bUEzXJN.jpg]]></pictures>
+        <poster><![CDATA[/qjAyTj2BSth1EQ89vNfo0JYVPFN.jpg]]></poster>
+        <search><![CDATA[The Silence of the Lambs]]></search>
+        <year><![CDATA[1990]]></year>
+        <country><![CDATA[USA]]></country>
+        <director><![CDATA[Jonathan Demme]]></director>
+        <genre><![CDATA[thriller,crime,detective,drama,horrors]]></genre>
+        <actor><![CDATA[Jodie Foster,Anthony Hopkins,Brooke Smith,Scott Glenn,Ted Levine]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
+    <sphinx:document id="463724">
+        <kp_id><![CDATA[463724]]></kp_id>
+        <query_id><![CDATA[463724]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[79]]></kp_rating>
+        <kp_vote><![CDATA[245365]]></kp_vote>
+        <imdb_rating><![CDATA[73]]></imdb_rating>
+        <imdb_vote><![CDATA[413578]]></imdb_vote>
+        <premiere><![CDATA[735353.875]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[The Great Gatsby]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[An adaptation of F. Scott Fitzgerald's Long Island-set novel, where Midwesterner Nick Carraway is lured into the lavish world of his neighbor, Jay Gatsby. Soon enough, however, Carraway will see through the cracks of Gatsby's nouveau riche existence, where obsession, madness, and tragedy await.]]></description>
+        <pictures><![CDATA[/w8RV2fu8eja5izgTnhaoL2uokqu.jpg]]></pictures>
+        <poster><![CDATA[/oJpOYPpVWyPeunGbbDGH1KFvea0.jpg]]></poster>
+        <search><![CDATA[The Great Gatsby]]></search>
+        <year><![CDATA[2013]]></year>
+        <country><![CDATA[Australia,USA]]></country>
+        <director><![CDATA[Baz Luhrmann]]></director>
+        <genre><![CDATA[drama,melodrama]]></genre>
+        <actor><![CDATA[Leonardo DiCaprio,Toby Maguire,Cary Mulligan,Joel Edgerton,Isla Fisher]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
+    <sphinx:document id="329">
+        <kp_id><![CDATA[329]]></kp_id>
+        <query_id><![CDATA[329]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[88]]></kp_rating>
+        <kp_vote><![CDATA[243868]]></kp_vote>
+        <imdb_rating><![CDATA[89]]></imdb_rating>
+        <imdb_vote><![CDATA[987831]]></imdb_vote>
+        <premiere><![CDATA[728261.875]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[Schindler's List]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[The true story of how businessman Oskar Schindler saved over a thousand Jewish lives from the Nazis while they worked as slaves in his factory during World War II.]]></description>
+        <pictures><![CDATA[/cTNYRUTXkBgPH3wP3kmPUB5U6dA.jpg]]></pictures>
+        <poster><![CDATA[/yPisjyLweCl1tbgwgtzBCNCBle.jpg]]></poster>
+        <search><![CDATA[Schindler's List]]></search>
+        <year><![CDATA[1993]]></year>
+        <country><![CDATA[USA]]></country>
+        <director><![CDATA[Steven Spielberg]]></director>
+        <genre><![CDATA[drama,biography,history]]></genre>
+        <actor><![CDATA[Liam Neeson,Ben Kingsley,Rafe Fiennes,Caroline Goodall,Embet Daviditz]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
+    <sphinx:document id="280172">
+        <kp_id><![CDATA[280172]]></kp_id>
+        <query_id><![CDATA[280172]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[82]]></kp_rating>
+        <kp_vote><![CDATA[242246]]></kp_vote>
+        <imdb_rating><![CDATA[81]]></imdb_rating>
+        <imdb_vote><![CDATA[577216]]></imdb_vote>
+        <premiere><![CDATA[734213.875]]></premiere>
+        <type><![CDATA[4]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[How to Train Your Dragon]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[As the son of a Viking leader on the cusp of manhood, shy Hiccup Horrendous Haddock III faces a rite of passage: he must kill a dragon to prove his warrior mettle. But after downing a feared dragon, he realizes that he no longer wants to destroy it, and instead befriends the beast – which he names Toothless – much to the chagrin of his warrior father]]></description>
+        <pictures><![CDATA[/3eR9HOkPZUbrGWDRdKHeKoiMLc4.jpg]]></pictures>
+        <poster><![CDATA[/hIXX3IRFy0InUOmYeWjvhCAgQNj.jpg]]></poster>
+        <search><![CDATA[How to Train Your Dragon]]></search>
+        <year><![CDATA[2010]]></year>
+        <country><![CDATA[USA]]></country>
+        <director><![CDATA[Dean DeBlois,Chris Sanders]]></director>
+        <genre><![CDATA[cartoon,fantasy,comedy,adventure,family]]></genre>
+        <actor><![CDATA[Jay Baruchel,Gerard Butler,Craig Ferguson,America Ferrera,Jonah Hill]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
+    <sphinx:document id="770">
+        <kp_id><![CDATA[770]]></kp_id>
+        <query_id><![CDATA[770]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[81]]></kp_rating>
+        <kp_vote><![CDATA[234678]]></kp_vote>
+        <imdb_rating><![CDATA[78]]></imdb_rating>
+        <imdb_vote><![CDATA[451772]]></imdb_vote>
+        <premiere><![CDATA[731188.875]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[Ocean's Eleven]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[Less than 24 hours into his parole, charismatic thief Danny Ocean is already rolling out his next plan: In one night, Danny's hand-picked crew of specialists will attempt to steal more than $150 million from three Las Vegas casinos. But to score the cash, Danny risks his chances of reconciling with ex-wife, Tess.]]></description>
+        <pictures><![CDATA[/z2fiN0tgkgOcAFl5gxvQlYXCn3l.jpg]]></pictures>
+        <poster><![CDATA[/o0h76DVXvk5OKjmNez5YY0GODC2.jpg]]></poster>
+        <search><![CDATA[Ocean's Eleven]]></search>
+        <year><![CDATA[2001]]></year>
+        <country><![CDATA[USA]]></country>
+        <director><![CDATA[Steven Soderbergh]]></director>
+        <genre><![CDATA[thriller,crime]]></genre>
+        <actor><![CDATA[George Clooney,Brad Pitt,Matt Damon,Julia Roberts,Andy Garcia]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
+    <sphinx:document id="322">
+        <kp_id><![CDATA[322]]></kp_id>
+        <query_id><![CDATA[322]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[81]]></kp_rating>
+        <kp_vote><![CDATA[233700]]></kp_vote>
+        <imdb_rating><![CDATA[78]]></imdb_rating>
+        <imdb_vote><![CDATA[447044]]></imdb_vote>
+        <premiere><![CDATA[732088.8333333334]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[Harry Potter and the Prisoner of Azkaban]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[Harry, Ron and Hermione return to Hogwarts for another magic-filled year. Harry comes face to face with danger yet again, this time in the form of escaped convict, Sirius Black—and turns to sympathetic Professor Lupin for help.]]></description>
+        <pictures><![CDATA[/wUpBH6RIH4uOiWoPjj8MKUemu9F.jpg]]></pictures>
+        <poster><![CDATA[/jUFjMoLh8T2CWzHUSjKCojI5SHu.jpg]]></poster>
+        <search><![CDATA[Harry Potter and the Prisoner of Azkaban]]></search>
+        <year><![CDATA[2004]]></year>
+        <country><![CDATA[United Kingdom,USA]]></country>
+        <director><![CDATA[Alfonso Cuaron]]></director>
+        <genre><![CDATA[fantasy,detective,adventure,family]]></genre>
+        <actor><![CDATA[Daniel Radcliffe,Rupert Grint,Emma Watson,Robbie Coltrane,Tom Felton]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
+    <sphinx:document id="102124">
+        <kp_id><![CDATA[102124]]></kp_id>
+        <query_id><![CDATA[102124]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[80]]></kp_rating>
+        <kp_vote><![CDATA[233048]]></kp_vote>
+        <imdb_rating><![CDATA[71]]></imdb_rating>
+        <imdb_vote><![CDATA[530899]]></imdb_vote>
+        <premiere><![CDATA[733179.8333333334]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[Pirates of the Caribbean: At World's End]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[Captain Barbossa, long believed to be dead, has come back to life and is headed to the edge of the Earth with Will Turner and Elizabeth Swann. But nothing is quite as it seems.]]></description>
+        <pictures><![CDATA[/EDloimImeTz1rFM7YIJ5Dw1mzU.jpg]]></pictures>
+        <poster><![CDATA[/bXb00CkHqx7TPchTGG131sWV59y.jpg]]></poster>
+        <search><![CDATA[Pirates of the Caribbean: At World's End]]></search>
+        <year><![CDATA[2007]]></year>
+        <country><![CDATA[USA]]></country>
+        <director><![CDATA[Gore Verbinski]]></director>
+        <genre><![CDATA[fantasy,action,adventure]]></genre>
+        <actor><![CDATA[Johnny Depp,Jeffrey Rush,Orlando Bloom,Keira Knightley,Tom Hollander]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
+    <sphinx:document id="430">
+        <kp_id><![CDATA[430]]></kp_id>
+        <query_id><![CDATA[430]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[79]]></kp_rating>
+        <kp_vote><![CDATA[232892]]></kp_vote>
+        <imdb_rating><![CDATA[79]]></imdb_rating>
+        <imdb_vote><![CDATA[526331]]></imdb_vote>
+        <premiere><![CDATA[730961.8333333334]]></premiere>
+        <type><![CDATA[4]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[Shrek]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[It ain't easy bein' green -- especially if you're a likable (albeit smelly) ogre named Shrek. On a mission to retrieve a gorgeous princess from the clutches of a fire-breathing dragon, Shrek teams up with an unlikely compatriot -- a wisecracking donkey.]]></description>
+        <pictures><![CDATA[/wBG4kHfhwm3bLwKUFNRByXXv4r2.jpg]]></pictures>
+        <poster><![CDATA[/140ewbWv8qHStD3mlBDvvGd0Zvu.jpg]]></poster>
+        <search><![CDATA[Shrek]]></search>
+        <year><![CDATA[2001]]></year>
+        <country><![CDATA[USA]]></country>
+        <director><![CDATA[Andrew Adamson,Vicki Jenson]]></director>
+        <genre><![CDATA[cartoon,fantasy,comedy,adventure,family]]></genre>
+        <actor><![CDATA[Mike Myers,Eddie Murphy,Cameron Diaz,John Lithgow,Vincent Cassel]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
+    <sphinx:document id="522892">
+        <kp_id><![CDATA[522892]]></kp_id>
+        <query_id><![CDATA[522892]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[77]]></kp_rating>
+        <kp_vote><![CDATA[232829]]></kp_vote>
+        <imdb_rating><![CDATA[73]]></imdb_rating>
+        <imdb_vote><![CDATA[531141]]></imdb_vote>
+        <premiere><![CDATA[735373.875]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[Now You See Me]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[An FBI agent and an Interpol detective track a team of illusionists who pull off bank heists during their performances and reward their audiences with the money.]]></description>
+        <pictures><![CDATA[/9wbXqcx6rHhoZ9Esp03C7amQzom.jpg]]></pictures>
+        <poster><![CDATA[/A06e9YJ5ry3WXEIFIAD1mKBxcuZ.jpg]]></poster>
+        <search><![CDATA[Now You See Me]]></search>
+        <year><![CDATA[2013]]></year>
+        <country><![CDATA[USA,France]]></country>
+        <director><![CDATA[Louis Leterrier]]></director>
+        <genre><![CDATA[thriller,crime,detective]]></genre>
+        <actor><![CDATA[Melanie Laurent,Morgan Freeman,Michael Caine,Jesse Eisenberg,Mark Ruffalo]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
+    <sphinx:document id="382">
+        <kp_id><![CDATA[382]]></kp_id>
+        <query_id><![CDATA[382]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[82]]></kp_rating>
+        <kp_vote><![CDATA[231687]]></kp_vote>
+        <imdb_rating><![CDATA[85]]></imdb_rating>
+        <imdb_vote><![CDATA[881386]]></imdb_vote>
+        <premiere><![CDATA[730056.875]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[American History X]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[Derek Vineyard is paroled after serving 3 years in prison for killing two thugs who tried to break into/steal his truck. Through his brother, Danny Vineyard's narration, we learn that before going to prison, Derek was a skinhead and the leader of a violent white supremacist gang that committed acts of racial crime throughout L.A. and his actions greatly influenced Danny. Reformed and fresh out of prison, Derek severs contact with the gang and becomes determined to keep Danny from going down the same violent path as he did.]]></description>
+        <pictures><![CDATA[/i9A0UMFg1hI2kLyCCwnmSbpT2cd.jpg]]></pictures>
+        <poster><![CDATA[/fXepRAYOx1qC3wju7XdDGx60775.jpg]]></poster>
+        <search><![CDATA[American History X]]></search>
+        <year><![CDATA[1998]]></year>
+        <country><![CDATA[USA]]></country>
+        <director><![CDATA[Tony Kay]]></director>
+        <genre><![CDATA[drama,crime]]></genre>
+        <actor><![CDATA[Edward Norton,Edward Furlong,Beverly D'Angelo,Jennifer Lien,Ethan Sapley]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
+    <sphinx:document id="5502">
+        <kp_id><![CDATA[5502]]></kp_id>
+        <query_id><![CDATA[5502]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[82]]></kp_rating>
+        <kp_vote><![CDATA[231427]]></kp_vote>
+        <imdb_rating><![CDATA[78]]></imdb_rating>
+        <imdb_vote><![CDATA[391747]]></imdb_vote>
+        <premiere><![CDATA[726790.875]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[Back to the Future Part II]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[Marty and Doc are at it again in this wacky sequel to the 1985 blockbuster as the time-traveling duo head to 2015 to nip some McFly family woes in the bud. But things go awry thanks to bully Biff Tannen and a pesky sports almanac. In a last-ditch attempt to set things straight, Marty finds himself bound for 1955 and face to face with his teenage parents -- again.]]></description>
+        <pictures><![CDATA[/snLFUFzWUZCdYkAbhZlaGJxiY3I.jpg]]></pictures>
+        <poster><![CDATA[/k5dzvCQkXU2CAhLtlj9BHE7xmyK.jpg]]></poster>
+        <search><![CDATA[Back to the Future Part II]]></search>
+        <year><![CDATA[1989]]></year>
+        <country><![CDATA[USA]]></country>
+        <director><![CDATA[Robert Zemeckis]]></director>
+        <genre><![CDATA[fantastic,action,comedy,adventure,family]]></genre>
+        <actor><![CDATA[Michael J. Fox,Christopher Lloyd,Lia Thompson,Thomas F. Wilson,Elisabeth Shu]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
+    <sphinx:document id="462606">
+        <kp_id><![CDATA[462606]]></kp_id>
+        <query_id><![CDATA[462606]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[79]]></kp_rating>
+        <kp_vote><![CDATA[231118]]></kp_vote>
+        <imdb_rating><![CDATA[74]]></imdb_rating>
+        <imdb_vote><![CDATA[470437]]></imdb_vote>
+        <premiere><![CDATA[734568.875]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[Limitless]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[A paranoia-fueled action thriller about an unsuccessful writer whose life is transformed by a top-secret «smart drug» that allows him to use 100% of his brain and become a perfect version of himself. His enhanced abilities soon attract shadowy forces that threaten his new life in this darkly comic and provocative film.]]></description>
+        <pictures><![CDATA[/9ISArgiVBdNLASKmvflRDMOYYMj.jpg]]></pictures>
+        <poster><![CDATA[/bQfOFEeXxi51ijQrbQY9qvMtYhZ.jpg]]></poster>
+        <search><![CDATA[Limitless]]></search>
+        <year><![CDATA[2011]]></year>
+        <country><![CDATA[USA]]></country>
+        <director><![CDATA[Neil Berger]]></director>
+        <genre><![CDATA[fantastic,thriller,detective]]></genre>
+        <actor><![CDATA[Bradley Cooper,Robert DeNiro,Abbie Cornish,Andrew Howard,Anna Friel]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
+    <sphinx:document id="3797">
+        <kp_id><![CDATA[3797]]></kp_id>
+        <query_id><![CDATA[3797]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[81]]></kp_rating>
+        <kp_vote><![CDATA[228823]]></kp_vote>
+        <imdb_rating><![CDATA[75]]></imdb_rating>
+        <imdb_vote><![CDATA[285131]]></imdb_vote>
+        <premiere><![CDATA[729674.8333333334]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[The Devil's Advocate]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[A hotshot lawyer gets more than he bargained for when he learns his new boss is Lucifer himself.]]></description>
+        <pictures><![CDATA[/A6KRu9aQmf2bKpHjlaVXmiSA3iv.jpg]]></pictures>
+        <poster><![CDATA[/eSivb4EyOAyEum70mOSHtAWiUe3.jpg]]></poster>
+        <search><![CDATA[The Devil's Advocate]]></search>
+        <year><![CDATA[1997]]></year>
+        <country><![CDATA[USA,Germany]]></country>
+        <director><![CDATA[Taylor Hackford]]></director>
+        <genre><![CDATA[thriller,drama,detective]]></genre>
+        <actor><![CDATA[Keanu Reeves,Al Pacino,Charlize Theron,Jeffrey Jones,Judith Ivy]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
+    <sphinx:document id="627">
+        <kp_id><![CDATA[627]]></kp_id>
+        <query_id><![CDATA[627]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[82]]></kp_rating>
+        <kp_vote><![CDATA[222038]]></kp_vote>
+        <imdb_rating><![CDATA[78]]></imdb_rating>
+        <imdb_vote><![CDATA[447409]]></imdb_vote>
+        <premiere><![CDATA[730825.875]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[Cast Away]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[Chuck, a top international manager for FedEx, and Kelly, a Ph.D. student, are in love and heading towards marriage. Then Chuck's plane to Malaysia ditches at sea during a terrible storm. He's the only survivor, and he washes up on a tiny island with nothing but some flotsam and jetsam from the aircraft's cargo.]]></description>
+        <pictures><![CDATA[/frbW3kQXhVZPhceuQa1EqwZPXQr.jpg]]></pictures>
+        <poster><![CDATA[/w515BrZvczKIxbHurG6HIiYYrba.jpg]]></poster>
+        <search><![CDATA[Cast Away]]></search>
+        <year><![CDATA[2000]]></year>
+        <country><![CDATA[USA]]></country>
+        <director><![CDATA[Robert Zemeckis]]></director>
+        <genre><![CDATA[drama,melodrama,adventure]]></genre>
+        <actor><![CDATA[Tom Hanks,Helen Hunt,Chris Noth,Nick Searcy,Jennifer Lewis]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
+    <sphinx:document id="775276">
+        <kp_id><![CDATA[775276]]></kp_id>
+        <query_id><![CDATA[775276]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[83]]></kp_rating>
+        <kp_vote><![CDATA[220645]]></kp_vote>
+        <imdb_rating><![CDATA[80]]></imdb_rating>
+        <imdb_vote><![CDATA[346393]]></imdb_vote>
+        <premiere><![CDATA[736369.875]]></premiere>
+        <type><![CDATA[4]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[Zootopia]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[Determined to prove herself, Officer Judy Hopps, the first bunny on Zootopia's police force, jumps at the chance to crack her first case - even if it means partnering with scam-artist fox Nick Wilde to solve the mystery.]]></description>
+        <pictures><![CDATA[/mhdeE1yShHTaDbJVdWyTlzFvNkr.jpg]]></pictures>
+        <poster><![CDATA[/sM33SANp9z6rXW8Itn7NnG1GOEs.jpg]]></poster>
+        <search><![CDATA[Zootopia]]></search>
+        <year><![CDATA[2016]]></year>
+        <country><![CDATA[USA]]></country>
+        <director><![CDATA[Byron Howard,Rich Moore,Jared Bush]]></director>
+        <genre><![CDATA[cartoon,comedy,crime,detective,adventure,family]]></genre>
+        <actor><![CDATA[Ginnifer Goodwin,Jason Bateman,Idris Elba,Jenny Slate,Nate Torrens]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
+    <sphinx:document id="61237">
+        <kp_id><![CDATA[61237]]></kp_id>
+        <query_id><![CDATA[61237]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[78]]></kp_rating>
+        <kp_vote><![CDATA[219946]]></kp_vote>
+        <imdb_rating><![CDATA[79]]></imdb_rating>
+        <imdb_vote><![CDATA[784110]]></imdb_vote>
+        <premiere><![CDATA[733510.8333333334]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[Iron Man]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.]]></description>
+        <pictures><![CDATA[/ZQixhAZx6fH1VNafFXsqa1B8QI.jpg]]></pictures>
+        <poster><![CDATA[/s2IG9qXfhJYxIttKyroYFBsHwzQ.jpg]]></poster>
+        <search><![CDATA[Iron Man]]></search>
+        <year><![CDATA[2008]]></year>
+        <country><![CDATA[USA]]></country>
+        <director><![CDATA[John Favreau]]></director>
+        <genre><![CDATA[fantastic,action,adventure]]></genre>
+        <actor><![CDATA[Robert Downey Jr.,Jeff Bridges,Gwyneth Paltrow,Terrence Howard,Leslie Bibb]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
+    <sphinx:document id="689066">
+        <kp_id><![CDATA[689066]]></kp_id>
+        <query_id><![CDATA[689066]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[77]]></kp_rating>
+        <kp_vote><![CDATA[219795]]></kp_vote>
+        <imdb_rating><![CDATA[81]]></imdb_rating>
+        <imdb_vote><![CDATA[835548]]></imdb_vote>
+        <premiere><![CDATA[735799.875]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[Guardians of the Galaxy]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[Light years from Earth, 26 years after being abducted, Peter Quill finds himself the prime target of a manhunt after discovering an orb wanted by Ronan the Accuser.]]></description>
+        <pictures><![CDATA[/bHarw8xrmQeqf3t8HpuMY7zoK4x.jpg]]></pictures>
+        <poster><![CDATA[/y31QB9kn3XSudA15tV7UWQ9XLuW.jpg]]></poster>
+        <search><![CDATA[Guardians of the Galaxy]]></search>
+        <year><![CDATA[2014]]></year>
+        <country><![CDATA[USA]]></country>
+        <director><![CDATA[James Gunn]]></director>
+        <genre><![CDATA[fantastic,action,adventure,comedy]]></genre>
+        <actor><![CDATA[Chris Pratt,Zoe Saldana,Dave Batista,Bradley Cooper,Vin Diesel]]></actor>
+        <player><![CDATA[]]></player>
+        <translate><![CDATA[]]></translate>
+        <quality><![CDATA[]]></quality>
+        <custom><![CDATA[]]></custom>
+        <all_movies><![CDATA[_example_com_]]></all_movies>
+    </sphinx:document>
+    <sphinx:document id="195524">
+        <kp_id><![CDATA[195524]]></kp_id>
+        <query_id><![CDATA[195524]]></query_id>
+        <rating><![CDATA[0]]></rating>
+        <vote><![CDATA[0]]></vote>
+        <kp_rating><![CDATA[78]]></kp_rating>
+        <kp_vote><![CDATA[219521]]></kp_vote>
+        <imdb_rating><![CDATA[72]]></imdb_rating>
+        <imdb_vote><![CDATA[608812]]></imdb_vote>
+        <premiere><![CDATA[733379.875]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[]]></title_ru>
+        <title_en><![CDATA[I Am Legend]]></title_en>
+        <title_page><![CDATA[]]></title_page>
+        <description_short><![CDATA[]]></description_short>
+        <description><![CDATA[Robert Neville is a scientist who was unable to stop the spread of the terrible virus that was incurable and man-made. Immune, Neville is now the last human survivor in what is left of New York City and perhaps the world. For three years, Neville has faithfully sent out daily radio messages, desperate to find any other survivors who might be out there. But he is not alone.]]></description>
+        <pictures><![CDATA[/u6Qg7TH7Oh1IFWCQSRr4htFFt0A.jpg]]></pictures>
+        <poster><![CDATA[/6OA0I8hhW9zftWoCYxJAzXW9UIN.jpg]]></poster>
+        <search><![CDATA[I Am Legend]]></search>
+        <year><![CDATA[2007]]></year>
+        <country><![CDATA[USA]]></country>
+        <director><![CDATA[Francis Lawrence]]></director>
+        <genre><![CDATA[horrors,fantastic,thriller,drama]]></genre>
+        <actor><![CDATA[Will Smith,Alice Braga,Charlie Tahan,Sally Richardson-Whitfield,Willow Smith]]></actor>
         <player><![CDATA[]]></player>
         <translate><![CDATA[]]></translate>
         <quality><![CDATA[]]></quality>

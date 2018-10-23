@@ -76,15 +76,37 @@
                     <% if (modules.viewed.status) { %>
 
                     <div class="row">
-                        <div class="col-xs-12">
-                            <div class="attention-box attention-success">
-                                <h4>Модуль «<%- title %>» включен</h4>
-                                <div class="spacer-20"></div>
-                                <p class="text-muted">
-                                    Модуль «<%- title %>» добавляет внизу страницы список фильмов, которые были недавно просмотрены пользователем.
-                                    <br>
-                                    Чтобы деактивировать модуль, нажмите на кнопку «Отключить» вверху экрана.
-                                </p>
+                        <div class="col-sm-12">
+                            <div class="example-box">
+                                <div class="example-box-header">
+                                    <div class="example-label">
+                                        <i class="fa fa-eye-slash"></i>&nbsp;&nbsp;&nbsp;Число просмотренных фильмов
+                                    </div>
+                                    <div class="example-label" style="float: right">
+                                        <a href="https://CinemaPress.org/admin/viewed.html" class="csstip" title="Просмотренные пользователем фильмы отображаются внизу каждой страницы сайта" target="_blank">
+                                            <i class="fa fa-info-circle"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="inner-padding">
+                                    <div class="row">
+                                        <div class="col-lg-12 col-xs-12 text-center">
+                                            <select name="modules.viewed.data.count" class="form-control">
+                                                <% for (var i = 1; i <= 20; i++) { %>
+                                                <% if (modules.viewed.data.count == i) { %>
+                                                <option value="<%= i %>" selected="selected">
+                                                    <%- i %> фильма(ов)
+                                                </option>
+                                                <% } else { %>
+                                                <option value="<%= i %>">
+                                                    <%- i %> фильма(ов)
+                                                </option>
+                                                <% } %>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

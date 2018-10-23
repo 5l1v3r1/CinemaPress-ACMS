@@ -67,6 +67,19 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
 
     // -----------------------------------------------------------------
 
+    // -------------------
+    // Maintenance website
+    // -------------------
+
+    /*if (req.ip !== 'IP_ADMIN') { // Change IP_ADMIN
+        return next({
+            "status"  : 503,
+            "message" : "Сайт на техническом обслуживании."
+        });
+    }*/
+
+    // -------------------
+
     var options = {};
     options.domain = 'm.' + config.domain;
     options.sub = req.cookies.CP_sub || '';
