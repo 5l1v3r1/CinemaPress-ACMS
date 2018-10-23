@@ -52,11 +52,11 @@ if (data.movies && data.movies.length) {
             'rt',
             function (err, result) {
                 if (err) {
-                    console.log(err);
+                    console.log(err, result, movie);
                 }
                 if (result) {
-                    console.log(result);
                     m = m+1;
+                    console.log(result, m);
                 }
                 return callback();
             });
@@ -75,11 +75,11 @@ if (data.contents && data.contents.length) {
             'content',
             function (err, result) {
                 if (err) {
-                    console.log(err);
+                    console.log(err, result, content);
                 }
                 if (result) {
-                    console.log(result);
                     c = c+1;
+                    console.log(result, c);
                 }
                 return callback();
             });
