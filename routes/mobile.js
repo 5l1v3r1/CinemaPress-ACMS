@@ -168,7 +168,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
 
     function getRender(callback) {
 
-        return (config.cache.time && 0)
+        return (config.cache.time)
             ? getCache(
             function (err, render) {
                 return (err)
@@ -546,10 +546,11 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
 
                     res.send(html);
 
-                    if (config.cache.time && html && 0) {
+                    if (config.cache.time && render && !render.cache) {
+                        render.cache = true;
                         CP_cache.set(
                             urlHash,
-                            html,
+                            render,
                             config.cache.time,
                             function (err) {
                                 if (err) {
