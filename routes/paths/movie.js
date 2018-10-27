@@ -137,7 +137,11 @@ function dataMovie(id, type, options, callback) {
             "contents": function (callback) {
                 return (modules.content.status && modules.content.data.movie.count)
                     ? CP_get.contents(
-                    {"content_movies": id},
+                    {
+                        "content_movies": id,
+                        "content_tags": modules.content.data.movie.tags,
+                        "condition": "OR"
+                    },
                     modules.content.data.movie.count,
                     1,
                     true,

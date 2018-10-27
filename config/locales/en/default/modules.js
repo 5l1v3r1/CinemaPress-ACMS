@@ -412,7 +412,8 @@ module.exports = {
                 "order": 2
             },
             "movie": {
-                "count": 2
+                "count": 2,
+                "tags": "Updates"
             },
             "auto": {
                 "moonwalk_movies": {

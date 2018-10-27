@@ -187,7 +187,7 @@
                                                     var content_tags = document
                                                             .querySelector('input[name="content.content_tags"]'),
                                                         tagify = new Tagify(content_tags, {
-                                                            whitelist : ['Коллекции','Новости','Страницы','Фильмы','Сериалы','Мультфильмы','ТВ','Аниме','Collections','News','Pages','Movies','Series','Cartoons','TV','Anime'],
+                                                            whitelist : ['Коллекции','Новости','Страницы','Фильмы','Сериалы','Мультфильмы','ТВ','Обновления','Аниме','Collections','News','Pages','Movies','Series','Cartoons','TV','Anime','Updates'],
                                                         });
                                                     tagify.DOM.input.classList.add('form-control');
                                                 });
@@ -397,14 +397,14 @@
                                                     <i class="fa fa-bars"></i>&nbsp;&nbsp;&nbsp;Блок новостей на странице фильма
                                                 </div>
                                                 <div class="example-label" style="float: right">
-                                                    <a href="https://CinemaPress.org/admin/content.html#movie" class="csstip" title="Блок постов в которых указан фильм" target="_blank">
+                                                    <a href="https://CinemaPress.org/admin/content.html#movie" class="csstip" title="Блок постов в которых указан фильм или последние новости с тегом на всех фильмах" target="_blank">
                                                         <i class="fa fa-info-circle"></i>
                                                     </a>
                                                 </div>
                                             </div>
                                             <div class="inner-padding">
                                                 <div class="row">
-                                                    <div class="col-sm-12">
+                                                    <div class="col-sm-3">
                                                         <select name="modules.content.data.movie.count" class="form-control without">
                                                             <% for (var i = 0; i <= 20; i++) { %>
                                                             <% if (modules.content.data.movie.count == i) { %>
@@ -430,6 +430,12 @@
                                                             <% } %>
                                                             <% } %>
                                                         </select>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <label>упоминания или с тегом</label>
+                                                    </div>
+                                                    <div class="col-sm-5">
+                                                        <input type="text" name="modules.content.data.movie.tags" value="<%= modules.content.data.movie.tags %>" class="form-control" placeholder="Введите тег">
                                                     </div>
                                                 </div>
                                             </div>

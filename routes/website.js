@@ -158,6 +158,15 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
 
     getRender(function (err, render) {
 
+        switch (template) {
+            case 'content':
+                template = 'category';
+                break;
+            case 'contents':
+                template = 'categories';
+                break;
+        }
+
         renderData(err, render);
 
     });
@@ -342,7 +351,6 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                     });
                 break;
             case 'content':
-                template = 'category';
                 content.one(
                     req.params.level2,
                     parseInt(level3),
@@ -353,7 +361,6 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                     });
                 break;
             case 'contents':
-                template = 'categories';
                 content.all(
                     tag,
                     options,

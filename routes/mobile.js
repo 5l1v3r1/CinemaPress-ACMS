@@ -156,6 +156,15 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
 
     getRender(function (err, render) {
 
+        switch (template) {
+            case 'mobile/content':
+                template = 'mobile/category';
+                break;
+            case 'mobile/contents':
+                template = 'mobile/categories';
+                break;
+        }
+
         renderData(err, render);
 
     });
@@ -340,7 +349,6 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                     });
                 break;
             case 'mobile/content':
-                template = 'mobile/category';
                 content.one(
                     req.params.level2,
                     parseInt(level3),
@@ -351,7 +359,6 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                     });
                 break;
             case 'mobile/contents':
-                template = 'mobile/categories';
                 content.all(
                     tag,
                     options,
