@@ -313,6 +313,17 @@
                                                 Своё поле:
                                             </div>
                                             <div class="spacer-10"></div>
+                                            <div class="row">
+                                                <div class="col-lg-4 col-xs-4">
+                                                    <input type="text" class="form-control" name="movie.poster" placeholder="premiere.ru" style="font-weight: normal; font-size: 14px; text-align: right" id="customKey">
+                                                </div>
+                                                <div class="col-lg-6 col-xs-6">
+                                                    <input type="text" class="form-control" name="movie.poster" placeholder="2019-09-12" style="font-weight: normal; font-size: 14px;" id="customValue">
+                                                </div>
+                                                <div class="col-lg-2 col-xs-2">
+                                                    <a href="javascript:void(0)" class="btn btn-error btn-block" id="customAdd">Добавить</a>
+                                                </div>
+                                            </div>
                                             <textarea class="form-control custom" name="movie.custom" placeholder='{"name": "Текст к этому полю", "name2": "Текст к этому полю"}'><% if (movie.custom) { %><%- movie.custom %><% } else { %>{"unique": true}<% } %></textarea>
                                             <script>
                                                 document.addEventListener('DOMContentLoaded', function () {
@@ -322,13 +333,63 @@
                                                         json.oninput = function () {
                                                             jsonPretty();
                                                         };
-                                                        function jsonPretty() {
-                                                            var ugly = document.querySelector('.custom').value;
-                                                            if (!ugly) return;
-                                                            var obj = JSON.parse(ugly);
-                                                            var pr = JSON.stringify(obj, undefined, 4);
-                                                            document.querySelector('.custom').value = pr;
+                                                    }
+
+                                                    var customAdd = document.querySelector('#customAdd');
+                                                    customAdd.addEventListener('click', function () {
+                                                        var customKey = document.querySelector('#customKey');
+                                                        var customValue = document.querySelector('#customValue');
+                                                        if (customKey && customKey.value && customValue && customValue.value) {
+                                                            var customString = document.querySelector('.custom').value;
+                                                            var customJson = JSON.parse(customString);
+                                                            document.querySelector('.custom').value =
+                                                                JSON.stringify(expand(
+                                                                    customJson,
+                                                                    customKey.value,
+                                                                    (customValue.value === 'true')
+                                                                        ? true
+                                                                        : (customValue.value === 'false')
+                                                                            ? false
+                                                                            : (!customValue.value.replace(/[0-9]/g, '')) ?
+                                                                                parseInt(customValue.value)
+                                                                                : customValue.value));
+                                                            jsonPretty();
+                                                            customKey.value = '';
+                                                            customValue.value = '';
                                                         }
+                                                    });
+
+                                                    function jsonPretty() {
+                                                        var ugly = document.querySelector('.custom').value;
+                                                        if (!ugly) return;
+                                                        ugly = JSON.parse(ugly);
+                                                        var cnt = 0;
+                                                        c(ugly);
+                                                        document.querySelector('.custom').style.height = (40 + cnt*20) + 'px';
+                                                        document.querySelector('.custom').value =
+                                                            JSON.stringify(ugly, undefined, 4);
+
+                                                        function c(obj) {
+                                                            Object.keys(obj).forEach(function(val) {
+                                                                if (typeof obj[val] === 'object') {
+                                                                    c(obj[val]);
+                                                                    cnt++;
+                                                                }
+                                                                cnt++;
+                                                            });
+                                                        }
+                                                    }
+
+                                                    function expand(model, name, value) {
+                                                        var items = name.split('.');
+                                                        var output = model;
+                                                        var ref = output;
+                                                        for (var i = 0; i < items.length - 1; i++) {
+                                                            ref[items[i]] = {};
+                                                            ref = ref[items[i]];
+                                                        }
+                                                        ref[items[items.length - 1]] = value;
+                                                        return output;
                                                     }
                                                 });
                                             </script>
