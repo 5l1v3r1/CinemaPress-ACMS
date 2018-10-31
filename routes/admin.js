@@ -544,6 +544,7 @@ router.post('/change', function(req, res) {
                     if (!form.content.id) return callback(null, 'Null');
                     form.content.delete = true;
                 }
+                form.flush_memcached = true;
                 CP_save.save(
                     form.content,
                     'content',
