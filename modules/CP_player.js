@@ -237,7 +237,8 @@ function codePlayer(type, movie, options) {
 
         if (player) {
             code.footer = '' +
-                '<script data-cfasync="false" src="//yohoho.cc/yo.js"></script>';
+                '<script data-cfasync="false" src="//yohoho.cc/yo.js"></script>' +
+                '<script>document.addEventListener("DOMContentLoaded",function(){window.addEventListener("message",function(t){if(t&&t.data){var a=document.querySelector(\'[data-yo="quality"]\'),e=document.querySelector(\'[data-yo="translate"]\');t.data.quality&&a&&(a.innerHTML=t.data.quality),t.data.translate&&e&&(e.innerHTML=t.data.translate)}})});</script>';
         }
         else if (param.cdn) {
             code.player = '' +
@@ -249,7 +250,8 @@ function codePlayer(type, movie, options) {
         }
         else {
             code.footer = '' +
-                '<script data-cfasync="false" src="/iframe.player?' + script + '"></script>';
+                '<script data-cfasync="false" src="/iframe.player?' + script + '"></script>' +
+                '<script>document.addEventListener("DOMContentLoaded",function(){window.addEventListener("message",function(t){if(t&&t.data){var a=document.querySelector(\'[data-yo="quality"]\'),e=document.querySelector(\'[data-yo="translate"]\');t.data.quality&&a&&(a.innerHTML=t.data.quality),t.data.translate&&e&&(e.innerHTML=t.data.translate)}})});</script>';
         }
 
     }
