@@ -551,6 +551,10 @@
             data.content.content_description = data.content.content_description.replace(/\n/ig, '<br>');
         }
 
+        if (data.movie && data.movie.description) {
+            data.movie.description = data.movie.description.replace(/\n/ig, '<br>');
+        }
+
         sendServer(data, function (err, result) {
             if (data.config && data.config.urls && data.config.urls.admin && data.config.urls.admin !== '<%- config.urls.admin %>' && data.config.urls.admin.indexOf('admin') !== -1) {
                 location.href = '<%- config.protocol + config.domain + '/' %>' + data.config.urls.admin;
