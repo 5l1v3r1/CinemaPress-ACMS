@@ -502,9 +502,14 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
 
         if (typeof render === 'object') {
 
-            if (config.theme === 'default' || (req.query.q && req.query.json)) {
+            if (config.theme === 'default' || (req.query.json || level1 === config.urls.search)) {
 
-                res.json(render);
+                if (level1 === config.urls.search) {
+                    res.json({movies: render.movies});
+                }
+                else {
+                    res.json(render);
+                }
 
                 if (options.debug) {
                     options.debug.duration = (new Date() - options.debug.duration.all) + 'ms';

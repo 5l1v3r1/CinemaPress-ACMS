@@ -14,6 +14,12 @@
 - [Первые шаги после создания сайта](https://cinemapress.org/article/cinemapress-acms.html)
 - [Что означают опции установочного меню?](https://cinemapress.org/article/opcii-ustanovki-cinemapress-acms.html)
 
+Works on Debian 8 «Jessie» (64-bit) or Debian 9 «Stretch» (64-bit) without any control panels:
+
+```
+~# wget cinemapress.org/en/i -qO i && chmod +x i && ./i
+```
+
 Работает на чистом Debian 8 «Jessie» (64-bit) или Debian 9 «Stretch» (64-bit) без никаких панелей управления:
 
 ```
