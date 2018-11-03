@@ -495,12 +495,14 @@ router.post('/change', function(req, res) {
             },
             "movie": function (callback) {
                 if (!form.movie) return callback(null, 'Null');
-                form.movie.id = ((''+form.movie.id).replace(/[^0-9]/g,''))
-                    ? (''+form.movie.id).replace(/[^0-9]/g,'')
-                    : ((''+form.movie.kp_id).replace(/[^0-9]/g,''))
-                    ? (''+form.movie.kp_id).replace(/[^0-9]/g,'')
+                form.movie.id = parseInt((''+form.movie.id).replace(/[^0-9]/g,''))
+                    ? parseInt((''+form.movie.id).replace(/[^0-9]/g,''))
+                    : parseInt((''+form.movie.kp_id).replace(/[^0-9]/g,''))
+                    ? parseInt((''+form.movie.kp_id).replace(/[^0-9]/g,''))
                     : 0;
-                if (!form.movie.id) return callback(null, 'Null');
+                if (!form.movie.id || !parseInt((''+form.movie.kp_id).replace(/[^0-9]/g,''))) {
+                    return callback(null, 'Null');
+                }
                 form.movie.search = (form.movie.title_ru)
                     ? form.movie.title_ru + ((form.movie.title_en) ? ' / ' + form.movie.title_en : '')
                     : (form.movie.title_en)
