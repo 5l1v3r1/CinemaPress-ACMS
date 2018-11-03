@@ -522,7 +522,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
 
         if (typeof render === 'object') {
 
-            if (config.theme === 'default' || (req.query.json || level1 === config.urls.search)) {
+            if (config.theme === 'default' || (req.query.json && level1 === config.urls.search)) {
 
                 if (level1 === config.urls.search) {
                     res.json({movies: render.movies});
