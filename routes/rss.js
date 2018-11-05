@@ -108,6 +108,9 @@ router.get('/?', function(req, res, next) {
         var tag = (req.query.tag)
             ? {"content_tags": CP_regexp.str(req.query.tag)}
             : '';
+        var ids = (req.query.ids)
+            ? CP_regexp.str(req.query.ids)
+            : '';
 
         if (modules.content.status && collection) {
             CP_get.contents(
@@ -140,6 +143,36 @@ router.get('/?', function(req, res, next) {
                         return callback('Коллекция пустая!');
                     }
                 });
+        }
+        else if (config.index.ids.keys && ids) {
+            var items = (((ids.replace(/[0-9,\s]/i, ''))
+                ? config.index.ids.keys
+                : ids.replace(/[0-9,]/i, ''))
+                .split(','))
+                .map(function (key) {return parseInt(key.trim());});
+            if (items && items.length) {
+                var query_id = [];
+                items.forEach(function (item, i, arr) {
+                    query_id.push(item + '^' + (arr.length - i))
+                });
+                var query = {"query_id": query_id.join('|')};
+                CP_get.movies(
+                    query,
+                    items.length,
+                    '',
+                    1,
+                    function (err, movies) {
+                        if (err) {
+                            return callback(err);
+                        }
+
+                        render.movies = movies;
+                        callback(null, render);
+                    });
+            }
+            else {
+                return callback('Нет данных!');
+            }
         }
         else if (modules.content.status && tag) {
             var options = {};
