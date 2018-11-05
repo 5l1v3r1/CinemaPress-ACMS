@@ -508,8 +508,9 @@ router.post('/change', function(req, res) {
                     : (form.movie.title_en)
                         ? form.movie.title_en
                         : '';
-                var premiereDate = new Date(form.movie.premiere);
-                form.movie.premiere = ((premiereDate.getTime() / 1000 / 60 / 60 / 24) + 719527) + '';
+                form.movie.premiere = (form.movie.premiere && !isNaN((new Date(form.movie.premiere)).getFullYear()))
+                    ? (Math.floor((new Date(form.movie.premiere).getTime() / 1000 / 60 / 60 / 24) + 719527)) + ''
+                    : '0';
                 form.movie.country = (form.movie.country)
                     ? form.movie.country.replace(/\s*,\s*/g, ',').replace(/\s+/g, ' ').replace(/(^\s*)|(\s*)$/g, '')
                     : '_empty';
