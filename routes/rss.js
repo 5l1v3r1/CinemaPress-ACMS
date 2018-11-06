@@ -109,7 +109,7 @@ router.get('/?', function(req, res, next) {
             ? {"content_tags": CP_regexp.str(req.query.tag)}
             : '';
         var ids = (req.query.ids)
-            ? CP_regexp.str(req.query.ids)
+            ? req.query.ids
             : '';
 
         if (modules.content.status && collection) {
@@ -135,7 +135,7 @@ router.get('/?', function(req, res, next) {
                                     return callback(err);
                                 }
 
-                                render.movies = movies;
+                                render.movies = sortingIds(query_id, movies);
                                 callback(null, render);
                             });
                     }
@@ -145,9 +145,9 @@ router.get('/?', function(req, res, next) {
                 });
         }
         else if (config.index.ids.keys && ids) {
-            var items = (((ids.replace(/[0-9,\s]/i, ''))
+            var items = (((ids.replace(/[0-9,\s]/g, ''))
                 ? config.index.ids.keys
-                : ids.replace(/[0-9,]/i, ''))
+                : ids.replace(/[^0-9,]/g, ''))
                 .split(','))
                 .map(function (key) {return parseInt(key.trim());});
             if (items && items.length) {
@@ -166,7 +166,7 @@ router.get('/?', function(req, res, next) {
                             return callback(err);
                         }
 
-                        render.movies = movies;
+                        render.movies = sortingIds(query_id, movies);
                         callback(null, render);
                     });
             }
@@ -268,5 +268,27 @@ router.get('/?', function(req, res, next) {
     }
 
 });
+
+/**
+ * Sort films are turned by id list.
+ *
+ * @param {Object} ids
+ * @param {Object} movies
+ * @return {Array}
+ */
+
+function sortingIds(ids, movies) {
+    console.log(ids, movies);
+    var result = [];
+    for (var id = 0; id < ids.length; id++) {
+        for (var i = 0; i < movies.length; i++) {
+            if (parseInt(movies[i].kp_id) === parseInt(('' + ids[id]).trim())) {
+                result.push(movies[i]);
+            }
+        }
+    }
+    console.log(result);
+    return result;
+}
 
 module.exports = router;

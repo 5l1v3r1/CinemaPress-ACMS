@@ -111,7 +111,7 @@
                                     Описание:
                                 </div>
                                 <div class="spacer-10"></div>
-                                <textarea class="form-control descriptions" name="movie.description" placeholder="Уникальное описание ..."><% if (movie.description) { %><%- movie.description.trim().replace(/<br>/ig, '\n') %><% } %></textarea>
+                                <textarea class="form-control descriptions" name="movie.description" placeholder="Уникальное описание ..."><% if (movie.description) { %><%- movie.description.trim().replace(/<br>/ig, '\n') %><% } else { %>Уникальное описание ...<% } %></textarea>
                                 <div class="advanced-textarea-footer">
                                     <div class="pull-left">
                                         <div class="text text-muted" style="float: none;"><span id="movie.description">0</span> символа(-ов)</div>
@@ -247,7 +247,7 @@
                                                 Премьера:
                                             </div>
                                             <div class="spacer-10"></div>
-                                            <input type="text" class="form-control" name="movie.premiere" value="<% if (parseInt(movie.premiere)) { %><%- new Date(((parseInt(movie.premiere) - 719527) * 1000 * 60 * 60 * 24)).toJSON().substr(0, 10) %><% } %>" placeholder="Дата в формате ГГГГ-ММ-ДД, например 2019-09-25" style="font-weight: normal; font-size: 14px;">
+                                            <input type="text" class="form-control" name="movie.premiere" value="<% if (parseInt(movie.premiere)) { %><%- new Date(((parseInt(movie.premiere) - 719527) * 1000 * 60 * 60 * 24)).toJSON().substr(0, 10) %><% } %>" placeholder="Формат ГГГГ-ММ-ДД, например 2019-09-25" style="font-weight: normal; font-size: 14px;">
 
                                             <div style="color: #4B5B6C">
                                                 Рейтинг КиноПоиск:
