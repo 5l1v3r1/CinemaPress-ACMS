@@ -143,9 +143,9 @@ module.exports = {
         "data": {
             "display": "yohoho",
             "yohoho": {
-                "player": "trailer",
+                "player": "trailer,vodlocker",
                 "bg": "#14181C",
-                "button": ""
+                "button": "vodlocker: Watch free online"
             },
             "moonwalk": {
                 "token": ""
