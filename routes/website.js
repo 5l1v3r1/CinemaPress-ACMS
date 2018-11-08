@@ -76,7 +76,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
     /*if (req.ip !== 'IP_ADMIN') { // Change IP_ADMIN
         return next({
             "status"  : 503,
-            "message" : "Сайт на техническом обслуживании."
+            "message" : "Site under maintenance."
         });
     }*/
 
@@ -391,7 +391,7 @@ router.get('/:level1?/:level2?/:level3?/:level4?', function (req, res, next) {
                     });
                 break;
             default:
-                callback('Данной страницы нет на сайте. Возможно Вы ошиблись в URL или это внутренняя ошибка сайта, о которой администратор уже знает и предпринимает действия для её устранения.');
+                callback(config.l.notFound);
         }
 
     }

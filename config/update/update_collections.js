@@ -41,7 +41,7 @@ async.eachOfLimit(modules_production.collections.data.collections, 1, function (
     content.content_image = collection.image || '';
     content.content_title = collection.title || '';
     content.content_description = collection.description || '';
-    content.content_tags = 'коллекция';
+    content.content_tags = 'Коллекции';
     content.content_movies = collection.movies.join(',');
     CP_save.save(
         content,

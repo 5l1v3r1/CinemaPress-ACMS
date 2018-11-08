@@ -78,12 +78,12 @@ router.get('/:id?/:title?', function(req, res) {
                     );
                 }
                 else {
-                    res.status(404).send('Данного фильма на сайте нет.');
+                    res.status(404).send(config.l.notFound);
                 }
             });
     }
     else {
-        res.status(404).send('Неверный ID.')
+        res.status(404).send(config.l.notFound)
     }
 
 });

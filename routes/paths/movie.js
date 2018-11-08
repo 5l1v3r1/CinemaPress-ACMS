@@ -71,7 +71,7 @@ function dataMovie(id, type, options, callback) {
                             callback(null, movies[0]);
                         }
                         else {
-                            callback('Данного фильма на сайте нет. Возможно Вы ошиблись в URL или текущий фильм еще не опубликован.');
+                            callback(config.l.notFound);
                         }
                     });
             },

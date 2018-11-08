@@ -10,6 +10,7 @@ var CP_get = require('../lib/CP_get.min');
  * Configuration dependencies.
  */
 
+var config = require('../config/production/config');
 var modules = require('../config/production/modules');
 
 /**
@@ -84,7 +85,7 @@ router.get('/?', function(req, res) {
 
                 }
                 else {
-                    return res.status(404).send('{"error": "Данного фильма на сайте нет. Возможно Вы ошиблись в URL или текущий фильм еще не опубликован."}');
+                    return res.status(404).send('{"error": "' + config.l.notFound + '"}');
                 }
 
             });
@@ -148,7 +149,7 @@ router.get('/?', function(req, res) {
 
             if (serial.type !== 'serial') return callback();
 
-            serial.translator = (serial.translator) ? serial.translator : 'Оригинал';
+            serial.translator = (serial.translator) ? serial.translator : config.l.original;
             serial.translator_id = (serial.translator_id) ? serial.translator_id : '';
 
             serials[movie.kp_id + '_'][serial.translator] = {};
@@ -219,7 +220,7 @@ router.get('/?', function(req, res) {
 
                     if (!season_num || !episode_num) continue;
 
-                    serial_moon.translator = (serial_moon.translator) ? serial_moon.translator : 'Оригинал';
+                    serial_moon.translator = (serial_moon.translator) ? serial_moon.translator : config.l.original;
                     serial_moon.season = season_num[1];
                     serial_moon.episode = episode_num[1];
 

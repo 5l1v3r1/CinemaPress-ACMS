@@ -76,17 +76,19 @@ app.use(function(err, req, res, next) {
     err.status  = (err.status)  ? err.status  : 404;
     err.message = (err.message) ? err.message : 'Not Found';
     res.status(err.status).render('error', {
-        "search"  : config.urls.search,
-        "status"  : err.status,
-        "message" : err.message
+        "search"   : config.urls.search,
+        "status"   : err.status,
+        "message"  : err.message,
+        "language" : config.language
     });
 });
 
 app.use(function(req, res) {
     res.status(404).render('error', {
-        "search"  : config.urls.search,
-        "status"  : 404,
-        "message" : "Not Found"
+        "search"   : config.urls.search,
+        "status"   : 404,
+        "message"  : "Not Found",
+        "language" : config.language
     });
 });
 

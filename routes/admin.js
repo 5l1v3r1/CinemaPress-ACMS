@@ -61,17 +61,17 @@ router.get('/:type?', function(req, res) {
 
     switch (req.params.type) {
         case 'index':
-            render.title = 'Главная страница';
+            render.title = config.language === 'ru' ? 'Настройка главной' : 'Home settings';
             res.render('admin/index', render);
             break;
         case 'movies':
-            render.title = 'Фильмы';
+            render.title = config.language === 'ru' ? 'Фильмы' : 'Movies';
             getMovie(function (err, render) {
                 res.render('admin/movies', render);
             });
             break;
         case 'main':
-            render.title = 'Настройки';
+            render.title = config.language === 'ru' ? 'Настройки' : 'Settings';
             getThemes(function(err, themes) {
                 if (err) return res.render('error', {"message": err});
                 render.themes = themes;
@@ -79,35 +79,31 @@ router.get('/:type?', function(req, res) {
             });
             break;
         case 'urls':
-            render.title = 'URL ссылки сайта';
+            render.title = config.language === 'ru' ? 'Настройка URL' : 'URL settings';
             res.render('admin/urls', render);
             break;
         case 'display':
-            render.title = 'Отображение';
+            render.title = config.language === 'ru' ? 'Настройка страниц' : 'Page settings';
             res.render('admin/display', render);
             break;
         case 'titles':
-            render.title = 'Названия';
+            render.title = config.language === 'ru' ? 'Названия' : 'Titles';
             res.render('admin/titles', render);
             break;
         case 'h1':
-            render.title = 'H1';
+            render.title = config.language === 'ru' ? 'H1' : 'H1';
             res.render('admin/h1', render);
             break;
         case 'descriptions':
-            render.title = 'Описания';
+            render.title = config.language === 'ru' ? 'Описания' : 'Descriptions';
             res.render('admin/descriptions', render);
             break;
         case 'codes':
-            render.title = 'Коды';
+            render.title = config.language === 'ru' ? 'Коды' : 'Codes';
             res.render('admin/codes', render);
             break;
-        case 'load':
-            render.title = 'Распределение нагрузки';
-            res.render('admin/load', render);
-            break;
         case 'publish':
-            render.title = 'Публикация';
+            render.title = config.language === 'ru' ? 'Автопубликация' : 'Autopublish';
             getCountMovies(function (err, render) {
                 CP_get.publishIds(function (err, ids) {
                     if (err) console.log(err);
@@ -117,77 +113,77 @@ router.get('/:type?', function(req, res) {
             });
             break;
         case 'comments':
-            render.title = 'Комментарии';
+            render.title = config.language === 'ru' ? 'Комментарии' : 'Comments';
             res.render('admin/modules/comments', render);
             break;
         case 'related':
-            render.title = 'Связанные';
+            render.title = config.language === 'ru' ? 'Связанные' : 'Related';
             res.render('admin/modules/related', render);
             break;
         case 'slider':
-            render.title = 'Слайдер';
+            render.title = config.language === 'ru' ? 'Слайдер' : 'Slider';
             res.render('admin/modules/slider', render);
             break;
         case 'abuse':
-            render.title = 'Скрыть';
+            render.title = config.language === 'ru' ? 'Скрыть' : 'Hide';
             res.render('admin/modules/abuse', render);
             break;
         case 'top':
-            render.title = 'Топ';
+            render.title = config.language === 'ru' ? 'Топ' : 'Top';
             res.render('admin/modules/top', render);
             break;
         case 'social':
-            render.title = 'Социальные сети';
+            render.title = config.language === 'ru' ? 'Социальные сети' : 'Social networks';
             res.render('admin/modules/social', render);
             break;
         case 'schema':
-            render.title = 'Микроразметка';
+            render.title = config.language === 'ru' ? 'Микроразметка' : 'Microdata';
             res.render('admin/modules/schema', render);
             break;
         case 'soon':
-            render.title = 'Скоро';
+            render.title = config.language === 'ru' ? 'Скоро' : 'Soon';
             res.render('admin/modules/soon', render);
             break;
         case 'continue':
-            render.title = 'Продолжить';
+            render.title = config.language === 'ru' ? 'Продолжить' : 'Continue';
             res.render('admin/modules/continue', render);
             break;
         case 'viewed':
-            render.title = 'Просмотренные';
+            render.title = config.language === 'ru' ? 'Просмотренные' : 'Watched';
             res.render('admin/modules/viewed', render);
             break;
         case 'player':
-            render.title = 'Плеер';
+            render.title = config.language === 'ru' ? 'Плеер' : 'Player';
             res.render('admin/modules/player', render);
             break;
         case 'blocking':
-            render.title = 'Блокировка';
+            render.title = config.language === 'ru' ? 'Блокировка' : 'Lock';
             res.render('admin/modules/blocking', render);
             break;
         case 'mobile':
-            render.title = 'Мобильная версия';
+            render.title = config.language === 'ru' ? 'Мобильная версия' : 'Mobile version';
             res.render('admin/modules/mobile', render);
             break;
         case 'episode':
-            render.title = 'Серии';
+            render.title = config.language === 'ru' ? 'Серии' : 'Series';
             res.render('admin/modules/episode', render);
             break;
         case 'adv':
-            render.title = 'Реклама';
+            render.title = config.language === 'ru' ? 'Реклама' : 'Advertising';
             res.render('admin/modules/adv', render);
             break;
         case 'content':
-            render.title = 'Контент';
+            render.title = config.language === 'ru' ? 'Контент' : 'Content';
             getContent(function (err, render) {
                 res.render('admin/modules/content', render);
             });
             break;
         case 'rss':
-            render.title = 'RSS';
+            render.title = config.language === 'ru' ? 'RSS' : 'RSS';
             res.render('admin/modules/rss', render);
             break;
         default:
-            render.title = 'Панель администратора';
+            render.title = config.language === 'ru' ? 'Панель администратора' : 'Admin panel';
             getCountMovies(function (err, render) {
                 res.render('admin/admin', render);
             });
@@ -399,7 +395,7 @@ router.get('/:type?', function(req, res) {
                         if (err) return callback(err);
                         if (stat.isDirectory()) {
                             if (this.file !== this.file.toLowerCase()) {
-                                callback('Название папки с темой должно быть в нижнем регистре и состоять только из названия (без themes), например «drogo». Пожалуйста, впредь будьте внимательнее читая инструкции.');
+                                callback('ERROR FOLDER');
                             }
                             else {
                                 dirs.push(this.file);

@@ -5,7 +5,7 @@
 <!--[if IE 9]>     <html class="ie ie9 lte9 no-js">           <![endif]-->
 <!--[if gt IE 9]>  <html class="no-js">                       <![endif]-->
 <!--[if !IE]><!--> <html class="no-js">                   <!--<![endif]-->
-<head>
+<head lang="<% if (typeof language !== 'undefined') { %><%- language %><% } else { %>en<% } %>">
 
     <% include admin/includes/head.ejs %>
 
@@ -19,18 +19,18 @@
     <div id="error-box">
         <header>
             <h1><% if (typeof status !== 'undefined') { %><%- status %><% } else { %>Error<% } %></h1>
-            <h2>Ошибка</h2>
+            <h2><% if (typeof language !== 'undefined' && language === 'ru') { %>Ошибка<% } else { %>Error<% } %></h2>
             <ul class="breadcrumb">
-                <li><a href="/">Главная</a></li>
-                <li><a href="javascript:void(0)" onclick="window.history.back();">Назад</a></li>
+                <li><a href="/"><% if (typeof language !== 'undefined' && language === 'ru') { %>Главная<% } else { %>Home<% } %></a></li>
+                <li><a href="javascript:void(0)" onclick="window.history.back();"><% if (typeof language !== 'undefined' && language === 'ru') { %>Назад<% } else { %>Back<% } %></a></li>
             </ul>
         </header>
         <div class="error-content">
             <form action="/<% if (typeof search !== 'undefined') { %><%- search %><% } else { %>search<% } %>/title" method="get">
                 <div class="input-group">
-                    <input class="form-control" placeholder="Название фильма" type="text" name="q">
+                    <input class="form-control" placeholder="<% if (typeof language !== 'undefined' && language === 'ru') { %>Название фильма<% } else { %>Title movie<% } %>" type="text" name="q">
                 <span class="input-group-btn">
-                    <button class="btn btn-default" type="submit"><span class="fa fa-search"></span> Найти</button>
+                    <button class="btn btn-default" type="submit"><span class="fa fa-search"></span> <% if (typeof language !== 'undefined' && language === 'ru') { %>Найти<% } else { %>Search<% } %></button>
                 </span>
                 </div>
             </form>

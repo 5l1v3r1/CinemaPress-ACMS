@@ -337,6 +337,9 @@ module.exports = {
         "tags": "Tags",
         "mentions": "Mentions",
         "said": "said",
-        "full": "Full version"
+        "full": "Full version",
+        "original": "Original",
+        "404": "This page is not on the site. Maybe you made a mistake in the URL or it is an internal site error, which the administrator already knows and is taking steps to fix it.",
+        "notMobile": "Mobile version of the site is not activated. The site adapts to the screen and is equally beautifully displayed, both on large screens and on mobile devices running iOS, Android or WindowsPhone."
     }
 };

@@ -96,7 +96,7 @@ router.get('/?', function(req, res, next) {
     function getSphinx(callback) {
 
         if (!modules.rss.status) {
-            return callback('RSS отключен!');
+            return callback('RSS is disabled!');
         }
 
         var render = {};
@@ -140,7 +140,7 @@ router.get('/?', function(req, res, next) {
                             });
                     }
                     else {
-                        return callback('Коллекция пустая!');
+                        return callback('Collection is empty!');
                     }
                 });
         }
@@ -171,7 +171,7 @@ router.get('/?', function(req, res, next) {
                     });
             }
             else {
-                return callback('Нет данных!');
+                return callback('No data!');
             }
         }
         else if (modules.content.status && tag) {
@@ -193,7 +193,7 @@ router.get('/?', function(req, res, next) {
                         callback(null, render);
                     }
                     else {
-                        return callback('Тег не существует!');
+                        return callback('Tag does not exist!');
                     }
 
                 });
@@ -204,7 +204,7 @@ router.get('/?', function(req, res, next) {
                     return callback(err);
                 }
                 else if (!ids) {
-                    return callback('Публикация окончена!');
+                    return callback('Publication is over!');
                 }
                 render.movies = ids.movies;
                 callback(null, render);

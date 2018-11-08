@@ -199,7 +199,7 @@ function oneContent(url, page, sorting, options, callback) {
 
                         return (contents && contents.length)
                             ? callback(null, contents[0])
-                            : callback('Страницы не существует! Возможно она еще не создана, либо Вы ошиблись в URL.')
+                            : callback(config.l.notFound)
                     });
             },
             "movies": function (callback) {

@@ -84,7 +84,7 @@ function allCategory(type, options, callback) {
             });
             break;
         default:
-            callback('Данной страницы нет на сайте. Возможно Вы ошиблись в URL или это внутренняя ошибка сайта, о которой администратор уже знает и предпринимает действия для её устранения.');
+            callback(config.l.notFound);
     }
 
     /**
@@ -275,7 +275,7 @@ function oneCategory(type, key, page, sorting, options, callback) {
             });
             break;
         default:
-            callback('Данной категории нет на сайте. Возможно Вы ошиблись в URL или это внутренняя ошибка сайта, о которой администратор уже знает и предпринимает действия для её устранения.');
+            callback(config.l.notFound);
     }
 
     /**
