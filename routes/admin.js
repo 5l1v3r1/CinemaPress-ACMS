@@ -496,8 +496,11 @@ router.post('/change', function(req, res) {
                     : parseInt((''+form.movie.kp_id).replace(/[^0-9]/g,''))
                     ? parseInt((''+form.movie.kp_id).replace(/[^0-9]/g,''))
                     : 0;
-                if (!form.movie.id || !parseInt((''+form.movie.kp_id).replace(/[^0-9]/g,''))) {
+                if (!form.movie.id) {
                     return callback(null, 'Null');
+                }
+                if (!parseInt((''+form.movie.kp_id).replace(/[^0-9]/g,''))) {
+                    form.movie.kp_id = form.movie.id;
                 }
                 form.movie.search = (form.movie.title_ru)
                     ? form.movie.title_ru + ((form.movie.title_en) ? ' / ' + form.movie.title_en : '')
