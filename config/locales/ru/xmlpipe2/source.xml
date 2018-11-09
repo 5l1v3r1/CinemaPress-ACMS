@@ -1920,30 +1920,30 @@
         <custom><![CDATA[]]></custom>
         <all_movies><![CDATA[_example_com_]]></all_movies>
     </sphinx:document>
-    <sphinx:document id="401526">
-        <kp_id><![CDATA[401526]]></kp_id>
-        <query_id><![CDATA[401526]]></query_id>
+    <sphinx:document id="686898">
+        <kp_id><![CDATA[686898]]></kp_id>
+        <query_id><![CDATA[686898]]></query_id>
         <rating><![CDATA[0]]></rating>
         <vote><![CDATA[0]]></vote>
         <kp_rating><![CDATA[0]]></kp_rating>
         <kp_vote><![CDATA[0]]></kp_vote>
         <imdb_rating><![CDATA[0]]></imdb_rating>
         <imdb_vote><![CDATA[0]]></imdb_vote>
-        <premiere><![CDATA[737407.875]]></premiere>
-        <type><![CDATA[1]]></type>
-        <title_ru><![CDATA[Звездные войны: Другой мир]]></title_ru>
-        <title_en><![CDATA[Star Wars: Underworld]]></title_en>
+        <premiere><![CDATA[737671.875]]></premiere>
+        <type><![CDATA[0]]></type>
+        <title_ru><![CDATA[Оно 2]]></title_ru>
+        <title_en><![CDATA[It: Chapter Two]]></title_en>
         <title_page><![CDATA[]]></title_page>
-        <description><![CDATA[Сериал расскажет об Империи, укрепляющей свою власть по всей Галактике и о том, что происходит в ее столице Корусанте, а также о преступных боссах, обосновавшихся там и контролирующих наркотики и проституцию.]]></description>
+        <description><![CDATA[Проходит 27 лет после первой встречи ребят с демоническим Пеннивайзом. Они уже выросли, и у каждого своя жизнь. Но неожиданно их спокойное существование нарушает странный телефонный звонок, который заставляет их вновь собраться вместе.]]></description>
         <description_short><![CDATA[]]></description_short>
-        <pictures><![CDATA[3054734]]></pictures>
+        <pictures><![CDATA[3244552]]></pictures>
         <poster><![CDATA[1]]></poster>
-        <search><![CDATA[Звездные войны: Другой мир / Star Wars: Underworld]]></search>
-        <year><![CDATA[2018]]></year>
+        <search><![CDATA[Оно 2 / It: Chapter Two]]></search>
+        <year><![CDATA[2019]]></year>
         <country><![CDATA[США]]></country>
-        <director><![CDATA[_empty]]></director>
-        <genre><![CDATA[фантастика,фэнтези,боевик,драма,приключения]]></genre>
-        <actor><![CDATA[Дэниэл Логан,Мика Джонсон,Ахмед Бест,Энтони Дэниелс]]></actor>
+        <director><![CDATA[Андрес Мускетти]]></director>
+        <genre><![CDATA[ужасы,триллер]]></genre>
+        <actor><![CDATA[Билл Скарсгард,Джессика Честейн,София Лиллис,Джеймс МакЭвой,Финн Вулфард]]></actor>
         <player><![CDATA[]]></player>
         <translate><![CDATA[]]></translate>
         <quality><![CDATA[]]></quality>
