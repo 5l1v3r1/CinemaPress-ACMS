@@ -418,35 +418,51 @@ module.exports = {
             "auto": {
                 "moonwalk_movies": {
                     "count": 12,
-                    "url": "poslednie-obnovleniya-filmov"
+                    "url": "poslednie-obnovleniya-filmov",
+                    "quality": 0,
+                    "translate": 0
                 },
                 "moonwalk_serials": {
-                    "count": 12,
-                    "url": ""
+                    "count": 0,
+                    "url": "",
+                    "quality": 0,
+                    "translate": 0
                 },
                 "hdgo_movies": {
                     "count": 12,
-                    "url": "poslednie-obnovleniya-filmov"
+                    "url": "poslednie-obnovleniya-filmov",
+                    "quality": 0,
+                    "translate": 0
                 },
                 "hdgo_serials": {
-                    "count": 12,
-                    "url": ""
+                    "count": 0,
+                    "url": "",
+                    "quality": 0,
+                    "translate": 0
                 },
                 "kodik_movies": {
                     "count": 12,
-                    "url": "poslednie-obnovleniya-filmov"
+                    "url": "poslednie-obnovleniya-filmov",
+                    "quality": 0,
+                    "translate": 0
                 },
                 "kodik_serials": {
-                    "count": 12,
-                    "url": ""
+                    "count": 0,
+                    "url": "",
+                    "quality": 0,
+                    "translate": 0
                 },
                 "iframe_movies": {
                     "count": 12,
-                    "url": "poslednie-obnovleniya-filmov"
+                    "url": "poslednie-obnovleniya-filmov",
+                    "quality": 0,
+                    "translate": 0
                 },
                 "iframe_serials": {
-                    "count": 12,
-                    "url": ""
+                    "count": 0,
+                    "url": "",
+                    "quality": 0,
+                    "translate": 0
                 }
             }
         }
