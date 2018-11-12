@@ -93,7 +93,9 @@ function indexEpisode(options, callback) {
                             var translate = (serial_moon.serial.translator)
                                 ? serial_moon.serial.translator
                                 : modules.episode.data.default;
-                            var premiere = serial_moon.added_at.slice(0,10);
+                            var premiere = (serial_moon.added_at && !isNaN((new Date(serial_moon.added_at)).getFullYear()))
+                                ? serial_moon.added_at.slice(0,10)
+                                : '';
 
                             season_url = (season_url <= 9) ? '0' + season_url : season_url;
                             episode_url = (episode_url <= 9) ? '0' + episode_url : episode_url;
@@ -103,6 +105,7 @@ function indexEpisode(options, callback) {
                             serial_base.season = season_num[1];
                             serial_base.episode = episode_num[1];
                             serial_base.premiere = premiere;
+                            serial_base.year = premiere ? (new Date(premiere)).getFullYear() : (new Date()).getFullYear();
                             serial_base.url = serial_base.url + '/s' + season_url + 'e' + episode_url + translate_url;
 
                             result.movies.push(serial_base);
