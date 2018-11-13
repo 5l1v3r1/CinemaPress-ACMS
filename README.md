@@ -1,6 +1,6 @@
 # CinemaPress ACMS
 
- ![Admin panel CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/cinemapress-acms/new_admin.png)
+ ![Admin panel CinemaPress ACMS](https://raw.githubusercontent.com/CinemaPress/CinemaPress.github.io/master/images/themes/admin.png)
  
  :movie_camera: Автоматическая система управления сайтом.
 
