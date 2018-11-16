@@ -73,7 +73,7 @@
                             <input type="text" class="form-control input_number" name="movie.kp_id" value="<% if (movie.kp_id) { %><%- movie.kp_id %><% } %>" placeholder="Укажите ID фильма">
                         </div>
                         <div class="col-sm-5 text-right">
-                            <label><% if (movie.kp_id && movie.kp_id < 2000000) { var id = parseInt(movie.kp_id) + parseInt(config.urls.unique_id); %><%- config.domain + '/' + config.urls.movie + '/' + config.urls.prefix_id + '' + id %> <a href="<%- config.protocol + config.domain + '/' + config.urls.movie + '/' + config.urls.prefix_id + '' + id %>" class="visible-xs-inline" style="text-decoration:none;" target="_blank"><span class="fa fa-external-link-square"></span></a><% } %></label>
+                            <label style="font-weight:normal;color:#999;"><% if (movie.kp_id && movie.kp_id < 2000000) { var id = parseInt(movie.kp_id) + parseInt(config.urls.unique_id); %><%- config.domain + '/' + config.urls.movie + '/' + config.urls.prefix_id + '' + id %> <a href="<%- config.protocol + config.domain + '/' + config.urls.movie + '/' + config.urls.prefix_id + '' + id %>" class="visible-xs-inline" style="text-decoration:none;" target="_blank"><span class="fa fa-external-link-square"></span></a><% } %></label>
                         </div>
                     </div>
 

@@ -362,6 +362,10 @@ router.get('/:type?', function(req, res) {
                 render.line.percent.pub = render.line.counts.all
                     ? Math.round((render.line.percent.all * render.line.counts.pub) / render.line.counts.all)
                     : 0;
+                render.line.percent.top = render.line.counts.all
+                    ? Math.round((render.line.percent.all * render.line.counts.pub) / render.line.counts.fil)
+                    : 0;
+                render.line.percent.pub = render.line.percent.top === 100 ? 100 : render.line.percent.pub;
                 render.line.days = (
                     (render.line.counts.fil - render.line.counts.pub) &&
                     config.publish.every.movies && config.publish.every.hours)

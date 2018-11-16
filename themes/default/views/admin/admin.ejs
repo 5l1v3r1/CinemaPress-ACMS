@@ -64,17 +64,17 @@
                     <% if (typeof line == 'object') { %>
 
                     <div class="progress-project-header">
-                        <h5>Опубликовано фильмов</h5><span><%- line.percent.pub %>%</span>
+                        <h5>Опубликовано фильмов</h5><span><%- line.percent.top %>%</span>
                     </div>
                     <div class="progress">
                         <div class="progress-bar" role="progressbar" aria-valuenow="<%- line.percent.pub %>" aria-valuemin="0" aria-valuemax="100" style="width: <%- line.percent.pub %>%;" title="Опубликовано: <%- line.counts.pub %> шт.">
                             <span class="sr-only"><%- line.percent.pub %>%</span>
                         </div>
                         <div class="progress-bar progress-bar-warning" style="width: <%- (line.percent.fil - line.percent.pub) %>%; background-color: #272f38" title="Осталось: <%- (line.counts.fil - line.counts.pub) %> шт.">
-                            <span class="sr-only"><%- line.percent.fil %></span>
+                            <span class="sr-only"><%- line.percent.fil %>%</span>
                         </div>
                         <div class="progress-bar progress-bar-warning" style="width: <%- (line.percent.all - line.percent.fil) %>%; background-color: #334049" title="Отфильтрованы: <%- (line.counts.all - line.counts.fil) %> шт.">
-                            <span class="sr-only"><%- line.percent.all %></span>
+                            <span class="sr-only"><%- line.percent.all %>%</span>
                         </div>
                     </div>
                     <div class="progress-project-footer">
