@@ -600,10 +600,12 @@ router.post('/change', function(req, res) {
             },
             "database": function (callback) {
                 if (!form.database) return callback(null, 'Null');
-                exec('/home/' + config.domain + '/config/production/i 4 ' + config.domain + ' ' + form.database + ' ' + config.language + ' Yes', function (err) {
-                    return (err)
-                        ? callback(err)
-                        : callback(null, 'Database');
+                exec('nohup /home/' + config.domain + '/config/production/i 4 ' + config.domain + ' ' + form.database + ' ' + config.language + ' Yes > /home/' + config.domain + '/log/database.log&', function (err) {
+                    setTimeout(function () {
+                        return (err)
+                            ? callback(err)
+                            : callback(null, 'Database');
+                    }, 1000*60*9.5);
                 });
             },
             "restart": function (callback) {
